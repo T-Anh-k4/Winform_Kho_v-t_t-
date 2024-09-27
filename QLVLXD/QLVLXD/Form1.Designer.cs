@@ -33,10 +33,10 @@
 			this.grview_hang = new System.Windows.Forms.DataGridView();
 			this.bt_create = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.btn_Delete = new System.Windows.Forms.Button();
-			this.txb_Search = new System.Windows.Forms.TextBox();
-			this.btn_search = new System.Windows.Forms.Button();
 			this.btn_fix = new System.Windows.Forms.Button();
+			this.btn_search = new System.Windows.Forms.Button();
+			this.txb_Search = new System.Windows.Forms.TextBox();
+			this.btn_Delete = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.grview_hang)).BeginInit();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
@@ -50,6 +50,8 @@
 			// 
 			// grview_hang
 			// 
+			this.grview_hang.AllowUserToResizeColumns = false;
+			this.grview_hang.AllowUserToResizeRows = false;
 			this.grview_hang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.grview_hang.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.grview_hang.Location = new System.Drawing.Point(254, 67);
@@ -59,6 +61,7 @@
 			this.grview_hang.RowTemplate.Height = 24;
 			this.grview_hang.Size = new System.Drawing.Size(983, 634);
 			this.grview_hang.TabIndex = 2;
+			this.grview_hang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grview_hang_CellContentClick);
 			// 
 			// bt_create
 			// 
@@ -84,26 +87,17 @@
 			this.panel2.Size = new System.Drawing.Size(982, 64);
 			this.panel2.TabIndex = 3;
 			// 
-			// btn_Delete
+			// btn_fix
 			// 
-			this.btn_Delete.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.btn_Delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Delete.BackgroundImage")));
-			this.btn_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.btn_Delete.Location = new System.Drawing.Point(863, 9);
-			this.btn_Delete.Name = "btn_Delete";
-			this.btn_Delete.Size = new System.Drawing.Size(43, 39);
-			this.btn_Delete.TabIndex = 4;
-			this.btn_Delete.UseVisualStyleBackColor = false;
-			this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
-			// 
-			// txb_Search
-			// 
-			this.txb_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txb_Search.Location = new System.Drawing.Point(31, 14);
-			this.txb_Search.Name = "txb_Search";
-			this.txb_Search.Size = new System.Drawing.Size(395, 26);
-			this.txb_Search.TabIndex = 5;
-			this.txb_Search.TextChanged += new System.EventHandler(this.txb_Search_TextChanged);
+			this.btn_fix.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.btn_fix.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_fix.BackgroundImage")));
+			this.btn_fix.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btn_fix.Location = new System.Drawing.Point(805, 9);
+			this.btn_fix.Name = "btn_fix";
+			this.btn_fix.Size = new System.Drawing.Size(39, 39);
+			this.btn_fix.TabIndex = 7;
+			this.btn_fix.UseVisualStyleBackColor = false;
+			this.btn_fix.Click += new System.EventHandler(this.btn_fix_Click);
 			// 
 			// btn_search
 			// 
@@ -117,16 +111,26 @@
 			this.btn_search.UseVisualStyleBackColor = false;
 			this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
 			// 
-			// btn_fix
+			// txb_Search
 			// 
-			this.btn_fix.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.btn_fix.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_fix.BackgroundImage")));
-			this.btn_fix.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.btn_fix.Location = new System.Drawing.Point(805, 9);
-			this.btn_fix.Name = "btn_fix";
-			this.btn_fix.Size = new System.Drawing.Size(39, 39);
-			this.btn_fix.TabIndex = 7;
-			this.btn_fix.UseVisualStyleBackColor = false;
+			this.txb_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txb_Search.Location = new System.Drawing.Point(31, 14);
+			this.txb_Search.Name = "txb_Search";
+			this.txb_Search.Size = new System.Drawing.Size(395, 26);
+			this.txb_Search.TabIndex = 5;
+			this.txb_Search.TextChanged += new System.EventHandler(this.txb_Search_TextChanged);
+			// 
+			// btn_Delete
+			// 
+			this.btn_Delete.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.btn_Delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Delete.BackgroundImage")));
+			this.btn_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btn_Delete.Location = new System.Drawing.Point(863, 9);
+			this.btn_Delete.Name = "btn_Delete";
+			this.btn_Delete.Size = new System.Drawing.Size(43, 39);
+			this.btn_Delete.TabIndex = 4;
+			this.btn_Delete.UseVisualStyleBackColor = false;
+			this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
 			// 
 			// Form1
 			// 
