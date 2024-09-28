@@ -1,0 +1,12 @@
+C:\Users\2dawng\source\repos\LTTQ\bin\Debug\LTTQ.exe.config
+C:\Users\2dawng\source\repos\LTTQ\bin\Debug\LTTQ.exe
+C:\Users\2dawng\source\repos\LTTQ\bin\Debug\LTTQ.pdb
+C:\Users\2dawng\source\repos\LTTQ\obj\Debug\LTTQ.csproj.AssemblyReference.cache
+C:\Users\2dawng\source\repos\LTTQ\obj\Debug\LTTQ.Properties.Resources.resources
+C:\Users\2dawng\source\repos\LTTQ\obj\Debug\LTTQ.csproj.GenerateResource.cache
+C:\Users\2dawng\source\repos\LTTQ\obj\Debug\LTTQ.csproj.CoreCompileInputs.cache
+C:\Users\2dawng\source\repos\LTTQ\obj\Debug\LTTQ.exe
+C:\Users\2dawng\source\repos\LTTQ\obj\Debug\LTTQ.pdb
+C:\Users\2dawng\source\repos\LTTQ\obj\Debug\LTTQ.Login.resources
+C:\Users\2dawng\source\repos\LTTQ\obj\Debug\LTTQ.Forgot_password.resources
+C:\Users\2dawng\source\repos\LTTQ\obj\Debug\LTTQ.Resources.Signup.resources
