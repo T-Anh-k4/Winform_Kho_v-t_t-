@@ -1,6 +1,5 @@
 ﻿using QLVTXD;
 using System;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -8,35 +7,38 @@ namespace QLVLXD
 {
 	public partial class Edit : Form
 	{
-		private string Mahh, TenHang, Malh, XuatXu, Dvt;
+		private Product product; 
 		private Form1 form1;
 		private DataProvider dataProvider;
 
-		public Edit(string mahh, string tenHang, string malh, string xuatXu, string dvt, Form1 form1)
+		public Edit(Product product, Form1 form1) 
 		{
 			InitializeComponent();
-			this.Mahh = mahh;
-			this.TenHang = tenHang;
-			this.Malh = malh;
-			this.XuatXu = xuatXu;
-			this.Dvt = dvt;
-			DisplayData();
-			this.form1 = form1;
+			this.product = product; 
+			this.form1 = form1; 
 			this.dataProvider = new DataProvider(); 
+			DisplayData(); 
 		}
 
 		private void DisplayData()
 		{
-			txb_TenHang_edit.Text = TenHang;
-			txb_MaLH_edit.Text = Malh;
-			txb_XuatXu_edit.Text = XuatXu;
+			if (txb_TenHang_edit != null)
+				txb_TenHang_edit.Text = product.TenHang;
+			if (txb_MaLH_edit != null)
+				txb_MaLH_edit.Text = product.Malh;
+			if (txb_XuatXu_edit != null)
+				txb_XuatXu_edit.Text = product.XuatXu;
 
-			if (!cbx_DVT_edit.Items.Contains(Dvt))
+			if (cbx_DVT_edit != null)
 			{
-				cbx_DVT_edit.Items.Add(Dvt);
+				if (!cbx_DVT_edit.Items.Contains(product.Dvt))
+				{
+					cbx_DVT_edit.Items.Add(product.Dvt);
+				}
+				cbx_DVT_edit.SelectedItem = product.Dvt;
 			}
-			cbx_DVT_edit.SelectedItem = Dvt;
 		}
+
 
 		private void btn_edit_Click(object sender, EventArgs e)
 		{
@@ -51,7 +53,6 @@ namespace QLVLXD
 				return;
 			}
 
-			// Câu lệnh SQL để cập nhật dữ liệu
 			string query = "UPDATE HangHoa SET TENHH = @TenHang, MALOAI = @Malh, XUATXU = @XuatXu, DONVI_TINH = @DVT WHERE MAHH = @Mahh";
 			SqlParameter[] parameters = new SqlParameter[]
 			{
@@ -59,7 +60,7 @@ namespace QLVLXD
 				new SqlParameter("@Malh", malh),
 				new SqlParameter("@XuatXu", xuatxu),
 				new SqlParameter("@DVT", dvt),
-				new SqlParameter("@Mahh", Mahh) 
+				new SqlParameter("@Mahh", product.Mahh) 
             };
 
 			try
@@ -68,7 +69,7 @@ namespace QLVLXD
 				if (rowsAffected > 0)
 				{
 					MessageBox.Show("Sửa dữ liệu thành công!");
-					form1.loadDt_user();
+					form1.loadDt_user(); 
 				}
 				else
 				{

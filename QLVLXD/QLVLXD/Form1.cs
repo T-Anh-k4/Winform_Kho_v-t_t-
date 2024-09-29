@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -10,7 +11,10 @@ namespace QLVLXD
 {
 	public partial class Form1 : Form
 	{
-		private DataProvider dataProvider = new DataProvider();
+		private DataProvider dataProvider;
+		private DeleteEvents deleteEvents;
+		private SearchHandler searchHandler;
+		private Product product;
 
 		public Form1()
 		{
@@ -25,6 +29,11 @@ namespace QLVLXD
 
 		public void initUser()
 		{
+			product = new Product();
+
+			dataProvider = new DataProvider();
+			deleteEvents = new DeleteEvents(dataProvider);
+			searchHandler = new SearchHandler(dataProvider,grview_hang,this);
 			loadDt_user();
 		}
 
@@ -88,123 +97,23 @@ namespace QLVLXD
 			Create ct = new Create(this);
 			ct.ShowDialog();
 		}
-
+		// sự kiện xóa dữ liệu
 		private void btn_Delete_Click(object sender, EventArgs e)
 {
-        List<string> idsToDelete = new List<string>();
-
-    foreach (DataGridViewRow row in grview_hang.Rows)
-    {
-        if (row.Cells["checkBoxColumn"].Value != null && Convert.ToBoolean(row.Cells["checkBoxColumn"].Value))
-        {
-            idsToDelete.Add(row.Cells["MAHH"].Value.ToString());
-        }
-    }
-
-    if (idsToDelete.Count > 0)
-    {
-        string ids = string.Join(",", idsToDelete.Select(id => $"'{id}'"));
-        List<string> khoIdsToDelete = GetKhoIds(ids);
-
-        if (khoIdsToDelete.Count > 0)
-        {
-            string khoIds = string.Join(",", khoIdsToDelete.Select(id => $"'{id}'"));
-
-            // Xóa dữ liệu tham chiếu đến bảng CHITIET_HD_XUAT
-            string deleteDetailQueryXuat = $"DELETE FROM CHITIET_HD_XUAT WHERE IDKHO IN ({khoIds})";
-            dataProvider.execNonQuery(deleteDetailQueryXuat);
-
-            // Xóa dữ liệu tham chiếu đến bảng KHO
-            string deleteDetailQueryKHO = $"DELETE FROM KHO WHERE IDKHO IN ({khoIds})";
-            dataProvider.execNonQuery(deleteDetailQueryKHO);
-        }
-
-        // Xóa dữ liệu tham chiếu đến bảng CHITIET_HD_NHAP
-        string deleteDetailQueryNhap = $"DELETE FROM CHITIET_HD_NHAP WHERE MAHH IN ({ids})";
-        dataProvider.execNonQuery(deleteDetailQueryNhap);
-
-        // Xóa từ bảng HangHoa
-        string deleteQuery = $"DELETE FROM HangHoa WHERE MAHH IN ({ids})";
-        int rowsAffected = dataProvider.execNonQuery(deleteQuery);
-
-        if (rowsAffected > 0)
-        {
-            MessageBox.Show("Xóa dữ liệu thành công!");
-            loadDt_user();
-        }
-        else
-        {
-            MessageBox.Show("Không có dữ liệu nào được xóa!");
-        }
-    }
-    else
-    {
-        MessageBox.Show("Vui lòng chọn ít nhất một hàng để xóa!");
-    }
-}
-
-
-		// Liệt kê danh sách các KHOID được tham chiếu theo MAHH
-		private List<string> GetKhoIds(string ids)
-		{
-			List<string> khoIdsToDelete = new List<string>();
-			string getKhoIdsQuery = $"SELECT IDKHO FROM KHO WHERE MAHH IN ({ids})";
-			DataTable khoTable = dataProvider.execQuery(getKhoIdsQuery);
-
-			foreach (DataRow row in khoTable.Rows)
-			{
-				khoIdsToDelete.Add(row["IDKHO"].ToString());
-			}
-
-			return khoIdsToDelete;
+			deleteEvents.DeleteSelectedHangHoa(grview_hang);
+			loadDt_user();
 		}
-
+		// sự kiện tìm kiếm
 		private void btn_search_Click(object sender, EventArgs e)
 		{
 			string searchTerm = txb_Search.Text.Trim();
-
-			if (string.IsNullOrEmpty(searchTerm))
-			{
-				MessageBox.Show("Vui lòng nhập tên hàng để tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
-
-			// Thực hiện tìm kiếm
-			string query = $"SELECT * FROM HangHoa WHERE TENHH LIKE @TENHH + '%'";
-			DataTable resultTable = dataProvider.execQuery(query, new SqlParameter("@TENHH", searchTerm));
-
-			if (resultTable.Rows.Count > 0)
-			{
-				grview_hang.DataSource = resultTable;
-			}
-			else
-			{
-				grview_hang.DataSource = null;
-			}
+			searchHandler.Search(searchTerm);
 		}
 
 		private void txb_Search_TextChanged(object sender, EventArgs e)
 		{
 			string searchTerm = txb_Search.Text.Trim();
-
-			if (string.IsNullOrEmpty(searchTerm))
-			{
-				loadDt_user();
-				return;
-			}
-
-			// Thực hiện tìm kiếm
-			string query = "SELECT * FROM HangHoa WHERE TENHH LIKE @TENHH + '%'";
-			DataTable resultTable = dataProvider.execQuery(query, new SqlParameter("@TENHH", searchTerm));
-
-			if (resultTable.Rows.Count > 0)
-			{
-				grview_hang.DataSource = resultTable;
-			}
-			else
-			{
-				grview_hang.DataSource = null;
-			}
+			searchHandler.Search(searchTerm);
 		}
 
 		// Vào form edit
@@ -214,13 +123,13 @@ namespace QLVLXD
 			{
 				DataGridViewRow selectedRow = grview_hang.SelectedRows[0];
 
-				string Mahh = selectedRow.Cells["MAHH"].Value.ToString();
-				string TenHang = selectedRow.Cells["TENHH"].Value.ToString();
-				string Malh = selectedRow.Cells["MALOAI"].Value.ToString();
-				string XuatXu = selectedRow.Cells["XUATXU"].Value.ToString();
-				string DonViTinh = selectedRow.Cells["DONVI_TINH"].Value.ToString();
+				product.Malh = selectedRow.Cells["MAHH"].Value.ToString();
+				product.TenHang = selectedRow.Cells["TENHH"].Value.ToString();
+				product.Malh = selectedRow.Cells["MALOAI"].Value.ToString();
+				product.XuatXu = selectedRow.Cells["XUATXU"].Value.ToString();
+				product.Dvt = selectedRow.Cells["DONVI_TINH"].Value.ToString();
 
-				Edit editForm = new Edit(Mahh, TenHang, Malh, XuatXu, DonViTinh, this);
+				Edit editForm = new Edit(product, this);
 				editForm.ShowDialog();
 			}
 			else

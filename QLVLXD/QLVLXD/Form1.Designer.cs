@@ -50,6 +50,7 @@
 			// 
 			// grview_hang
 			// 
+			this.grview_hang.AllowUserToAddRows = false;
 			this.grview_hang.AllowUserToResizeColumns = false;
 			this.grview_hang.AllowUserToResizeRows = false;
 			this.grview_hang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
