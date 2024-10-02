@@ -15,6 +15,7 @@ namespace QLVLXD
 		private DeleteEvents deleteEvents;
 		private SearchHandler searchHandler;
 		private Product product;
+		private user1 user1 ;
 
 		public Form1()
 		{
@@ -30,11 +31,12 @@ namespace QLVLXD
 		public void initUser()
 		{
 			product = new Product();
-
+			user1 = new user1();
 			dataProvider = new DataProvider();
 			deleteEvents = new DeleteEvents(dataProvider);
 			searchHandler = new SearchHandler(dataProvider,grview_hang,this);
 			loadDt_user();
+			hidebutton();
 		}
 
 		public void loadDt_user()
@@ -76,6 +78,24 @@ namespace QLVLXD
 				{
 					MessageBox.Show("Có lỗi xảy ra khi tải dữ liệu: " + ex.Message);
 				}
+			}
+		}
+
+		private void hidebutton()
+		{
+			if (user1.CurrentUser == null) return;
+
+			else if (user1.CurrentUser.Loai == "User")
+			{
+				btn_Delete.Visible= false;
+				btn_fix.Visible= false;
+				bt_create.Visible= false;
+				if (grview_hang.Columns.Contains("checkBoxColumn"))
+				{
+					grview_hang.Columns["checkBoxColumn"].Visible = false;
+				}
+				grview_hang.Columns["XUATXU"].Width = 230;
+
 			}
 		}
 
@@ -136,6 +156,11 @@ namespace QLVLXD
 			{
 				MessageBox.Show("Vui lòng chọn một hàng để sửa.");
 			}
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

@@ -10,3 +10,4 @@ D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\QLVLXD\obj\Debug\QLVLXD.ex
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\QLVLXD\obj\Debug\QLVLXD.pdb
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\QLVLXD\obj\Debug\QLVLXD.Create.resources
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\QLVLXD\obj\Debug\QLVLXD.Edit.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\QLVLXD\obj\Debug\QLVLXD.login.resources
