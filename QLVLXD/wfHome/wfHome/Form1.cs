@@ -1,5 +1,7 @@
 ﻿using FontAwesome.Sharp;
+using GUI;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,8 +13,10 @@ namespace wfHome
         private Panel leftboderbtn;
         private bool isDanhMucVisible = false; 
         private bool isBaoCaoVisible = false;
+		private ElipseControl elipseControl;
 
-        public Form1()
+
+		public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
@@ -22,7 +26,32 @@ namespace wfHome
             leftboderbtn.BackColor = Color.Red;
             leftboderbtn.Visible = true;
             panel_menu.Controls.Add(leftboderbtn);
+            Button_Event();
+            graphics();
 
+		}
+        private void graphics()
+        {
+			List<Control> buttons = new List<Control>()
+			{
+				icbt_trangchu, icbt_Danhmuc, icbt_huongdan, icbt_baocao,
+				bt_Khach_hang, bt_hang_hoa, bt_Kho, bt_loai_hang,
+				bt_nhap_hang, bt_xuat_hang, bt_Nha_cung_cap,
+				bt_bc_Khach_hang, bt_bc_hang_hoa, bt_bc_Kho,
+				bt_bc_loai_hang, bt_bc_nhap_hang, bt_bc_xuat_hang,
+				bt_bc_Nha_cung_cap
+			};
+
+			foreach (Control btn in buttons)
+			{
+				ElipseControl elipse = new ElipseControl();
+				elipse.TargetControl = btn;
+				elipse.CornerRadius = 30;
+			}
+		}
+
+		private void Button_Event()
+        {
 
 			icbt_trangchu.MouseEnter += new EventHandler(IconButton_MouseEnter);
 			icbt_trangchu.MouseLeave += new EventHandler(IconButton_MouseLeave);
@@ -62,10 +91,9 @@ namespace wfHome
 			bt_bc_Nha_cung_cap.MouseLeave += new EventHandler(IconButton_MouseLeave);
 			bt_bc_xuat_hang.MouseEnter += new EventHandler(IconButton_MouseEnter);
 			bt_bc_xuat_hang.MouseLeave += new EventHandler(IconButton_MouseLeave);
-		
-        }
 
-        private void IconButton_MouseEnter(object sender, EventArgs e)
+		}
+		private void IconButton_MouseEnter(object sender, EventArgs e)
         {
             IconButton btn = (IconButton)sender;
             btn.Font = new Font(btn.Font.FontFamily, btn.Font.Size + 2); 

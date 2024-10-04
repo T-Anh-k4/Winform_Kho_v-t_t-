@@ -30,12 +30,8 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.panel_menu = new System.Windows.Forms.Panel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.icbt_Danhmuc = new FontAwesome.Sharp.IconButton();
-			this.icbt_baocao = new FontAwesome.Sharp.IconButton();
+			this.panel4 = new System.Windows.Forms.Panel();
 			this.icbt_huongdan = new FontAwesome.Sharp.IconButton();
-			this.icbt_trangchu = new FontAwesome.Sharp.IconButton();
 			this.pn_bao_cao = new System.Windows.Forms.Panel();
 			this.bt_bc_Kho = new FontAwesome.Sharp.IconButton();
 			this.bt_bc_xuat_hang = new FontAwesome.Sharp.IconButton();
@@ -44,11 +40,7 @@
 			this.bt_bc_hang_hoa = new FontAwesome.Sharp.IconButton();
 			this.bt_bc_Nha_cung_cap = new FontAwesome.Sharp.IconButton();
 			this.bt_bc_Khach_hang = new FontAwesome.Sharp.IconButton();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+			this.icbt_baocao = new FontAwesome.Sharp.IconButton();
 			this.pn_danh_muc = new System.Windows.Forms.Panel();
 			this.bt_Kho = new FontAwesome.Sharp.IconButton();
 			this.bt_xuat_hang = new FontAwesome.Sharp.IconButton();
@@ -57,17 +49,25 @@
 			this.bt_hang_hoa = new FontAwesome.Sharp.IconButton();
 			this.bt_Nha_cung_cap = new FontAwesome.Sharp.IconButton();
 			this.bt_Khach_hang = new FontAwesome.Sharp.IconButton();
+			this.icbt_Danhmuc = new FontAwesome.Sharp.IconButton();
+			this.icbt_trangchu = new FontAwesome.Sharp.IconButton();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.panel4 = new System.Windows.Forms.Panel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.panel_search = new System.Windows.Forms.Panel();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.panel_menu.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.panel4.SuspendLayout();
 			this.pn_bao_cao.SuspendLayout();
-			this.panel2.SuspendLayout();
-			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
 			this.pn_danh_muc.SuspendLayout();
 			this.panel3.SuspendLayout();
-			this.panel4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.panel2.SuspendLayout();
+			this.panel_search.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel_menu
@@ -82,74 +82,25 @@
 			this.panel_menu.Size = new System.Drawing.Size(232, 861);
 			this.panel_menu.TabIndex = 0;
 			// 
-			// label1
+			// panel4
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(113, 38);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(116, 32);
-			this.label1.TabIndex = 12;
-			this.label1.Text = "Vật liệu";
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(126, 70);
-			this.pictureBox1.TabIndex = 11;
-			this.pictureBox1.TabStop = false;
-			// 
-			// icbt_Danhmuc
-			// 
-			this.icbt_Danhmuc.BackColor = System.Drawing.Color.White;
-			this.icbt_Danhmuc.Dock = System.Windows.Forms.DockStyle.Top;
-			this.icbt_Danhmuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.icbt_Danhmuc.ForeColor = System.Drawing.SystemColors.GrayText;
-			this.icbt_Danhmuc.IconChar = FontAwesome.Sharp.IconChar.List;
-			this.icbt_Danhmuc.IconColor = System.Drawing.Color.Gray;
-			this.icbt_Danhmuc.IconFont = FontAwesome.Sharp.IconFont.Auto;
-			this.icbt_Danhmuc.IconSize = 35;
-			this.icbt_Danhmuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_Danhmuc.Location = new System.Drawing.Point(0, 57);
-			this.icbt_Danhmuc.Name = "icbt_Danhmuc";
-			this.icbt_Danhmuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-			this.icbt_Danhmuc.Size = new System.Drawing.Size(232, 57);
-			this.icbt_Danhmuc.TabIndex = 10;
-			this.icbt_Danhmuc.Text = "Danh mục";
-			this.icbt_Danhmuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_Danhmuc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.icbt_Danhmuc.UseVisualStyleBackColor = false;
-			this.icbt_Danhmuc.Click += new System.EventHandler(this.icbt_Danhmuc_Click);
-			// 
-			// icbt_baocao
-			// 
-			this.icbt_baocao.BackColor = System.Drawing.Color.White;
-			this.icbt_baocao.Dock = System.Windows.Forms.DockStyle.Top;
-			this.icbt_baocao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.icbt_baocao.ForeColor = System.Drawing.SystemColors.GrayText;
-			this.icbt_baocao.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
-			this.icbt_baocao.IconColor = System.Drawing.Color.Gray;
-			this.icbt_baocao.IconFont = FontAwesome.Sharp.IconFont.Auto;
-			this.icbt_baocao.IconSize = 35;
-			this.icbt_baocao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_baocao.Location = new System.Drawing.Point(0, 404);
-			this.icbt_baocao.Name = "icbt_baocao";
-			this.icbt_baocao.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-			this.icbt_baocao.Size = new System.Drawing.Size(232, 57);
-			this.icbt_baocao.TabIndex = 9;
-			this.icbt_baocao.Text = "Báo cáo-Thống kê";
-			this.icbt_baocao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_baocao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.icbt_baocao.UseVisualStyleBackColor = false;
-			this.icbt_baocao.Click += new System.EventHandler(this.icbt_baocao_Click);
+			this.panel4.Controls.Add(this.icbt_huongdan);
+			this.panel4.Controls.Add(this.pn_bao_cao);
+			this.panel4.Controls.Add(this.icbt_baocao);
+			this.panel4.Controls.Add(this.pn_danh_muc);
+			this.panel4.Controls.Add(this.icbt_Danhmuc);
+			this.panel4.Controls.Add(this.icbt_trangchu);
+			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel4.Location = new System.Drawing.Point(0, 108);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(232, 800);
+			this.panel4.TabIndex = 10;
 			// 
 			// icbt_huongdan
 			// 
 			this.icbt_huongdan.BackColor = System.Drawing.Color.White;
 			this.icbt_huongdan.Dock = System.Windows.Forms.DockStyle.Top;
+			this.icbt_huongdan.FlatAppearance.BorderSize = 0;
 			this.icbt_huongdan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.icbt_huongdan.ForeColor = System.Drawing.SystemColors.GrayText;
 			this.icbt_huongdan.IconChar = FontAwesome.Sharp.IconChar.Book;
@@ -167,28 +118,6 @@
 			this.icbt_huongdan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.icbt_huongdan.UseVisualStyleBackColor = false;
 			this.icbt_huongdan.Click += new System.EventHandler(this.icbt_huongdan_Click);
-			// 
-			// icbt_trangchu
-			// 
-			this.icbt_trangchu.BackColor = System.Drawing.Color.White;
-			this.icbt_trangchu.Dock = System.Windows.Forms.DockStyle.Top;
-			this.icbt_trangchu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.icbt_trangchu.ForeColor = System.Drawing.SystemColors.GrayText;
-			this.icbt_trangchu.IconChar = FontAwesome.Sharp.IconChar.House;
-			this.icbt_trangchu.IconColor = System.Drawing.Color.Gray;
-			this.icbt_trangchu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-			this.icbt_trangchu.IconSize = 35;
-			this.icbt_trangchu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_trangchu.Location = new System.Drawing.Point(0, 0);
-			this.icbt_trangchu.Name = "icbt_trangchu";
-			this.icbt_trangchu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-			this.icbt_trangchu.Size = new System.Drawing.Size(232, 57);
-			this.icbt_trangchu.TabIndex = 7;
-			this.icbt_trangchu.Text = "Trang chủ";
-			this.icbt_trangchu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_trangchu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.icbt_trangchu.UseVisualStyleBackColor = false;
-			this.icbt_trangchu.Click += new System.EventHandler(this.icbt_trangchu_Click);
 			// 
 			// pn_bao_cao
 			// 
@@ -347,53 +276,28 @@
 			this.bt_bc_Khach_hang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.bt_bc_Khach_hang.UseVisualStyleBackColor = false;
 			// 
-			// panel2
+			// icbt_baocao
 			// 
-			this.panel2.BackColor = System.Drawing.Color.White;
-			this.panel2.Controls.Add(this.panel1);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel2.Location = new System.Drawing.Point(232, 0);
-			this.panel2.Margin = new System.Windows.Forms.Padding(2);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1101, 74);
-			this.panel2.TabIndex = 1;
-			// 
-			// panel1
-			// 
-			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.panel1.Controls.Add(this.textBox1);
-			this.panel1.Controls.Add(this.iconPictureBox1);
-			this.panel1.Location = new System.Drawing.Point(168, 12);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(329, 45);
-			this.panel1.TabIndex = 3;
-			// 
-			// textBox1
-			// 
-			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(0, 0);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(288, 41);
-			this.textBox1.TabIndex = 1;
-			// 
-			// iconPictureBox1
-			// 
-			this.iconPictureBox1.BackColor = System.Drawing.Color.White;
-			this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-			this.iconPictureBox1.ForeColor = System.Drawing.Color.Gray;
-			this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-			this.iconPictureBox1.IconColor = System.Drawing.Color.Gray;
-			this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-			this.iconPictureBox1.IconSize = 37;
-			this.iconPictureBox1.Location = new System.Drawing.Point(288, 0);
-			this.iconPictureBox1.Name = "iconPictureBox1";
-			this.iconPictureBox1.Size = new System.Drawing.Size(37, 41);
-			this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.iconPictureBox1.TabIndex = 0;
-			this.iconPictureBox1.TabStop = false;
+			this.icbt_baocao.BackColor = System.Drawing.Color.White;
+			this.icbt_baocao.Dock = System.Windows.Forms.DockStyle.Top;
+			this.icbt_baocao.FlatAppearance.BorderSize = 0;
+			this.icbt_baocao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.icbt_baocao.ForeColor = System.Drawing.SystemColors.GrayText;
+			this.icbt_baocao.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+			this.icbt_baocao.IconColor = System.Drawing.Color.Gray;
+			this.icbt_baocao.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.icbt_baocao.IconSize = 35;
+			this.icbt_baocao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.icbt_baocao.Location = new System.Drawing.Point(0, 404);
+			this.icbt_baocao.Name = "icbt_baocao";
+			this.icbt_baocao.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+			this.icbt_baocao.Size = new System.Drawing.Size(232, 57);
+			this.icbt_baocao.TabIndex = 9;
+			this.icbt_baocao.Text = "Báo cáo-Thống kê";
+			this.icbt_baocao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.icbt_baocao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.icbt_baocao.UseVisualStyleBackColor = false;
+			this.icbt_baocao.Click += new System.EventHandler(this.icbt_baocao_Click);
 			// 
 			// pn_danh_muc
 			// 
@@ -552,6 +456,52 @@
 			this.bt_Khach_hang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.bt_Khach_hang.UseVisualStyleBackColor = false;
 			// 
+			// icbt_Danhmuc
+			// 
+			this.icbt_Danhmuc.BackColor = System.Drawing.Color.White;
+			this.icbt_Danhmuc.Dock = System.Windows.Forms.DockStyle.Top;
+			this.icbt_Danhmuc.FlatAppearance.BorderSize = 0;
+			this.icbt_Danhmuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.icbt_Danhmuc.ForeColor = System.Drawing.SystemColors.GrayText;
+			this.icbt_Danhmuc.IconChar = FontAwesome.Sharp.IconChar.List;
+			this.icbt_Danhmuc.IconColor = System.Drawing.Color.Gray;
+			this.icbt_Danhmuc.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.icbt_Danhmuc.IconSize = 35;
+			this.icbt_Danhmuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.icbt_Danhmuc.Location = new System.Drawing.Point(0, 57);
+			this.icbt_Danhmuc.Name = "icbt_Danhmuc";
+			this.icbt_Danhmuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+			this.icbt_Danhmuc.Size = new System.Drawing.Size(232, 57);
+			this.icbt_Danhmuc.TabIndex = 10;
+			this.icbt_Danhmuc.Text = "Danh mục";
+			this.icbt_Danhmuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.icbt_Danhmuc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.icbt_Danhmuc.UseVisualStyleBackColor = false;
+			this.icbt_Danhmuc.Click += new System.EventHandler(this.icbt_Danhmuc_Click);
+			// 
+			// icbt_trangchu
+			// 
+			this.icbt_trangchu.BackColor = System.Drawing.Color.White;
+			this.icbt_trangchu.Dock = System.Windows.Forms.DockStyle.Top;
+			this.icbt_trangchu.FlatAppearance.BorderSize = 0;
+			this.icbt_trangchu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.icbt_trangchu.ForeColor = System.Drawing.SystemColors.GrayText;
+			this.icbt_trangchu.IconChar = FontAwesome.Sharp.IconChar.House;
+			this.icbt_trangchu.IconColor = System.Drawing.Color.Gray;
+			this.icbt_trangchu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.icbt_trangchu.IconSize = 35;
+			this.icbt_trangchu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.icbt_trangchu.Location = new System.Drawing.Point(0, 0);
+			this.icbt_trangchu.Name = "icbt_trangchu";
+			this.icbt_trangchu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+			this.icbt_trangchu.Size = new System.Drawing.Size(232, 57);
+			this.icbt_trangchu.TabIndex = 7;
+			this.icbt_trangchu.Text = "Trang chủ";
+			this.icbt_trangchu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.icbt_trangchu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.icbt_trangchu.UseVisualStyleBackColor = false;
+			this.icbt_trangchu.Click += new System.EventHandler(this.icbt_trangchu_Click);
+			// 
 			// panel3
 			// 
 			this.panel3.Controls.Add(this.label1);
@@ -562,19 +512,74 @@
 			this.panel3.Size = new System.Drawing.Size(232, 108);
 			this.panel3.TabIndex = 9;
 			// 
-			// panel4
+			// label1
 			// 
-			this.panel4.Controls.Add(this.icbt_huongdan);
-			this.panel4.Controls.Add(this.pn_bao_cao);
-			this.panel4.Controls.Add(this.icbt_baocao);
-			this.panel4.Controls.Add(this.pn_danh_muc);
-			this.panel4.Controls.Add(this.icbt_Danhmuc);
-			this.panel4.Controls.Add(this.icbt_trangchu);
-			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel4.Location = new System.Drawing.Point(0, 108);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(232, 800);
-			this.panel4.TabIndex = 10;
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(113, 38);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(116, 32);
+			this.label1.TabIndex = 12;
+			this.label1.Text = "Vật liệu";
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(126, 70);
+			this.pictureBox1.TabIndex = 11;
+			this.pictureBox1.TabStop = false;
+			// 
+			// panel2
+			// 
+			this.panel2.BackColor = System.Drawing.Color.White;
+			this.panel2.Controls.Add(this.panel_search);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel2.Location = new System.Drawing.Point(232, 0);
+			this.panel2.Margin = new System.Windows.Forms.Padding(2);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(1101, 74);
+			this.panel2.TabIndex = 1;
+			// 
+			// panel_search
+			// 
+			this.panel_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel_search.Controls.Add(this.textBox1);
+			this.panel_search.Controls.Add(this.iconPictureBox1);
+			this.panel_search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.panel_search.Location = new System.Drawing.Point(168, 12);
+			this.panel_search.Name = "panel_search";
+			this.panel_search.Size = new System.Drawing.Size(734, 45);
+			this.panel_search.TabIndex = 3;
+			// 
+			// textBox1
+			// 
+			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBox1.Location = new System.Drawing.Point(0, 0);
+			this.textBox1.Multiline = true;
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(695, 43);
+			this.textBox1.TabIndex = 1;
+			// 
+			// iconPictureBox1
+			// 
+			this.iconPictureBox1.BackColor = System.Drawing.Color.White;
+			this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+			this.iconPictureBox1.ForeColor = System.Drawing.Color.Gray;
+			this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+			this.iconPictureBox1.IconColor = System.Drawing.Color.Gray;
+			this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.iconPictureBox1.IconSize = 37;
+			this.iconPictureBox1.Location = new System.Drawing.Point(695, 0);
+			this.iconPictureBox1.Name = "iconPictureBox1";
+			this.iconPictureBox1.Size = new System.Drawing.Size(37, 43);
+			this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.iconPictureBox1.TabIndex = 0;
+			this.iconPictureBox1.TabStop = false;
 			// 
 			// Form1
 			// 
@@ -590,16 +595,16 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			this.panel_menu.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.panel4.ResumeLayout(false);
 			this.pn_bao_cao.ResumeLayout(false);
-			this.panel2.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
 			this.pn_danh_muc.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
-			this.panel4.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.panel2.ResumeLayout(false);
+			this.panel_search.ResumeLayout(false);
+			this.panel_search.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -613,7 +618,7 @@
 		private FontAwesome.Sharp.IconButton icbt_Danhmuc;
 		private FontAwesome.Sharp.IconButton icbt_baocao;
 		private FontAwesome.Sharp.IconButton icbt_huongdan;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel panel_search;
 		private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.PictureBox pictureBox1;
