@@ -21,7 +21,7 @@ namespace wfHome
             InitializeComponent();
             this.DoubleBuffered = true;
             leftboderbtn = new Panel();
-            leftboderbtn.Size = new Size(8, 57);
+            leftboderbtn.Size = new Size(5, 57);
             leftboderbtn.Location = new Point(0, icbt_trangchu.Location.Y);
             leftboderbtn.BackColor = Color.Red;
             leftboderbtn.Visible = true;
@@ -140,7 +140,7 @@ namespace wfHome
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
                 leftboderbtn.BackColor = Color.Red;
-                leftboderbtn.Location = new Point(0, currentBtn.Location.Y+107);
+                leftboderbtn.Location = new Point(0, currentBtn.Location.Y+143);
                 leftboderbtn.Visible = true;
                 leftboderbtn.BringToFront();
             }

@@ -91,7 +91,7 @@
 			this.panel4.Controls.Add(this.icbt_Danhmuc);
 			this.panel4.Controls.Add(this.icbt_trangchu);
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel4.Location = new System.Drawing.Point(0, 108);
+			this.panel4.Location = new System.Drawing.Point(0, 144);
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(232, 800);
 			this.panel4.TabIndex = 10;
@@ -509,14 +509,14 @@
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel3.Location = new System.Drawing.Point(0, 0);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(232, 108);
+			this.panel3.Size = new System.Drawing.Size(232, 144);
 			this.panel3.TabIndex = 9;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(113, 38);
+			this.label1.Location = new System.Drawing.Point(111, 60);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(116, 32);
 			this.label1.TabIndex = 12;
@@ -526,7 +526,7 @@
 			// 
 			this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
 			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+			this.pictureBox1.Location = new System.Drawing.Point(0, 38);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(126, 70);
 			this.pictureBox1.TabIndex = 11;
@@ -590,10 +590,10 @@
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel_menu);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.KeyPreview = true;
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Form1";
 			this.panel_menu.ResumeLayout(false);
 			this.panel4.ResumeLayout(false);
 			this.pn_bao_cao.ResumeLayout(false);

@@ -34,3 +34,9 @@ D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\Sy
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\System.Text.Json.xml
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\System.ValueTuple.xml
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\obj\Debug\wfHome.HangHoaGui.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\BUS.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\DAL.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\BUS.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\DAL.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\obj\Debug\wfHome.THEMSUAGUI.resources
