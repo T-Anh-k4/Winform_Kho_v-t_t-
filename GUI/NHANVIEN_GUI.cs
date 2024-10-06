@@ -55,6 +55,8 @@ namespace GUI
 			btnColumn.Text = "Xóa";
 			btnColumn.UseColumnTextForButtonValue = true; // Hiển thị text "Xóa" trên nút
 			kryDataView_NhanVien.Columns.Add(btnColumn);
+			kryDataView_NhanVien.Columns["btnDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
 		}
 		private void AddButtonColumn_Edit()
 		{
@@ -65,6 +67,8 @@ namespace GUI
 			btnColumn.Text = "Edit";
 			btnColumn.UseColumnTextForButtonValue = true; // Hiển thị text "Xóa" trên nút
 			kryDataView_NhanVien.Columns.Add(btnColumn);
+			kryDataView_NhanVien.Columns["btnEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
 		}
 		private void kryBt_Function_Click(object sender, EventArgs e)
 		{
