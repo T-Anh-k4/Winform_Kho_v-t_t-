@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace wfHome
 {
-    public partial class Form1 : Form
-    {
+    public partial class Form1 : KryptonForm
+	{
         private IconButton currentBtn;
         private Panel leftboderbtn;
         private bool isDanhMucVisible = false; 
@@ -143,7 +144,11 @@ namespace wfHome
                 leftboderbtn.Location = new Point(0, currentBtn.Location.Y+143);
                 leftboderbtn.Visible = true;
                 leftboderbtn.BringToFront();
-            }
+
+                iconcurrenform.IconChar = currentBtn.IconChar;
+               
+			
+			}
         }
 
         private void Disablebutton()

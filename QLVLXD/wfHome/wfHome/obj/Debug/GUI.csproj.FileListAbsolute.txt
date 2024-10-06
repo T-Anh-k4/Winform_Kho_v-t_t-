@@ -40,3 +40,13 @@ D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\DA
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\BUS.pdb
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\DAL.pdb
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\obj\Debug\wfHome.THEMSUAGUI.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Docking.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Navigator.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Ribbon.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Workspace.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Docking.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Navigator.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Ribbon.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Toolkit.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Workspace.pdb

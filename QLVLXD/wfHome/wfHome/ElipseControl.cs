@@ -45,5 +45,18 @@ namespace GUI
 					_cntrl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, _cntrl.Width, _cntrl.Height, _CornerRadius, _CornerRadius));
 			}
 		}
+
+		public void ApplyElipseToTextBox(TextBox textBox, int cornerRadius)
+		{
+			if (textBox != null)
+			{
+				textBox.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, textBox.Width, textBox.Height, cornerRadius, cornerRadius));
+				textBox.SizeChanged += (sender, eventArgs) =>
+				{
+					textBox.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, textBox.Width, textBox.Height, cornerRadius, cornerRadius));
+				};
+			}
+		}
+
 	}
 }

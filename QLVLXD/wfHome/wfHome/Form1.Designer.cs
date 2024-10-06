@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.panel_menu = new System.Windows.Forms.Panel();
 			this.panel4 = new System.Windows.Forms.Panel();
@@ -55,9 +56,10 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.panel_search = new System.Windows.Forms.Panel();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+			this.iblformtitle = new System.Windows.Forms.Label();
+			this.iconcurrenform = new FontAwesome.Sharp.IconPictureBox();
+			this.txb_tim_kiem = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.panel_menu.SuspendLayout();
 			this.panel4.SuspendLayout();
@@ -66,8 +68,7 @@
 			this.panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
-			this.panel_search.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.iconcurrenform)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel_menu
@@ -535,7 +536,9 @@
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.White;
-			this.panel2.Controls.Add(this.panel_search);
+			this.panel2.Controls.Add(this.iblformtitle);
+			this.panel2.Controls.Add(this.iconcurrenform);
+			this.panel2.Controls.Add(this.txb_tim_kiem);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel2.Location = new System.Drawing.Point(232, 0);
 			this.panel2.Margin = new System.Windows.Forms.Padding(2);
@@ -543,49 +546,69 @@
 			this.panel2.Size = new System.Drawing.Size(1101, 74);
 			this.panel2.TabIndex = 1;
 			// 
-			// panel_search
+			// iblformtitle
 			// 
-			this.panel_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel_search.Controls.Add(this.textBox1);
-			this.panel_search.Controls.Add(this.iconPictureBox1);
-			this.panel_search.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.panel_search.Location = new System.Drawing.Point(168, 12);
-			this.panel_search.Name = "panel_search";
-			this.panel_search.Size = new System.Drawing.Size(734, 45);
-			this.panel_search.TabIndex = 3;
+			this.iblformtitle.AutoSize = true;
+			this.iblformtitle.BackColor = System.Drawing.SystemColors.Window;
+			this.iblformtitle.ForeColor = System.Drawing.Color.Gray;
+			this.iblformtitle.Location = new System.Drawing.Point(67, 30);
+			this.iblformtitle.Name = "iblformtitle";
+			this.iblformtitle.Size = new System.Drawing.Size(56, 13);
+			this.iblformtitle.TabIndex = 2;
+			this.iblformtitle.Text = "Trang chủ";
 			// 
-			// textBox1
+			// iconcurrenform
 			// 
-			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(0, 0);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(695, 43);
-			this.textBox1.TabIndex = 1;
+			this.iconcurrenform.BackColor = System.Drawing.Color.White;
+			this.iconcurrenform.ForeColor = System.Drawing.Color.Gray;
+			this.iconcurrenform.IconChar = FontAwesome.Sharp.IconChar.House;
+			this.iconcurrenform.IconColor = System.Drawing.Color.Gray;
+			this.iconcurrenform.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.iconcurrenform.IconSize = 39;
+			this.iconcurrenform.Location = new System.Drawing.Point(21, 18);
+			this.iconcurrenform.Name = "iconcurrenform";
+			this.iconcurrenform.Size = new System.Drawing.Size(40, 39);
+			this.iconcurrenform.TabIndex = 1;
+			this.iconcurrenform.TabStop = false;
 			// 
-			// iconPictureBox1
+			// txb_tim_kiem
 			// 
-			this.iconPictureBox1.BackColor = System.Drawing.Color.White;
-			this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-			this.iconPictureBox1.ForeColor = System.Drawing.Color.Gray;
-			this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-			this.iconPictureBox1.IconColor = System.Drawing.Color.Gray;
-			this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-			this.iconPictureBox1.IconSize = 37;
-			this.iconPictureBox1.Location = new System.Drawing.Point(695, 0);
-			this.iconPictureBox1.Name = "iconPictureBox1";
-			this.iconPictureBox1.Size = new System.Drawing.Size(37, 43);
-			this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.iconPictureBox1.TabIndex = 0;
-			this.iconPictureBox1.TabStop = false;
+			this.txb_tim_kiem.Location = new System.Drawing.Point(235, 12);
+			this.txb_tim_kiem.Multiline = true;
+			this.txb_tim_kiem.Name = "txb_tim_kiem";
+			this.txb_tim_kiem.Size = new System.Drawing.Size(668, 45);
+			this.txb_tim_kiem.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.txb_tim_kiem.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+			this.txb_tim_kiem.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.txb_tim_kiem.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.txb_tim_kiem.StateCommon.Border.Rounding = 20;
+			this.txb_tim_kiem.StateCommon.Border.Width = 1;
+			this.txb_tim_kiem.StateCommon.Content.Color1 = System.Drawing.Color.DarkGray;
+			this.txb_tim_kiem.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 7, 10, 0);
+			this.txb_tim_kiem.TabIndex = 0;
+			this.txb_tim_kiem.Text = "Tìm kiếm";
+			// 
+			// kryptonPalette1
+			// 
+			this.kryptonPalette1.FormStyles.FormCommon.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+			this.kryptonPalette1.FormStyles.FormCommon.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+			this.kryptonPalette1.FormStyles.FormCommon.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.kryptonPalette1.FormStyles.FormCommon.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
+			this.kryptonPalette1.FormStyles.FormCommon.StateCommon.Border.Rounding = 12;
+			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.ButtonEdgeInset = 10;
+			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, -1, -1, -1);
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.ClientSize = new System.Drawing.Size(1333, 861);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel_menu);
@@ -593,6 +616,9 @@
 			this.KeyPreview = true;
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "Form1";
+			this.Palette = this.kryptonPalette1;
+			this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.panel_menu.ResumeLayout(false);
 			this.panel4.ResumeLayout(false);
@@ -602,9 +628,8 @@
 			this.panel3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.panel2.ResumeLayout(false);
-			this.panel_search.ResumeLayout(false);
-			this.panel_search.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+			this.panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iconcurrenform)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -614,13 +639,9 @@
 		private System.Windows.Forms.Panel panel_menu;
 		private System.Windows.Forms.Panel panel2;
 		private FontAwesome.Sharp.IconButton icbt_trangchu;
-		private System.ComponentModel.BackgroundWorker backgroundWorker1;
 		private FontAwesome.Sharp.IconButton icbt_Danhmuc;
 		private FontAwesome.Sharp.IconButton icbt_baocao;
 		private FontAwesome.Sharp.IconButton icbt_huongdan;
-		private System.Windows.Forms.Panel panel_search;
-		private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel pn_danh_muc;
@@ -641,6 +662,11 @@
 		private FontAwesome.Sharp.IconButton bt_bc_Khach_hang;
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.Panel panel3;
+		private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
+		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txb_tim_kiem;
+		private System.Windows.Forms.Label iblformtitle;
+		private FontAwesome.Sharp.IconPictureBox iconcurrenform;
+		private System.ComponentModel.BackgroundWorker backgroundWorker1;
 	}
 }
 
