@@ -11,11 +11,15 @@ namespace BUS
 {
 	public class NHANVIEN_BUS
 	{
-		NHANVIEN_DAO nhanVienDAO = new NHANVIEN_DAO();
+		NHANVIEN_DAL nhanVienDAO = new NHANVIEN_DAL();
 
 		public DataTable GetDanhSachNhanVien()
 		{
 			return nhanVienDAO.getDanhSachNhanVien();
+		}
+		public DataTable GetNhanVien(string manv)
+		{
+			return nhanVienDAO.GetNhanVien(manv);
 		}
 
 		public DataTable GetGioiTinh()
