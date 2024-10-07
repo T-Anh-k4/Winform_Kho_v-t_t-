@@ -130,12 +130,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLVATLIEUXD_1DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="THEMSUAGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="THEMSUAGUI.Designer.cs">
-      <DependentUpon>THEMSUAGUI.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,9 +145,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="THEMSUAGUI.resx">
-      <DependentUpon>THEMSUAGUI.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -183,6 +174,10 @@
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{8852124a-30e2-4c7e-97f1-d5835e073e9b}</Project>
       <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{cf16aba5-9974-430b-a7e4-46f4c90612b3}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

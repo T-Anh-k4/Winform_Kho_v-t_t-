@@ -141,7 +141,7 @@ namespace wfHome
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
                 leftboderbtn.BackColor = Color.Red;
-                leftboderbtn.Location = new Point(0, currentBtn.Location.Y+143);
+                leftboderbtn.Location = new Point(0, currentBtn.Location.Y);
                 leftboderbtn.Visible = true;
                 leftboderbtn.BringToFront();
 

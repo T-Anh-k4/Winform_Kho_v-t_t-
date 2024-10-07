@@ -17,7 +17,6 @@ namespace BUS
 		{
 			return hanghoaDAL.getDanhSachHangHoa();
 		}
-
 		public DataTable GetDonViTinh()
 		{
 			return hanghoaDAL.GetDonViTinh();

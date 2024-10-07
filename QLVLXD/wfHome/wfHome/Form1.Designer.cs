@@ -29,7 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.panel_menu = new System.Windows.Forms.Panel();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.icbt_huongdan = new FontAwesome.Sharp.IconButton();
@@ -52,9 +51,6 @@
 			this.bt_Khach_hang = new FontAwesome.Sharp.IconButton();
 			this.icbt_Danhmuc = new FontAwesome.Sharp.IconButton();
 			this.icbt_trangchu = new FontAwesome.Sharp.IconButton();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.iblformtitle = new System.Windows.Forms.Label();
 			this.iconcurrenform = new FontAwesome.Sharp.IconPictureBox();
@@ -65,8 +61,6 @@
 			this.panel4.SuspendLayout();
 			this.pn_bao_cao.SuspendLayout();
 			this.pn_danh_muc.SuspendLayout();
-			this.panel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.iconcurrenform)).BeginInit();
 			this.SuspendLayout();
@@ -75,12 +69,11 @@
 			// 
 			this.panel_menu.BackColor = System.Drawing.Color.White;
 			this.panel_menu.Controls.Add(this.panel4);
-			this.panel_menu.Controls.Add(this.panel3);
 			this.panel_menu.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel_menu.Location = new System.Drawing.Point(0, 0);
+			this.panel_menu.Location = new System.Drawing.Point(0, 74);
 			this.panel_menu.Margin = new System.Windows.Forms.Padding(2);
 			this.panel_menu.Name = "panel_menu";
-			this.panel_menu.Size = new System.Drawing.Size(232, 861);
+			this.panel_menu.Size = new System.Drawing.Size(232, 787);
 			this.panel_menu.TabIndex = 0;
 			// 
 			// panel4
@@ -92,7 +85,7 @@
 			this.panel4.Controls.Add(this.icbt_Danhmuc);
 			this.panel4.Controls.Add(this.icbt_trangchu);
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel4.Location = new System.Drawing.Point(0, 144);
+			this.panel4.Location = new System.Drawing.Point(0, 0);
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(232, 800);
 			this.panel4.TabIndex = 10;
@@ -503,36 +496,6 @@
 			this.icbt_trangchu.UseVisualStyleBackColor = false;
 			this.icbt_trangchu.Click += new System.EventHandler(this.icbt_trangchu_Click);
 			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.label1);
-			this.panel3.Controls.Add(this.pictureBox1);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel3.Location = new System.Drawing.Point(0, 0);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(232, 144);
-			this.panel3.TabIndex = 9;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(111, 60);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(116, 32);
-			this.label1.TabIndex = 12;
-			this.label1.Text = "Vật liệu";
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.pictureBox1.Location = new System.Drawing.Point(0, 38);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(126, 70);
-			this.pictureBox1.TabIndex = 11;
-			this.pictureBox1.TabStop = false;
-			// 
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.White;
@@ -540,10 +503,10 @@
 			this.panel2.Controls.Add(this.iconcurrenform);
 			this.panel2.Controls.Add(this.txb_tim_kiem);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel2.Location = new System.Drawing.Point(232, 0);
+			this.panel2.Location = new System.Drawing.Point(0, 0);
 			this.panel2.Margin = new System.Windows.Forms.Padding(2);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(1101, 74);
+			this.panel2.Size = new System.Drawing.Size(1333, 74);
 			this.panel2.TabIndex = 1;
 			// 
 			// iblformtitle
@@ -551,7 +514,7 @@
 			this.iblformtitle.AutoSize = true;
 			this.iblformtitle.BackColor = System.Drawing.SystemColors.Window;
 			this.iblformtitle.ForeColor = System.Drawing.Color.Gray;
-			this.iblformtitle.Location = new System.Drawing.Point(67, 30);
+			this.iblformtitle.Location = new System.Drawing.Point(330, 30);
 			this.iblformtitle.Name = "iblformtitle";
 			this.iblformtitle.Size = new System.Drawing.Size(56, 13);
 			this.iblformtitle.TabIndex = 2;
@@ -565,7 +528,7 @@
 			this.iconcurrenform.IconColor = System.Drawing.Color.Gray;
 			this.iconcurrenform.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.iconcurrenform.IconSize = 39;
-			this.iconcurrenform.Location = new System.Drawing.Point(21, 18);
+			this.iconcurrenform.Location = new System.Drawing.Point(284, 18);
 			this.iconcurrenform.Name = "iconcurrenform";
 			this.iconcurrenform.Size = new System.Drawing.Size(40, 39);
 			this.iconcurrenform.TabIndex = 1;
@@ -573,7 +536,7 @@
 			// 
 			// txb_tim_kiem
 			// 
-			this.txb_tim_kiem.Location = new System.Drawing.Point(235, 12);
+			this.txb_tim_kiem.Location = new System.Drawing.Point(474, 12);
 			this.txb_tim_kiem.Multiline = true;
 			this.txb_tim_kiem.Name = "txb_tim_kiem";
 			this.txb_tim_kiem.Size = new System.Drawing.Size(668, 45);
@@ -610,8 +573,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.ClientSize = new System.Drawing.Size(1333, 861);
-			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel_menu);
+			this.Controls.Add(this.panel2);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.KeyPreview = true;
 			this.Margin = new System.Windows.Forms.Padding(2);
@@ -624,9 +587,6 @@
 			this.panel4.ResumeLayout(false);
 			this.pn_bao_cao.ResumeLayout(false);
 			this.pn_danh_muc.ResumeLayout(false);
-			this.panel3.ResumeLayout(false);
-			this.panel3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.iconcurrenform)).EndInit();
@@ -642,8 +602,6 @@
 		private FontAwesome.Sharp.IconButton icbt_Danhmuc;
 		private FontAwesome.Sharp.IconButton icbt_baocao;
 		private FontAwesome.Sharp.IconButton icbt_huongdan;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel pn_danh_muc;
 		private FontAwesome.Sharp.IconButton bt_Khach_hang;
 		private FontAwesome.Sharp.IconButton bt_Nha_cung_cap;
@@ -661,7 +619,6 @@
 		private FontAwesome.Sharp.IconButton bt_bc_Nha_cung_cap;
 		private FontAwesome.Sharp.IconButton bt_bc_Khach_hang;
 		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.Panel panel3;
 		private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txb_tim_kiem;
 		private System.Windows.Forms.Label iblformtitle;
