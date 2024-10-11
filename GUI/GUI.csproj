@@ -33,20 +33,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Docking">
-      <HintPath>..\..\..\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Docking, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Tài liệu\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Navigator">
-      <HintPath>..\..\..\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Tài liệu\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Navigator.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Ribbon">
-      <HintPath>..\..\..\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Tài liệu\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Ribbon.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>..\..\..\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Tài liệu\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Workspace">
-      <HintPath>..\..\..\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Tài liệu\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,6 +69,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="USER_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USER_GUI.Designer.cs">
+      <DependentUpon>USER_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MENU_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MENU_GUI.Designer.cs">
+      <DependentUpon>MENU_GUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="NHANVIEN_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,12 +89,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="THEMSUANV_GUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="THEMSUANV_GUI.Designer.cs">
-      <DependentUpon>THEMSUANV_GUI.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="MENU_GUI.resx">
+      <DependentUpon>MENU_GUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NHANVIEN_GUI.resx">
       <DependentUpon>NHANVIEN_GUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,8 +104,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="THEMSUANV_GUI.resx">
-      <DependentUpon>THEMSUANV_GUI.cs</DependentUpon>
+    <EmbeddedResource Include="USER_GUI.resx">
+      <DependentUpon>USER_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,6 +121,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ArtanComponent\ArtanComponent.csproj">
+      <Project>{d71c2c3d-4bac-496e-bd18-0688b8cea4b6}</Project>
+      <Name>ArtanComponent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{6159e729-b051-407b-9b99-bc8c83047ef4}</Project>
       <Name>BUS</Name>

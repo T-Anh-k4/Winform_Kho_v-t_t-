@@ -8,80 +8,194 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BUS;
+using ComponentFactory.Krypton.Toolkit;
 namespace GUI
 {
-	public partial class NHANVIEN_GUI : Form
+	public partial class NHANVIEN_GUI : KryptonForm
 	{
-		THEMSUANV_GUI ct = new THEMSUANV_GUI();
 		NHANVIEN_BUS nhanVienBUS = new NHANVIEN_BUS();
-		string manv;
+		bool createExplore = true;
+
+
 		public NHANVIEN_GUI()
 		{
 			InitializeComponent();
-			this.manv = manv;
-			StartPosition = FormStartPosition.CenterScreen;
 			init();
 		}
-
-		public string Manv { get => manv; set => manv = value; }
-
 		public void init()
 		{
 			initUser();
+			panel2_nv.Height = 0;
 		}
 		public void initUser()
 		{
 			loadDt_NhanVien();
-			AddButtonColumn();
+			loadCb_Gioitinh();
+			DelButtonColumn();
 			AddButtonColumn_Edit();
 
+		}
+		public bool IsPressAdd()
+		{
+			kryBt_Add.Visible = true;
+			return kryBt_Add.Visible;
+		}
+		public bool IsPressEdit()
+		{
+			kryBt_Edit.Visible = true;
+			return kryBt_Edit.Visible;
 		}
 		public void loadDt_NhanVien()
 		{
 			DataTable dt = new DataTable();
 			dt = nhanVienBUS.GetDanhSachNhanVien();
 			//3dt_nhanvien.ColumnHeadersVisible = false;//ẩn header datagridview
-			kryDataView_NhanVien.DataSource = dt;
+			dataViewNv.DataSource = dt;
+		}
+		public void loadCb_Gioitinh()
+		{
+			DataTable dt = nhanVienBUS.GetGioiTinh();
+
+			if (dt != null && dt.Rows.Count > 0)
+			{
+				// Loại bỏ các hàng trùng lặp trong DataTable
+				DataView view = new DataView(dt);
+				DataTable distinctValues = view.ToTable(true, "GIOITINH");
+
+				// Kiểm tra nếu chỉ có một giới tính, thêm giới tính còn lại
+				if (distinctValues.Rows.Count == 1)
+				{
+					string currentGender = distinctValues.Rows[0]["GIOITINH"].ToString();
+					if (currentGender == "Nam")
+					{
+						DataRow row = distinctValues.NewRow();
+						row["GIOITINH"] = "Nữ";
+						distinctValues.Rows.Add(row);
+					}
+					else if (currentGender == "Nữ")
+					{
+						DataRow row = distinctValues.NewRow();
+						row["GIOITINH"] = "Nam";
+						distinctValues.Rows.Add(row);
+					}
+				}
+
+				kryCb_Gender.DisplayMember = "GIOITINH";
+				kryCb_Gender.ValueMember = "GIOITINH";
+				kryCb_Gender.DataSource = distinctValues;
+			}
+			else
+			{
+				// Nếu không có dữ liệu từ cơ sở dữ liệu, thêm mặc định "Nam" và "Nữ"
+				DataTable dtDefault = new DataTable();
+				dtDefault.Columns.Add("GIOITINH");
+				dtDefault.Rows.Add("Nam");
+				dtDefault.Rows.Add("Nữ");
+
+				kryCb_Gender.DisplayMember = "GIOITINH";
+				kryCb_Gender.ValueMember = "GIOITINH";
+				kryCb_Gender.DataSource = dtDefault;
+			}
+		}
+
+		public void clear()
+		{
+			kryTx_Id.Text = "";
+			kryTb_Name.Text = "";
+			kryCb_Gender.Text = "";
+			kryTx_Address.Text = "";
+			kryTb_Number.Text = "";
+			kryTb_Pos.Text = "";
 		}
 
 		// Thêm cột chứa nút vào DataGridView
-		private void AddButtonColumn()
+		private void DelButtonColumn()
 		{
-			// Tạo một cột nút mới
-			DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-			btnColumn.HeaderText = "Xóa";
-			btnColumn.Name = "btnDelete";
-			btnColumn.Text = "Xóa";
-			btnColumn.UseColumnTextForButtonValue = true; // Hiển thị text "Xóa" trên nút
-			kryDataView_NhanVien.Columns.Add(btnColumn);
-			kryDataView_NhanVien.Columns["btnDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+			// Tạo một cột hình ảnh mới
+			DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+			imgColumn.HeaderText = "Xóa";
+			imgColumn.Name = "imgDelete";
+			imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-delete.png"); // Đường dẫn đến hình ảnh
+			imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+			imgColumn.Width = 20;
+			// Thêm cột hình ảnh vào DataGridView
+			dataViewNv.Columns.Add(imgColumn);
+			// Căn giữa header của cột hình ảnh
+			dataViewNv.Columns["imgDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 		}
 		private void AddButtonColumn_Edit()
 		{
-			// Tạo một cột nút mới
-			DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-			btnColumn.HeaderText = "Chinh sửa";
-			btnColumn.Name = "btnEdit";
-			btnColumn.Text = "Edit";
-			btnColumn.UseColumnTextForButtonValue = true; // Hiển thị text "Xóa" trên nút
-			kryDataView_NhanVien.Columns.Add(btnColumn);
-			kryDataView_NhanVien.Columns["btnEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-		}
-		private void kryBt_Function_Click(object sender, EventArgs e)
-		{
-			THEMSUANV_GUI createnv = new THEMSUANV_GUI(this);
-			createnv.HideBtDataView();
-			createnv.ShowDialog();
+			// Tạo một cột hình ảnh mới
+			DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+			imgColumn.HeaderText = "Edit";
+			imgColumn.Name = "imgEdit";
+			imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
+			imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+																	  // Thêm cột hình ảnh vào DataGridView
+			dataViewNv.Columns.Add(imgColumn);
+			// Căn giữa header của cột hình ảnh
+			dataViewNv.Columns["imgEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 		}
 
-		private void kryDataView_NhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+		private void createTransition_Tick(object sender, EventArgs e)
 		{
-			DataGridViewRow row = kryDataView_NhanVien.Rows[e.RowIndex];
-			manv = row.Cells[2].Value.ToString();
-			if (e.ColumnIndex == kryDataView_NhanVien.Columns["btnDelete"].Index)
+			if (createExplore)
+			{
+				panel2_nv.Height -= 5;
+				if (panel2_nv.Height <= 0)
+				{
+					createTransition.Stop();
+					createExplore = false;
+				}
+			}
+			else
+			{
+				panel2_nv.Height += 5;
+				if (panel2_nv.Height >= 170)
+				{
+					createTransition.Stop();
+					createExplore = true;
+				}
+			}
+
+		}
+
+		private void dataViewNv_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			DataGridViewRow row = dataViewNv.Rows[e.RowIndex];
+			if (e.RowIndex >= 0)
+			{
+				if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
+				{
+					kryTx_Id.Text = row.Cells[2].Value.ToString();
+					kryTb_Name.Text = row.Cells[3].Value.ToString();
+					kryCb_Gender.Text = row.Cells[4].Value.ToString();
+					kry_Datetime.Value = Convert.ToDateTime(row.Cells[5].Value); // Đảm bảo kiểu dữ liệu là DateTime
+					kryTx_Address.Text = row.Cells[6].Value.ToString();
+					kryTb_Number.Text = row.Cells[7].Value.ToString();
+					kryTb_Pos.Text = row.Cells[8].Value.ToString();
+					if (Convert.ToInt32(row.Cells[9].Value) == 1)
+					{
+						kryCheckBox_Status.Checked = true;  // Đánh dấu checkbox
+					}
+					else
+					{
+						kryCheckBox_Status.Checked = false; // Bỏ đánh dấu checkbox
+					}
+					IsPressEdit();
+					createTransition.Start();
+					if (panel2_nv.Height >= 170)
+					{
+						createTransition.Stop();
+					}
+					if (kryBt_Add.Visible)
+					{
+						kryBt_Add.Visible = false;
+					}
+
+				}
+			}
+			if (e.ColumnIndex == dataViewNv.Columns["imgDelete"].Index)
 			{
 				bool result = nhanVienBUS.DeleteNhanVien(row.Cells[2].Value.ToString());
 				if (result)
@@ -95,13 +209,81 @@ namespace GUI
 
 				}
 			}
-			if (e.ColumnIndex == kryDataView_NhanVien.Columns["btnEdit"].Index)
-			{
-				THEMSUANV_GUI createnv = new THEMSUANV_GUI(this);
-				createnv.HideBtAdd();
-				createnv.ShowDialog();
 
+
+		}
+
+		private void kryBt_Add_Click(object sender, EventArgs e)
+		{
+			// Kiểm tra các trường bắt buộc
+			if (string.IsNullOrWhiteSpace(kryTx_Id.Text))
+			{
+				MessageBox.Show("Vui lòng nhập mã nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
 			}
+			if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
+			{
+				MessageBox.Show("Vui lòng nhập tên nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (kryCb_Gender.SelectedIndex == -1)
+			{
+				MessageBox.Show("Vui lòng chọn giới tính.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (string.IsNullOrWhiteSpace(kryTb_Pos.Text))
+			{
+				MessageBox.Show("Vui lòng nhập địa chỉ.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (string.IsNullOrWhiteSpace(kryTb_Number.Text))
+			{
+				MessageBox.Show("Vui lòng nhập số điện thoại.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			bool result = nhanVienBUS.InsertNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0);
+
+			if (result)
+			{
+				loadDt_NhanVien(); // Gọi lại để tải lại danh sách
+
+				MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else
+			{
+				MessageBox.Show("Thêm nhân viên không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+		}
+
+		private void kryBt_Edit_Click(object sender, EventArgs e)
+		{
+			bool result = nhanVienBUS.UpdateNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0);
+
+			if (result)
+			{
+				MessageBox.Show("Sửa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				loadDt_NhanVien(); // Gọi lại để tải lại danh sách
+			}
+			else
+			{
+				MessageBox.Show("Sửa nhân viên không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		private void kryBtShowCreate_Click(object sender, EventArgs e)
+		{
+			kryBt_Add.Visible = true;
+			createTransition.Start();
+			if (kryBt_Edit.Visible)
+			{
+				kryBt_Edit.Visible = false;
+			}
+		}
+
+		private void kry_Clear_Click(object sender, EventArgs e)
+		{
+			clear();
 		}
 	}
 }
