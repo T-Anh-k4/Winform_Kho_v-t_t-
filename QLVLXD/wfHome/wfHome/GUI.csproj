@@ -70,6 +70,7 @@
       <HintPath>..\packages\System.CodeDom.8.0.0\lib\net462\System.CodeDom.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -108,6 +109,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtanPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ElipseControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -129,6 +133,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLVATLIEUXD_1DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ThongTinHangHoa.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongTinHangHoa.dbml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -166,6 +175,14 @@
     <None Include="QLVATLIEUXD_1DataSet.xss">
       <DependentUpon>QLVATLIEUXD_1DataSet.xsd</DependentUpon>
     </None>
+    <None Include="ThongTinHangHoa.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ThongTinHangHoa.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ThongTinHangHoa.dbml.layout">
+      <DependentUpon>ThongTinHangHoa.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -179,6 +196,9 @@
       <Project>{cf16aba5-9974-430b-a7e4-46f4c90612b3}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

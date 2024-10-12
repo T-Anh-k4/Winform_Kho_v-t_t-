@@ -36,5 +36,9 @@ namespace BUS
 			return hanghoaDAL.DeleteHangHoa(maHH);
 
 		}
+		public DataTable SearchHangHoa(string keyword)
+		{
+			return hanghoaDAL.SearchHangHoa(keyword);
+		}
 	}
 }

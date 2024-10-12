@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\wfhome\\hanghoagui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|d:\\l\u1EADp tr\u00ECnh tr\u1EF1c quan\\winform_kho_v-t_t-\\qlvlxd\\wfhome\\wfhome\\hanghoagui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|solutionrelative:wfhome\\hanghoagui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,24 +11,20 @@
       "RelativeMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|solutionrelative:wfhome\\hanghoagui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{59FE7B70-3AB3-4E10-9713-447EEBA9C16D}|DAL\\DAL.csproj|d:\\l\u1EADp tr\u00ECnh tr\u1EF1c quan\\winform_kho_v-t_t-\\qlvlxd\\wfhome\\dal\\hanghoa_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{59FE7B70-3AB3-4E10-9713-447EEBA9C16D}|DAL\\DAL.csproj|solutionrelative:dal\\hanghoa_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF16ABA5-9974-430B-A7E4-46F4C90612B3}|DTO\\DTO.csproj|D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\dto\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF16ABA5-9974-430B-A7E4-46F4C90612B3}|DTO\\DTO.csproj|solutionrelative:dto\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8852124A-30E2-4C7E-97F1-D5835E073E9B}|BUS\\BUS.csproj|D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\bus\\hanghoa_bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8852124A-30E2-4C7E-97F1-D5835E073E9B}|BUS\\BUS.csproj|solutionrelative:bus\\hanghoa_bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\wfhome\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|solutionrelative:wfhome\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{59FE7B70-3AB3-4E10-9713-447EEBA9C16D}|DAL\\DAL.csproj|D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\dal\\hanghoa_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59FE7B70-3AB3-4E10-9713-447EEBA9C16D}|DAL\\DAL.csproj|solutionrelative:dal\\hanghoa_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\wfhome\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|solutionrelative:wfhome\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\wfhome\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|solutionrelative:wfhome\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{372ECA04-9461-48C3-9E92-A7E99036C1AD}|wfHome\\GUI.csproj|D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\wfhome\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,23 +38,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Products.cs",
-              "DocumentMoniker": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\DTO\\Products.cs",
-              "RelativeDocumentMoniker": "DTO\\Products.cs",
-              "ToolTip": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\DTO\\Products.cs",
-              "RelativeToolTip": "DTO\\Products.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
+              "Title": "HANGHOA_DAL.cs",
+              "DocumentMoniker": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\DAL\\HANGHOA_DAL.cs",
+              "RelativeDocumentMoniker": "DAL\\HANGHOA_DAL.cs",
+              "ToolTip": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\DAL\\HANGHOA_DAL.cs",
+              "RelativeToolTip": "DAL\\HANGHOA_DAL.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAqwBkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T16:35:02.182Z"
+              "WhenOpened": "2024-10-11T13:46:07.581Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\wfHome\\Form1.cs",
               "RelativeDocumentMoniker": "wfHome\\Form1.cs",
@@ -75,22 +71,9 @@
               "RelativeDocumentMoniker": "wfHome\\Form1.cs",
               "ToolTip": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\wfHome\\Form1.cs",
               "RelativeToolTip": "wfHome\\Form1.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAAAI8AAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAqwGAAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T06:29:17.103Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HANGHOA_DAL.cs",
-              "DocumentMoniker": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\DAL\\HANGHOA_DAL.cs",
-              "RelativeDocumentMoniker": "DAL\\HANGHOA_DAL.cs",
-              "ToolTip": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\DAL\\HANGHOA_DAL.cs",
-              "RelativeToolTip": "DAL\\HANGHOA_DAL.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAqwCUAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T15:09:22.569Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -112,26 +95,26 @@
               "RelativeDocumentMoniker": "wfHome\\HangHoaGui.cs",
               "ToolTip": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\wfHome\\HangHoaGui.cs",
               "RelativeToolTip": "wfHome\\HangHoaGui.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACQAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAQwEkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-06T08:55:31.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "HANGHOA_BUS.cs",
               "DocumentMoniker": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\BUS\\HANGHOA_BUS.cs",
               "RelativeDocumentMoniker": "BUS\\HANGHOA_BUS.cs",
               "ToolTip": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\BUS\\HANGHOA_BUS.cs",
               "RelativeToolTip": "BUS\\HANGHOA_BUS.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBIAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T04:11:59.165Z"
+              "WhenOpened": "2024-10-12T07:40:25.93Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\L\u1EADp Tr\u00ECnh Tr\u1EF1c Quan\\Winform_Kho_v-t_t-\\QLVLXD\\wfHome\\wfHome\\Program.cs",
               "RelativeDocumentMoniker": "wfHome\\Program.cs",

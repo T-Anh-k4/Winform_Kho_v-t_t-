@@ -19,8 +19,14 @@ namespace wfHome
 	{
 		private HANGHOA_BUS hanghoa_bus;
 		private Products Products;
+
+		public bool createExplore = true; 
+		private bool ispanelopen = false; // Biến theo dõi trạng thái panel
+		private bool isedit = false; // Biến theo dõi đang ấn nút sửa 
+
+
 		int pageNumber = 1;
-		int numberrecord = 10;
+		int numberrecord = 13;
 		public HangHoaGui()
 		{
 			InitializeComponent();
@@ -36,13 +42,12 @@ namespace wfHome
 			AddButtonColumn();
 			AddButtonColumn_Edit();
 		}
+		//thiết lập ban đầu của form
 		public void initUser()
 		{
-			pn_nhap.Visible = false;
+			pn_nhap.Height = 0;
 			pn_data.Height = 620;
 
-			//k_datagrview_hang_hoa.DataSource = LoadRecord(pageNumber, numberrecord);
-		
 			txb_Mahh.Enter += TextBox_Enter;
 			txb_Mahh.Leave += TextBox_Leave;
 
@@ -55,30 +60,27 @@ namespace wfHome
 			txb_xuat_xu.Enter += TextBox_Enter;
 			txb_xuat_xu.Leave += TextBox_Leave;
 
+			txb_tim_kiem_HH.Enter += TextBox_Enter;
+			txb_tim_kiem_HH.Leave += TextBox_Leave;
+
 			SetPlaceholder(txb_Mahh, "Nhập mã hàng hóa");
 			SetPlaceholder(txb_Ten_hang, "Nhập tên hàng");
 			SetPlaceholder(txb_Malh, "Nhập mã loại hàng");
 			SetPlaceholder(txb_xuat_xu, "Nhập xuất xứ");
+			SetPlaceholder(txb_tim_kiem_HH, "Tìm kiếm");
 
 		}
-		public void HangHoaGui_Load()
+
+		// thêm giá trị vào combox
+		private void cbx_don_vi_tinh_DropDown(object sender, EventArgs e)
 		{
-			DataTable dt = hanghoa_bus.GetDanhSachHangHoa();
-			k_datagrview_hang_hoa.DataSource = dt;
+			cbx_don_vi_tinh.Items.Clear();
+			cbx_don_vi_tinh.Items.Add("Kg");
+			cbx_don_vi_tinh.Items.Add("Thùng");
+			cbx_don_vi_tinh.Items.Add("Cái");
 		}
 
-		//List<Products> LoadRecord(int page,int recordNum)
-		//{
-		//	List<Products> result = new List<Products>();
-  //          using ( db = )
-		//	{
-		//		result = db.Products.Skip(page * recordNum).Take(recordNum).ToList();
-		//	}
-		//	return result;
-		//}
-
-
-
+		// thêm nút sửa và xóa vào Datagrview
 		private void AddButtonColumn()
 		{
 			if (!k_datagrview_hang_hoa.Columns.Contains("btnDelete"))
@@ -108,36 +110,194 @@ namespace wfHome
 			k_datagrview_hang_hoa.Columns["btnEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 		}
 
-
-		private void dtgrview_hang_hoa_CellClick(object sender, DataGridViewCellEventArgs e)
+		// Sự kiện cho chữ ở textbox
+		private void TextBox_Enter(object sender, EventArgs e)
 		{
-			DataGridViewRow row = k_datagrview_hang_hoa.Rows[e.RowIndex];
-			if (e.ColumnIndex == k_datagrview_hang_hoa.Columns["btnDelete"].Index)
+			KryptonTextBox textBox = sender as KryptonTextBox;
+			if (textBox != null)
 			{
-				bool result = hanghoa_bus.DeleteHangHoa(row.Cells[2].Value.ToString());
-				if (result)
+				if (textBox.Text == GetPlaceholder(textBox))
 				{
-					HangHoaGui_Load();
-					MessageBox.Show("Xóa thông tin hàng hóa thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+					textBox.Text = "";
+					textBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+				}
+			}
+		}
+
+		private void TextBox_Leave(object sender, EventArgs e)
+		{
+			KryptonTextBox textBox = sender as KryptonTextBox;
+			if (textBox != null)
+			{
+				// Kiểm tra nếu TextBox trống hoặc chứa placeholder
+				if (string.IsNullOrWhiteSpace(textBox.Text) || textBox.Text == GetPlaceholder(textBox))
+				{
+					// Gọi hàm để đặt lại placeholder
+					SetPlaceholder(textBox, GetPlaceholder(textBox));
 				}
 				else
 				{
-					MessageBox.Show("Xóa thông tin hàng hóa không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					// Đặt màu chữ về màu đen nếu có nội dung
+					textBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
 				}
 			}
-			else if (e.ColumnIndex == k_datagrview_hang_hoa.Columns["btnEdit"].Index && e.RowIndex >= 0)
+		}
+
+		private void SetPlaceholder(KryptonTextBox textBox, string placeholder)
+		{
+			textBox.Text = placeholder;
+			textBox.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+		}
+
+		private string GetPlaceholder(KryptonTextBox textBox)
+		{
+			switch (textBox.Name)
 			{
+				case "txb_Mahh":
+					return "Nhập mã hàng hóa";
+				case "txb_Ten_hang":
+					return "Nhập tên hàng";
+				case "txb_Malh":
+					return "Nhập mã loại hàng";
+				case "txb_xuat_xu":
+					return "Nhập xuất xứ";
+				case "txb_tim_kiem_HH":
+					return "Tìm kiếm";
+				default:
+					return string.Empty;
+			}
+		}
+
+		// reset chữ mặc định
+		private void ResetForeText()
+		{
+			SetPlaceholder(txb_Mahh, GetPlaceholder(txb_Mahh));
+			SetPlaceholder(txb_Malh, GetPlaceholder(txb_Malh));
+			SetPlaceholder(txb_Ten_hang, GetPlaceholder(txb_Ten_hang));
+			SetPlaceholder(txb_xuat_xu, GetPlaceholder(txb_xuat_xu));
+		}
+		// load datagrview
+		public void HangHoaGui_Load()
+		{
+			DataTable dt = new DataTable();
+			dt = hanghoa_bus.GetDanhSachHangHoa();
+			k_datagrview_hang_hoa.DataSource = dt;
+			//if (dt.Rows.Count > 0)
+			//{
+			//	k_datagrview_hang_hoa.DataSource = LoadRecord(pageNumber, numberrecord, dt);
+			//}
+			//else
+			//{
+			//	MessageBox.Show("Không có dữ liệu để hiển thị.");
+			//}
+		}
+		//private List<HANGHOA> LoadRecord(int page, int recordNum, DataTable dt)
+		//{
+		//	List<HANGHOA> result = new List<HANGHOA>();
+
+		//	int startIndex = (page - 1) * recordNum;
+		//	int endIndex = startIndex + recordNum;
+
+		//	for (int i = startIndex; i < endIndex && i < dt.Rows.Count; i++)
+		//	{
+		//		HANGHOA hanghoa = new HANGHOA
+		//		{
+
+		//			MAHH = dt.Rows[i]["MAHH"].ToString(),
+		//			TENHH = dt.Rows[i]["TenHang"].ToString(),
+		//			XUATXU = dt.Rows[i]["XuatXu"].ToString(),
+		//			MALOAI = dt.Rows[i]["MaLoai"].ToString(),
+		//			DONVI_TINH = cbx_don_vi_tinh.SelectedItem?.ToString() 
+		//		};
+		//		result.Add(hanghoa);
+		//	}
+
+		//	return result;
+		//}
+
+		// Nút sang trang
+		//private void bt_next_page_Click(object sender, EventArgs e)
+		//{
+		//	int totalrecord = 0;
+		//	using (ThongTinHangHoaDataContext db = new ThongTinHangHoaDataContext())
+		//	{
+		//		totalrecord = db.HANGHOAs.Count();
+		//	}
+		//	int totalPages = (int)Math.Ceiling((double)totalrecord / numberrecord);
+		//	if (pageNumber < totalPages)
+		//	{
+		//		pageNumber++;
+		//		k_datagrview_hang_hoa.DataSource = LoadRecord(pageNumber, numberrecord, hanghoa_bus.GetDanhSachHangHoa());
+		//		lb_so_trang.Text = pageNumber.ToString();
+		//	}
+		//}
+
+		//private void bt_back_page_Click(object sender, EventArgs e)
+		//{
+		//	if (pageNumber - 1 > 0)
+		//	{
+		//		pageNumber--;
+		//		k_datagrview_hang_hoa.DataSource = LoadRecord(pageNumber, numberrecord, hanghoa_bus.GetDanhSachHangHoa());
+		//		lb_so_trang.Text = pageNumber.ToString();
+		//	}
+		//}
+
+		/*animation*/
+		private void createTransition_Tick_1(object sender, EventArgs e)
+		{
+			if (createExplore)
+			{
+				pn_nhap.Height -= 10;
+				if (pn_nhap.Height <= 0)
+				{
+					createTransition.Stop();
+					createExplore = false;
+
+					//pn_data.Size = new Size(1069, 620);
+					//k_datagrview_hang_hoa.RowTemplate.Height = 44; 
+					//foreach (DataGridViewRow row in k_datagrview_hang_hoa.Rows)
+					//{
+					//	row.Height = k_datagrview_hang_hoa.RowTemplate.Height;
+					//}
+				}
+			}
+			else
+			{
+				pn_nhap.Height += 10;
+				if (pn_nhap.Height >= 212)
+				{
+					createTransition.Stop();
+					createExplore = true;
+
+					//pn_data.Size = new Size(1069, 408); 
+					//k_datagrview_hang_hoa.RowTemplate.Height = 29;  
+					//foreach (DataGridViewRow row in k_datagrview_hang_hoa.Rows)
+					//{
+					//	row.Height = k_datagrview_hang_hoa.RowTemplate.Height;
+					//}
+				}
+			}
+		}
+
+		// nút tạo panel nhập
+		private void kbtn_themSua_Click(object sender, EventArgs e)
+		{
+			createTransition.Start();
+			if (isedit || !ispanelopen)
+			{
+				kbtn_sua.Visible = false;
+				kbtn_Them_sua.Visible = true;
+				kbtn_Cancle.Location = new Point(766, 158);
+			}
+			else
+			{
+				kbtn_sua.Visible = true;
 
 			}
 		}
 
-		private void cbx_don_vi_tinh_DropDown(object sender, EventArgs e)
-		{
-			cbx_don_vi_tinh.Items.Clear();
-			cbx_don_vi_tinh.Items.Add("Kg");
-			cbx_don_vi_tinh.Items.Add("Thùng");
-			cbx_don_vi_tinh.Items.Add("Cái");
-		}
+
+		// nút sự kiện thêm hàng hóa
 		private void kbtn_Them_sua_Click(object sender, EventArgs e)
 		{
 			bool isValid = true;
@@ -197,6 +357,7 @@ namespace wfHome
 					txb_Ten_hang.Clear();
 					txb_xuat_xu.Clear();
 					cbx_don_vi_tinh.SelectedIndex = -1;
+					ResetForeText();
 				}
 				else
 				{
@@ -204,78 +365,182 @@ namespace wfHome
 				}
 			}
 		}
-		private void ShowError(string message)
+
+		//sự kiện xóa hàng hóa và tương tác nút sửa hiện pn_nhap
+		private void dtgrview_hang_hoa_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		}
-		private void TextBox_Enter(object sender, EventArgs e)
-		{
-			KryptonTextBox textBox = sender as KryptonTextBox;
-			if (textBox != null)
+			// Kiểm tra xem hàng có hợp lệ không
+			if (e.RowIndex >= 0)
 			{
-				if (textBox.Text == GetPlaceholder(textBox))
+				DataGridViewRow row = k_datagrview_hang_hoa.Rows[e.RowIndex];
+
+				// Kiểm tra cột được nhấn có phải là btnDelete không
+				if (e.ColumnIndex == k_datagrview_hang_hoa.Columns["btnDelete"].Index)
 				{
-					textBox.Text = "";
-					textBox.ForeColor = System.Drawing.Color.Black; 
+					// Hiển thị MessageBox để xác nhận xóa
+					DialogResult dialogResult = MessageBox.Show(
+						"Bạn có chắc chắn muốn xóa thông tin hàng hóa này không?",
+						"Xác nhận xóa",
+						MessageBoxButtons.YesNo,
+						MessageBoxIcon.Question
+					);
+
+					if (dialogResult == DialogResult.Yes)
+					{
+						bool result = hanghoa_bus.DeleteHangHoa(row.Cells["Mã hàng hóa"].Value.ToString());
+						if (result)
+						{
+							HangHoaGui_Load(); 
+							MessageBox.Show("Xóa thông tin hàng hóa thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+						}
+						else
+						{
+							MessageBox.Show("Xóa thông tin hàng hóa không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
+					}
+				}
+
+				// Kiểm tra cột được nhấn có phải là btnEdit không
+				if (e.ColumnIndex == k_datagrview_hang_hoa.Columns["btnEdit"].Index)
+				{
+
+					txb_Mahh.Text = row.Cells[2].Value?.ToString();
+					txb_Malh.Text = row.Cells[3].Value?.ToString();
+					txb_Ten_hang.Text = row.Cells[4].Value?.ToString();
+					txb_xuat_xu.Text = row.Cells[6].Value?.ToString();
+					string dvt = row.Cells["Đơn vị"]?.Value?.ToString();
+
+					if (!string.IsNullOrEmpty(dvt))
+					{
+						if (!cbx_don_vi_tinh.Items.Contains(dvt))
+						{
+							cbx_don_vi_tinh.Items.Add(dvt); 
+						}
+						cbx_don_vi_tinh.SelectedItem = dvt;
+					}
+					else
+					{
+						MessageBox.Show("Giá trị đơn vị không hợp lệ!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					}
+
+
+					txb_Mahh.Enabled = false;
+					if (!ispanelopen && !isedit)
+					{
+						createTransition.Start();
+						ispanelopen = true;
+						kbtn_sua.Visible = true;
+						kbtn_Them_sua.Visible = false;
+						kbtn_sua.Location = new Point(889, 158);
+						kbtn_Cancle.Location = new Point(766, 158);
+					}
+					else if (isedit && ispanelopen)
+					{
+						isedit = false;
+						kbtn_Them_sua.Visible = true;
+					}
 				}
 			}
 		}
 
-		private void TextBox_Leave(object sender, EventArgs e)
+		// nút sự kiện sửa hàng hóa
+		private void kbtn_sua_Click(object sender, EventArgs e)
 		{
-			KryptonTextBox textBox = sender as KryptonTextBox;
-			if (textBox != null)
-			{
-				if (string.IsNullOrWhiteSpace(textBox.Text))
-				{
-					SetPlaceholder(textBox, GetPlaceholder(textBox));
-					textBox.ForeColor = System.Drawing.Color.Gray; 
-				}
-			}
-		}
+			string mahh = txb_Mahh.Text;
+			string malh = txb_Malh.Text;
+			string tenHang = txb_Ten_hang.Text;
+			string dvt = cbx_don_vi_tinh.SelectedItem?.ToString();
+			string xuatXu = txb_xuat_xu.Text;
 
-		private void SetPlaceholder(KryptonTextBox textBox, string placeholder)
-		{
-			textBox.Text = placeholder;
-			textBox.ForeColor = System.Drawing.Color.Gray; 
-		}
-		private string GetPlaceholder(KryptonTextBox textBox)
-		{
-			switch (textBox.Name)
-			{
-				case "txb_Mahh":
-					return "Nhập mã hàng hóa";
-				case "txb_Ten_hang":
-					return "Nhập tên hàng";
-				case "txb_Malh":
-					return "Nhập mã loại hàng";
-				case "txb_xuat_xu":
-					return "Nhập xuất xứ";
-				default:
-					return string.Empty;
-			}
-		}
-
-		private void kybtn_pn_themsua_Click(object sender, EventArgs e)
-		{
-			pn_nhap.Visible = !pn_nhap.Visible;
-
-			if (pn_nhap.Visible)
-			{
-				pn_data.Size = new Size(1069, 408);
-				k_datagrview_hang_hoa.RowTemplate.Height = 29;
+			bool result = hanghoa_bus.UpdateHanhHoa(mahh, malh, tenHang, dvt, xuatXu);
+			if (result)
+			{	
+					HangHoaGui_Load();
+					MessageBox.Show("Sửa thông tin hàng hóa thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				    txb_Mahh.Clear();
+				    txb_Malh.Clear();
+				    txb_Ten_hang.Clear();
+				    txb_xuat_xu.Clear();
+				    cbx_don_vi_tinh.SelectedIndex = -1;
+				    ResetForeText();
 
 			}
 			else
 			{
-				pn_data.Size = new Size(1069, 620);
-				k_datagrview_hang_hoa.RowTemplate.Height = 44;
-			}
-			foreach (DataGridViewRow row in k_datagrview_hang_hoa.Rows)
-			{
-				row.Height = k_datagrview_hang_hoa.RowTemplate.Height; 
+				MessageBox.Show("Sửa thông tin hàng hóa không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
+		// phương thức tìm kiếm hàng hóa
+		private void txb_tim_kiem_HH_TextChanged_1(object sender, EventArgs e)
+		{
+			string keyword = txb_tim_kiem_HH.Text.Trim();
+			DataTable result = hanghoa_bus.SearchHangHoa(keyword);
+
+			if (string.IsNullOrEmpty(keyword))
+			{
+				HangHoaGui_Load();
+				return;
+			}
+
+			if (keyword == "Tìm kiếm")
+			{
+				return; 
+			}
+			else if (result != null && result.Rows.Count > 0)
+			{
+				k_datagrview_hang_hoa.DataSource = result;
+
+				// Kiểm tra sự tồn tại của các cột trước khi thao tác
+				if (k_datagrview_hang_hoa.Columns.Contains("btnDelete"))
+				{
+					k_datagrview_hang_hoa.Columns["btnDelete"].Visible = true;
+					k_datagrview_hang_hoa.Columns["btnDelete"].DisplayIndex = k_datagrview_hang_hoa.Columns.Count - 1;
+				}
+
+				if (k_datagrview_hang_hoa.Columns.Contains("btnEdit"))
+				{
+					k_datagrview_hang_hoa.Columns["btnEdit"].Visible = true;
+					k_datagrview_hang_hoa.Columns["btnEdit"].DisplayIndex = k_datagrview_hang_hoa.Columns.Count - 2;
+				}
+			}
+			else
+			{
+				k_datagrview_hang_hoa.DataSource = null;
+				if (k_datagrview_hang_hoa.Columns.Contains("btnDelete"))
+				{
+					k_datagrview_hang_hoa.Columns["btnDelete"].Visible = false;
+				}
+				if (k_datagrview_hang_hoa.Columns.Contains("btnEdit"))
+				{
+					k_datagrview_hang_hoa.Columns["btnEdit"].Visible = false;
+				}
+			}
+		}
+
+		// sự kiện show lỗi
+		private void ShowError(string message)
+		{
+			MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		// nút quay lại
+		private void kbtn_Cancle_Click(object sender, EventArgs e)
+		{
+			if (ispanelopen = true)
+			{
+				createTransition.Start();
+				ispanelopen = false;
+				isedit = false;
+			}
+			txb_Mahh.Clear();
+			txb_Malh.Clear();
+			txb_Ten_hang.Clear();
+			txb_xuat_xu.Clear();
+			cbx_don_vi_tinh.SelectedIndex = -1;
+			ResetForeText();
+		}
 	}
 }
+
+

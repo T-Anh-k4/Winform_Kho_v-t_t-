@@ -1,57 +1,51 @@
 ﻿using FontAwesome.Sharp;
-using GUI;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using GUI;
 
 namespace wfHome
 {
     public partial class Form1 : KryptonForm
 	{
         private IconButton currentBtn;
-        private Panel leftboderbtn;
         private bool isDanhMucVisible = false; 
         private bool isBaoCaoVisible = false;
-		private ElipseControl elipseControl;
-
-
+		private bool danhMucExplore = true;
+		private bool BaoCaoExplore = true;
 		public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            leftboderbtn = new Panel();
-            leftboderbtn.Size = new Size(5, 57);
-            leftboderbtn.Location = new Point(0, icbt_trangchu.Location.Y);
-            leftboderbtn.BackColor = Color.Red;
-            leftboderbtn.Visible = true;
-            panel_menu.Controls.Add(leftboderbtn);
             Button_Event();
             graphics();
-
+            init();
 		}
+        public void init()
+        {
+            pn_danh_muc.Visible = false;
+			pn_danh_muc.Height = 0;
+			pn_bao_cao.Visible = false;
+			pn_bao_cao.Height = 0;
+		}
+
         private void graphics()
         {
-			List<Control> buttons = new List<Control>()
-			{
-				icbt_trangchu, icbt_Danhmuc, icbt_huongdan, icbt_baocao,
-				bt_Khach_hang, bt_hang_hoa, bt_Kho, bt_loai_hang,
-				bt_nhap_hang, bt_xuat_hang, bt_Nha_cung_cap,
-				bt_bc_Khach_hang, bt_bc_hang_hoa, bt_bc_Kho,
-				bt_bc_loai_hang, bt_bc_nhap_hang, bt_bc_xuat_hang,
-				bt_bc_Nha_cung_cap
-			};
+            List<Control> buttons = new List<Control>()
+            {
+                icbt_trangchu, icbt_Danhmuc, icbt_huongdan, icbt_baocao,
+            };
 
-			foreach (Control btn in buttons)
-			{
+            foreach (Control btn in buttons)
+            {
 				ElipseControl elipse = new ElipseControl();
-				elipse.TargetControl = btn;
-				elipse.CornerRadius = 30;
-			}
-		}
-
-		private void Button_Event()
+                elipse.TargetControl = btn;
+                elipse.CornerRadius = 30;
+            }
+        }
+        private void Button_Event()
         {
 
 			icbt_trangchu.MouseEnter += new EventHandler(IconButton_MouseEnter);
@@ -105,8 +99,8 @@ namespace wfHome
             }
             else 
             {
-                btn.ForeColor = Color.Black;
-                btn.BackColor = Color.LightGray;
+                btn.ForeColor = Color.DarkViolet;
+                btn.BackColor = Color.WhiteSmoke;
             }
         }
 
@@ -122,7 +116,7 @@ namespace wfHome
             else
             {
                 btn.ForeColor = Color.Gray;
-                btn.BackColor = Color.White;
+                btn.BackColor = Color.WhiteSmoke;
             }
         }
 
@@ -133,17 +127,12 @@ namespace wfHome
                 Disablebutton();
 
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.LightBlue;
-                currentBtn.ForeColor = Color.Black;
+                currentBtn.BackColor = Color.DarkViolet;
+                currentBtn.ForeColor = Color.White;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                currentBtn.IconColor = Color.Black;
+                currentBtn.IconColor = Color.White;
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentBtn.ImageAlign = ContentAlignment.MiddleRight;
-
-                leftboderbtn.BackColor = Color.Red;
-                leftboderbtn.Location = new Point(0, currentBtn.Location.Y);
-                leftboderbtn.Visible = true;
-                leftboderbtn.BringToFront();
 
                 iconcurrenform.IconChar = currentBtn.IconChar;
                
@@ -155,7 +144,7 @@ namespace wfHome
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.White;
+                currentBtn.BackColor = Color.WhiteSmoke;
                 currentBtn.ForeColor = Color.Gray;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Gray;
@@ -169,31 +158,83 @@ namespace wfHome
             ActivateButton(sender, Color.Gray);
         }
 
-        private void icbt_Danhmuc_Click(object sender, EventArgs e)
-        {
-            isDanhMucVisible = !isDanhMucVisible;
-            pn_danh_muc.Visible = isDanhMucVisible;
-            if (isDanhMucVisible)
-            {
-                pn_bao_cao.Visible = false;
-                isBaoCaoVisible = false;
-            }
-        }
+		private void icbt_Danhmuc_Click(object sender, EventArgs e)
+		{
+			isDanhMucVisible = !isDanhMucVisible;
+			pn_danh_muc.Visible = true;  
+			Danh_muc_Transition.Start();  
+			if (isDanhMucVisible)
+			{
+				isBaoCaoVisible = false;
+				pn_bao_cao.Visible = false;
+				Bao_cao_Transition.Stop();
+			}
+		}
 
-        private void icbt_baocao_Click(object sender, EventArgs e)
-        {
-            isBaoCaoVisible = !isBaoCaoVisible;
-            pn_bao_cao.Visible = isBaoCaoVisible;
-            if (isBaoCaoVisible)
-            {
-                pn_danh_muc.Visible = false;
-                isDanhMucVisible = false;
-            }
-        }
+		private void icbt_baocao_Click(object sender, EventArgs e)
+		{
+			isBaoCaoVisible = !isBaoCaoVisible;
+			pn_bao_cao.Visible = true; 
+			Bao_cao_Transition.Start(); 
+			if (isBaoCaoVisible)
+			{
+				isDanhMucVisible = false;
+				pn_danh_muc.Visible = false;
+				Danh_muc_Transition.Stop();
+			}
+		}
 
-        private void icbt_huongdan_Click(object sender, EventArgs e)
+
+		private void icbt_huongdan_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.Gray);
         }
+
+		private void Danh_muc_Transition_Tick(object sender, EventArgs e)
+		{
+			if (danhMucExplore)
+			{
+				pn_danh_muc.Height -= 10; 
+				if (pn_danh_muc.Height <= 0)
+				{
+					pn_danh_muc.Visible = false;  
+					Danh_muc_Transition.Stop();
+					danhMucExplore = false;
+				}
+			}
+			else
+			{
+				pn_danh_muc.Height += 10;  
+				if (pn_danh_muc.Height >= 288)
+				{
+					Danh_muc_Transition.Stop();
+					danhMucExplore = true;
+				}
+			}
+		}
+
+		private void Bao_cao_Transition_Tick(object sender, EventArgs e)
+		{
+			if (BaoCaoExplore)
+			{
+				pn_bao_cao.Height -= 10; 
+				if (pn_bao_cao.Height <= 0)
+				{
+					pn_bao_cao.Visible = false; 
+					Bao_cao_Transition.Stop();
+					BaoCaoExplore = false;
+				}
+			}
+			else
+			{
+				pn_bao_cao.Height += 10;  
+				if (pn_bao_cao.Height >= 288)
+				{
+					Bao_cao_Transition.Stop();
+					BaoCaoExplore = true;
+				}
+			}
+		}
+
 	}
 }

@@ -32,9 +32,29 @@ namespace DAL
 		{
 			try
 			{
-				string query = "delete from HANGHOA " +
-					"WHERE MAHH = N'" + maHH + "'";
-				instance.execNonQuery(query);
+				// Lấy danh sách IDKHO từ bảng KHO tương ứng với MAHH
+				string queryGetIDKho = "SELECT IDKHO FROM KHO WHERE MAHH = N'" + maHH + "'";
+				DataTable dtKho = instance.execQuery(queryGetIDKho);
+
+				// Xóa các bản ghi trong CHITIET_HD_XUAT dựa trên IDKHO
+				foreach (DataRow row in dtKho.Rows)
+				{
+					string idKho = row["IDKHO"].ToString();
+					string queryXuat = "DELETE FROM CHITIET_HD_XUAT WHERE IDKHO = N'" + idKho + "'";
+					instance.execNonQuery(queryXuat);
+				}
+
+				// Xóa các bản ghi trong KHO dựa trên MAHH
+				string queryKho = "DELETE FROM KHO WHERE MAHH = N'" + maHH + "'";
+				instance.execNonQuery(queryKho);
+
+				// Xóa các bản ghi trong CHITIET_HD_NHAP dựa trên MAHH
+				string queryNhap = "DELETE FROM CHITIET_HD_NHAP WHERE MAHH = N'" + maHH + "'";
+				instance.execNonQuery(queryNhap);
+
+				// Cuối cùng, xóa hàng hóa trong HANGHOA
+				string queryHangHoa = "DELETE FROM HANGHOA WHERE MAHH = N'" + maHH + "'";
+				instance.execNonQuery(queryHangHoa);
 			}
 			catch
 			{
@@ -42,6 +62,7 @@ namespace DAL
 			}
 			return true;
 		}
+
 		public bool InsertHangHoa(string mahh, string malh, string tenHang, string dvt, string xuatXu)
 		{
 			try
@@ -76,5 +97,21 @@ namespace DAL
 			}
 			return true;
 		}
+		public DataTable SearchHangHoa(string keyword)
+		{
+			try
+			{
+				string query = "SELECT MAHH as [Mã hàng hóa], MALOAI as [Mã loại], TENHH as [Tên hàng hóa], DONVI_TINH as [Đơn vị], XUATXU as [Xuất xứ] " +
+							   "FROM HANGHOA " +
+							   "WHERE TENHH LIKE N'%" + keyword + "%' OR MAHH LIKE N'%" + keyword + "%'";
+
+				return instance.execQuery(query);
+			}
+			catch
+			{
+				return null;
+			}
+		}
+
 	}
 }

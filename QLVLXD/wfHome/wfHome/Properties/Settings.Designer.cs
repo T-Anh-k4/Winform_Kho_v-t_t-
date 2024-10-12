@@ -33,5 +33,16 @@ namespace wfHome.Properties {
                 return ((string)(this["QLVATLIEUXD_1ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-T4N0A0R\\SQLEXPRESS;Initial Catalog=QLVATLIEUXD_1;Integrated S" +
+            "ecurity=True;Encrypt=True;TrustServerCertificate=True")]
+        public string QLVATLIEUXD_1ConnectionString1 {
+            get {
+                return ((string)(this["QLVATLIEUXD_1ConnectionString1"]));
+            }
+        }
     }
 }

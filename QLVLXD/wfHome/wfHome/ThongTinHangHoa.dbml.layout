@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ThongTinHangHoa">
+  <DataContextMoniker Name="/ThongTinHangHoaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8f8ffaef-0895-4558-89c7-cc46b29b3d0f" absoluteBounds="3.75, 2.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ThongTinHangHoaDataContext/HANGHOA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86e5d241-acff-48df-80b4-8a09b5b0d04d" absoluteBounds="3.765, 2.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
