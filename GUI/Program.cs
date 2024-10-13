@@ -16,7 +16,9 @@ namespace GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new NHANVIEN_GUI());
+			//Application.Run(new NHANVIEN_GUI());
+			Application.Run(new USER_GUI());
+
 		}
 	}
 }

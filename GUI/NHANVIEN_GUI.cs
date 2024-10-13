@@ -54,48 +54,16 @@ namespace GUI
 		}
 		public void loadCb_Gioitinh()
 		{
-			DataTable dt = nhanVienBUS.GetGioiTinh();
 
-			if (dt != null && dt.Rows.Count > 0)
-			{
-				// Loại bỏ các hàng trùng lặp trong DataTable
-				DataView view = new DataView(dt);
-				DataTable distinctValues = view.ToTable(true, "GIOITINH");
+			DataTable dtDefault = new DataTable();
+			dtDefault.Columns.Add("GIOITINH");
+			dtDefault.Rows.Add("Nam");
+			dtDefault.Rows.Add("Nữ");
 
-				// Kiểm tra nếu chỉ có một giới tính, thêm giới tính còn lại
-				if (distinctValues.Rows.Count == 1)
-				{
-					string currentGender = distinctValues.Rows[0]["GIOITINH"].ToString();
-					if (currentGender == "Nam")
-					{
-						DataRow row = distinctValues.NewRow();
-						row["GIOITINH"] = "Nữ";
-						distinctValues.Rows.Add(row);
-					}
-					else if (currentGender == "Nữ")
-					{
-						DataRow row = distinctValues.NewRow();
-						row["GIOITINH"] = "Nam";
-						distinctValues.Rows.Add(row);
-					}
-				}
-
-				kryCb_Gender.DisplayMember = "GIOITINH";
-				kryCb_Gender.ValueMember = "GIOITINH";
-				kryCb_Gender.DataSource = distinctValues;
-			}
-			else
-			{
-				// Nếu không có dữ liệu từ cơ sở dữ liệu, thêm mặc định "Nam" và "Nữ"
-				DataTable dtDefault = new DataTable();
-				dtDefault.Columns.Add("GIOITINH");
-				dtDefault.Rows.Add("Nam");
-				dtDefault.Rows.Add("Nữ");
-
-				kryCb_Gender.DisplayMember = "GIOITINH";
-				kryCb_Gender.ValueMember = "GIOITINH";
-				kryCb_Gender.DataSource = dtDefault;
-			}
+			kryCb_Gender.DisplayMember = "GIOITINH";
+			kryCb_Gender.ValueMember = "GIOITINH";
+			kryCb_Gender.DataSource = dtDefault;
+			
 		}
 
 		public void clear()
@@ -279,11 +247,18 @@ namespace GUI
 			{
 				kryBt_Edit.Visible = false;
 			}
+			if(panel2_nv.Height >= 170)
+			{
+				createTransition.Stop();
+
+			}
 		}
 
 		private void kry_Clear_Click(object sender, EventArgs e)
 		{
 			clear();
+			createTransition.Start();
+
 		}
 	}
 }

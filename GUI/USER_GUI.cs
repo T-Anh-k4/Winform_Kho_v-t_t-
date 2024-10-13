@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using BUS;
+using DTO;
+using System.Management.Instrumentation;
 namespace GUI
 {
 	public partial class USER_GUI : KryptonForm
@@ -20,6 +22,7 @@ namespace GUI
 			InitializeComponent();
 			panel2_nv.Height = 0;
 			loadDataUser();
+			loadCb_LoaiUser();
 			DelButtonColumn();
 			AddButtonColumn_Edit();
 		}
@@ -29,6 +32,17 @@ namespace GUI
 			DataTable dt = new DataTable();
 			dt = userBUS.GetDataUserName();
 			dataViewUser.DataSource = dt;
+		}
+		public void loadCb_LoaiUser()
+		{
+			DataTable dtDefault = new DataTable();
+			dtDefault.Columns.Add("LOAI");
+			dtDefault.Rows.Add("Admin");
+			dtDefault.Rows.Add("Người dùng");
+
+			kryCb_Loai.DisplayMember = "LOAI";
+			kryCb_Loai.ValueMember = "LOAI";
+			kryCb_Loai.DataSource = dtDefault;
 		}
 		private void DelButtonColumn()
 		{
@@ -57,11 +71,22 @@ namespace GUI
 			// Căn giữa header của cột hình ảnh
 			dataViewUser.Columns["imgEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 		}
+		public bool IsPressAdd()
+		{
+			kryBt_Add.Visible = true;
+			return kryBt_Add.Visible;
+		}
+		public bool IsPressEdit()
+		{
+			kryBt_Edit.Visible = true;
+			return kryBt_Edit.Visible;
+		}
+
 		private void createTransition_Tick(object sender, EventArgs e)
 		{
 			if (createExplore)
 			{
-				panel2_nv.Height -= 5;
+				panel2_nv.Height -= 10;
 				if (panel2_nv.Height <= 0)
 				{
 					createTransition_User.Stop();
@@ -70,7 +95,7 @@ namespace GUI
 			}
 			else
 			{
-				panel2_nv.Height += 5;
+				panel2_nv.Height += 10;
 				if (panel2_nv.Height >= 170)
 				{
 					createTransition_User.Stop();
@@ -87,11 +112,170 @@ namespace GUI
 			{
 				kryBt_Edit.Visible = false;
 			}
+			if (panel2_nv.Height >= 170)
+			{
+				createTransition_User.Stop();
+
+			}
 		}
 
 		private void dataViewUser_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
+			DataGridViewRow row = dataViewUser.Rows[e.RowIndex];
+				if (e.ColumnIndex == dataViewUser.Columns["imgEdit"].Index)
+				{
+					kryTb_Name.Text = row.Cells[2].Value.ToString();
+					kryTb_Pass.Text = row.Cells[3].Value.ToString();
+					kryCb_Loai.Text = row.Cells[4].Value.ToString();
+					if (Convert.ToInt32(row.Cells[5].Value) == 1)
+					{
+						kryStatus.Checked = true;  // Đánh dấu checkbox
+					}
+					else
+					{
+						kryStatus.Checked = false; // Bỏ đánh dấu checkbox
+					}
+					IsPressEdit();
+					createTransition_User.Start();
+					if (panel2_nv.Height >= 170)
+					{
+						createTransition_User.Stop();
+					}
+					if (kryBt_Add.Visible)
+					{
+						kryBt_Add.Visible = false;
+					}
+				}
+				if (e.ColumnIndex == dataViewUser.Columns["imgDelete"].Index)
+				{
+					bool result = userBUS.DeleteUser(row.Cells[2].Value.ToString());
+					//MessageBox.Show(Convert.ToString(row.Cells[2].Value.ToString()));
+					if (result)
+					{
+						loadDataUser();
+						MessageBox.Show("Xóa thông tin nguoi dung thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+					}
+					else
+					{
+						MessageBox.Show("Xóa thông tin nguoi dung không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+					}
+				}
+			
+		}
+
+		private void kryBt_Add_Click(object sender, EventArgs e)
+		{
+			// Kiểm tra các trường bắt buộc
+			if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
+			{
+				MessageBox.Show("Vui lòng nhập tên người dung.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (string.IsNullOrWhiteSpace(kryTb_Pass.Text))
+			{
+				MessageBox.Show("Vui lòng nhập mật khẩu.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (string.IsNullOrWhiteSpace(kryTb_Pass1.Text))
+			{
+				MessageBox.Show("Vui lòng nhập lại mật khẩu.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (kryCb_Loai.SelectedIndex == -1)
+			{
+				MessageBox.Show("Vui lòng chọn loại người dùng.", "Thếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
+			bool result = userBUS.InsertUser(kryTb_Name.Text, kryTb_Pass.Text, kryCb_Loai.SelectedValue.ToString(), kryStatus.Checked ? 1 : 0);
+
+			if (result)
+			{
+				loadDataUser(); // Gọi lại để tải lại danh sách
+
+				MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else
+			{
+				MessageBox.Show("Thêm nhân viên không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		private void kryBt_Edit_Click(object sender, EventArgs e)
+		{
+			bool result = userBUS.UplateUser(kryTb_Name.Text, kryTb_Pass.Text, kryCb_Loai.SelectedValue.ToString(), kryStatus.Checked ? 1 : 0);
+
+			if (result)
+			{
+				MessageBox.Show("Sửa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				loadDataUser(); // Gọi lại để tải lại danh sách
+			}
+			else
+			{
+				MessageBox.Show("Sửa nhân viên không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		private void kry_Clear_Click(object sender, EventArgs e)
+		{
+			clear();
+			createTransition_User.Start();
+
+		}
+		public void clear()
+		{
+			kryTb_Name.Text = "";
+			kryTb_Pass.Text = "";
+			kryTb_Pass1.Text = "";
+			kryCb_Loai.Text = "";
+			kryStatus.Text = "";
+
+		}
+
+		private void kryTbSearch_TextChanged(object sender, EventArgs e)
+		{
+
+			string keyword = kryTbSearch.Text.Trim();
+			DataTable result = userBUS.SearchUser(keyword);
+			if (string.IsNullOrEmpty(keyword))
+			{
+				loadDataUser();
+				return;
+			}
+
+			if (keyword == "Tìm kiếm")
+			{
+				return;
+			}
+			else if (result != null && result.Rows.Count > 0)
+			{
+				dataViewUser.DataSource = result;
+
+				// Kiểm tra sự tồn tại của các cột trước khi thao tác
+				if (dataViewUser.Columns.Contains("btnDelete"))
+				{
+					dataViewUser.Columns["btnDelete"].Visible = true;
+					dataViewUser.Columns["btnDelete"].DisplayIndex = dataViewUser.Columns.Count+1;
+				}
+
+				if (dataViewUser.Columns.Contains("btnEdit"))
+				{
+					dataViewUser.Columns["btnEdit"].Visible = true;
+					dataViewUser.Columns["btnEdit"].DisplayIndex = dataViewUser.Columns.Count+2;
+				}
+			}
+			else
+			{
+				dataViewUser.DataSource = null;
+				if (dataViewUser.Columns.Contains("btnDelete"))
+				{
+					dataViewUser.Columns["btnDelete"].Visible = false;
+				}
+				if (dataViewUser.Columns.Contains("btnEdit"))
+				{
+					dataViewUser.Columns["btnEdit"].Visible = false;
+				}
+			}
+			
 		}
 	}
 }

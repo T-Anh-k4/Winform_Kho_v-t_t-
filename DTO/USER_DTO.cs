@@ -13,10 +13,9 @@ namespace DTO
 	{
 		private string _PassWord;
 		private string _UserName;
-		private string _Active;
-		private int _Loai;
-
-		public USER_DTO(string userName, string passWord, string active, int  loai)
+		private string _Loai;
+		private int _Active;
+		public USER_DTO(string userName, string passWord, string loai, int active)
 		{
 			UserName = userName;
 			PassWord = passWord;
@@ -27,13 +26,13 @@ namespace DTO
 		{
 			UserName = row["USERNAME"].ToString();
 			PassWord = row["PASSWORD"].ToString();
-			Active = row["ACTIVE"].ToString();
-			Loai = (int)row["LOAI"];
+			Loai = row["LOAI"].ToString();
+			Active = (int)row["ACTIVE"];
 
 		}
 		public string PassWord { get => _PassWord; set => _PassWord = value; }
 		public string UserName { get => _UserName; set => _UserName = value; }
-		public string Active { get => _Active; set => _Active = value; }
-		public int Loai { get => _Loai; set => _Loai = value; }
+		public int Active { get => _Active; set => _Active = value; }
+		public string Loai { get => _Loai; set => _Loai = value; }
 	}
 }
