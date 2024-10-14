@@ -10,6 +10,7 @@ namespace DAL
 	public class NHANVIEN_DAL
 	{
 		DataProvider instance = new DataProvider();
+
 		//NHANVIEN_DTO nhanVienDTO = new NHANVIEN_DTO();
 		public NHANVIEN_DAL()
 		{
