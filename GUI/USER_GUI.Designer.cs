@@ -54,6 +54,8 @@
 			this.panel2_nv = new System.Windows.Forms.Panel();
 			this.kryTb_Pass1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.label3 = new System.Windows.Forms.Label();
+			this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryCb_Loai)).BeginInit();
 			this.artanPanel1.SuspendLayout();
@@ -327,14 +329,14 @@
 			this.kryTb_Name.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
 			this.kryTb_Name.StateCommon.Border.Rounding = 20;
 			this.kryTb_Name.StateCommon.Border.Width = 1;
-			this.kryTb_Name.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+			this.kryTb_Name.StateCommon.Content.Color1 = System.Drawing.Color.Red;
 			this.kryTb_Name.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
 			this.kryTb_Name.TabIndex = 21;
 			// 
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(407, 69);
+			this.label7.Location = new System.Drawing.Point(643, 78);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(67, 16);
 			this.label7.TabIndex = 16;
@@ -370,7 +372,7 @@
 			// 
 			// kryStatus
 			// 
-			this.kryStatus.Location = new System.Drawing.Point(425, 105);
+			this.kryStatus.Location = new System.Drawing.Point(661, 114);
 			this.kryStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.kryStatus.Name = "kryStatus";
 			this.kryStatus.Size = new System.Drawing.Size(19, 13);
@@ -380,7 +382,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(172, 69);
+			this.label5.Location = new System.Drawing.Point(173, 78);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(102, 16);
 			this.label5.TabIndex = 13;
@@ -408,18 +410,18 @@
 			// 
 			this.kryCb_Loai.DropDownWidth = 184;
 			this.kryCb_Loai.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-			this.kryCb_Loai.Location = new System.Drawing.Point(175, 92);
+			this.kryCb_Loai.Location = new System.Drawing.Point(176, 101);
 			this.kryCb_Loai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.kryCb_Loai.Name = "kryCb_Loai";
 			this.kryCb_Loai.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-			this.kryCb_Loai.Size = new System.Drawing.Size(200, 37);
+			this.kryCb_Loai.Size = new System.Drawing.Size(200, 35);
 			this.kryCb_Loai.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
 			this.kryCb_Loai.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
 			this.kryCb_Loai.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.kryCb_Loai.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.kryCb_Loai.StateCommon.ComboBox.Border.Rounding = 20;
+			this.kryCb_Loai.StateCommon.ComboBox.Border.Rounding = 17;
 			this.kryCb_Loai.StateCommon.ComboBox.Border.Width = 1;
 			this.kryCb_Loai.TabIndex = 1;
 			// 
@@ -517,6 +519,8 @@
 			// 
 			// panel2_nv
 			// 
+			this.panel2_nv.Controls.Add(this.kryptonTextBox1);
+			this.panel2_nv.Controls.Add(this.label4);
 			this.panel2_nv.Controls.Add(this.kry_Clear);
 			this.panel2_nv.Controls.Add(this.kryBt_Edit);
 			this.panel2_nv.Controls.Add(this.kryBt_Add);
@@ -564,6 +568,34 @@
 			this.label3.Size = new System.Drawing.Size(114, 16);
 			this.label3.TabIndex = 10;
 			this.label3.Text = "Nhập lại mật khẩu";
+			// 
+			// kryptonTextBox1
+			// 
+			this.kryptonTextBox1.Location = new System.Drawing.Point(409, 101);
+			this.kryptonTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.kryptonTextBox1.Name = "kryptonTextBox1";
+			this.kryptonTextBox1.Size = new System.Drawing.Size(200, 34);
+			this.kryptonTextBox1.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.kryptonTextBox1.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+			this.kryptonTextBox1.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
+			this.kryptonTextBox1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.kryptonTextBox1.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.kryptonTextBox1.StateCommon.Border.Rounding = 20;
+			this.kryptonTextBox1.StateCommon.Border.Width = 1;
+			this.kryptonTextBox1.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+			this.kryptonTextBox1.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.kryptonTextBox1.TabIndex = 32;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(407, 78);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(86, 16);
+			this.label4.TabIndex = 31;
+			this.label4.Text = "Mã nhân viên";
 			// 
 			// USER_GUI
 			// 
@@ -613,5 +645,7 @@
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryTb_Pass1;
 		private System.Windows.Forms.Label label3;
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryTbSearch;
+		private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+		private System.Windows.Forms.Label label4;
 	}
 }

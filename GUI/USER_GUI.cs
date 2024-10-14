@@ -126,8 +126,8 @@ namespace GUI
 				{
 					kryTb_Name.Text = row.Cells[2].Value.ToString();
 					kryTb_Pass.Text = row.Cells[3].Value.ToString();
-					kryCb_Loai.Text = row.Cells[4].Value.ToString();
-					if (Convert.ToInt32(row.Cells[5].Value) == 1)
+					kryCb_Loai.Text = row.Cells[5].Value.ToString();
+					if (Convert.ToInt32(row.Cells[6].Value) == 1)
 					{
 						kryStatus.Checked = true;  // Đánh dấu checkbox
 					}
@@ -148,17 +148,21 @@ namespace GUI
 				}
 				if (e.ColumnIndex == dataViewUser.Columns["imgDelete"].Index)
 				{
-					bool result = userBUS.DeleteUser(row.Cells[2].Value.ToString());
-					//MessageBox.Show(Convert.ToString(row.Cells[2].Value.ToString()));
-					if (result)
+					DialogResult check = MessageBox.Show("Bạn có muốn xóa tài khoản này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+					if (check == DialogResult.Yes)
 					{
-						loadDataUser();
-						MessageBox.Show("Xóa thông tin nguoi dung thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-					}
-					else
-					{
-						MessageBox.Show("Xóa thông tin nguoi dung không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						bool result = userBUS.DeleteUser(row.Cells[2].Value.ToString());
+						//MessageBox.Show(Convert.ToString(row.Cells[2].Value.ToString()));
+						if (result)
+						{
+							loadDataUser();
+							MessageBox.Show("Xóa thông tin nguoi dung thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+						}
+						else
+						{
+							MessageBox.Show("Xóa thông tin nguoi dung không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+						}
 					}
 				}
 			
@@ -177,10 +181,15 @@ namespace GUI
 				MessageBox.Show("Vui lòng nhập mật khẩu.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			if (string.IsNullOrWhiteSpace(kryTb_Pass1.Text))
+			if (string.IsNullOrWhiteSpace(kryTb_Pass1.Text) )
 			{
 				MessageBox.Show("Vui lòng nhập lại mật khẩu.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
+			}
+			if(kryTb_Pass1.Text != kryTb_Pass1.Text)
+			{
+				MessageBox.Show("Nhập sai mật khẩu . Vui lòng nhập lại.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
 			}
 			if (kryCb_Loai.SelectedIndex == -1)
 			{
@@ -203,6 +212,8 @@ namespace GUI
 		}
 		private void kryBt_Edit_Click(object sender, EventArgs e)
 		{
+			kryTb_Name.ReadOnly = true;
+
 			bool result = userBUS.UplateUser(kryTb_Name.Text, kryTb_Pass.Text, kryCb_Loai.SelectedValue.ToString(), kryStatus.Checked ? 1 : 0);
 
 			if (result)

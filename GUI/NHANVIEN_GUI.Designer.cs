@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.panel0_nv = new ArtanComponent.ArtanPanel();
 			this.artanPanel2 = new ArtanComponent.ArtanPanel();
 			this.dataViewNv = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
@@ -58,6 +58,7 @@
 			this.createTransition = new System.Windows.Forms.Timer(this.components);
 			this.artanPanel1 = new ArtanComponent.ArtanPanel();
 			this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+			this.kryTbSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.panel0_nv.SuspendLayout();
 			this.artanPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataViewNv)).BeginInit();
@@ -94,7 +95,7 @@
 			this.artanPanel2.GradientAngle = 90F;
 			this.artanPanel2.GradientBottomColor = System.Drawing.Color.White;
 			this.artanPanel2.GradientTopColor = System.Drawing.Color.White;
-			this.artanPanel2.Location = new System.Drawing.Point(0, 257);
+			this.artanPanel2.Location = new System.Drawing.Point(0, 277);
 			this.artanPanel2.Margin = new System.Windows.Forms.Padding(4);
 			this.artanPanel2.Name = "artanPanel2";
 			this.artanPanel2.Size = new System.Drawing.Size(1025, 246);
@@ -105,9 +106,9 @@
 			this.dataViewNv.AllowUserToAddRows = false;
 			this.dataViewNv.AllowUserToResizeColumns = false;
 			this.dataViewNv.AllowUserToResizeRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-			this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+			this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
 			this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -166,7 +167,7 @@
 			this.panel2_nv.Controls.Add(this.kry_Datetime);
 			this.panel2_nv.Controls.Add(this.kryCb_Gender);
 			this.panel2_nv.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel2_nv.Location = new System.Drawing.Point(0, 58);
+			this.panel2_nv.Location = new System.Drawing.Point(0, 78);
 			this.panel2_nv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel2_nv.Name = "panel2_nv";
 			this.panel2_nv.Size = new System.Drawing.Size(1025, 199);
@@ -421,6 +422,7 @@
 			this.kryTx_Id.Location = new System.Drawing.Point(29, 37);
 			this.kryTx_Id.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.kryTx_Id.Name = "kryTx_Id";
+			this.kryTx_Id.ReadOnly = true;
 			this.kryTx_Id.Size = new System.Drawing.Size(200, 34);
 			this.kryTx_Id.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.kryTx_Id.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
@@ -431,7 +433,7 @@
 			this.kryTx_Id.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
 			this.kryTx_Id.StateCommon.Border.Rounding = 20;
 			this.kryTx_Id.StateCommon.Border.Width = 1;
-			this.kryTx_Id.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+			this.kryTx_Id.StateCommon.Content.Color1 = System.Drawing.Color.Red;
 			this.kryTx_Id.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
 			this.kryTx_Id.TabIndex = 21;
 			// 
@@ -552,12 +554,13 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.kryTbSearch);
 			this.panel1.Controls.Add(this.kryBtShowCreate);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1025, 58);
+			this.panel1.Size = new System.Drawing.Size(1025, 78);
 			this.panel1.TabIndex = 3;
 			// 
 			// kryBtShowCreate
@@ -637,6 +640,22 @@
 			this.artanPanel1.Size = new System.Drawing.Size(1087, 622);
 			this.artanPanel1.TabIndex = 2;
 			// 
+			// kryTbSearch
+			// 
+			this.kryTbSearch.Location = new System.Drawing.Point(296, 21);
+			this.kryTbSearch.Name = "kryTbSearch";
+			this.kryTbSearch.Size = new System.Drawing.Size(433, 37);
+			this.kryTbSearch.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+			this.kryTbSearch.StateCommon.Border.Color2 = System.Drawing.Color.White;
+			this.kryTbSearch.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.kryTbSearch.StateCommon.Border.Rounding = 15;
+			this.kryTbSearch.StateCommon.Content.Color1 = System.Drawing.Color.LightGray;
+			this.kryTbSearch.TabIndex = 29;
+			this.kryTbSearch.Enter += new System.EventHandler(this.kryTbSearch_Enter);
+			this.kryTbSearch.Leave += new System.EventHandler(this.kryTbSearch_Leave);
+			// 
 			// NHANVIEN_GUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -654,6 +673,7 @@
 			this.panel2_nv.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryCb_Gender)).EndInit();
 			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.artanPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -689,5 +709,6 @@
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kry_Clear;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kryBt_Edit;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kryBt_Add;
+		private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryTbSearch;
 	}
 }

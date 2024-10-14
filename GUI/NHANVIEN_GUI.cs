@@ -33,6 +33,10 @@ namespace GUI
 			loadCb_Gioitinh();
 			DelButtonColumn();
 			AddButtonColumn_Edit();
+			kryTbSearch.Enter += kryTbSearch_Enter;
+			kryTbSearch.Leave += kryTbSearch_Leave;
+			SetPlaceholder(kryTbSearch, "Tìm kiếm");
+
 
 		}
 		public bool IsPressAdd()
@@ -45,6 +49,7 @@ namespace GUI
 			kryBt_Edit.Visible = true;
 			return kryBt_Edit.Visible;
 		}
+//load data và combobox
 		public void loadDt_NhanVien()
 		{
 			DataTable dt = new DataTable();
@@ -65,7 +70,7 @@ namespace GUI
 			kryCb_Gender.DataSource = dtDefault;
 			
 		}
-
+//Xóa các ô khi thoát chỉnh sửa
 		public void clear()
 		{
 			kryTx_Id.Text = "";
@@ -76,7 +81,7 @@ namespace GUI
 			kryTb_Pos.Text = "";
 		}
 
-		// Thêm cột chứa nút vào DataGridView
+// Thêm cột chứa nút vào DataGridView
 		private void DelButtonColumn()
 		{
 			// Tạo một cột hình ảnh mới
@@ -104,12 +109,14 @@ namespace GUI
 			// Căn giữa header của cột hình ảnh
 			dataViewNv.Columns["imgEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 		}
+//end
 
+//Chỉnh phần trượt giao diện tạo
 		private void createTransition_Tick(object sender, EventArgs e)
 		{
 			if (createExplore)
 			{
-				panel2_nv.Height -= 5;
+				panel2_nv.Height -= 10;
 				if (panel2_nv.Height <= 0)
 				{
 					createTransition.Stop();
@@ -118,7 +125,7 @@ namespace GUI
 			}
 			else
 			{
-				panel2_nv.Height += 5;
+				panel2_nv.Height += 10;
 				if (panel2_nv.Height >= 170)
 				{
 					createTransition.Stop();
@@ -127,7 +134,7 @@ namespace GUI
 			}
 
 		}
-
+//Sự kiên database
 		private void dataViewNv_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			DataGridViewRow row = dataViewNv.Rows[e.RowIndex];
@@ -165,22 +172,24 @@ namespace GUI
 			}
 			if (e.ColumnIndex == dataViewNv.Columns["imgDelete"].Index)
 			{
-				bool result = nhanVienBUS.DeleteNhanVien(row.Cells[2].Value.ToString());
-				if (result)
+				DialogResult check = MessageBox.Show("Bạn có muốn xóa nhân viên nay không ?" + "Tài khoản đăng nhập của nhân viên này sẽ bị xóa ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+				if (check == DialogResult.Yes)
 				{
-					loadDt_NhanVien();
-					MessageBox.Show("Xóa thông tin nhân viên thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-				}
-				else
-				{
-					MessageBox.Show("Xóa thông tin nhân viên không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					bool result = nhanVienBUS.DeleteNhanVien(row.Cells[2].Value.ToString());
+					if (result)
+					{
+						loadDt_NhanVien();
+						MessageBox.Show("Xóa thông tin nhân viên thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+					}
+					else
+					{
+						MessageBox.Show("Xóa thông tin nhân viên không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+					}
 				}
 			}
-
-
 		}
-
+//Sự kiện click
 		private void kryBt_Add_Click(object sender, EventArgs e)
 		{
 			// Kiểm tra các trường bắt buộc
@@ -260,5 +269,54 @@ namespace GUI
 			createTransition.Start();
 
 		}
+//End
+//Làm mất chữ khi di chuột vào ô
+		private void kryTbSearch_Enter(object sender, EventArgs e)
+		{
+			KryptonTextBox textBox = sender as KryptonTextBox;
+			if (textBox != null)
+			{
+				if (textBox.Text == GetPlaceholder(textBox))
+				{
+					textBox.Text = "";
+					textBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+				}
+			}
+		}
+		private string GetPlaceholder(KryptonTextBox textBox)
+		{
+			switch (textBox.Name)
+			{
+				case "kryTbSearch":
+					return "Tìm kiếm...";
+				default:
+					return string.Empty;
+			}
+		}
+
+		private void kryTbSearch_Leave(object sender, EventArgs e)
+		{
+			KryptonTextBox textBox = sender as KryptonTextBox;
+			if (textBox != null)
+			{
+				// Kiểm tra nếu TextBox trống hoặc chứa placeholder
+				if (string.IsNullOrWhiteSpace(textBox.Text) || textBox.Text == GetPlaceholder(textBox))
+				{
+					// Gọi hàm để đặt lại placeholder
+					SetPlaceholder(textBox, GetPlaceholder(textBox));
+				}
+				else
+				{
+					// Đặt màu chữ về màu đen nếu có nội dung
+					textBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+				}
+			}
+		}
+		private void SetPlaceholder(KryptonTextBox textBox, string placeholder)
+		{
+			textBox.Text = placeholder;
+			textBox.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+		}
+//end
 	}
 }

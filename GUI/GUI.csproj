@@ -69,6 +69,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CHITIETNHAP_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CHITIETNHAP_GUI.Designer.cs">
+      <DependentUpon>CHITIETNHAP_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CHITIETXUAT_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CHITIETXUAT_GUI.Designer.cs">
+      <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HANGNHAP_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HANGNHAP_GUI.Designer.cs">
+      <DependentUpon>HANGNHAP_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HANGXUAT_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HANGXUAT_GUI.Designer.cs">
+      <DependentUpon>HANGXUAT_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KHACHHANG_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KHACHHANG_GUI.Designer.cs">
+      <DependentUpon>KHACHHANG_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NHACUNGCAP_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NHACUNGCAP_GUI.Designer.cs">
+      <DependentUpon>NHACUNGCAP_GUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="USER_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +125,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CHITIETXUAT_GUI.resx">
+      <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MENU_GUI.resx">
       <DependentUpon>MENU_GUI.cs</DependentUpon>
     </EmbeddedResource>

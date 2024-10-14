@@ -47,7 +47,7 @@ namespace DAL
 		public object execScalar(string query, params SqlParameter[] parameters)
 		{
 			object data = null;
-			using (SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-T4N0A0R\SQLEXPRESS;Initial Catalog=QLVATLIEUXD_1;Integrated Security=True"))
+			using (SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-T4N0A0R\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True"))
 			{
 				con.Open();
 				SqlCommand cmd = new SqlCommand(query, con);

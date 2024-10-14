@@ -29,3 +29,4 @@ E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\bin\Debug\ArtanComponent.dll
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\bin\Debug\ArtanComponent.pdb
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.MENU_GUI.resources
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.USER_GUI.resources
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.CHITIETXUAT_GUI.resources
