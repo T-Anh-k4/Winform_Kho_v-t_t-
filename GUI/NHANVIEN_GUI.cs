@@ -91,8 +91,8 @@ namespace GUI
 			DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
 			imgColumn.HeaderText = "Xóa";
 			imgColumn.Name = "imgDelete";
-			imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-delete.png"); // Đường dẫn đến hình ảnh
-			imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+			//imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-delete.png"); // Đường dẫn đến hình ảnh
+			//imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
 			imgColumn.Width = 20;
 			// Thêm cột hình ảnh vào DataGridView
 			dataViewNv.Columns.Add(imgColumn);
@@ -105,8 +105,8 @@ namespace GUI
 			DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
 			imgColumn.HeaderText = "Edit";
 			imgColumn.Name = "imgEdit";
-			imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
-			imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+			//imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
+			//imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
 																	  // Thêm cột hình ảnh vào DataGridView
 			dataViewNv.Columns.Add(imgColumn);
 			// Căn giữa header của cột hình ảnh
