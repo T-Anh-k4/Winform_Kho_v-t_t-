@@ -51,3 +51,4 @@ D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\Co
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\ComponentFactory.Krypton.Workspace.pdb
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\DTO.dll
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\bin\Debug\DTO.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\QLVLXD\wfHome\wfHome\obj\Debug\wfHome.LOAIHANG_GUI.resources

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,10 @@ namespace DAL
 			return instance.execQuery(query);
 		}
 
-		public DataTable GetDonViTinh()
+		public DataTable GetLoaihang()
 		{
-			string query = "SELECT DONVI_TINH FROM HANGHOA";
+			string query = "SELECT LOAIHANG.MALOAI " +
+						   "FROM LOAIHANG ";
 			return instance.execQuery(query);
 		}
 		public bool DeleteHangHoa(string maHH)
@@ -63,19 +65,20 @@ namespace DAL
 			return true;
 		}
 
+
 		public bool InsertHangHoa(string mahh, string malh, string tenHang, string dvt, string xuatXu)
 		{
 			try
 			{
-				string query = "INSERT INTO HangHoa(MAHH, MALOAI, TENHH, DONVI_TINH, XUATXU) " +
+				string query = "INSERT INTO HANGHOA(MAHH, MALOAI, TENHH, DONVI_TINH, XUATXU) " +
 							   "VALUES (N'" + mahh + "', N'" + malh + "', N'" + tenHang + "', N'" + dvt + "', N'" + xuatXu + "')";
 				instance.execNonQuery(query);
+				return true; 
 			}
-			catch
+			catch (Exception ex) 
 			{
-				return false;
+				throw new Exception("Có lỗi xảy ra khi thêm hàng hóa: " + ex.Message);
 			}
-			return true;
 		}
 
 		public bool UpdateHanhHoa(string mahh, string malh, string tenHang, string dvt, string xuatXu)

@@ -17,9 +17,9 @@ namespace BUS
 		{
 			return hanghoaDAL.getDanhSachHangHoa();
 		}
-		public DataTable GetDonViTinh()
+		public DataTable GetLoaiHang()
 		{
-			return hanghoaDAL.GetDonViTinh();
+			return hanghoaDAL.GetLoaihang();
 		}
 
 		public bool InsertHangHoa(string mahh, string malh, string tenHang, string dvt, string xuatXu)

@@ -21,9 +21,6 @@ namespace wfHome
 		private Products Products;
 
 		public bool createExplore = true; 
-		private bool ispanelopen = false; // Biến theo dõi trạng thái panel
-		private bool isedit = false; // Biến theo dõi đang ấn nút sửa 
-
 
 		int pageNumber = 1;
 		int numberrecord = 13;
@@ -42,6 +39,7 @@ namespace wfHome
 			AddButtonColumn();
 			AddButtonColumn_Edit();
 		}
+
 		//thiết lập ban đầu của form
 		public void initUser()
 		{
@@ -54,9 +52,6 @@ namespace wfHome
 			txb_Ten_hang.Enter += TextBox_Enter;
 			txb_Ten_hang.Leave += TextBox_Leave;
 
-			txb_Malh.Enter += TextBox_Enter;
-			txb_Malh.Leave += TextBox_Leave;
-
 			txb_xuat_xu.Enter += TextBox_Enter;
 			txb_xuat_xu.Leave += TextBox_Leave;
 
@@ -65,10 +60,19 @@ namespace wfHome
 
 			SetPlaceholder(txb_Mahh, "Nhập mã hàng hóa");
 			SetPlaceholder(txb_Ten_hang, "Nhập tên hàng");
-			SetPlaceholder(txb_Malh, "Nhập mã loại hàng");
 			SetPlaceholder(txb_xuat_xu, "Nhập xuất xứ");
 			SetPlaceholder(txb_tim_kiem_HH, "Tìm kiếm");
 
+		}
+		public bool IsPressAdd()
+		{
+			kbtn_Them_sua.Visible = true;
+			return kbtn_Them_sua.Visible;
+		}
+		public bool IsPressEdit()
+		{
+			kbtn_sua.Visible = true;
+			return kbtn_sua.Visible;
 		}
 
 		// thêm giá trị vào combox
@@ -157,8 +161,6 @@ namespace wfHome
 					return "Nhập mã hàng hóa";
 				case "txb_Ten_hang":
 					return "Nhập tên hàng";
-				case "txb_Malh":
-					return "Nhập mã loại hàng";
 				case "txb_xuat_xu":
 					return "Nhập xuất xứ";
 				case "txb_tim_kiem_HH":
@@ -172,7 +174,6 @@ namespace wfHome
 		private void ResetForeText()
 		{
 			SetPlaceholder(txb_Mahh, GetPlaceholder(txb_Mahh));
-			SetPlaceholder(txb_Malh, GetPlaceholder(txb_Malh));
 			SetPlaceholder(txb_Ten_hang, GetPlaceholder(txb_Ten_hang));
 			SetPlaceholder(txb_xuat_xu, GetPlaceholder(txb_xuat_xu));
 		}
@@ -264,7 +265,7 @@ namespace wfHome
 			else
 			{
 				pn_nhap.Height += 10;
-				if (pn_nhap.Height >= 212)
+				if (pn_nhap.Height >= 232)
 				{
 					createTransition.Stop();
 					createExplore = true;
@@ -282,40 +283,23 @@ namespace wfHome
 		// nút tạo panel nhập
 		private void kbtn_themSua_Click(object sender, EventArgs e)
 		{
+			kbtn_Them_sua.Visible = true;
 			createTransition.Start();
-			if (isedit || !ispanelopen)
+			if (kbtn_sua.Visible)
 			{
 				kbtn_sua.Visible = false;
-				kbtn_Them_sua.Visible = true;
-				kbtn_Cancle.Location = new Point(766, 158);
 			}
-			else
-			{
-				kbtn_sua.Visible = true;
-
-			}
+			if(pn_nhap.Height>=232)
+				createTransition.Stop();
+		
 		}
-
-
 		// nút sự kiện thêm hàng hóa
 		private void kbtn_Them_sua_Click(object sender, EventArgs e)
 		{
 			bool isValid = true;
 
-			if (hanghoa_bus == null)
-			{
-				MessageBox.Show("Đối tượng hanghoabus không được khởi tạo!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-
-			if (hanghoa_bus == null)
-			{
-				MessageBox.Show("Đối tượng hanghoaGui không được khởi tạo!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-
 			string mahh = txb_Mahh.Text;
-			string maloai = txb_Malh.Text;
+			string maloai = cbx_ma_loai.SelectedItem?.ToString();
 			string tenhang = txb_Ten_hang.Text;
 			string xuatxu = txb_xuat_xu.Text;
 			string dvt = cbx_don_vi_tinh.SelectedItem?.ToString();
@@ -330,9 +314,9 @@ namespace wfHome
 				MessageBox.Show("Vui lòng nhập tên hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
 			}
-			else if (string.IsNullOrWhiteSpace(txb_Malh.Text) || txb_Malh.Text == "Nhập mã loại hàng")
+			else if (cbx_ma_loai.SelectedItem == null)
 			{
-				MessageBox.Show("Vui lòng nhập mã loại hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Vui lòng chọn mã loại hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
 			}
 			else if (cbx_don_vi_tinh.SelectedItem == null)
@@ -353,8 +337,8 @@ namespace wfHome
 					HangHoaGui_Load();
 					MessageBox.Show("Thêm hàng hóa thành công!");
 					txb_Mahh.Clear();
-					txb_Malh.Clear();
 					txb_Ten_hang.Clear();
+					cbx_ma_loai.SelectedIndex = -1;
 					txb_xuat_xu.Clear();
 					cbx_don_vi_tinh.SelectedIndex = -1;
 					ResetForeText();
@@ -366,8 +350,9 @@ namespace wfHome
 			}
 		}
 
+
 		//sự kiện xóa hàng hóa và tương tác nút sửa hiện pn_nhap
-		private void dtgrview_hang_hoa_CellClick(object sender, DataGridViewCellEventArgs e)
+		private void dtgrview_hang_hoa_CellClick(object sender, DataGridViewCellEventArgs e)	
 		{
 			// Kiểm tra xem hàng có hợp lệ không
 			if (e.RowIndex >= 0)
@@ -405,7 +390,7 @@ namespace wfHome
 				{
 
 					txb_Mahh.Text = row.Cells[2].Value?.ToString();
-					txb_Malh.Text = row.Cells[3].Value?.ToString();
+					string maloai = row.Cells["Mã loại"]?.Value?.ToString();
 					txb_Ten_hang.Text = row.Cells[4].Value?.ToString();
 					txb_xuat_xu.Text = row.Cells[6].Value?.ToString();
 					string dvt = row.Cells["Đơn vị"]?.Value?.ToString();
@@ -423,21 +408,17 @@ namespace wfHome
 						MessageBox.Show("Giá trị đơn vị không hợp lệ!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					}
 
-
+					IsPressEdit();
+					createTransition.Start();
 					txb_Mahh.Enabled = false;
-					if (!ispanelopen && !isedit)
+					if (pn_nhap.Height>232)
 					{
-						createTransition.Start();
-						ispanelopen = true;
-						kbtn_sua.Visible = true;
-						kbtn_Them_sua.Visible = false;
-						kbtn_sua.Location = new Point(889, 158);
-						kbtn_Cancle.Location = new Point(766, 158);
+						createTransition.Stop();
+	
 					}
-					else if (isedit && ispanelopen)
+					if (kbtn_Them_sua.Visible)
 					{
-						isedit = false;
-						kbtn_Them_sua.Visible = true;
+						kbtn_Them_sua.Visible = false;
 					}
 				}
 			}
@@ -447,7 +428,7 @@ namespace wfHome
 		private void kbtn_sua_Click(object sender, EventArgs e)
 		{
 			string mahh = txb_Mahh.Text;
-			string malh = txb_Malh.Text;
+			string malh = cbx_ma_loai.SelectedItem?.ToString();
 			string tenHang = txb_Ten_hang.Text;
 			string dvt = cbx_don_vi_tinh.SelectedItem?.ToString();
 			string xuatXu = txb_xuat_xu.Text;
@@ -458,7 +439,7 @@ namespace wfHome
 					HangHoaGui_Load();
 					MessageBox.Show("Sửa thông tin hàng hóa thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 				    txb_Mahh.Clear();
-				    txb_Malh.Clear();
+				    cbx_ma_loai.SelectedIndex = -1;
 				    txb_Ten_hang.Clear();
 				    txb_xuat_xu.Clear();
 				    cbx_don_vi_tinh.SelectedIndex = -1;
@@ -527,20 +508,30 @@ namespace wfHome
 		// nút quay lại
 		private void kbtn_Cancle_Click(object sender, EventArgs e)
 		{
-			if (ispanelopen = true)
+			if (pn_nhap.Height > 232)
 			{
 				createTransition.Start();
-				ispanelopen = false;
-				isedit = false;
+
 			}
 			txb_Mahh.Clear();
-			txb_Malh.Clear();
+			cbx_ma_loai.SelectedIndex = -1;
 			txb_Ten_hang.Clear();
 			txb_xuat_xu.Clear();
 			cbx_don_vi_tinh.SelectedIndex = -1;
 			ResetForeText();
 		}
+
+		private void cbx_ma_loai_DropDown(object sender, EventArgs e)
+		{
+			cbx_ma_loai.Items.Clear();
+			DataTable dtLoaiHang = hanghoa_bus.GetLoaiHang();
+			foreach (DataRow row in dtLoaiHang.Rows)
+			{
+				cbx_ma_loai.Items.Add(row["MALOAI"].ToString());
+			}
+		}
 	}
 }
+
 
 

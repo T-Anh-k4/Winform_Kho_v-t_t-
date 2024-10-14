@@ -16,7 +16,7 @@ namespace wfHome
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new HangHoaGui());
+			Application.Run(new LOAIHANG_GUI());
 		}
 	}
 }
