@@ -1,0 +1,9 @@
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\bin\Debug\DAO.dll
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\bin\Debug\DAO.pdb
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\bin\Debug\DTO.dll
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\bin\Debug\DTO.pdb
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAL.csproj.AssemblyReference.cache
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAL.csproj.Up2Date
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAO.dll
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAO.pdb
