@@ -15,6 +15,9 @@ namespace GUI
 	{
 		NHANVIEN_BUS nhanVienBUS = new NHANVIEN_BUS();
 		bool createExplore = true;
+		int loadedRecord = 0;
+		int pageNumber = 1;
+		int numberRecord = 5;
 
 
 		public NHANVIEN_GUI()
@@ -189,6 +192,7 @@ namespace GUI
 				}
 			}
 		}
+
 //Sự kiện click
 		private void kryBt_Add_Click(object sender, EventArgs e)
 		{
@@ -269,6 +273,7 @@ namespace GUI
 			createTransition.Start();
 
 		}
+
 //End
 //Làm mất chữ khi di chuột vào ô
 		private void kryTbSearch_Enter(object sender, EventArgs e)
@@ -318,5 +323,9 @@ namespace GUI
 			textBox.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
 		}
 //end
+		private void kryBtPredious_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
