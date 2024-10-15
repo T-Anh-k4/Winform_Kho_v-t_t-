@@ -12,7 +12,7 @@ using BUS;
 
 namespace GUI
 {
-	public partial class HANGHOA_GUI : MENU_GUI
+	public partial class HANGHOA_GUI : KryptonForm
 	{
 		private HANGHOA_BUS hanghoa_bus;
 

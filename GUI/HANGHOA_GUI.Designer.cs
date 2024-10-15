@@ -34,14 +34,6 @@
 			this.pn_data = new ArtanComponent.ArtanPanel();
 			this.k_datagrview_hang_hoa = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
 			this.pn_nhap = new System.Windows.Forms.Panel();
-			this.kbtn_Cancle = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-			this.kbtn_sua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-			this.kbtn_Them_sua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-			this.artanPanel1 = new ArtanComponent.ArtanPanel();
-			this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-			this.txb_tim_kiem_HH = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-			this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-			this.kbtn_themSua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.cbx_ma_loai = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
 			this.txb_xuat_xu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.txb_Ten_hang = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -52,15 +44,24 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.cbx_don_vi_tinh = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+			this.kbtn_Cancle = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+			this.kbtn_sua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+			this.kbtn_Them_sua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+			this.artanPanel1 = new ArtanComponent.ArtanPanel();
+			this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.txb_tim_kiem_HH = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+			this.kbtn_themSua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.createTransition = new System.Windows.Forms.Timer(this.components);
+			this.iconToolStripButton1 = new FontAwesome.Sharp.IconToolStripButton();
 			this.pn_bong.SuspendLayout();
 			this.pn_chua_du_lieu.SuspendLayout();
 			this.pn_data.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.k_datagrview_hang_hoa)).BeginInit();
 			this.pn_nhap.SuspendLayout();
-			this.artanPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.cbx_ma_loai)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbx_don_vi_tinh)).BeginInit();
+			this.artanPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pn_bong
@@ -68,13 +69,14 @@
 			this.pn_bong.BackColor = System.Drawing.Color.White;
 			this.pn_bong.BorderRadius = 25;
 			this.pn_bong.Controls.Add(this.pn_chua_du_lieu);
+			this.pn_bong.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pn_bong.ForeColor = System.Drawing.Color.Black;
 			this.pn_bong.GradientAngle = 90F;
 			this.pn_bong.GradientBottomColor = System.Drawing.Color.Gainsboro;
 			this.pn_bong.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-			this.pn_bong.Location = new System.Drawing.Point(284, 88);
+			this.pn_bong.Location = new System.Drawing.Point(0, 0);
 			this.pn_bong.Name = "pn_bong";
-			this.pn_bong.Size = new System.Drawing.Size(1049, 800);
+			this.pn_bong.Size = new System.Drawing.Size(1033, 761);
 			this.pn_bong.TabIndex = 45;
 			// 
 			// pn_chua_du_lieu
@@ -157,6 +159,152 @@
 			this.pn_nhap.Name = "pn_nhap";
 			this.pn_nhap.Size = new System.Drawing.Size(1002, 232);
 			this.pn_nhap.TabIndex = 51;
+			// 
+			// cbx_ma_loai
+			// 
+			this.cbx_ma_loai.DropDownWidth = 184;
+			this.cbx_ma_loai.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+			this.cbx_ma_loai.Location = new System.Drawing.Point(367, 42);
+			this.cbx_ma_loai.Margin = new System.Windows.Forms.Padding(2);
+			this.cbx_ma_loai.Name = "cbx_ma_loai";
+			this.cbx_ma_loai.Size = new System.Drawing.Size(217, 33);
+			this.cbx_ma_loai.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
+			this.cbx_ma_loai.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
+			this.cbx_ma_loai.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.cbx_ma_loai.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.cbx_ma_loai.StateCommon.ComboBox.Border.Rounding = 20;
+			this.cbx_ma_loai.StateCommon.ComboBox.Border.Width = 1;
+			this.cbx_ma_loai.TabIndex = 79;
+			this.cbx_ma_loai.DropDown += new System.EventHandler(this.cbx_ma_loai_DropDown);
+			// 
+			// txb_xuat_xu
+			// 
+			this.txb_xuat_xu.Location = new System.Drawing.Point(62, 129);
+			this.txb_xuat_xu.Margin = new System.Windows.Forms.Padding(2);
+			this.txb_xuat_xu.Name = "txb_xuat_xu";
+			this.txb_xuat_xu.Size = new System.Drawing.Size(216, 30);
+			this.txb_xuat_xu.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.txb_xuat_xu.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+			this.txb_xuat_xu.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
+			this.txb_xuat_xu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.txb_xuat_xu.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.txb_xuat_xu.StateCommon.Border.Rounding = 20;
+			this.txb_xuat_xu.StateCommon.Border.Width = 1;
+			this.txb_xuat_xu.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+			this.txb_xuat_xu.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.txb_xuat_xu.TabIndex = 78;
+			// 
+			// txb_Ten_hang
+			// 
+			this.txb_Ten_hang.Location = new System.Drawing.Point(367, 129);
+			this.txb_Ten_hang.Margin = new System.Windows.Forms.Padding(2);
+			this.txb_Ten_hang.Name = "txb_Ten_hang";
+			this.txb_Ten_hang.Size = new System.Drawing.Size(217, 30);
+			this.txb_Ten_hang.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.txb_Ten_hang.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+			this.txb_Ten_hang.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
+			this.txb_Ten_hang.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.txb_Ten_hang.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.txb_Ten_hang.StateCommon.Border.Rounding = 20;
+			this.txb_Ten_hang.StateCommon.Border.Width = 1;
+			this.txb_Ten_hang.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+			this.txb_Ten_hang.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.txb_Ten_hang.TabIndex = 77;
+			// 
+			// txb_Mahh
+			// 
+			this.txb_Mahh.Location = new System.Drawing.Point(61, 42);
+			this.txb_Mahh.Margin = new System.Windows.Forms.Padding(2);
+			this.txb_Mahh.Name = "txb_Mahh";
+			this.txb_Mahh.Size = new System.Drawing.Size(217, 30);
+			this.txb_Mahh.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.txb_Mahh.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+			this.txb_Mahh.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
+			this.txb_Mahh.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.txb_Mahh.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.txb_Mahh.StateCommon.Border.Rounding = 20;
+			this.txb_Mahh.StateCommon.Border.Width = 1;
+			this.txb_Mahh.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+			this.txb_Mahh.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.txb_Mahh.StateDisabled.Content.Color1 = System.Drawing.Color.Red;
+			this.txb_Mahh.TabIndex = 76;
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(60, 108);
+			this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(43, 13);
+			this.label8.TabIndex = 75;
+			this.label8.Text = "Xuất xứ";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(677, 21);
+			this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(59, 13);
+			this.label5.TabIndex = 74;
+			this.label5.Text = "đơn vị tính";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(365, 108);
+			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(53, 13);
+			this.label3.TabIndex = 73;
+			this.label3.Text = "Tên hàng";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(364, 21);
+			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(68, 13);
+			this.label2.TabIndex = 72;
+			this.label2.Text = "Mã loại hàng";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(59, 21);
+			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(70, 13);
+			this.label1.TabIndex = 71;
+			this.label1.Text = "Mã hàng hóa";
+			// 
+			// cbx_don_vi_tinh
+			// 
+			this.cbx_don_vi_tinh.DropDownWidth = 184;
+			this.cbx_don_vi_tinh.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+			this.cbx_don_vi_tinh.Location = new System.Drawing.Point(679, 41);
+			this.cbx_don_vi_tinh.Margin = new System.Windows.Forms.Padding(2);
+			this.cbx_don_vi_tinh.Name = "cbx_don_vi_tinh";
+			this.cbx_don_vi_tinh.Size = new System.Drawing.Size(217, 33);
+			this.cbx_don_vi_tinh.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
+			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
+			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.Rounding = 20;
+			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.Width = 1;
+			this.cbx_don_vi_tinh.TabIndex = 70;
+			this.cbx_don_vi_tinh.DropDown += new System.EventHandler(this.cbx_don_vi_tinh_DropDown);
 			// 
 			// kbtn_Cancle
 			// 
@@ -468,177 +616,39 @@
 			this.kbtn_themSua.Values.Text = "+";
 			this.kbtn_themSua.Click += new System.EventHandler(this.kbtn_themSua_Click);
 			// 
-			// cbx_ma_loai
-			// 
-			this.cbx_ma_loai.DropDownWidth = 184;
-			this.cbx_ma_loai.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-			this.cbx_ma_loai.Location = new System.Drawing.Point(367, 42);
-			this.cbx_ma_loai.Margin = new System.Windows.Forms.Padding(2);
-			this.cbx_ma_loai.Name = "cbx_ma_loai";
-			this.cbx_ma_loai.Size = new System.Drawing.Size(217, 33);
-			this.cbx_ma_loai.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
-			this.cbx_ma_loai.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
-			this.cbx_ma_loai.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.cbx_ma_loai.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.cbx_ma_loai.StateCommon.ComboBox.Border.Rounding = 20;
-			this.cbx_ma_loai.StateCommon.ComboBox.Border.Width = 1;
-			this.cbx_ma_loai.TabIndex = 79;
-			this.cbx_ma_loai.DropDown += new System.EventHandler(this.cbx_ma_loai_DropDown);
-			// 
-			// txb_xuat_xu
-			// 
-			this.txb_xuat_xu.Location = new System.Drawing.Point(62, 129);
-			this.txb_xuat_xu.Margin = new System.Windows.Forms.Padding(2);
-			this.txb_xuat_xu.Name = "txb_xuat_xu";
-			this.txb_xuat_xu.Size = new System.Drawing.Size(216, 30);
-			this.txb_xuat_xu.StateCommon.Back.Color1 = System.Drawing.Color.White;
-			this.txb_xuat_xu.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-			this.txb_xuat_xu.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
-			this.txb_xuat_xu.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.txb_xuat_xu.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.txb_xuat_xu.StateCommon.Border.Rounding = 20;
-			this.txb_xuat_xu.StateCommon.Border.Width = 1;
-			this.txb_xuat_xu.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-			this.txb_xuat_xu.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.txb_xuat_xu.TabIndex = 78;
-			// 
-			// txb_Ten_hang
-			// 
-			this.txb_Ten_hang.Location = new System.Drawing.Point(367, 129);
-			this.txb_Ten_hang.Margin = new System.Windows.Forms.Padding(2);
-			this.txb_Ten_hang.Name = "txb_Ten_hang";
-			this.txb_Ten_hang.Size = new System.Drawing.Size(217, 30);
-			this.txb_Ten_hang.StateCommon.Back.Color1 = System.Drawing.Color.White;
-			this.txb_Ten_hang.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-			this.txb_Ten_hang.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
-			this.txb_Ten_hang.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.txb_Ten_hang.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.txb_Ten_hang.StateCommon.Border.Rounding = 20;
-			this.txb_Ten_hang.StateCommon.Border.Width = 1;
-			this.txb_Ten_hang.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-			this.txb_Ten_hang.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.txb_Ten_hang.TabIndex = 77;
-			// 
-			// txb_Mahh
-			// 
-			this.txb_Mahh.Location = new System.Drawing.Point(61, 42);
-			this.txb_Mahh.Margin = new System.Windows.Forms.Padding(2);
-			this.txb_Mahh.Name = "txb_Mahh";
-			this.txb_Mahh.Size = new System.Drawing.Size(217, 30);
-			this.txb_Mahh.StateCommon.Back.Color1 = System.Drawing.Color.White;
-			this.txb_Mahh.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-			this.txb_Mahh.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
-			this.txb_Mahh.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.txb_Mahh.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.txb_Mahh.StateCommon.Border.Rounding = 20;
-			this.txb_Mahh.StateCommon.Border.Width = 1;
-			this.txb_Mahh.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-			this.txb_Mahh.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.txb_Mahh.StateDisabled.Content.Color1 = System.Drawing.Color.Red;
-			this.txb_Mahh.TabIndex = 76;
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(60, 108);
-			this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(43, 13);
-			this.label8.TabIndex = 75;
-			this.label8.Text = "Xuất xứ";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(677, 21);
-			this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(59, 13);
-			this.label5.TabIndex = 74;
-			this.label5.Text = "đơn vị tính";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(365, 108);
-			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(53, 13);
-			this.label3.TabIndex = 73;
-			this.label3.Text = "Tên hàng";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(364, 21);
-			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(68, 13);
-			this.label2.TabIndex = 72;
-			this.label2.Text = "Mã loại hàng";
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(59, 21);
-			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(70, 13);
-			this.label1.TabIndex = 71;
-			this.label1.Text = "Mã hàng hóa";
-			// 
-			// cbx_don_vi_tinh
-			// 
-			this.cbx_don_vi_tinh.DropDownWidth = 184;
-			this.cbx_don_vi_tinh.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-			this.cbx_don_vi_tinh.Location = new System.Drawing.Point(679, 41);
-			this.cbx_don_vi_tinh.Margin = new System.Windows.Forms.Padding(2);
-			this.cbx_don_vi_tinh.Name = "cbx_don_vi_tinh";
-			this.cbx_don_vi_tinh.Size = new System.Drawing.Size(217, 33);
-			this.cbx_don_vi_tinh.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
-			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
-			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.Rounding = 20;
-			this.cbx_don_vi_tinh.StateCommon.ComboBox.Border.Width = 1;
-			this.cbx_don_vi_tinh.TabIndex = 70;
-			this.cbx_don_vi_tinh.DropDown += new System.EventHandler(this.cbx_don_vi_tinh_DropDown);
-			// 
 			// createTransition
 			// 
 			this.createTransition.Enabled = true;
 			this.createTransition.Interval = 10;
 			this.createTransition.Tick += new System.EventHandler(this.createTransition_Tick_1);
 			// 
+			// iconToolStripButton1
+			// 
+			this.iconToolStripButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+			this.iconToolStripButton1.IconColor = System.Drawing.Color.Black;
+			this.iconToolStripButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.iconToolStripButton1.Name = "iconToolStripButton1";
+			this.iconToolStripButton1.Size = new System.Drawing.Size(23, 23);
+			this.iconToolStripButton1.Text = "iconToolStripButton1";
+			// 
 			// HANGHOA_GUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1333, 861);
+			this.ClientSize = new System.Drawing.Size(1033, 761);
 			this.Controls.Add(this.pn_bong);
 			this.Name = "HANGHOA_GUI";
 			this.Text = "HANGHOA_GUI";
-			this.Controls.SetChildIndex(this.pn_bong, 0);
 			this.pn_bong.ResumeLayout(false);
 			this.pn_chua_du_lieu.ResumeLayout(false);
 			this.pn_data.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.k_datagrview_hang_hoa)).EndInit();
 			this.pn_nhap.ResumeLayout(false);
 			this.pn_nhap.PerformLayout();
-			this.artanPanel1.ResumeLayout(false);
-			this.artanPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.cbx_ma_loai)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cbx_don_vi_tinh)).EndInit();
+			this.artanPanel1.ResumeLayout(false);
+			this.artanPanel1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -669,5 +679,6 @@
 		private System.Windows.Forms.Label label1;
 		private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbx_don_vi_tinh;
 		private System.Windows.Forms.Timer createTransition;
+		private FontAwesome.Sharp.IconToolStripButton iconToolStripButton1;
 	}
 }

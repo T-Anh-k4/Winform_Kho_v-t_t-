@@ -13,7 +13,7 @@ using BUS;
 
 namespace GUI
 {
-	public partial class LOAIHANG_GUI : MENU_GUI
+	public partial class LOAIHANG_GUI : KryptonForm
 	{
 		private LOAIHANG_BUS LoaiHang_BUS;
 		public bool createExplore = true;
