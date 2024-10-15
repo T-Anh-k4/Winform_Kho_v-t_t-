@@ -64,13 +64,14 @@
 			this.pn_bong.BackColor = System.Drawing.Color.White;
 			this.pn_bong.BorderRadius = 25;
 			this.pn_bong.Controls.Add(this.pn_chua_du_lieu);
+			this.pn_bong.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pn_bong.ForeColor = System.Drawing.Color.Black;
 			this.pn_bong.GradientAngle = 90F;
 			this.pn_bong.GradientBottomColor = System.Drawing.Color.Gainsboro;
 			this.pn_bong.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-			this.pn_bong.Location = new System.Drawing.Point(284, 90);
+			this.pn_bong.Location = new System.Drawing.Point(0, 0);
 			this.pn_bong.Name = "pn_bong";
-			this.pn_bong.Size = new System.Drawing.Size(1049, 800);
+			this.pn_bong.Size = new System.Drawing.Size(1033, 761);
 			this.pn_bong.TabIndex = 44;
 			// 
 			// pn_chua_du_lieu
@@ -579,11 +580,10 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1333, 861);
+			this.ClientSize = new System.Drawing.Size(1033, 761);
 			this.Controls.Add(this.pn_bong);
 			this.Name = "LOAIHANG_GUI";
 			this.Text = "LOAIHANG_GUI";
-			this.Controls.SetChildIndex(this.pn_bong, 0);
 			this.pn_bong.ResumeLayout(false);
 			this.pn_chua_du_lieu.ResumeLayout(false);
 			this.pn_data.ResumeLayout(false);

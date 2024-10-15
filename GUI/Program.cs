@@ -16,7 +16,7 @@ namespace GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new HANGHOA_GUI());
+			Application.Run(new MENU_GUI());
 			//Application.Run(new USER_GUI());
 
 		}
