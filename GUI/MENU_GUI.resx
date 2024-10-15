@@ -9615,4 +9615,21 @@
   <metadata name="kryptonPalette1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>799, 17</value>
   </metadata>
+  <data name="artanPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAoVJREFUSEvtlctOU1EUhrcQHThwRLkK5X4pVApIy24TfQqnut+ER7BcDAVBBCFg
+        URCEFEXlItCeBGfEtlDYrZzaAi2lRQk7GJerpGJpcIbEwfmTL2f4nbXzryyiRMk/zT2AdCrF7pikbw+M
+        9ihLxbAYYY3zyGyI1b8JsVrbNtNOBphmPMAqxmRWYZVZ2ZCPFQ/4mLqfs/xepMvDcjvcLKvdzVStTsR9
+        P6NtvZ4QuJLQEtK0/D3PJB2EEUiFLsfA8HEfGuci0PA+DLq3u3DLtgM1r4OgeRWAypd+KLfKUDK0BUXP
+        fKB+6oX8nk3I6/JATsc6ZLa5QdXi+o2fdMLVhJYQgz1SeK7UfqHSEzTW1WsJLSF3pe1skxTznpFe7KSI
+        8yeySjpX/kxMANIM9miZUTqkpyxGaWOcuTCtm0FsYVpjC9KaiSCtHI0j05LnyKBM1X38hNxuxLJOM+O0
+        pfDwM80xrxYkjEouOXpH6AaWa8ooxY5MjphIBvdYNC3uC/38nmj4EBZ1M7ui1rYjtJNBUT0eEJWjflE+
+        IovSoS1RNOAT6j6vwJKJvK4NgSUTWe1rAsslMlqchyqzq4dYrekJLSH006EapT+SW32C4wCalqKgX4jA
+        7dk9qJsJgW56F7RT21A9EYCqsa9QMSJD2bAMxYNfoLDfCwW9HG4+3oBciweyH61BZmtys13HZ9aJLu3F
+        xcfJUmOKtP7dOdIX50i7/yoFldl5pGlOEjes+K8bpajF6IhxlPL4F6Vcv7DP8Xk5Tsp10zscpbx6Isir
+        Rv0cn5eXDm9xlHKU8vwnmxwn5bhOHKVc1eriGS1JmF0e/JFm0gxpCa2SS4xyFk+lyllUzqKS/z+E/AK3
+        pMFDlXuXAQAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

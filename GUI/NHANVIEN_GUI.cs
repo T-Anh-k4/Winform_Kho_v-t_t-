@@ -9,13 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using System.Windows.Input;
 namespace GUI
 {
 	public partial class NHANVIEN_GUI : KryptonForm
 	{
 		NHANVIEN_BUS nhanVienBUS = new NHANVIEN_BUS();
 		bool createExplore = true;
-		int limit = 5;
+		int limit = 7;
 		int curentPage = 1;
 		int totalPage = 1;//so trang can tao
 
@@ -254,21 +255,6 @@ namespace GUI
 			}
 		}
 
-		private void kryBtShowCreate_Click(object sender, EventArgs e)
-		{
-			kryBt_Add.Visible = true;
-			createTransition.Start();
-			if (kryBt_Edit.Visible)
-			{
-				kryBt_Edit.Visible = false;
-			}
-			if(panel2_nv.Height >= 170)
-			{
-				createTransition.Stop();
-
-			}
-		}
-
 		private void kry_Clear_Click(object sender, EventArgs e)
 		{
 			clear();
@@ -329,13 +315,13 @@ namespace GUI
 		{
 			curentPage--;
 			loadDt_NhanVien();
-			kryBtNext.Enabled = true;
+			kryBt_Next.Enabled = true;
 			if (curentPage == 1)
 			{
-				kryBtPredious.Enabled = false;
+				kryBtPre.Enabled = false;
 
 			}
-			lbSoTrang.Text = Convert.ToString(curentPage);
+			labelSoTrang.Text = Convert.ToString(curentPage);
 		}
 
 
@@ -343,13 +329,41 @@ namespace GUI
 		{
 			curentPage++;
 			loadDt_NhanVien();
-			kryBtPredious.Enabled = true;
+			kryBtPre.Enabled = true;
 			if (curentPage == totalPage)
 			{
-				kryBtNext.Enabled = false;
+				kryBt_Next.Enabled = false;
 			}
-			lbSoTrang.Text = Convert.ToString(curentPage);
+			labelSoTrang.Text = Convert.ToString(curentPage);
 
+		}
+
+		private void kryCheckBox_Status_CheckedChanged(object sender, EventArgs e)
+		{
+			if (kryCheckBox_Status.Checked == true)
+			{
+				kryCheckBox_Status.Text = "Đang hoạt động";
+			}
+			else
+			{
+				kryCheckBox_Status.Text = "Không hoạt động";
+
+			}
+		}
+
+		private void kryBtShowCreate_NV_Click(object sender, EventArgs e)
+		{
+			kryBt_Add.Visible = true;
+			createTransition.Start();
+			if (kryBt_Edit.Visible)
+			{
+				kryBt_Edit.Visible = false;
+			}
+			if (panel2_nv.Height >= 170)
+			{
+				createTransition.Stop();
+
+			}
 		}
 	}
 }

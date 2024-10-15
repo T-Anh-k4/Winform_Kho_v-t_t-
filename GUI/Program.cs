@@ -16,7 +16,9 @@ namespace GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new HANGHOA_GUI());
+			Application.Run(new NHANVIEN_GUI());
+			//Application.Run(new LOAIHANG_GUI());
+
 			//Application.Run(new USER_GUI());
 
 		}

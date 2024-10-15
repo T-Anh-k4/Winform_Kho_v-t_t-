@@ -59,19 +59,19 @@ namespace GUI
 			this.pn_bao_cao = new ArtanComponent.ArtanPanel();
 			this.pn_danh_muc = new ArtanComponent.ArtanPanel();
 			this.pn_logo = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.pn_Home_search = new System.Windows.Forms.Panel();
 			this.iblformtitle = new System.Windows.Forms.Label();
 			this.iconcurrenform = new FontAwesome.Sharp.IconPictureBox();
 			this.txb_tim_kiem = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+			this.pn_Home_search = new System.Windows.Forms.Panel();
+			this.artanPanel1 = new ArtanComponent.ArtanPanel();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.pn_menu.SuspendLayout();
 			this.pn_bao_cao.SuspendLayout();
 			this.pn_danh_muc.SuspendLayout();
 			this.pn_logo.SuspendLayout();
-			this.pn_Home_search.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.iconcurrenform)).BeginInit();
+			this.pn_Home_search.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// icbt_baocao
@@ -87,7 +87,7 @@ namespace GUI
 			this.icbt_baocao.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.icbt_baocao.IconSize = 35;
 			this.icbt_baocao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_baocao.Location = new System.Drawing.Point(0, 536);
+			this.icbt_baocao.Location = new System.Drawing.Point(0, 476);
 			this.icbt_baocao.Name = "icbt_baocao";
 			this.icbt_baocao.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
 			this.icbt_baocao.Size = new System.Drawing.Size(258, 57);
@@ -191,7 +191,7 @@ namespace GUI
 			this.bt_Nha_cung_cap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.bt_Nha_cung_cap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.bt_Nha_cung_cap.ForeColor = System.Drawing.Color.DimGray;
-			this.bt_Nha_cung_cap.IconChar = FontAwesome.Sharp.IconChar.Minus;
+			this.bt_Nha_cung_cap.IconChar = FontAwesome.Sharp.IconChar.DotCircle;
 			this.bt_Nha_cung_cap.IconColor = System.Drawing.Color.Gray;
 			this.bt_Nha_cung_cap.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.bt_Nha_cung_cap.IconSize = 25;
@@ -349,7 +349,7 @@ namespace GUI
 			this.icbt_Danhmuc.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.icbt_Danhmuc.IconSize = 35;
 			this.icbt_Danhmuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_Danhmuc.Location = new System.Drawing.Point(0, 191);
+			this.icbt_Danhmuc.Location = new System.Drawing.Point(0, 131);
 			this.icbt_Danhmuc.Name = "icbt_Danhmuc";
 			this.icbt_Danhmuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
 			this.icbt_Danhmuc.Size = new System.Drawing.Size(258, 57);
@@ -373,7 +373,7 @@ namespace GUI
 			this.icbt_trangchu.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.icbt_trangchu.IconSize = 35;
 			this.icbt_trangchu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_trangchu.Location = new System.Drawing.Point(0, 134);
+			this.icbt_trangchu.Location = new System.Drawing.Point(0, 74);
 			this.icbt_trangchu.Name = "icbt_trangchu";
 			this.icbt_trangchu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
 			this.icbt_trangchu.Size = new System.Drawing.Size(258, 57);
@@ -388,9 +388,9 @@ namespace GUI
 			// 
 			this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
 			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.pictureBox1.Location = new System.Drawing.Point(53, 12);
+			this.pictureBox1.Location = new System.Drawing.Point(36, 3);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(136, 106);
+			this.pictureBox1.Size = new System.Drawing.Size(93, 62);
 			this.pictureBox1.TabIndex = 20;
 			this.pictureBox1.TabStop = false;
 			// 
@@ -449,7 +449,7 @@ namespace GUI
 			this.icbt_huongdan.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.icbt_huongdan.IconSize = 35;
 			this.icbt_huongdan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_huongdan.Location = new System.Drawing.Point(0, 881);
+			this.icbt_huongdan.Location = new System.Drawing.Point(0, 821);
 			this.icbt_huongdan.Name = "icbt_huongdan";
 			this.icbt_huongdan.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
 			this.icbt_huongdan.Size = new System.Drawing.Size(258, 57);
@@ -498,7 +498,7 @@ namespace GUI
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(10, 861);
+			this.panel1.Size = new System.Drawing.Size(10, 761);
 			this.panel1.TabIndex = 40;
 			// 
 			// pn_menu
@@ -519,7 +519,7 @@ namespace GUI
 			this.pn_menu.GradientTopColor = System.Drawing.Color.WhiteSmoke;
 			this.pn_menu.Location = new System.Drawing.Point(10, 0);
 			this.pn_menu.Name = "pn_menu";
-			this.pn_menu.Size = new System.Drawing.Size(258, 861);
+			this.pn_menu.Size = new System.Drawing.Size(258, 761);
 			this.pn_menu.TabIndex = 41;
 			// 
 			// pn_bao_cao
@@ -538,7 +538,7 @@ namespace GUI
 			this.pn_bao_cao.GradientAngle = 90F;
 			this.pn_bao_cao.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
 			this.pn_bao_cao.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-			this.pn_bao_cao.Location = new System.Drawing.Point(0, 593);
+			this.pn_bao_cao.Location = new System.Drawing.Point(0, 533);
 			this.pn_bao_cao.Name = "pn_bao_cao";
 			this.pn_bao_cao.Size = new System.Drawing.Size(258, 288);
 			this.pn_bao_cao.TabIndex = 43;
@@ -559,7 +559,7 @@ namespace GUI
 			this.pn_danh_muc.GradientAngle = 90F;
 			this.pn_danh_muc.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
 			this.pn_danh_muc.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-			this.pn_danh_muc.Location = new System.Drawing.Point(0, 248);
+			this.pn_danh_muc.Location = new System.Drawing.Point(0, 188);
 			this.pn_danh_muc.Name = "pn_danh_muc";
 			this.pn_danh_muc.Size = new System.Drawing.Size(258, 288);
 			this.pn_danh_muc.TabIndex = 43;
@@ -570,36 +570,15 @@ namespace GUI
 			this.pn_logo.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pn_logo.Location = new System.Drawing.Point(0, 0);
 			this.pn_logo.Name = "pn_logo";
-			this.pn_logo.Size = new System.Drawing.Size(258, 134);
+			this.pn_logo.Size = new System.Drawing.Size(258, 74);
 			this.pn_logo.TabIndex = 0;
-			// 
-			// panel2
-			// 
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel2.Location = new System.Drawing.Point(268, 0);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(10, 861);
-			this.panel2.TabIndex = 42;
-			// 
-			// pn_Home_search
-			// 
-			this.pn_Home_search.BackColor = System.Drawing.Color.White;
-			this.pn_Home_search.Controls.Add(this.iblformtitle);
-			this.pn_Home_search.Controls.Add(this.iconcurrenform);
-			this.pn_Home_search.Controls.Add(this.txb_tim_kiem);
-			this.pn_Home_search.Dock = System.Windows.Forms.DockStyle.Top;
-			this.pn_Home_search.Location = new System.Drawing.Point(278, 0);
-			this.pn_Home_search.Margin = new System.Windows.Forms.Padding(2);
-			this.pn_Home_search.Name = "pn_Home_search";
-			this.pn_Home_search.Size = new System.Drawing.Size(1055, 74);
-			this.pn_Home_search.TabIndex = 43;
 			// 
 			// iblformtitle
 			// 
 			this.iblformtitle.AutoSize = true;
 			this.iblformtitle.BackColor = System.Drawing.SystemColors.Window;
 			this.iblformtitle.ForeColor = System.Drawing.Color.Gray;
-			this.iblformtitle.Location = new System.Drawing.Point(64, 30);
+			this.iblformtitle.Location = new System.Drawing.Point(69, 24);
 			this.iblformtitle.Name = "iblformtitle";
 			this.iblformtitle.Size = new System.Drawing.Size(56, 13);
 			this.iblformtitle.TabIndex = 2;
@@ -613,7 +592,7 @@ namespace GUI
 			this.iconcurrenform.IconColor = System.Drawing.Color.Gray;
 			this.iconcurrenform.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.iconcurrenform.IconSize = 39;
-			this.iconcurrenform.Location = new System.Drawing.Point(18, 18);
+			this.iconcurrenform.Location = new System.Drawing.Point(23, 12);
 			this.iconcurrenform.Name = "iconcurrenform";
 			this.iconcurrenform.Size = new System.Drawing.Size(40, 39);
 			this.iconcurrenform.TabIndex = 1;
@@ -621,10 +600,10 @@ namespace GUI
 			// 
 			// txb_tim_kiem
 			// 
-			this.txb_tim_kiem.Location = new System.Drawing.Point(208, 12);
+			this.txb_tim_kiem.Location = new System.Drawing.Point(153, 12);
 			this.txb_tim_kiem.Multiline = true;
 			this.txb_tim_kiem.Name = "txb_tim_kiem";
-			this.txb_tim_kiem.Size = new System.Drawing.Size(558, 45);
+			this.txb_tim_kiem.Size = new System.Drawing.Size(558, 35);
 			this.txb_tim_kiem.StateCommon.Back.Color1 = System.Drawing.Color.WhiteSmoke;
 			this.txb_tim_kiem.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
 			this.txb_tim_kiem.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -634,7 +613,7 @@ namespace GUI
 			this.txb_tim_kiem.StateCommon.Border.Rounding = 20;
 			this.txb_tim_kiem.StateCommon.Border.Width = 1;
 			this.txb_tim_kiem.StateCommon.Content.Color1 = System.Drawing.Color.DarkGray;
-			this.txb_tim_kiem.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 7, 10, 0);
+			this.txb_tim_kiem.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
 			this.txb_tim_kiem.TabIndex = 0;
 			this.txb_tim_kiem.Text = "Tìm kiếm";
 			// 
@@ -652,13 +631,41 @@ namespace GUI
 			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.ButtonEdgeInset = 10;
 			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, -1, -1, -1);
 			// 
+			// pn_Home_search
+			// 
+			this.pn_Home_search.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.pn_Home_search.Controls.Add(this.iblformtitle);
+			this.pn_Home_search.Controls.Add(this.artanPanel1);
+			this.pn_Home_search.Controls.Add(this.txb_tim_kiem);
+			this.pn_Home_search.Controls.Add(this.iconcurrenform);
+			this.pn_Home_search.Dock = System.Windows.Forms.DockStyle.Top;
+			this.pn_Home_search.Location = new System.Drawing.Point(268, 0);
+			this.pn_Home_search.Margin = new System.Windows.Forms.Padding(2);
+			this.pn_Home_search.Name = "pn_Home_search";
+			this.pn_Home_search.Size = new System.Drawing.Size(1065, 74);
+			this.pn_Home_search.TabIndex = 43;
+			// 
+			// artanPanel1
+			// 
+			this.artanPanel1.BackColor = System.Drawing.Color.White;
+			this.artanPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("artanPanel1.BackgroundImage")));
+			this.artanPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.artanPanel1.BorderRadius = 0;
+			this.artanPanel1.ForeColor = System.Drawing.Color.Black;
+			this.artanPanel1.GradientAngle = 90F;
+			this.artanPanel1.GradientBottomColor = System.Drawing.Color.Empty;
+			this.artanPanel1.GradientTopColor = System.Drawing.Color.Empty;
+			this.artanPanel1.Location = new System.Drawing.Point(1003, 12);
+			this.artanPanel1.Name = "artanPanel1";
+			this.artanPanel1.Size = new System.Drawing.Size(50, 50);
+			this.artanPanel1.TabIndex = 1;
+			// 
 			// MENU_GUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1333, 861);
+			this.ClientSize = new System.Drawing.Size(1333, 761);
 			this.Controls.Add(this.pn_Home_search);
-			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.pn_menu);
 			this.Controls.Add(this.panel1);
 			this.Name = "MENU_GUI";
@@ -671,9 +678,9 @@ namespace GUI
 			this.pn_bao_cao.ResumeLayout(false);
 			this.pn_danh_muc.ResumeLayout(false);
 			this.pn_logo.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.iconcurrenform)).EndInit();
 			this.pn_Home_search.ResumeLayout(false);
 			this.pn_Home_search.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.iconcurrenform)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -705,13 +712,13 @@ namespace GUI
 		private System.Windows.Forms.Panel panel1;
 		private ArtanPanel pn_menu;
 		private System.Windows.Forms.Panel pn_logo;
-		private System.Windows.Forms.Panel panel2;
 		private ArtanPanel pn_danh_muc;
 		private ArtanPanel pn_bao_cao;
-		private System.Windows.Forms.Panel pn_Home_search;
 		private System.Windows.Forms.Label iblformtitle;
 		private FontAwesome.Sharp.IconPictureBox iconcurrenform;
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txb_tim_kiem;
 		private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
+		private System.Windows.Forms.Panel pn_Home_search;
+		private ArtanPanel artanPanel1;
 	}
 }
