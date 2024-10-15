@@ -51,12 +51,16 @@
 			this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.kbtn_themSua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.createTransition = new System.Windows.Forms.Timer(this.components);
+			this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+			this.pn_TK = new ArtanComponent.ArtanPanel();
 			this.pn_bong.SuspendLayout();
 			this.pn_chua_du_lieu.SuspendLayout();
 			this.pn_data.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.k_datagrview_Loai_hang)).BeginInit();
 			this.pn_nhap.SuspendLayout();
 			this.artanPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+			this.pn_TK.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pn_bong
@@ -428,8 +432,8 @@
 			// 
 			this.artanPanel1.BackColor = System.Drawing.Color.White;
 			this.artanPanel1.BorderRadius = 25;
+			this.artanPanel1.Controls.Add(this.pn_TK);
 			this.artanPanel1.Controls.Add(this.kryptonTextBox1);
-			this.artanPanel1.Controls.Add(this.txb_tim_kiem_LH);
 			this.artanPanel1.Controls.Add(this.kryptonButton1);
 			this.artanPanel1.Controls.Add(this.kbtn_themSua);
 			this.artanPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -453,10 +457,11 @@
 			// 
 			// txb_tim_kiem_LH
 			// 
-			this.txb_tim_kiem_LH.Location = new System.Drawing.Point(85, 15);
+			this.txb_tim_kiem_LH.Dock = System.Windows.Forms.DockStyle.Left;
+			this.txb_tim_kiem_LH.Location = new System.Drawing.Point(0, 0);
 			this.txb_tim_kiem_LH.Multiline = true;
 			this.txb_tim_kiem_LH.Name = "txb_tim_kiem_LH";
-			this.txb_tim_kiem_LH.Size = new System.Drawing.Size(547, 34);
+			this.txb_tim_kiem_LH.Size = new System.Drawing.Size(547, 32);
 			this.txb_tim_kiem_LH.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 8, 10, 0);
 			this.txb_tim_kiem_LH.TabIndex = 47;
 			this.txb_tim_kiem_LH.TextChanged += new System.EventHandler(this.txb_tim_kiem_LH_TextChanged);
@@ -576,6 +581,37 @@
 			this.createTransition.Interval = 10;
 			this.createTransition.Tick += new System.EventHandler(this.createTransition_Tick_1);
 			// 
+			// iconPictureBox1
+			// 
+			this.iconPictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+			this.iconPictureBox1.ForeColor = System.Drawing.Color.Black;
+			this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+			this.iconPictureBox1.IconColor = System.Drawing.Color.Black;
+			this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.iconPictureBox1.Location = new System.Drawing.Point(548, 0);
+			this.iconPictureBox1.Name = "iconPictureBox1";
+			this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
+			this.iconPictureBox1.TabIndex = 2;
+			this.iconPictureBox1.TabStop = false;
+			this.iconPictureBox1.Click += new System.EventHandler(this.iconPictureBox1_Click);
+			// 
+			// pn_TK
+			// 
+			this.pn_TK.BackColor = System.Drawing.Color.White;
+			this.pn_TK.BorderRadius = 0;
+			this.pn_TK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.pn_TK.Controls.Add(this.iconPictureBox1);
+			this.pn_TK.Controls.Add(this.txb_tim_kiem_LH);
+			this.pn_TK.ForeColor = System.Drawing.Color.Black;
+			this.pn_TK.GradientAngle = 90F;
+			this.pn_TK.GradientBottomColor = System.Drawing.Color.CadetBlue;
+			this.pn_TK.GradientTopColor = System.Drawing.Color.DodgerBlue;
+			this.pn_TK.Location = new System.Drawing.Point(208, 20);
+			this.pn_TK.Name = "pn_TK";
+			this.pn_TK.Size = new System.Drawing.Size(582, 34);
+			this.pn_TK.TabIndex = 48;
+			// 
 			// LOAIHANG_GUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,6 +628,9 @@
 			this.pn_nhap.PerformLayout();
 			this.artanPanel1.ResumeLayout(false);
 			this.artanPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+			this.pn_TK.ResumeLayout(false);
+			this.pn_TK.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -620,5 +659,7 @@
 		private System.Windows.Forms.Label label1;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kbtn_Them_sua;
 		private System.Windows.Forms.Timer createTransition;
+		private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+		private ArtanComponent.ArtanPanel pn_TK;
 	}
 }
