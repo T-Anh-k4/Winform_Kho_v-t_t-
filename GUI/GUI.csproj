@@ -124,6 +124,12 @@
     <Compile Include="LOAIHANG_GUI.Designer.cs">
       <DependentUpon>LOAIHANG_GUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="LOGIN_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN_GUI.Designer.cs">
+      <DependentUpon>LOGIN_GUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MENU_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LOAIHANG_GUI.resx">
       <DependentUpon>LOAIHANG_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN_GUI.resx">
+      <DependentUpon>LOGIN_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MENU_GUI.resx">
       <DependentUpon>MENU_GUI.cs</DependentUpon>

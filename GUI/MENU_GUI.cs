@@ -270,5 +270,17 @@ namespace GUI
 			OpenChildForm(new HANGHOA_GUI());
 
 		}
+
+		private void bt_Nhan_vien_Click(object sender, EventArgs e)
+		{
+			OpenChildForm(new NHANVIEN_GUI());
+
+		}
+
+		private void bt_tai_khoan_Click(object sender, EventArgs e)
+		{
+			OpenChildForm(new USER_GUI());
+
+		}
 	}
 }

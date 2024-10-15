@@ -5,7 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DTO;
+using System.Data.SqlClient;
 namespace DAL
 {
 	public class USER_DAL
@@ -78,5 +79,30 @@ namespace DAL
 
 			return instance.execQuery(query);
 		}
+		public static string CheckLoginDTO(USER_DTO userDTO)
+		{
+			string user = null;
+			SqlConnection con = new SqlConnection(@"Data Source=NQH\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True");
+			con.Open();
+			string query = "SELECT USERNAME,PASSWORD FROM NGUOIDUNG " +
+				"WHERE USERNAME LIKE N'" + userDTO.UserName + "' and PASSWORD LIKE N'"+ userDTO.PassWord + "'";
+			SqlCommand cmd = new SqlCommand(query, con);
+			cmd.Connection = con;
+			SqlDataReader reader = cmd.ExecuteReader();
+			if (reader.HasRows) //neu ton tai
+			{
+				while (reader.Read())
+				{
+					user = reader.GetString(0);
+				}
+				reader.Close();
+				con.Close();
+
+			}
+			else return "Tai khoan mat khau khong chinh xac";
+			return user;
+
+		}
+
 	}
 }

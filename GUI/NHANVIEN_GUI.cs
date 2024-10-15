@@ -16,7 +16,7 @@ namespace GUI
 	{
 		NHANVIEN_BUS nhanVienBUS = new NHANVIEN_BUS();
 		bool createExplore = true;
-		int limit = 7;
+		int limit = 10;
 		int curentPage = 1;
 		int totalPage = 1;//so trang can tao
 
@@ -148,6 +148,7 @@ namespace GUI
 			{
 				if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
 				{
+					kryTx_Id.ReadOnly = true;
 					kryTx_Id.Text = row.Cells[2].Value.ToString();
 					kryTb_Name.Text = row.Cells[3].Value.ToString();
 					kryCb_Gender.Text = row.Cells[4].Value.ToString();
@@ -354,6 +355,7 @@ namespace GUI
 		private void kryBtShowCreate_NV_Click(object sender, EventArgs e)
 		{
 			kryBt_Add.Visible = true;
+			kryTx_Id.ReadOnly = false;
 			createTransition.Start();
 			if (kryBt_Edit.Visible)
 			{
