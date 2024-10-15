@@ -30,3 +30,33 @@ E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\bin\Debug\ArtanComponent.pdb
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.MENU_GUI.resources
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.USER_GUI.resources
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.CHITIETXUAT_GUI.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\GUI.exe.config
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\GUI.exe
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\GUI.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\ArtanComponent.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\BUS.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\DTO.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\DAO.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\ArtanComponent.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\BUS.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\DTO.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\ComponentFactory.Krypton.Docking.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\ComponentFactory.Krypton.Navigator.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\ComponentFactory.Krypton.Ribbon.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\ComponentFactory.Krypton.Toolkit.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\ComponentFactory.Krypton.Workspace.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\DAO.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.CHITIETXUAT_GUI.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.MENU_GUI.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.NHANVIEN_GUI.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.Properties.Resources.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.USER_GUI.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.csproj.Up2Date
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.exe
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\FontAwesome.Sharp.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.LOAIHANG_GUI.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.HANGHOA_GUI.resources

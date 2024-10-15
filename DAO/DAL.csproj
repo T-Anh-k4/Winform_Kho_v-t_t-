@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
+    <Compile Include="HANGHOA_DAL.cs" />
+    <Compile Include="LOAIHANG_DAL.cs" />
     <Compile Include="NHANVIEN_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="USER_DAL.cs" />

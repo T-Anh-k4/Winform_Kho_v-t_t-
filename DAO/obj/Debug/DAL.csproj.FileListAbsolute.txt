@@ -7,3 +7,12 @@ E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAL.csproj.CoreCompile
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAL.csproj.Up2Date
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAO.dll
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAO.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\DAO\bin\Debug\DAO.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\DAO\bin\Debug\DAO.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\DAO\bin\Debug\DTO.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\DAO\bin\Debug\DTO.pdb
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAL.csproj.Up2Date
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAO.dll
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\DAO\obj\Debug\DAO.pdb
