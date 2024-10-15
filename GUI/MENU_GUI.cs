@@ -14,6 +14,7 @@ namespace GUI
 {
 	public partial class MENU_GUI : KryptonForm
 	{
+		private KryptonForm currentChildForm;
 		private IconButton currentBtn;
 		private bool isDanhMucVisible = false;
 		private bool isBaoCaoVisible = false;
@@ -139,7 +140,7 @@ namespace GUI
 				currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
 				iconcurrenform.IconChar = currentBtn.IconChar;
-
+				iblformtitle.Text = currentBtn.Text;
 
 			}
 		}
@@ -156,11 +157,32 @@ namespace GUI
 				currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
 			}
 		}
+	
 
 		private void icbt_trangchu_Click(object sender, EventArgs e)
 		{
 			ActivateButton(sender, Color.Gray);
 
+		}
+
+		private void OpenChildForm(KryptonForm childForm)
+		{
+			if (currentChildForm != null)
+			{
+				currentChildForm.Close();
+			}
+
+			currentChildForm = childForm;
+			childForm.TopLevel = false;
+			childForm.FormBorderStyle = FormBorderStyle.None;
+			childForm.Dock = DockStyle.Fill; 
+
+			panel3.Controls.Add(childForm);
+			panel3.Tag = childForm;
+			childForm.BringToFront();
+			childForm.Show(); 
+
+	
 		}
 
 		private void icbt_Danhmuc_Click(object sender, EventArgs e)
@@ -170,8 +192,6 @@ namespace GUI
 			Danh_muc_Transition.Start();
 			if (isDanhMucVisible)
 			{
-				isBaoCaoVisible = false;
-				pn_bao_cao.Visible = false;
 				Bao_cao_Transition.Stop();
 			}
 		}
@@ -183,8 +203,6 @@ namespace GUI
 			Bao_cao_Transition.Start();
 			if (isBaoCaoVisible)
 			{
-				isDanhMucVisible = false;
-				pn_danh_muc.Visible = false;
 				Danh_muc_Transition.Stop();
 			}
 		}
@@ -193,6 +211,7 @@ namespace GUI
 		private void icbt_huongdan_Click(object sender, EventArgs e)
 		{
 			ActivateButton(sender, Color.Gray);
+			OpenChildForm(new HUONGDAN_GUI());
 		}
 
 		private void Danh_muc_Transition_Tick(object sender, EventArgs e)
@@ -210,7 +229,7 @@ namespace GUI
 			else
 			{
 				pn_danh_muc.Height += 10;
-				if (pn_danh_muc.Height >= 288)
+				if (pn_danh_muc.Height >= 279)
 				{
 					Danh_muc_Transition.Stop();
 					danhMucExplore = true;
@@ -233,12 +252,23 @@ namespace GUI
 			else
 			{
 				pn_bao_cao.Height += 10;
-				if (pn_bao_cao.Height >= 288)
+				if (pn_bao_cao.Height >= 210)
 				{
 					Bao_cao_Transition.Stop();
 					BaoCaoExplore = true;
 				}
 			}
+		}
+
+		private void bt_loai_hang_Click(object sender, EventArgs e)
+		{
+			OpenChildForm(new LOAIHANG_GUI());
+		}
+
+		private void bt_hang_hoa_Click(object sender, EventArgs e)
+		{
+			OpenChildForm(new HANGHOA_GUI());
+
 		}
 	}
 }
