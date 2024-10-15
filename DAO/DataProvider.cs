@@ -10,12 +10,12 @@ namespace DAL
 {
 	internal class DataProvider
 	{
-
-		// Thực hiện truy vấn SELECT và trả về kết quả dưới dạng DataTable
-		public DataTable execQuery(string query, params SqlParameter[] parameters)
+		string connectString = @"Data Source=2DAWNG\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True";
+        // Thực hiện truy vấn SELECT và trả về kết quả dưới dạng DataTable
+        public DataTable execQuery(string query, params SqlParameter[] parameters)
 		{
 			DataTable data = new DataTable();
-			using (SqlConnection con = new SqlConnection(@"Data Source=NQH\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True"))
+			using (SqlConnection con = new SqlConnection(@"Data Source=2DAWNG\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True"))
 			{
 				con.Open();
 				SqlCommand cmd = new SqlCommand(query, con);
@@ -34,7 +34,7 @@ namespace DAL
 		public int execNonQuery(string query, params SqlParameter[] parameters)
 		{
 			int data = 0;
-			using (SqlConnection con = new SqlConnection(@"Data Source=NQH\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True"))
+			using (SqlConnection con = new SqlConnection(@"Data Source=2DAWNG\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True"))
 			{
 				con.Open();
 				SqlCommand cmd = new SqlCommand(query, con);
@@ -47,7 +47,7 @@ namespace DAL
 		public object execScalar(string query, params SqlParameter[] parameters)
 		{
 			object data = null;
-			using (SqlConnection con = new SqlConnection(@"Data Source=NQH\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True"))
+			using (SqlConnection con = new SqlConnection(@"Data Source=2DAWNG\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True"))
 			{
 				con.Open();
 				SqlCommand cmd = new SqlCommand(query, con);

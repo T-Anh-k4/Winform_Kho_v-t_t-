@@ -388,4 +388,4 @@ InteropTests/NativeTests/out
 
 *.cache
 *.txt
-
+DTO/bin/
