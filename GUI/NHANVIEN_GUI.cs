@@ -9,15 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using System.Windows.Input;
 namespace GUI
 {
 	public partial class NHANVIEN_GUI : KryptonForm
 	{
 		NHANVIEN_BUS nhanVienBUS = new NHANVIEN_BUS();
 		bool createExplore = true;
-		int loadedRecord = 0;
-		int pageNumber = 1;
-		int numberRecord = 5;
+		int limit = 10;
+		int curentPage = 1;
+		int totalPage = 1;//so trang can tao
 
 
 		public NHANVIEN_GUI()
@@ -56,9 +57,11 @@ namespace GUI
 		public void loadDt_NhanVien()
 		{
 			DataTable dt = new DataTable();
-			dt = nhanVienBUS.GetDanhSachNhanVien();
+			dt = nhanVienBUS.GetDanhSachNhanVienPage(limit, curentPage);
 			//3dt_nhanvien.ColumnHeadersVisible = false;//ẩn header datagridview
 			dataViewNv.DataSource = dt;
+			totalPage = nhanVienBUS.GetSLSinhVien() / limit;
+			if (totalPage * limit < nhanVienBUS.GetSLSinhVien()) totalPage++;
 		}
 		public void loadCb_Gioitinh()
 		{
@@ -145,6 +148,7 @@ namespace GUI
 			{
 				if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
 				{
+					kryTx_Id.ReadOnly = true;
 					kryTx_Id.Text = row.Cells[2].Value.ToString();
 					kryTb_Name.Text = row.Cells[3].Value.ToString();
 					kryCb_Gender.Text = row.Cells[4].Value.ToString();
@@ -252,21 +256,6 @@ namespace GUI
 			}
 		}
 
-		private void kryBtShowCreate_Click(object sender, EventArgs e)
-		{
-			kryBt_Add.Visible = true;
-			createTransition.Start();
-			if (kryBt_Edit.Visible)
-			{
-				kryBt_Edit.Visible = false;
-			}
-			if(panel2_nv.Height >= 170)
-			{
-				createTransition.Stop();
-
-			}
-		}
-
 		private void kry_Clear_Click(object sender, EventArgs e)
 		{
 			clear();
@@ -325,7 +314,59 @@ namespace GUI
 //end
 		private void kryBtPredious_Click(object sender, EventArgs e)
 		{
+			curentPage--;
+			loadDt_NhanVien();
+			kryBt_Next.Enabled = true;
+			if (curentPage == 1)
+			{
+				kryBtPre.Enabled = false;
 
+			}
+			labelSoTrang.Text = Convert.ToString(curentPage);
+		}
+
+
+		private void kryBtNext_Click(object sender, EventArgs e)
+		{
+			curentPage++;
+			loadDt_NhanVien();
+			kryBtPre.Enabled = true;
+			if (curentPage == totalPage)
+			{
+				kryBt_Next.Enabled = false;
+			}
+			labelSoTrang.Text = Convert.ToString(curentPage);
+
+		}
+
+		private void kryCheckBox_Status_CheckedChanged(object sender, EventArgs e)
+		{
+			if (kryCheckBox_Status.Checked == true)
+			{
+				kryCheckBox_Status.Text = "Đang hoạt động";
+			}
+			else
+			{
+				kryCheckBox_Status.Text = "Không hoạt động";
+
+			}
+		}
+
+		private void kryBtShowCreate_NV_Click(object sender, EventArgs e)
+		{
+			kryBt_Add.Visible = true;
+			kryTx_Id.ReadOnly = false;
+			createTransition.Start();
+			if (kryBt_Edit.Visible)
+			{
+				kryBt_Edit.Visible = false;
+			}
+			if (panel2_nv.Height >= 170)
+			{
+				createTransition.Stop();
+
+			}
 		}
 	}
 }
+

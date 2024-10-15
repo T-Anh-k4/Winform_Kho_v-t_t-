@@ -61,3 +61,8 @@ D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\bin\Debug\FontAwesome.Sharp.d
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.LOAIHANG_GUI.resources
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.HANGHOA_GUI.resources
 D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.HUONGDAN_GUI.resources
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\bin\Debug\FontAwesome.Sharp.dll
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.HANGHOA_GUI.resources
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.HUONGDAN_GUI.resources
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.LOAIHANG_GUI.resources
+E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.LOGIN_GUI.resources

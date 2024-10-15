@@ -5,7 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DTO;
+using System.Data.SqlClient;
 namespace DAL
 {
 	public class USER_DAL
@@ -14,6 +15,11 @@ namespace DAL
 		public DataTable GetDataUserName()
 		{
 			string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu],TENNV AS [Tên nhân viên], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG JOIN NHANVIEN ON NGUOIDUNG.MANV = NHANVIEN.MANV";
+			return instance.execQuery(query);
+		}
+		public DataTable GetMaNvUser(string manv)
+		{
+			string query = "SELECT NGUOIDUNG.MANV FROM NGUOIDUNG JOIN NHANVIEN ON NGUOIDUNG.MANV = NHANVIEN.MANV";
 			return instance.execQuery(query);
 		}
 		public bool DeleteUser(string username)
@@ -68,17 +74,35 @@ namespace DAL
 		}
 		public DataTable SearchUser(string keyword)
 		{
-			try
-			{
-				string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG "+
-							   "WHERE USERNAME LIKE N'%" + keyword + "%'";
+			string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG "+
+							"WHERE USERNAME LIKE N'%" + keyword + "%'";
 
-				return instance.execQuery(query);
-			}
-			catch
-			{
-				return null;
-			}
+			return instance.execQuery(query);
 		}
+		public static string CheckLoginDTO(USER_DTO userDTO)
+		{
+			string user = null;
+			SqlConnection con = new SqlConnection(@"Data Source=NQH\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True");
+			con.Open();
+			string query = "SELECT USERNAME,PASSWORD FROM NGUOIDUNG " +
+				"WHERE USERNAME LIKE N'" + userDTO.UserName + "' and PASSWORD LIKE N'"+ userDTO.PassWord + "'";
+			SqlCommand cmd = new SqlCommand(query, con);
+			cmd.Connection = con;
+			SqlDataReader reader = cmd.ExecuteReader();
+			if (reader.HasRows) //neu ton tai
+			{
+				while (reader.Read())
+				{
+					user = reader.GetString(0);
+				}
+				reader.Close();
+				con.Close();
+
+			}
+			else return "Tai khoan mat khau khong chinh xac";
+			return user;
+
+		}
+
 	}
 }

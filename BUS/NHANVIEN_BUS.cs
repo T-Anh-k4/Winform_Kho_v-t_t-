@@ -16,6 +16,16 @@ namespace BUS
 		{
 			return nhanVienDAO.getDanhSachNhanVien();
 		}
+		public DataTable GetDanhSachNhanVienPage(int limit, int page)
+		{
+			return nhanVienDAO.getDanhSachNhanVienPage(limit, page);
+		}
+		public int GetSLSinhVien()
+		{
+			return nhanVienDAO.GetSLSinhVien();
+		}
+
+
 		public DataTable GetNhanVien(string manv)
 		{
 			return nhanVienDAO.GetNhanVien(manv);
