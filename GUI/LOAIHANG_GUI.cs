@@ -87,6 +87,8 @@ namespace GUI
 				k_datagrview_Loai_hang.Columns.Add(btnColumn);
 			}
 			k_datagrview_Loai_hang.Columns["btnDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			k_datagrview_Loai_hang.Columns["btnDelete"].DisplayIndex = 4;
+
 		}
 		private void AddButtonColumn_Edit()
 		{
@@ -100,6 +102,8 @@ namespace GUI
 				k_datagrview_Loai_hang.Columns.Add(btnColumn);
 			}
 			k_datagrview_Loai_hang.Columns["btnEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			k_datagrview_Loai_hang.Columns["btnEdit"].DisplayIndex = 5; // Đặt cột "Sửa" ở vị trí thứ hai
+
 		}
 		private void TextBox_Enter(object sender, EventArgs e)
 		{
@@ -420,31 +424,27 @@ namespace GUI
 			else if (result != null && result.Rows.Count > 0)
 			{
 				k_datagrview_Loai_hang.DataSource = result;
+				EnsureButtonColumnsVisible();
 
-				// Kiểm tra sự tồn tại của các cột trước khi thao tác
-				if (k_datagrview_Loai_hang.Columns.Contains("btnDelete"))
-				{
-					k_datagrview_Loai_hang.Columns["btnDelete"].Visible = true;
-					k_datagrview_Loai_hang.Columns["btnDelete"].DisplayIndex = k_datagrview_Loai_hang.Columns.Count - 1;
-				}
-
-				if (k_datagrview_Loai_hang.Columns.Contains("btnEdit"))
-				{
-					k_datagrview_Loai_hang.Columns["btnEdit"].Visible = true;
-					k_datagrview_Loai_hang.Columns["btnEdit"].DisplayIndex = k_datagrview_Loai_hang.Columns.Count - 2;
-				}
 			}
 			else
 			{
 				k_datagrview_Loai_hang.DataSource = null;
-				if (k_datagrview_Loai_hang.Columns.Contains("btnDelete"))
-				{
-					k_datagrview_Loai_hang.Columns["btnDelete"].Visible = false;
-				}
-				if (k_datagrview_Loai_hang.Columns.Contains("btnEdit"))
-				{
-					k_datagrview_Loai_hang.Columns["btnEdit"].Visible = false;
-				}
+				EnsureButtonColumnsVisible();
+
+			}
+		}
+		private void EnsureButtonColumnsVisible()
+		{
+			// Đặt tính khả thi và vị trí của các cột nút
+			if (k_datagrview_Loai_hang.Columns.Contains("btnDelete"))
+			{
+				k_datagrview_Loai_hang.Columns["btnDelete"].Visible = true;
+			}
+
+			if (k_datagrview_Loai_hang.Columns.Contains("btnEdit"))
+			{
+				k_datagrview_Loai_hang.Columns["btnEdit"].Visible = true;
 			}
 		}
 	}

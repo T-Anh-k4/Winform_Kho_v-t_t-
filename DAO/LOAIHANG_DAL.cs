@@ -78,7 +78,7 @@ namespace DAO
 			{
 				string query = "SELECT MALOAI as [Mã loại],TENLOAI as [Tên loại hàng],DIENGIAI as [Diễn giải],FLAG as [Trạng thái]" +
 							   "FROM LOAIHANG " +
-							   "WHERE TENLOAI LIKE N'%" + keyword + "%' OR MALOAI LIKE N'%" + keyword + "%'";
+							   "WHERE MALOAI LIKE N'%" + keyword + "%'";
 
 				return instance.execQuery(query);
 			}
