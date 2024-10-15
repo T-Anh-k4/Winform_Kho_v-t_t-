@@ -28,10 +28,17 @@ namespace GUI
 		}
 		public void loadDataUser()
 		{
-			userBUS.GetDataUserName();
 			DataTable dt = new DataTable();
 			dt = userBUS.GetDataUserName();
 			dataViewUser.DataSource = dt;
+		}
+		public void loadDataSearch()
+		{
+			string keyword = kryTbSearch.Text;
+			DataTable dt = new DataTable();
+			dt = userBUS.SearchUser(keyword);
+			dataViewUser.DataSource = dt;
+
 		}
 		public void loadCb_LoaiUser()
 		{
@@ -126,6 +133,7 @@ namespace GUI
 				{
 					kryTb_Name.Text = row.Cells[2].Value.ToString();
 					kryTb_Pass.Text = row.Cells[3].Value.ToString();
+					kryTbManv.Text = row.Cells[4].Value.ToString();
 					kryCb_Loai.Text = row.Cells[5].Value.ToString();
 					if (Convert.ToInt32(row.Cells[6].Value) == 1)
 					{
@@ -134,6 +142,7 @@ namespace GUI
 					else
 					{
 						kryStatus.Checked = false; // Bỏ đánh dấu checkbox
+
 					}
 					IsPressEdit();
 					createTransition_User.Start();
@@ -213,7 +222,6 @@ namespace GUI
 		private void kryBt_Edit_Click(object sender, EventArgs e)
 		{
 			kryTb_Name.ReadOnly = true;
-
 			bool result = userBUS.UplateUser(kryTb_Name.Text, kryTb_Pass.Text, kryCb_Loai.SelectedValue.ToString(), kryStatus.Checked ? 1 : 0);
 
 			if (result)
@@ -244,49 +252,20 @@ namespace GUI
 
 		private void kryTbSearch_TextChanged(object sender, EventArgs e)
 		{
+			loadDataSearch();
+		}
 
-			string keyword = kryTbSearch.Text.Trim();
-			DataTable result = userBUS.SearchUser(keyword);
-			if (string.IsNullOrEmpty(keyword))
+		private void kryStatus_CheckedChanged(object sender, EventArgs e)
+		{
+			if (kryStatus.Checked == true)
 			{
-				loadDataUser();
-				return;
-			}
-
-			if (keyword == "Tìm kiếm")
-			{
-				return;
-			}
-			else if (result != null && result.Rows.Count > 0)
-			{
-				dataViewUser.DataSource = result;
-
-				// Kiểm tra sự tồn tại của các cột trước khi thao tác
-				if (dataViewUser.Columns.Contains("btnDelete"))
-				{
-					dataViewUser.Columns["btnDelete"].Visible = true;
-					dataViewUser.Columns["btnDelete"].DisplayIndex = dataViewUser.Columns.Count+1;
-				}
-
-				if (dataViewUser.Columns.Contains("btnEdit"))
-				{
-					dataViewUser.Columns["btnEdit"].Visible = true;
-					dataViewUser.Columns["btnEdit"].DisplayIndex = dataViewUser.Columns.Count+2;
-				}
+				kryStatus.Text = "Đang hoạt động";
 			}
 			else
 			{
-				dataViewUser.DataSource = null;
-				if (dataViewUser.Columns.Contains("btnDelete"))
-				{
-					dataViewUser.Columns["btnDelete"].Visible = false;
-				}
-				if (dataViewUser.Columns.Contains("btnEdit"))
-				{
-					dataViewUser.Columns["btnEdit"].Visible = false;
-				}
+				kryStatus.Text = "Không hoạt động";
+
 			}
-			
 		}
 	}
 }

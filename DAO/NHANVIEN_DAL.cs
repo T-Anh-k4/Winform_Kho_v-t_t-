@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace DAL
 	public class NHANVIEN_DAL
 	{
 		DataProvider instance = new DataProvider();
+		SqlDataAdapter nvAdapter = new SqlDataAdapter();
 
 		//NHANVIEN_DTO nhanVienDTO = new NHANVIEN_DTO();
 		public NHANVIEN_DAL()
@@ -21,6 +23,32 @@ namespace DAL
 		{
 			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN";
 			return instance.execQuery(query);
+		}
+		public DataTable getDanhSachNhanVienPage(int limit,int page)
+		{
+			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN";
+
+			// Khởi tạo đối tượng kết nối
+			using (SqlConnection con = new SqlConnection(@"Data Source=NQH\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True"))
+			{
+				con.Open(); // Mở kết nối
+
+				// Khởi tạo SqlDataAdapter với SqlCommand và SqlConnection
+				nvAdapter.SelectCommand = new SqlCommand(query, con);
+
+				DataTable dsNv = new DataTable();
+				nvAdapter.Fill((page - 1) * limit, limit, dsNv);
+
+				con.Close(); // Đóng kết nối
+				return dsNv;
+			}
+		}
+		public int GetSLSinhVien()
+		{
+			string query = "SELECT COUNT(*) FROM NHANVIEN";
+			object result = instance.execScalar(query);
+			int slNhanVien = result != null ? Convert.ToInt32(result) : 0;
+			return slNhanVien;
 		}
 		public DataTable GetNhanVien(string maNV)
 		{
@@ -86,7 +114,6 @@ namespace DAL
 			}
 			return true;
 		}
-
 
 	}
 }
