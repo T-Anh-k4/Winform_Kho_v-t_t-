@@ -16,6 +16,11 @@ namespace DAL
 			string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu],TENNV AS [Tên nhân viên], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG JOIN NHANVIEN ON NGUOIDUNG.MANV = NHANVIEN.MANV";
 			return instance.execQuery(query);
 		}
+		public DataTable GetMaNvUser(string manv)
+		{
+			string query = "SELECT NGUOIDUNG.MANV FROM NGUOIDUNG JOIN NHANVIEN ON NGUOIDUNG.MANV = NHANVIEN.MANV";
+			return instance.execQuery(query);
+		}
 		public bool DeleteUser(string username)
 		{
 			try
@@ -68,17 +73,10 @@ namespace DAL
 		}
 		public DataTable SearchUser(string keyword)
 		{
-			try
-			{
-				string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG "+
-							   "WHERE USERNAME LIKE N'%" + keyword + "%'";
+			string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG "+
+							"WHERE USERNAME LIKE N'%" + keyword + "%'";
 
-				return instance.execQuery(query);
-			}
-			catch
-			{
-				return null;
-			}
+			return instance.execQuery(query);
 		}
 	}
 }

@@ -15,9 +15,9 @@ namespace GUI
 	{
 		NHANVIEN_BUS nhanVienBUS = new NHANVIEN_BUS();
 		bool createExplore = true;
-		int loadedRecord = 0;
-		int pageNumber = 1;
-		int numberRecord = 5;
+		int limit = 5;
+		int curentPage = 1;
+		int totalPage = 1;//so trang can tao
 
 
 		public NHANVIEN_GUI()
@@ -56,9 +56,11 @@ namespace GUI
 		public void loadDt_NhanVien()
 		{
 			DataTable dt = new DataTable();
-			dt = nhanVienBUS.GetDanhSachNhanVien();
+			dt = nhanVienBUS.GetDanhSachNhanVienPage(limit, curentPage);
 			//3dt_nhanvien.ColumnHeadersVisible = false;//ẩn header datagridview
 			dataViewNv.DataSource = dt;
+			totalPage = nhanVienBUS.GetSLSinhVien() / limit;
+			if (totalPage * limit < nhanVienBUS.GetSLSinhVien()) totalPage++;
 		}
 		public void loadCb_Gioitinh()
 		{
@@ -325,7 +327,30 @@ namespace GUI
 //end
 		private void kryBtPredious_Click(object sender, EventArgs e)
 		{
+			curentPage--;
+			loadDt_NhanVien();
+			kryBtNext.Enabled = true;
+			if (curentPage == 1)
+			{
+				kryBtPredious.Enabled = false;
+
+			}
+			lbSoTrang.Text = Convert.ToString(curentPage);
+		}
+
+
+		private void kryBtNext_Click(object sender, EventArgs e)
+		{
+			curentPage++;
+			loadDt_NhanVien();
+			kryBtPredious.Enabled = true;
+			if (curentPage == totalPage)
+			{
+				kryBtNext.Enabled = false;
+			}
+			lbSoTrang.Text = Convert.ToString(curentPage);
 
 		}
 	}
 }
+
