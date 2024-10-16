@@ -44,7 +44,6 @@ namespace GUI
 			}
 			MessageBox.Show("Đăng nhập thành công.");
 			menuGUi.Show();
-			Hide();
 		}
 
 		private void kryBtExit_Click(object sender, EventArgs e)

@@ -7,7 +7,7 @@ using DAL;
 using DTO;
 namespace DAO
 {
-	public class LOGIN_DAL : USER_DAL
+	public class LOGIN_DAL : DataProvider
 	{
 		public string CheckLogin(USER_DTO userDTO)
 		{
