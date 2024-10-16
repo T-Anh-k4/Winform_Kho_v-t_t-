@@ -11,6 +11,7 @@ namespace BUS
 	public class NHANVIEN_BUS
 	{
 		NHANVIEN_DAL nhanVienDAO = new NHANVIEN_DAL();
+		DataProvider dataProvider = new DataProvider();
 
 		public DataTable GetDanhSachNhanVien()
 		{
