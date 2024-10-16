@@ -31,7 +31,6 @@
 			this.components = new System.ComponentModel.Container();
 			this.artanPanel1 = new ArtanComponent.ArtanPanel();
 			this.kryBtExit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-			this.label1 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.kryBtLogin = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -47,7 +46,6 @@
 			this.artanPanel1.BackColor = System.Drawing.Color.Transparent;
 			this.artanPanel1.BorderRadius = 25;
 			this.artanPanel1.Controls.Add(this.kryBtExit);
-			this.artanPanel1.Controls.Add(this.label1);
 			this.artanPanel1.Controls.Add(this.panel2);
 			this.artanPanel1.Controls.Add(this.panel1);
 			this.artanPanel1.Controls.Add(this.kryBtLogin);
@@ -61,7 +59,7 @@
 			this.artanPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.artanPanel1.Location = new System.Drawing.Point(0, 0);
 			this.artanPanel1.Name = "artanPanel1";
-			this.artanPanel1.Size = new System.Drawing.Size(378, 413);
+			this.artanPanel1.Size = new System.Drawing.Size(404, 419);
 			this.artanPanel1.TabIndex = 1;
 			this.artanPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.artanPanel1_Paint);
 			// 
@@ -120,17 +118,6 @@
 			this.kryBtExit.Values.Text = "Thoát";
 			this.kryBtExit.Click += new System.EventHandler(this.kryBtExit_Click);
 			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Arial Black", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(8, 92);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(525, 48);
-			this.label1.TabIndex = 32;
-			this.label1.Text = "Quản Lý Vật Liệu Xây Dựng";
-			// 
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -138,7 +125,7 @@
 			this.panel2.Location = new System.Drawing.Point(1, 0);
 			this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(377, 1);
+			this.panel2.Size = new System.Drawing.Size(403, 1);
 			this.panel2.TabIndex = 31;
 			// 
 			// panel1
@@ -148,7 +135,7 @@
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1, 413);
+			this.panel1.Size = new System.Drawing.Size(1, 419);
 			this.panel1.TabIndex = 30;
 			// 
 			// kryBtLogin
@@ -251,7 +238,7 @@
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Arial Black", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(151, 44);
+			this.label2.Location = new System.Drawing.Point(139, 79);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(123, 48);
 			this.label2.TabIndex = 1;
@@ -278,7 +265,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(378, 413);
+			this.ClientSize = new System.Drawing.Size(404, 419);
 			this.Controls.Add(this.artanPanel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -305,6 +292,5 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kryBtExit;
-		private System.Windows.Forms.Label label1;
 	}
 }

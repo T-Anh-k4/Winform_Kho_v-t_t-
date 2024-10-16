@@ -87,8 +87,8 @@ namespace GUI
 			bt_bc_loai_hang.MouseLeave += new EventHandler(IconButton_MouseLeave);
 			bt_bc_nhap_hang.MouseEnter += new EventHandler(IconButton_MouseEnter);
 			bt_bc_nhap_hang.MouseLeave += new EventHandler(IconButton_MouseLeave);
-			bt_bc_Nha_cung_cap.MouseEnter += new EventHandler(IconButton_MouseEnter);
-			bt_bc_Nha_cung_cap.MouseLeave += new EventHandler(IconButton_MouseLeave);
+			//bt_bc_Nha_cung_cap.MouseEnter += new EventHandler(IconButton_MouseEnter);
+			//bt_bc_Nha_cung_cap.MouseLeave += new EventHandler(IconButton_MouseLeave);
 			bt_bc_xuat_hang.MouseEnter += new EventHandler(IconButton_MouseEnter);
 			bt_bc_xuat_hang.MouseLeave += new EventHandler(IconButton_MouseLeave);
 

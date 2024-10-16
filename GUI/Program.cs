@@ -16,7 +16,9 @@ namespace GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FORMLOAD_GUI());
+			Application.Run(new LOGIN_GUI());
+			//Application.Run(new TEST_GUI());
+
 		}
 	}
 }

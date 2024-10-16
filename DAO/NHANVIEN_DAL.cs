@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using DTO;
 namespace DAL
 {
-	public class NHANVIEN_DAL
+	public class NHANVIEN_DAL : DataProvider
 	{
 		DataProvider instance = new DataProvider();
 		SqlDataAdapter nvAdapter = new SqlDataAdapter();
@@ -24,12 +24,12 @@ namespace DAL
 			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN";
 			return instance.execQuery(query);
 		}
-		public DataTable getDanhSachNhanVienPage(int limit,int page)
+		public DataTable getDanhSachNhanVienPage(int limit, int page)
 		{
 			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN";
 
 			// Khởi tạo đối tượng kết nối
-			using (SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-T4N0A0R\SQLEXPRESS;Initial Catalog=QLVATLIEUXD_1;Integrated Security=True"))
+			using (SqlConnection con = new SqlConnection(LinkData))
 			{
 				con.Open(); // Mở kết nối
 

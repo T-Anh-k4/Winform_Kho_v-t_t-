@@ -34,7 +34,6 @@ namespace GUI
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MENU_GUI));
 			this.icbt_baocao = new FontAwesome.Sharp.IconButton();
 			this.bt_bc_Kho = new FontAwesome.Sharp.IconButton();
-			this.bt_bc_Nha_cung_cap = new FontAwesome.Sharp.IconButton();
 			this.bt_bc_xuat_hang = new FontAwesome.Sharp.IconButton();
 			this.bt_Kho = new FontAwesome.Sharp.IconButton();
 			this.bt_Nha_cung_cap = new FontAwesome.Sharp.IconButton();
@@ -54,9 +53,9 @@ namespace GUI
 			this.Bao_cao_Transition = new System.Windows.Forms.Timer(this.components);
 			this.Danh_muc_Transition = new System.Windows.Forms.Timer(this.components);
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			this.panel1 = new System.Windows.Forms.Panel();
 			this.pn_menu = new ArtanComponent.ArtanPanel();
 			this.pn_bao_cao = new ArtanComponent.ArtanPanel();
+			this.bt_bc_Nha_cung_cap = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.pn_danh_muc = new ArtanComponent.ArtanPanel();
 			this.bt_tai_khoan = new FontAwesome.Sharp.IconButton();
 			this.bt_Nhan_vien = new FontAwesome.Sharp.IconButton();
@@ -79,7 +78,7 @@ namespace GUI
 			// 
 			// icbt_baocao
 			// 
-			this.icbt_baocao.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.icbt_baocao.BackColor = System.Drawing.Color.White;
 			this.icbt_baocao.Dock = System.Windows.Forms.DockStyle.Top;
 			this.icbt_baocao.FlatAppearance.BorderSize = 0;
 			this.icbt_baocao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -90,10 +89,10 @@ namespace GUI
 			this.icbt_baocao.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.icbt_baocao.IconSize = 35;
 			this.icbt_baocao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_baocao.Location = new System.Drawing.Point(0, 467);
+			this.icbt_baocao.Location = new System.Drawing.Point(0, 461);
 			this.icbt_baocao.Name = "icbt_baocao";
 			this.icbt_baocao.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-			this.icbt_baocao.Size = new System.Drawing.Size(258, 57);
+			this.icbt_baocao.Size = new System.Drawing.Size(258, 45);
 			this.icbt_baocao.TabIndex = 24;
 			this.icbt_baocao.Text = "Báo cáo-Thống kê";
 			this.icbt_baocao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -103,7 +102,7 @@ namespace GUI
 			// 
 			// bt_bc_Kho
 			// 
-			this.bt_bc_Kho.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_bc_Kho.BackColor = System.Drawing.Color.White;
 			this.bt_bc_Kho.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_bc_Kho.FlatAppearance.BorderSize = 0;
 			this.bt_bc_Kho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -122,30 +121,9 @@ namespace GUI
 			this.bt_bc_Kho.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.bt_bc_Kho.UseVisualStyleBackColor = false;
 			// 
-			// bt_bc_Nha_cung_cap
-			// 
-			this.bt_bc_Nha_cung_cap.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.bt_bc_Nha_cung_cap.Dock = System.Windows.Forms.DockStyle.Top;
-			this.bt_bc_Nha_cung_cap.FlatAppearance.BorderSize = 0;
-			this.bt_bc_Nha_cung_cap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.bt_bc_Nha_cung_cap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.bt_bc_Nha_cung_cap.ForeColor = System.Drawing.Color.DimGray;
-			this.bt_bc_Nha_cung_cap.IconChar = FontAwesome.Sharp.IconChar.Minus;
-			this.bt_bc_Nha_cung_cap.IconColor = System.Drawing.Color.Gray;
-			this.bt_bc_Nha_cung_cap.IconFont = FontAwesome.Sharp.IconFont.Auto;
-			this.bt_bc_Nha_cung_cap.IconSize = 25;
-			this.bt_bc_Nha_cung_cap.Location = new System.Drawing.Point(0, 180);
-			this.bt_bc_Nha_cung_cap.Name = "bt_bc_Nha_cung_cap";
-			this.bt_bc_Nha_cung_cap.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-			this.bt_bc_Nha_cung_cap.Size = new System.Drawing.Size(258, 30);
-			this.bt_bc_Nha_cung_cap.TabIndex = 29;
-			this.bt_bc_Nha_cung_cap.Text = "Danh sách nhà cung cấp";
-			this.bt_bc_Nha_cung_cap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.bt_bc_Nha_cung_cap.UseVisualStyleBackColor = false;
-			// 
 			// bt_bc_xuat_hang
 			// 
-			this.bt_bc_xuat_hang.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_bc_xuat_hang.BackColor = System.Drawing.Color.White;
 			this.bt_bc_xuat_hang.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_bc_xuat_hang.FlatAppearance.BorderSize = 0;
 			this.bt_bc_xuat_hang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -166,7 +144,7 @@ namespace GUI
 			// 
 			// bt_Kho
 			// 
-			this.bt_Kho.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_Kho.BackColor = System.Drawing.Color.White;
 			this.bt_Kho.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_Kho.FlatAppearance.BorderSize = 0;
 			this.bt_Kho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -188,7 +166,7 @@ namespace GUI
 			// 
 			// bt_Nha_cung_cap
 			// 
-			this.bt_Nha_cung_cap.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_Nha_cung_cap.BackColor = System.Drawing.Color.White;
 			this.bt_Nha_cung_cap.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_Nha_cung_cap.FlatAppearance.BorderSize = 0;
 			this.bt_Nha_cung_cap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -210,7 +188,7 @@ namespace GUI
 			// 
 			// bt_xuat_hang
 			// 
-			this.bt_xuat_hang.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_xuat_hang.BackColor = System.Drawing.Color.White;
 			this.bt_xuat_hang.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_xuat_hang.FlatAppearance.BorderSize = 0;
 			this.bt_xuat_hang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -232,7 +210,7 @@ namespace GUI
 			// 
 			// bt_Khach_hang
 			// 
-			this.bt_Khach_hang.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_Khach_hang.BackColor = System.Drawing.Color.White;
 			this.bt_Khach_hang.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_Khach_hang.FlatAppearance.BorderSize = 0;
 			this.bt_Khach_hang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -254,7 +232,7 @@ namespace GUI
 			// 
 			// bt_nhap_hang
 			// 
-			this.bt_nhap_hang.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_nhap_hang.BackColor = System.Drawing.Color.White;
 			this.bt_nhap_hang.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_nhap_hang.FlatAppearance.BorderSize = 0;
 			this.bt_nhap_hang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -276,7 +254,7 @@ namespace GUI
 			// 
 			// bt_hang_hoa
 			// 
-			this.bt_hang_hoa.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_hang_hoa.BackColor = System.Drawing.Color.White;
 			this.bt_hang_hoa.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_hang_hoa.FlatAppearance.BorderSize = 0;
 			this.bt_hang_hoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -299,7 +277,7 @@ namespace GUI
 			// 
 			// bt_loai_hang
 			// 
-			this.bt_loai_hang.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_loai_hang.BackColor = System.Drawing.Color.White;
 			this.bt_loai_hang.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_loai_hang.FlatAppearance.BorderSize = 0;
 			this.bt_loai_hang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -322,7 +300,7 @@ namespace GUI
 			// 
 			// bt_bc_Khach_hang
 			// 
-			this.bt_bc_Khach_hang.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_bc_Khach_hang.BackColor = System.Drawing.Color.White;
 			this.bt_bc_Khach_hang.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_bc_Khach_hang.FlatAppearance.BorderSize = 0;
 			this.bt_bc_Khach_hang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -343,7 +321,7 @@ namespace GUI
 			// 
 			// icbt_Danhmuc
 			// 
-			this.icbt_Danhmuc.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.icbt_Danhmuc.BackColor = System.Drawing.Color.White;
 			this.icbt_Danhmuc.Dock = System.Windows.Forms.DockStyle.Top;
 			this.icbt_Danhmuc.FlatAppearance.BorderSize = 0;
 			this.icbt_Danhmuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -357,7 +335,7 @@ namespace GUI
 			this.icbt_Danhmuc.Location = new System.Drawing.Point(0, 131);
 			this.icbt_Danhmuc.Name = "icbt_Danhmuc";
 			this.icbt_Danhmuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-			this.icbt_Danhmuc.Size = new System.Drawing.Size(258, 57);
+			this.icbt_Danhmuc.Size = new System.Drawing.Size(258, 51);
 			this.icbt_Danhmuc.TabIndex = 25;
 			this.icbt_Danhmuc.Text = "Danh mục";
 			this.icbt_Danhmuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -367,7 +345,7 @@ namespace GUI
 			// 
 			// icbt_trangchu
 			// 
-			this.icbt_trangchu.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.icbt_trangchu.BackColor = System.Drawing.Color.White;
 			this.icbt_trangchu.Dock = System.Windows.Forms.DockStyle.Top;
 			this.icbt_trangchu.FlatAppearance.BorderSize = 0;
 			this.icbt_trangchu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -401,7 +379,7 @@ namespace GUI
 			// 
 			// bt_bc_nhap_hang
 			// 
-			this.bt_bc_nhap_hang.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_bc_nhap_hang.BackColor = System.Drawing.Color.White;
 			this.bt_bc_nhap_hang.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_bc_nhap_hang.FlatAppearance.BorderSize = 0;
 			this.bt_bc_nhap_hang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -422,7 +400,7 @@ namespace GUI
 			// 
 			// bt_bc_loai_hang
 			// 
-			this.bt_bc_loai_hang.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_bc_loai_hang.BackColor = System.Drawing.Color.White;
 			this.bt_bc_loai_hang.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_bc_loai_hang.FlatAppearance.BorderSize = 0;
 			this.bt_bc_loai_hang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -454,7 +432,7 @@ namespace GUI
 			this.icbt_huongdan.IconFont = FontAwesome.Sharp.IconFont.Auto;
 			this.icbt_huongdan.IconSize = 35;
 			this.icbt_huongdan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.icbt_huongdan.Location = new System.Drawing.Point(0, 749);
+			this.icbt_huongdan.Location = new System.Drawing.Point(0, 763);
 			this.icbt_huongdan.Name = "icbt_huongdan";
 			this.icbt_huongdan.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
 			this.icbt_huongdan.Size = new System.Drawing.Size(258, 57);
@@ -467,7 +445,7 @@ namespace GUI
 			// 
 			// bt_bc_hang_hoa
 			// 
-			this.bt_bc_hang_hoa.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_bc_hang_hoa.BackColor = System.Drawing.Color.White;
 			this.bt_bc_hang_hoa.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_bc_hang_hoa.FlatAppearance.BorderSize = 0;
 			this.bt_bc_hang_hoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -498,17 +476,9 @@ namespace GUI
 			this.Danh_muc_Transition.Interval = 10;
 			this.Danh_muc_Transition.Tick += new System.EventHandler(this.Danh_muc_Transition_Tick);
 			// 
-			// panel1
-			// 
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.panel1.Location = new System.Drawing.Point(0, 0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(10, 811);
-			this.panel1.TabIndex = 40;
-			// 
 			// pn_menu
 			// 
-			this.pn_menu.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.pn_menu.BackColor = System.Drawing.Color.White;
 			this.pn_menu.BorderRadius = 0;
 			this.pn_menu.Controls.Add(this.icbt_huongdan);
 			this.pn_menu.Controls.Add(this.pn_bao_cao);
@@ -522,7 +492,7 @@ namespace GUI
 			this.pn_menu.GradientAngle = 90F;
 			this.pn_menu.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
 			this.pn_menu.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-			this.pn_menu.Location = new System.Drawing.Point(10, 0);
+			this.pn_menu.Location = new System.Drawing.Point(0, 0);
 			this.pn_menu.Name = "pn_menu";
 			this.pn_menu.Size = new System.Drawing.Size(258, 811);
 			this.pn_menu.TabIndex = 41;
@@ -541,16 +511,53 @@ namespace GUI
 			this.pn_bao_cao.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pn_bao_cao.ForeColor = System.Drawing.Color.Black;
 			this.pn_bao_cao.GradientAngle = 90F;
-			this.pn_bao_cao.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
-			this.pn_bao_cao.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-			this.pn_bao_cao.Location = new System.Drawing.Point(0, 524);
+			this.pn_bao_cao.GradientBottomColor = System.Drawing.Color.White;
+			this.pn_bao_cao.GradientTopColor = System.Drawing.Color.White;
+			this.pn_bao_cao.Location = new System.Drawing.Point(0, 506);
 			this.pn_bao_cao.Name = "pn_bao_cao";
-			this.pn_bao_cao.Size = new System.Drawing.Size(258, 225);
+			this.pn_bao_cao.Size = new System.Drawing.Size(258, 257);
 			this.pn_bao_cao.TabIndex = 43;
+			// 
+			// bt_bc_Nha_cung_cap
+			// 
+			this.bt_bc_Nha_cung_cap.Dock = System.Windows.Forms.DockStyle.Top;
+			this.bt_bc_Nha_cung_cap.Location = new System.Drawing.Point(0, 180);
+			this.bt_bc_Nha_cung_cap.Name = "bt_bc_Nha_cung_cap";
+			this.bt_bc_Nha_cung_cap.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
+			this.bt_bc_Nha_cung_cap.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
+			this.bt_bc_Nha_cung_cap.OverrideDefault.Border.Color1 = System.Drawing.Color.White;
+			this.bt_bc_Nha_cung_cap.OverrideDefault.Border.Color2 = System.Drawing.Color.White;
+			this.bt_bc_Nha_cung_cap.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.bt_bc_Nha_cung_cap.Size = new System.Drawing.Size(258, 40);
+			this.bt_bc_Nha_cung_cap.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.bt_bc_Nha_cung_cap.StateCommon.Back.Color2 = System.Drawing.Color.White;
+			this.bt_bc_Nha_cung_cap.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("bt_bc_Nha_cung_cap.StateCommon.Back.Image")));
+			this.bt_bc_Nha_cung_cap.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
+			this.bt_bc_Nha_cung_cap.StateCommon.Border.Color1 = System.Drawing.Color.White;
+			this.bt_bc_Nha_cung_cap.StateCommon.Border.Color2 = System.Drawing.Color.White;
+			this.bt_bc_Nha_cung_cap.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.bt_bc_Nha_cung_cap.StateCommon.Border.Rounding = 20;
+			this.bt_bc_Nha_cung_cap.StateCommon.Content.Padding = new System.Windows.Forms.Padding(-1, -1, 40, -1);
+			this.bt_bc_Nha_cung_cap.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+			this.bt_bc_Nha_cung_cap.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black;
+			this.bt_bc_Nha_cung_cap.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.bt_bc_Nha_cung_cap.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.bt_bc_Nha_cung_cap.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+			this.bt_bc_Nha_cung_cap.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+			this.bt_bc_Nha_cung_cap.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+			this.bt_bc_Nha_cung_cap.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.bt_bc_Nha_cung_cap.TabIndex = 40;
+			this.bt_bc_Nha_cung_cap.Values.Text = "Danh sách nhà cung cấp";
 			// 
 			// pn_danh_muc
 			// 
-			this.pn_danh_muc.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.pn_danh_muc.BackColor = System.Drawing.Color.White;
 			this.pn_danh_muc.BorderRadius = 0;
 			this.pn_danh_muc.Controls.Add(this.bt_tai_khoan);
 			this.pn_danh_muc.Controls.Add(this.bt_Nhan_vien);
@@ -564,16 +571,16 @@ namespace GUI
 			this.pn_danh_muc.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pn_danh_muc.ForeColor = System.Drawing.Color.Black;
 			this.pn_danh_muc.GradientAngle = 90F;
-			this.pn_danh_muc.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
-			this.pn_danh_muc.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-			this.pn_danh_muc.Location = new System.Drawing.Point(0, 188);
+			this.pn_danh_muc.GradientBottomColor = System.Drawing.Color.White;
+			this.pn_danh_muc.GradientTopColor = System.Drawing.Color.White;
+			this.pn_danh_muc.Location = new System.Drawing.Point(0, 182);
 			this.pn_danh_muc.Name = "pn_danh_muc";
 			this.pn_danh_muc.Size = new System.Drawing.Size(258, 279);
 			this.pn_danh_muc.TabIndex = 43;
 			// 
 			// bt_tai_khoan
 			// 
-			this.bt_tai_khoan.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_tai_khoan.BackColor = System.Drawing.Color.White;
 			this.bt_tai_khoan.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_tai_khoan.FlatAppearance.BorderSize = 0;
 			this.bt_tai_khoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -596,7 +603,7 @@ namespace GUI
 			// 
 			// bt_Nhan_vien
 			// 
-			this.bt_Nhan_vien.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.bt_Nhan_vien.BackColor = System.Drawing.Color.White;
 			this.bt_Nhan_vien.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_Nhan_vien.FlatAppearance.BorderSize = 0;
 			this.bt_Nhan_vien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -633,10 +640,10 @@ namespace GUI
 			this.pn_Home_search.Controls.Add(this.iconcurrenform);
 			this.pn_Home_search.Controls.Add(this.txb_tim_kiem);
 			this.pn_Home_search.Dock = System.Windows.Forms.DockStyle.Top;
-			this.pn_Home_search.Location = new System.Drawing.Point(268, 0);
-			this.pn_Home_search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pn_Home_search.Location = new System.Drawing.Point(258, 0);
+			this.pn_Home_search.Margin = new System.Windows.Forms.Padding(2);
 			this.pn_Home_search.Name = "pn_Home_search";
-			this.pn_Home_search.Size = new System.Drawing.Size(1116, 74);
+			this.pn_Home_search.Size = new System.Drawing.Size(1126, 74);
 			this.pn_Home_search.TabIndex = 43;
 			// 
 			// iblformtitle
@@ -701,7 +708,7 @@ namespace GUI
 			// 
 			this.panel3.Location = new System.Drawing.Point(286, 92);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(1098, 708);
+			this.panel3.Size = new System.Drawing.Size(1078, 708);
 			this.panel3.TabIndex = 44;
 			// 
 			// iconToolStripButton1
@@ -717,11 +724,11 @@ namespace GUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Gainsboro;
 			this.ClientSize = new System.Drawing.Size(1384, 811);
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.pn_Home_search);
 			this.Controls.Add(this.pn_menu);
-			this.Controls.Add(this.panel1);
 			this.Name = "MENU_GUI";
 			this.Palette = this.kryptonPalette1;
 			this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
@@ -743,7 +750,6 @@ namespace GUI
 
 		private FontAwesome.Sharp.IconButton icbt_baocao;
 		private FontAwesome.Sharp.IconButton bt_bc_Kho;
-		private FontAwesome.Sharp.IconButton bt_bc_Nha_cung_cap;
 		private FontAwesome.Sharp.IconButton bt_bc_xuat_hang;
 		private FontAwesome.Sharp.IconButton bt_Kho;
 		private FontAwesome.Sharp.IconButton bt_Nha_cung_cap;
@@ -763,7 +769,6 @@ namespace GUI
 		private System.Windows.Forms.Timer Bao_cao_Transition;
 		private System.Windows.Forms.Timer Danh_muc_Transition;
 		private System.ComponentModel.BackgroundWorker backgroundWorker1;
-		private System.Windows.Forms.Panel panel1;
 		private ArtanPanel pn_menu;
 		private System.Windows.Forms.Panel pn_logo;
 		private ArtanPanel pn_danh_muc;
@@ -777,5 +782,6 @@ namespace GUI
 		private FontAwesome.Sharp.IconToolStripButton iconToolStripButton1;
 		private FontAwesome.Sharp.IconButton bt_tai_khoan;
 		private FontAwesome.Sharp.IconButton bt_Nhan_vien;
+		private ComponentFactory.Krypton.Toolkit.KryptonButton bt_bc_Nha_cung_cap;
 	}
 }
