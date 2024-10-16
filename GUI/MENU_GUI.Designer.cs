@@ -673,7 +673,7 @@ namespace GUI
 			// 
 			// txb_tim_kiem
 			// 
-			this.txb_tim_kiem.Location = new System.Drawing.Point(208, 12);
+			this.txb_tim_kiem.Location = new System.Drawing.Point(216, 12);
 			this.txb_tim_kiem.Multiline = true;
 			this.txb_tim_kiem.Name = "txb_tim_kiem";
 			this.txb_tim_kiem.Size = new System.Drawing.Size(558, 31);

@@ -453,7 +453,7 @@
 			// 
 			// txb_tim_kiem_LH
 			// 
-			this.txb_tim_kiem_LH.Location = new System.Drawing.Point(85, 15);
+			this.txb_tim_kiem_LH.Location = new System.Drawing.Point(74, 10);
 			this.txb_tim_kiem_LH.Multiline = true;
 			this.txb_tim_kiem_LH.Name = "txb_tim_kiem_LH";
 			this.txb_tim_kiem_LH.Size = new System.Drawing.Size(547, 34);
