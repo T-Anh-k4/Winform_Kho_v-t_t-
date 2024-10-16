@@ -29,9 +29,9 @@ namespace GUI
 				timer1.Stop();
 				LOAIHANG_GUI newform = new LOAIHANG_GUI();
 				newform.Show();
+				this.Close();
 
-				this.Hide();
-			}	
+			}
 		}
 
 		private void FORMLOAD_GUI_Load(object sender, EventArgs e)
