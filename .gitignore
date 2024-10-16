@@ -399,3 +399,4 @@ InteropTests/NativeTests/out
 # GUI/bin/Debug/DTO.pdb
 # GUI/bin/Debug/GUI.exe
 # GUI/bin/Debug/GUI.pdb
+DAO/DataProvider.cs
