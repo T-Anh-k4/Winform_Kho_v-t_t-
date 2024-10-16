@@ -29,7 +29,7 @@ namespace DAL
 			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN";
 
 			// Khởi tạo đối tượng kết nối
-			using (SqlConnection con = new SqlConnection(@"Data Source=NQH\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True"))
+			using (SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-T4N0A0R\SQLEXPRESS;Initial Catalog=QLVATLIEUXD_1;Integrated Security=True"))
 			{
 				con.Open(); // Mở kết nối
 

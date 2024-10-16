@@ -19,8 +19,8 @@ namespace GUI
 		public bool createExplore = true;
 		public LOAIHANG_GUI()
 		{
-			InitializeComponent();
 			LoaiHang_BUS = new LOAIHANG_BUS();
+			InitializeComponent();
 			init();		
 		}
 		public void init()
@@ -102,7 +102,7 @@ namespace GUI
 				k_datagrview_Loai_hang.Columns.Add(btnColumn);
 			}
 			k_datagrview_Loai_hang.Columns["btnEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-			k_datagrview_Loai_hang.Columns["btnEdit"].DisplayIndex = 5; // Đặt cột "Sửa" ở vị trí thứ hai
+			k_datagrview_Loai_hang.Columns["btnEdit"].DisplayIndex = 5;
 
 		}
 		private void TextBox_Enter(object sender, EventArgs e)
@@ -379,25 +379,20 @@ namespace GUI
 		// phương thức tìm kiếm hàng hóa
 		private void iconPictureBox1_Click(object sender, EventArgs e)
 		{
-			string searchTerm = txb_tim_kiem_LH.Text.Trim(); // Lấy thông tin từ TextBox
+			string searchTerm = txb_tim_kiem_LH.Text.Trim();
 
-			// Kiểm tra nếu chuỗi tìm kiếm không rỗng
 			if (!string.IsNullOrEmpty(searchTerm))
 			{
-				// Gọi phương thức tìm kiếm và nhận kết quả
 				DataTable searchResults = LoaiHang_BUS.SearchLoaiHang(searchTerm);
 
-				// Kiểm tra nếu có kết quả
 				if (searchResults != null && searchResults.Rows.Count > 0)
 				{
-					// Gán dữ liệu cho DataGridView để hiển thị kết quả tìm kiếm
 					k_datagrview_Loai_hang.DataSource = searchResults;
 				}
 				else
 				{
-					// Nếu không có kết quả, bạn có thể hiển thị thông báo
 					MessageBox.Show("Không tìm thấy kết quả nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					k_datagrview_Loai_hang.DataSource = null; // Xóa dữ liệu trong DataGridView nếu không có kết quả
+					k_datagrview_Loai_hang.DataSource = null; 
 				}
 			}
 			else
@@ -424,8 +419,8 @@ namespace GUI
 			else if (result != null && result.Rows.Count > 0)
 			{
 				k_datagrview_Loai_hang.DataSource = result;
-				EnsureButtonColumnsVisible();
 
+				EnsureButtonColumnsVisible();
 			}
 			else
 			{

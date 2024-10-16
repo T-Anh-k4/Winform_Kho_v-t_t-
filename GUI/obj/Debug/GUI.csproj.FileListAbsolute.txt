@@ -66,3 +66,4 @@ E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.HANGHOA_GUI.resour
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.HUONGDAN_GUI.resources
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.LOAIHANG_GUI.resources
 E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.LOGIN_GUI.resources
+D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\GUI\obj\Debug\GUI.LOGIN_GUI.resources

@@ -76,7 +76,7 @@
 			this.pn_bong.GradientTopColor = System.Drawing.Color.WhiteSmoke;
 			this.pn_bong.Location = new System.Drawing.Point(0, 0);
 			this.pn_bong.Name = "pn_bong";
-			this.pn_bong.Size = new System.Drawing.Size(1033, 761);
+			this.pn_bong.Size = new System.Drawing.Size(1066, 630);
 			this.pn_bong.TabIndex = 45;
 			// 
 			// pn_chua_du_lieu
@@ -90,9 +90,9 @@
 			this.pn_chua_du_lieu.GradientAngle = 90F;
 			this.pn_chua_du_lieu.GradientBottomColor = System.Drawing.Color.White;
 			this.pn_chua_du_lieu.GradientTopColor = System.Drawing.Color.White;
-			this.pn_chua_du_lieu.Location = new System.Drawing.Point(24, 26);
+			this.pn_chua_du_lieu.Location = new System.Drawing.Point(5, 12);
 			this.pn_chua_du_lieu.Name = "pn_chua_du_lieu";
-			this.pn_chua_du_lieu.Size = new System.Drawing.Size(1002, 733);
+			this.pn_chua_du_lieu.Size = new System.Drawing.Size(1058, 733);
 			this.pn_chua_du_lieu.TabIndex = 45;
 			// 
 			// pn_data
@@ -107,7 +107,7 @@
 			this.pn_data.GradientTopColor = System.Drawing.Color.White;
 			this.pn_data.Location = new System.Drawing.Point(0, 298);
 			this.pn_data.Name = "pn_data";
-			this.pn_data.Size = new System.Drawing.Size(1002, 348);
+			this.pn_data.Size = new System.Drawing.Size(1058, 348);
 			this.pn_data.TabIndex = 50;
 			// 
 			// k_datagrview_hang_hoa
@@ -123,7 +123,7 @@
 			this.k_datagrview_hang_hoa.ReadOnly = true;
 			this.k_datagrview_hang_hoa.RowHeadersVisible = false;
 			this.k_datagrview_hang_hoa.RowTemplate.Height = 40;
-			this.k_datagrview_hang_hoa.Size = new System.Drawing.Size(1002, 348);
+			this.k_datagrview_hang_hoa.Size = new System.Drawing.Size(1058, 348);
 			this.k_datagrview_hang_hoa.StateCommon.Background.Color1 = System.Drawing.Color.White;
 			this.k_datagrview_hang_hoa.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
 			this.k_datagrview_hang_hoa.StateCommon.DataCell.Back.Color1 = System.Drawing.Color.OldLace;
@@ -157,7 +157,7 @@
 			this.pn_nhap.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pn_nhap.Location = new System.Drawing.Point(0, 66);
 			this.pn_nhap.Name = "pn_nhap";
-			this.pn_nhap.Size = new System.Drawing.Size(1002, 232);
+			this.pn_nhap.Size = new System.Drawing.Size(1058, 232);
 			this.pn_nhap.TabIndex = 51;
 			// 
 			// cbx_ma_loai
@@ -486,7 +486,7 @@
 			this.artanPanel1.GradientTopColor = System.Drawing.Color.White;
 			this.artanPanel1.Location = new System.Drawing.Point(0, 0);
 			this.artanPanel1.Name = "artanPanel1";
-			this.artanPanel1.Size = new System.Drawing.Size(1002, 66);
+			this.artanPanel1.Size = new System.Drawing.Size(1058, 66);
 			this.artanPanel1.TabIndex = 48;
 			// 
 			// kryptonTextBox1
@@ -635,7 +635,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1033, 761);
+			this.ClientSize = new System.Drawing.Size(1066, 630);
 			this.Controls.Add(this.pn_bong);
 			this.Name = "HANGHOA_GUI";
 			this.Text = "HANGHOA_GUI";

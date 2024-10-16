@@ -82,7 +82,7 @@ namespace DAL
 		public static string CheckLoginDTO(USER_DTO userDTO)
 		{
 			string user = null;
-			SqlConnection con = new SqlConnection(@"Data Source=NQH\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True");
+			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-T4N0A0R\SQLEXPRESS;Initial Catalog=QLVATLIEUXD_1;Integrated Security=True");
 			con.Open();
 			string query = "SELECT USERNAME,PASSWORD FROM NGUOIDUNG " +
 				"WHERE USERNAME LIKE N'" + userDTO.UserName + "' and PASSWORD LIKE N'"+ userDTO.PassWord + "'";
