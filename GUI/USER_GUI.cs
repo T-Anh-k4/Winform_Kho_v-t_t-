@@ -23,22 +23,13 @@ namespace GUI
 			panel2_nv.Height = 0;
 			loadDataUser();
 			loadCb_LoaiUser();
-			DelButtonColumn();
-			AddButtonColumn_Edit();
 		}
 		public void loadDataUser()
 		{
 			DataTable dt = new DataTable();
 			dt = userBUS.GetDataUserName();
 			dataViewUser.DataSource = dt;
-		}
-		public void loadDataSearch()
-		{
-			string keyword = kryTbSearch.Text;
-			DataTable dt = new DataTable();
-			dt = userBUS.SearchUser(keyword);
-			dataViewUser.DataSource = dt;
-
+			EnsureButtonColumnsVisible();
 		}
 		public void loadCb_LoaiUser()
 		{
@@ -54,29 +45,39 @@ namespace GUI
 		private void DelButtonColumn()
 		{
 			// Tạo một cột hình ảnh mới
-			DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
-			imgColumn.HeaderText = "Xóa";
-			imgColumn.Name = "imgDelete";
-			//imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-delete.png"); // Đường dẫn đến hình ảnh
-			imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
-			imgColumn.Width = 20;
-			// Thêm cột hình ảnh vào DataGridView
-			dataViewUser.Columns.Add(imgColumn);
+			if (!dataViewUser.Columns.Contains("imgDelete"))
+			{
+				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+				imgColumn.HeaderText = "Xóa";
+				imgColumn.Name = "imgDelete";
+				//imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-delete.png"); // Đường dẫn đến hình ảnh
+				imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+				imgColumn.Width = 20;
+				// Thêm cột hình ảnh vào DataGridView
+				dataViewUser.Columns.Add(imgColumn);
+			} 
 			// Căn giữa header của cột hình ảnh
 			dataViewUser.Columns["imgDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataViewUser.Columns["imgDelete"].DisplayIndex = dataViewUser.Columns.Count - 1;
+
 		}
 		private void AddButtonColumn_Edit()
 		{
 			// Tạo một cột hình ảnh mới
-			DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
-			imgColumn.HeaderText = "Edit";
-			imgColumn.Name = "imgEdit";
-			imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
-			imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
-																	  // Thêm cột hình ảnh vào DataGridView
-			dataViewUser.Columns.Add(imgColumn);
+			if (!dataViewUser.Columns.Contains("imgEdit"))
+			{
+				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+				imgColumn.HeaderText = "Edit";
+				imgColumn.Name = "imgEdit";
+				imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
+				imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+																		  // Thêm cột hình ảnh vào DataGridView
+				dataViewUser.Columns.Add(imgColumn);
+			}
 			// Căn giữa header của cột hình ảnh
 			dataViewUser.Columns["imgEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataViewUser.Columns["imgEdit"].DisplayIndex = dataViewUser.Columns.Count - 2;
+
 		}
 		public bool IsPressAdd()
 		{
@@ -173,8 +174,7 @@ namespace GUI
 
 						}
 					}
-				}
-			
+				}			
 		}
 
 		private void kryBt_Add_Click(object sender, EventArgs e)
@@ -250,11 +250,6 @@ namespace GUI
 
 		}
 
-		private void kryTbSearch_TextChanged(object sender, EventArgs e)
-		{
-			loadDataSearch();
-		}
-
 		private void kryStatus_CheckedChanged(object sender, EventArgs e)
 		{
 			if (kryStatus.Checked == true)
@@ -265,6 +260,54 @@ namespace GUI
 			{
 				kryStatus.Text = "Không hoạt động";
 
+			}
+		}
+
+		private void txb_tim_kiem_LH_TextChanged(object sender, EventArgs e)
+		{
+			string keyword = txb_tim_kiem_LH.Text.Trim();
+			DataTable result = userBUS.SearchUser(keyword);
+			if (string.IsNullOrEmpty(keyword))
+			{
+				loadDataUser();
+				return;
+			}
+
+			else if (keyword == "Tìm kiếm")
+			{
+				return;
+			}
+			else
+			{
+				dataViewUser.DataSource = result;
+				EnsureButtonColumnsVisible();
+			}
+		}
+		private void EnsureButtonColumnsVisible()
+		{
+			// Kiểm tra và thêm cột nếu cần
+			DelButtonColumn();
+			AddButtonColumn_Edit();
+
+			// Đặt DisplayIndex cho cột "Chỉnh sửa" và "Xóa"
+			dataViewUser.Columns["imgEdit"].DisplayIndex = dataViewUser.Columns.Count - 2; // Đặt "Chỉnh sửa" ở vị trí thứ hai từ cuối
+			dataViewUser.Columns["imgDelete"].DisplayIndex = dataViewUser.Columns.Count - 1; // Đặt "Xóa" ở vị trí cuối cùng
+
+			// Đặt lại DisplayIndex cho các cột còn lại nếu cần
+			int index = 0;
+			foreach (DataGridViewColumn column in dataViewUser.Columns)
+			{
+				if (column.Name != "imgEdit" && column.Name != "imgDelete") // Bỏ qua các cột nút
+				{
+					column.DisplayIndex = index++;
+				}
+			}
+		}
+		private void txb_tim_kiem_LH_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				e.SuppressKeyPress = true;
 			}
 		}
 	}

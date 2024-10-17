@@ -51,5 +51,9 @@ namespace BUS
 			return nhanVienDAO.DeleteNhanVien(maNV);
 
 		}
+		public DataTable SearchNV(string key)
+		{
+			return nhanVienDAO.SearchNhanVien(key);
+		}
 	}
 }

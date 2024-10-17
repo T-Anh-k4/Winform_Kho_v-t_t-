@@ -27,10 +27,9 @@ namespace GUI
 			else
 			{
 				timer1.Stop();
-				LOAIHANG_GUI newform = new LOAIHANG_GUI();
+				LOGIN_GUI newform = new LOGIN_GUI();
 				newform.Show();
-				this.Close();
-
+				this.Hide(); 
 			}
 		}
 

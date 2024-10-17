@@ -490,7 +490,6 @@
 			this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
 			this.iconPictureBox1.TabIndex = 2;
 			this.iconPictureBox1.TabStop = false;
-			this.iconPictureBox1.Click += new System.EventHandler(this.iconPictureBox1_Click);
 			// 
 			// txb_tim_kiem_LH
 			// 
@@ -502,6 +501,7 @@
 			this.txb_tim_kiem_LH.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 8, 10, 0);
 			this.txb_tim_kiem_LH.TabIndex = 47;
 			this.txb_tim_kiem_LH.TextChanged += new System.EventHandler(this.txb_tim_kiem_LH_TextChanged);
+			this.txb_tim_kiem_LH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txb_tim_kiem_LH_KeyDown);
 			// 
 			// kryptonTextBox1
 			// 
