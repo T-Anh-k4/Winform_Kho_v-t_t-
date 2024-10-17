@@ -706,9 +706,9 @@ namespace GUI
 			// 
 			// panel3
 			// 
-			this.panel3.Location = new System.Drawing.Point(286, 92);
+			this.panel3.Location = new System.Drawing.Point(276, 88);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(1078, 708);
+			this.panel3.Size = new System.Drawing.Size(1096, 700);
 			this.panel3.TabIndex = 44;
 			// 
 			// iconToolStripButton1
