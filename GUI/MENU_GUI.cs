@@ -282,5 +282,15 @@ namespace GUI
 			OpenChildForm(new USER_GUI());
 
 		}
-	}
+
+        private void bt_xuat_hang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_Nha_cung_cap_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new NHACUNGCAP_GUI());
+        }
+    }
 }
