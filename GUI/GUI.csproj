@@ -180,6 +180,9 @@
     <EmbeddedResource Include="MENU_GUI.resx">
       <DependentUpon>MENU_GUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NHACUNGCAP_GUI.resx">
+      <DependentUpon>NHACUNGCAP_GUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NHANVIEN_GUI.resx">
       <DependentUpon>NHANVIEN_GUI.cs</DependentUpon>
     </EmbeddedResource>
