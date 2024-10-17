@@ -35,13 +35,24 @@ namespace GUI
 		{
 			loadDt_NhanVien();
 			loadCb_Gioitinh();
-			DelButtonColumn();
-			AddButtonColumn_Edit();
 			kryTbSearch.Enter += kryTbSearch_Enter;
 			kryTbSearch.Leave += kryTbSearch_Leave;
+			kryTx_Id.Enter += kryTbSearch_Enter;
+			kryTx_Id.Leave += kryTbSearch_Leave;
+			kryTb_Name.Enter += kryTbSearch_Enter;
+			kryTb_Name.Leave += kryTbSearch_Leave;
+			kryTb_Number.Enter += kryTbSearch_Enter;
+			kryTb_Number.Leave += kryTbSearch_Leave;
+			kryTx_Address.Enter += kryTbSearch_Enter;
+			kryTx_Address.Leave += kryTbSearch_Leave;
+			kryTb_Pos.Enter += kryTbSearch_Enter;
+			kryTb_Pos.Leave += kryTbSearch_Leave;
 			SetPlaceholder(kryTbSearch, "Tìm kiếm");
-
-
+			SetPlaceholder(kryTx_Id, "Nhập mã nhân viên");
+			SetPlaceholder(kryTb_Name, "Nhập tên nhân viên");
+			SetPlaceholder(kryTb_Number, "Nhập số điện thoại");
+			SetPlaceholder(kryTx_Address, "Nhập địa chỉ");
+			SetPlaceholder(kryTb_Pos, "Nhập chức vụ");
 		}
 		public bool IsPressAdd()
 		{
@@ -62,6 +73,7 @@ namespace GUI
 			dataViewNv.DataSource = dt;
 			totalPage = nhanVienBUS.GetSLSinhVien() / limit;
 			if (totalPage * limit < nhanVienBUS.GetSLSinhVien()) totalPage++;
+			EnsureButtonColumnsVisible();
 		}
 		public void loadCb_Gioitinh()
 		{
@@ -87,37 +99,47 @@ namespace GUI
 			kryTb_Pos.Text = "";
 		}
 
-// Thêm cột chứa nút vào DataGridView
+		// Thêm cột chứa nút vào DataGridView
 		private void DelButtonColumn()
 		{
 			// Tạo một cột hình ảnh mới
-			DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
-			imgColumn.HeaderText = "Xóa";
-			imgColumn.Name = "imgDelete";
-			//imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-delete.png"); // Đường dẫn đến hình ảnh
-			//imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
-			imgColumn.Width = 20;
-			// Thêm cột hình ảnh vào DataGridView
-			dataViewNv.Columns.Add(imgColumn);
+			if (!dataViewNv.Columns.Contains("imgDelete"))
+			{
+				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+				imgColumn.HeaderText = "Xóa";
+				imgColumn.Name = "imgDelete";
+				imgColumn.Image = Image.FromFile(@"D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
+				imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+				imgColumn.Width = 20;
+				// Thêm cột hình ảnh vào DataGridView
+				dataViewNv.Columns.Add(imgColumn);
+			} 
 			// Căn giữa header của cột hình ảnh
 			dataViewNv.Columns["imgDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			dataViewNv.Columns["imgDelete"].DisplayIndex = dataViewNv.Columns.Count - 1;
+
 		}
 		private void AddButtonColumn_Edit()
 		{
 			// Tạo một cột hình ảnh mới
-			DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
-			imgColumn.HeaderText = "Edit";
-			imgColumn.Name = "imgEdit";
-			//imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
-			//imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
-																	  // Thêm cột hình ảnh vào DataGridView
-			dataViewNv.Columns.Add(imgColumn);
+			if (!dataViewNv.Columns.Contains("imgEdit"))
+			{
+				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+				imgColumn.HeaderText = "Edit";
+				imgColumn.Name = "imgEdit";
+				//imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
+				//imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+				// Thêm cột hình ảnh vào DataGridView
+				dataViewNv.Columns.Add(imgColumn);
+			} 
 			// Căn giữa header của cột hình ảnh
 			dataViewNv.Columns["imgEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-		}
-//end
+			dataViewNv.Columns["imgEdit"].DisplayIndex = dataViewNv.Columns.Count - 2;
 
-//Chỉnh phần trượt giao diện tạo
+		}
+		//end
+
+		//Chỉnh phần trượt giao diện tạo
 		private void createTransition_Tick(object sender, EventArgs e)
 		{
 			if (createExplore)
@@ -233,6 +255,7 @@ namespace GUI
 				loadDt_NhanVien(); // Gọi lại để tải lại danh sách
 
 				MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 			}
 			else
 			{
@@ -283,6 +306,16 @@ namespace GUI
 			{
 				case "kryTbSearch":
 					return "Tìm kiếm...";
+				case "kryTx_Id":
+					return "Nhập mã nhân viên";
+				case "kryTb_Name":
+					return "Nhập tên nhân viên";
+				case "kryTb_Number":
+					return "Nhập số điện thoại";
+				case "kryTx_Address":
+					return "Nhập địa chỉ";
+				case "kryTb_Pos":
+					return "Nhập chức vụ";
 				default:
 					return string.Empty;
 			}
@@ -293,15 +326,12 @@ namespace GUI
 			KryptonTextBox textBox = sender as KryptonTextBox;
 			if (textBox != null)
 			{
-				// Kiểm tra nếu TextBox trống hoặc chứa placeholder
 				if (string.IsNullOrWhiteSpace(textBox.Text) || textBox.Text == GetPlaceholder(textBox))
 				{
-					// Gọi hàm để đặt lại placeholder
 					SetPlaceholder(textBox, GetPlaceholder(textBox));
 				}
 				else
 				{
-					// Đặt màu chữ về màu đen nếu có nội dung
 					textBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
 				}
 			}
@@ -311,7 +341,18 @@ namespace GUI
 			textBox.Text = placeholder;
 			textBox.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
 		}
-//end
+		// reset chữ mặc định
+		private void ResetForeText()
+		{
+			SetPlaceholder(kryTx_Id, GetPlaceholder(kryTx_Id));
+			SetPlaceholder(kryTb_Name, GetPlaceholder(kryTb_Name));
+			SetPlaceholder(kryTb_Number, GetPlaceholder(kryTb_Number));
+			SetPlaceholder(kryTx_Address, GetPlaceholder(kryTx_Address));
+			SetPlaceholder(kryTb_Pos, GetPlaceholder(kryTb_Pos));
+
+
+		}
+		//end
 		private void kryBtPredious_Click(object sender, EventArgs e)
 		{
 			curentPage--;
@@ -367,6 +408,57 @@ namespace GUI
 
 			}
 		}
+		// tìm kiếm nhân viên
+		private void txb_tim_kiem_LH_TextChanged(object sender, EventArgs e)
+		{
+			string keyword = txb_tim_kiem_LH.Text.Trim();
+			DataTable result = nhanVienBUS.SearchNV(keyword);
+			if (string.IsNullOrEmpty(keyword))
+			{
+				loadDt_NhanVien();
+				return;
+			}
+
+			else if (keyword == "Tìm kiếm")
+			{
+				return;
+			}
+			else
+			{
+				dataViewNv.DataSource = result;
+				EnsureButtonColumnsVisible();
+			}
+
+		}
+		private void EnsureButtonColumnsVisible()
+		{
+			// Kiểm tra và thêm cột nếu cần
+			DelButtonColumn();
+			AddButtonColumn_Edit();
+
+			// Đặt DisplayIndex cho cột "Chỉnh sửa" và "Xóa"
+			dataViewNv.Columns["imgEdit"].DisplayIndex = dataViewNv.Columns.Count - 2; // Đặt "Chỉnh sửa" ở vị trí thứ hai từ cuối
+			dataViewNv.Columns["imgDelete"].DisplayIndex = dataViewNv.Columns.Count - 1; // Đặt "Xóa" ở vị trí cuối cùng
+
+			// Đặt lại DisplayIndex cho các cột còn lại nếu cần
+			int index = 0;
+			foreach (DataGridViewColumn column in dataViewNv.Columns)
+			{
+				if (column.Name != "imgEdit" && column.Name != "imgDelete") // Bỏ qua các cột nút
+				{
+					column.DisplayIndex = index++;
+				}
+			}
+		}
+
+		private void txb_tim_kiem_LH_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				e.SuppressKeyPress = true;
+			}
+		}
 	}
 }
+
 

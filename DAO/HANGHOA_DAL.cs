@@ -106,7 +106,7 @@ namespace DAO
 			{
 				string query = "SELECT MAHH as [Mã hàng hóa], MALOAI as [Mã loại], TENHH as [Tên hàng hóa], DONVI_TINH as [Đơn vị], XUATXU as [Xuất xứ] " +
 							   "FROM HANGHOA " +
-							   "WHERE TENHH LIKE N'%" + keyword + "%' OR MAHH LIKE N'%" + keyword + "%'";
+							   "WHERE TENHH LIKE N'%" + keyword + "%'";
 
 				return instance.execQuery(query);
 			}

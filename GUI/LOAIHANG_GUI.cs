@@ -19,16 +19,15 @@ namespace GUI
 		public bool createExplore = true;
 		public LOAIHANG_GUI()
 		{
-			InitializeComponent();
 			LoaiHang_BUS = new LOAIHANG_BUS();
-			init();
+			InitializeComponent();
+			init();		
 		}
 		public void init()
 		{
 			initUser();
 			LoaiHangGui_Load();
-			AddButtonColumn();
-			AddButtonColumn_Edit();
+	
 		}
 		//thiết lập ban đầu của form
 		public void initUser()
@@ -70,9 +69,10 @@ namespace GUI
 			DataTable dt = new DataTable();
 			dt = LoaiHang_BUS.GetDanhSachLoaiHang();
 			k_datagrview_Loai_hang.DataSource = dt;
+			EnsureButtonColumnsVisible();
 
 		}
-
+		// Thêm cột sửa xóa vào datagridview
 		private void AddButtonColumn()
 		{
 			if (!k_datagrview_Loai_hang.Columns.Contains("btnDelete"))
@@ -87,6 +87,8 @@ namespace GUI
 				k_datagrview_Loai_hang.Columns.Add(btnColumn);
 			}
 			k_datagrview_Loai_hang.Columns["btnDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			k_datagrview_Loai_hang.Columns["btnDelete"].DisplayIndex = k_datagrview_Loai_hang.Columns.Count - 1;
+
 		}
 		private void AddButtonColumn_Edit()
 		{
@@ -100,7 +102,12 @@ namespace GUI
 				k_datagrview_Loai_hang.Columns.Add(btnColumn);
 			}
 			k_datagrview_Loai_hang.Columns["btnEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+			k_datagrview_Loai_hang.Columns["btnEdit"].DisplayIndex = k_datagrview_Loai_hang.Columns.Count - 2;
+
+
 		}
+
+		// Sự kiện cho chữ ở textbox
 		private void TextBox_Enter(object sender, EventArgs e)
 		{
 			KryptonTextBox textBox = sender as KryptonTextBox;
@@ -119,15 +126,12 @@ namespace GUI
 			KryptonTextBox textBox = sender as KryptonTextBox;
 			if (textBox != null)
 			{
-				// Kiểm tra nếu TextBox trống hoặc chứa placeholder
 				if (string.IsNullOrWhiteSpace(textBox.Text) || textBox.Text == GetPlaceholder(textBox))
 				{
-					// Gọi hàm để đặt lại placeholder
 					SetPlaceholder(textBox, GetPlaceholder(textBox));
 				}
 				else
 				{
-					// Đặt màu chữ về màu đen nếu có nội dung
 					textBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
 				}
 			}
@@ -241,7 +245,6 @@ namespace GUI
 					txb_Malh.Clear();
 					txb_Ten_loai_hang.Clear();
 					txb_Dien_giai.Clear();
-					//string trangThai = flag == 1 ? "Còn kinh doanh" : "Không còn kinh doanh";
 
 					ResetForeText();
 					check_trang_thai.Checked = false;
@@ -264,12 +267,6 @@ namespace GUI
 					createTransition.Stop();
 					createExplore = false;
 
-					//pn_data.Size = new Size(1069, 620);
-					//k_datagrview_hang_hoa.RowTemplate.Height = 44; 
-					//foreach (DataGridViewRow row in k_datagrview_hang_hoa.Rows)
-					//{
-					//	row.Height = k_datagrview_hang_hoa.RowTemplate.Height;
-					//}
 				}
 			}
 			else
@@ -280,12 +277,7 @@ namespace GUI
 					createTransition.Stop();
 					createExplore = true;
 
-					//pn_data.Size = new Size(1069, 408); 
-					//k_datagrview_hang_hoa.RowTemplate.Height = 29;  
-					//foreach (DataGridViewRow row in k_datagrview_hang_hoa.Rows)
-					//{
-					//	row.Height = k_datagrview_hang_hoa.RowTemplate.Height;
-					//}
+
 				}
 			}
 		}
@@ -372,57 +364,60 @@ namespace GUI
 				}
 			}
 		}
+
 		// phương thức tìm kiếm hàng hóa
 		private void txb_tim_kiem_LH_TextChanged(object sender, EventArgs e)
 		{
 			string keyword = txb_tim_kiem_LH.Text.Trim();
 			DataTable result = LoaiHang_BUS.SearchLoaiHang(keyword);
-
-			// Nếu không có từ khóa tìm kiếm, tải lại dữ liệu ban đầu
 			if (string.IsNullOrEmpty(keyword))
 			{
 				LoaiHangGui_Load();
 				return;
 			}
 
-			// Nếu từ khóa là "Tìm kiếm", không làm gì cả
-			if (keyword.Equals("Tìm kiếm", StringComparison.OrdinalIgnoreCase))
+			else if (keyword == "Tìm kiếm")
 			{
 				return;
 			}
-
-			// Kiểm tra và thiết lập cột "btnDelete" và "btnEdit"
-			if (result != null && result.Rows.Count > 0)
-			{
-				k_datagrview_Loai_hang.DataSource = result;
-
-				// Hiện cột btnDelete và btnEdit mà không thay đổi vị trí
-				if (k_datagrview_Loai_hang.Columns.Contains("btnDelete"))
-				{
-					k_datagrview_Loai_hang.Columns["btnDelete"].Visible = true;
-				}
-
-				if (k_datagrview_Loai_hang.Columns.Contains("btnEdit"))
-				{
-					k_datagrview_Loai_hang.Columns["btnEdit"].Visible = true;
-				}
-			}
 			else
 			{
-				k_datagrview_Loai_hang.DataSource = null;
+				k_datagrview_Loai_hang.DataSource = result;
+				EnsureButtonColumnsVisible();
+			}
 
-				// Ẩn cột btnDelete và btnEdit
-				if (k_datagrview_Loai_hang.Columns.Contains("btnDelete"))
-				{
-					k_datagrview_Loai_hang.Columns["btnDelete"].Visible = false;
-				}
 
-				if (k_datagrview_Loai_hang.Columns.Contains("btnEdit"))
+		}
+		private void EnsureButtonColumnsVisible()
+		{
+			// Kiểm tra và thêm cột nếu cần
+			AddButtonColumn();
+			AddButtonColumn_Edit();
+
+			// Đặt DisplayIndex cho cột "Chỉnh sửa" và "Xóa"
+			k_datagrview_Loai_hang.Columns["btnEdit"].DisplayIndex = k_datagrview_Loai_hang.Columns.Count - 2; // Đặt "Chỉnh sửa" ở vị trí thứ hai từ cuối
+			k_datagrview_Loai_hang.Columns["btnDelete"].DisplayIndex = k_datagrview_Loai_hang.Columns.Count - 1; // Đặt "Xóa" ở vị trí cuối cùng
+
+			// Đặt lại DisplayIndex cho các cột còn lại nếu cần
+			int index = 0;
+			foreach (DataGridViewColumn column in k_datagrview_Loai_hang.Columns)
+			{
+				if (column.Name != "btnEdit" && column.Name != "btnDelete") // Bỏ qua các cột nút
 				{
-					k_datagrview_Loai_hang.Columns["btnEdit"].Visible = false;
+					column.DisplayIndex = index++;
 				}
 			}
 		}
-
+        // Ngăn chặn hành động ấn enter
+		private void txb_tim_kiem_LH_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				e.SuppressKeyPress = true; 
+			}
+		}
 	}
 }
+
+
+
