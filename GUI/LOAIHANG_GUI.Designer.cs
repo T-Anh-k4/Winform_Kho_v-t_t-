@@ -46,8 +46,10 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.kbtn_Them_sua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.artanPanel1 = new ArtanComponent.ArtanPanel();
-			this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.pn_TK = new ArtanComponent.ArtanPanel();
+			this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
 			this.txb_tim_kiem_LH = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.kbtn_themSua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.createTransition = new System.Windows.Forms.Timer(this.components);
@@ -57,6 +59,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.k_datagrview_Loai_hang)).BeginInit();
 			this.pn_nhap.SuspendLayout();
 			this.artanPanel1.SuspendLayout();
+			this.pn_TK.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pn_bong
@@ -71,7 +75,7 @@
 			this.pn_bong.GradientTopColor = System.Drawing.Color.WhiteSmoke;
 			this.pn_bong.Location = new System.Drawing.Point(0, 0);
 			this.pn_bong.Name = "pn_bong";
-			this.pn_bong.Size = new System.Drawing.Size(1033, 761);
+			this.pn_bong.Size = new System.Drawing.Size(1082, 669);
 			this.pn_bong.TabIndex = 44;
 			// 
 			// pn_chua_du_lieu
@@ -85,9 +89,9 @@
 			this.pn_chua_du_lieu.GradientAngle = 90F;
 			this.pn_chua_du_lieu.GradientBottomColor = System.Drawing.Color.White;
 			this.pn_chua_du_lieu.GradientTopColor = System.Drawing.Color.White;
-			this.pn_chua_du_lieu.Location = new System.Drawing.Point(24, 26);
+			this.pn_chua_du_lieu.Location = new System.Drawing.Point(12, 26);
 			this.pn_chua_du_lieu.Name = "pn_chua_du_lieu";
-			this.pn_chua_du_lieu.Size = new System.Drawing.Size(1002, 733);
+			this.pn_chua_du_lieu.Size = new System.Drawing.Size(1058, 733);
 			this.pn_chua_du_lieu.TabIndex = 45;
 			// 
 			// pn_data
@@ -102,7 +106,7 @@
 			this.pn_data.GradientTopColor = System.Drawing.Color.White;
 			this.pn_data.Location = new System.Drawing.Point(0, 298);
 			this.pn_data.Name = "pn_data";
-			this.pn_data.Size = new System.Drawing.Size(1002, 348);
+			this.pn_data.Size = new System.Drawing.Size(1058, 348);
 			this.pn_data.TabIndex = 50;
 			// 
 			// k_datagrview_Loai_hang
@@ -118,19 +122,34 @@
 			this.k_datagrview_Loai_hang.ReadOnly = true;
 			this.k_datagrview_Loai_hang.RowHeadersVisible = false;
 			this.k_datagrview_Loai_hang.RowTemplate.Height = 40;
-			this.k_datagrview_Loai_hang.Size = new System.Drawing.Size(1002, 348);
+			this.k_datagrview_Loai_hang.Size = new System.Drawing.Size(1058, 348);
 			this.k_datagrview_Loai_hang.StateCommon.Background.Color1 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.Background.Color2 = System.Drawing.Color.White;
 			this.k_datagrview_Loai_hang.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
 			this.k_datagrview_Loai_hang.StateCommon.DataCell.Back.Color1 = System.Drawing.Color.OldLace;
-			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.Orange;
-			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.Orange;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Border.Color2 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Border.Width = 0;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.Black;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.Black;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.WhiteSmoke;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Border.Color1 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Border.Color2 = System.Drawing.Color.White;
 			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Border.Width = 0;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Content.Padding = new System.Windows.Forms.Padding(0);
+			this.k_datagrview_Loai_hang.StateCommon.HeaderRow.Back.Color1 = System.Drawing.Color.Black;
 			this.k_datagrview_Loai_hang.StateCommon.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.k_datagrview_Loai_hang.StateCommon.HeaderRow.Border.Width = 1;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderRow.Content.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
 			this.k_datagrview_Loai_hang.TabIndex = 1;
 			this.k_datagrview_Loai_hang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.k_datagrview_Loai_hang_CellClick);
 			// 
@@ -150,7 +169,7 @@
 			this.pn_nhap.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pn_nhap.Location = new System.Drawing.Point(0, 66);
 			this.pn_nhap.Name = "pn_nhap";
-			this.pn_nhap.Size = new System.Drawing.Size(1002, 232);
+			this.pn_nhap.Size = new System.Drawing.Size(1058, 232);
 			this.pn_nhap.TabIndex = 51;
 			// 
 			// label4
@@ -428,8 +447,8 @@
 			// 
 			this.artanPanel1.BackColor = System.Drawing.Color.White;
 			this.artanPanel1.BorderRadius = 25;
+			this.artanPanel1.Controls.Add(this.pn_TK);
 			this.artanPanel1.Controls.Add(this.kryptonTextBox1);
-			this.artanPanel1.Controls.Add(this.txb_tim_kiem_LH);
 			this.artanPanel1.Controls.Add(this.kryptonButton1);
 			this.artanPanel1.Controls.Add(this.kbtn_themSua);
 			this.artanPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -439,8 +458,50 @@
 			this.artanPanel1.GradientTopColor = System.Drawing.Color.White;
 			this.artanPanel1.Location = new System.Drawing.Point(0, 0);
 			this.artanPanel1.Name = "artanPanel1";
-			this.artanPanel1.Size = new System.Drawing.Size(1002, 66);
+			this.artanPanel1.Size = new System.Drawing.Size(1058, 66);
 			this.artanPanel1.TabIndex = 48;
+			// 
+			// pn_TK
+			// 
+			this.pn_TK.BackColor = System.Drawing.Color.White;
+			this.pn_TK.BorderRadius = 0;
+			this.pn_TK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.pn_TK.Controls.Add(this.iconPictureBox1);
+			this.pn_TK.Controls.Add(this.txb_tim_kiem_LH);
+			this.pn_TK.ForeColor = System.Drawing.Color.Black;
+			this.pn_TK.GradientAngle = 90F;
+			this.pn_TK.GradientBottomColor = System.Drawing.Color.CadetBlue;
+			this.pn_TK.GradientTopColor = System.Drawing.Color.DodgerBlue;
+			this.pn_TK.Location = new System.Drawing.Point(208, 20);
+			this.pn_TK.Name = "pn_TK";
+			this.pn_TK.Size = new System.Drawing.Size(582, 34);
+			this.pn_TK.TabIndex = 48;
+			// 
+			// iconPictureBox1
+			// 
+			this.iconPictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+			this.iconPictureBox1.ForeColor = System.Drawing.Color.Black;
+			this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+			this.iconPictureBox1.IconColor = System.Drawing.Color.Black;
+			this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.iconPictureBox1.Location = new System.Drawing.Point(548, 0);
+			this.iconPictureBox1.Name = "iconPictureBox1";
+			this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
+			this.iconPictureBox1.TabIndex = 2;
+			this.iconPictureBox1.TabStop = false;
+			// 
+			// txb_tim_kiem_LH
+			// 
+			this.txb_tim_kiem_LH.Dock = System.Windows.Forms.DockStyle.Left;
+			this.txb_tim_kiem_LH.Location = new System.Drawing.Point(0, 0);
+			this.txb_tim_kiem_LH.Multiline = true;
+			this.txb_tim_kiem_LH.Name = "txb_tim_kiem_LH";
+			this.txb_tim_kiem_LH.Size = new System.Drawing.Size(547, 32);
+			this.txb_tim_kiem_LH.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 8, 10, 0);
+			this.txb_tim_kiem_LH.TabIndex = 47;
+			this.txb_tim_kiem_LH.TextChanged += new System.EventHandler(this.txb_tim_kiem_LH_TextChanged);
+			this.txb_tim_kiem_LH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txb_tim_kiem_LH_KeyDown);
 			// 
 			// kryptonTextBox1
 			// 
@@ -450,16 +511,6 @@
 			this.kryptonTextBox1.Size = new System.Drawing.Size(547, 34);
 			this.kryptonTextBox1.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 8, 10, 0);
 			this.kryptonTextBox1.TabIndex = 47;
-			// 
-			// txb_tim_kiem_LH
-			// 
-			this.txb_tim_kiem_LH.Location = new System.Drawing.Point(85, 15);
-			this.txb_tim_kiem_LH.Multiline = true;
-			this.txb_tim_kiem_LH.Name = "txb_tim_kiem_LH";
-			this.txb_tim_kiem_LH.Size = new System.Drawing.Size(547, 34);
-			this.txb_tim_kiem_LH.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 8, 10, 0);
-			this.txb_tim_kiem_LH.TabIndex = 47;
-			this.txb_tim_kiem_LH.TextChanged += new System.EventHandler(this.txb_tim_kiem_LH_TextChanged);
 			// 
 			// kryptonButton1
 			// 
@@ -580,7 +631,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1033, 761);
+			this.ClientSize = new System.Drawing.Size(1082, 669);
 			this.Controls.Add(this.pn_bong);
 			this.Name = "LOAIHANG_GUI";
 			this.Text = "LOAIHANG_GUI";
@@ -592,6 +643,9 @@
 			this.pn_nhap.PerformLayout();
 			this.artanPanel1.ResumeLayout(false);
 			this.artanPanel1.PerformLayout();
+			this.pn_TK.ResumeLayout(false);
+			this.pn_TK.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -620,5 +674,7 @@
 		private System.Windows.Forms.Label label1;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kbtn_Them_sua;
 		private System.Windows.Forms.Timer createTransition;
+		private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+		private ArtanComponent.ArtanPanel pn_TK;
 	}
 }
