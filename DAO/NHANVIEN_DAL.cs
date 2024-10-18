@@ -114,6 +114,21 @@ namespace DAL
 			}
 			return true;
 		}
+		public DataTable SearchNhanVien(string keyword)
+		{
+			try
+			{
+				string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] " +
+				" FROM NHANVIEN " +
+				" WHERE TENNV LIKE N'%" + keyword + "%'";
+
+				return instance.execQuery(query);
+			}
+			catch
+			{
+				return null;
+			}
+		}
 
 	}
 }
