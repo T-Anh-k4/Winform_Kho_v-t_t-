@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using DTO;
 using DAL;
 
-namespace DAO
+namespace DAL
 {
     public class NHACUNGCAP_DAL : DataProvider
     {
