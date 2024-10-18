@@ -30,7 +30,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NHANVIEN_GUI));
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.panel0_nv = new ArtanComponent.ArtanPanel();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.kryBt_Next = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -60,7 +60,7 @@
 			this.kryCb_Gender = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-			this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.txb_tim_kiem_nv = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.kryBtShowCreate_NV = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.lbSoTrang = new System.Windows.Forms.Label();
@@ -222,9 +222,9 @@
 			this.dataViewNv.AllowUserToAddRows = false;
 			this.dataViewNv.AllowUserToResizeColumns = false;
 			this.dataViewNv.AllowUserToResizeRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-			this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+			this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
 			this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -677,7 +677,7 @@
 			// 
 			this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.panel3.Controls.Add(this.kryptonLabel1);
-			this.panel3.Controls.Add(this.kryptonTextBox1);
+			this.panel3.Controls.Add(this.txb_tim_kiem_nv);
 			this.panel3.Controls.Add(this.kryBtShowCreate_NV);
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -696,20 +696,21 @@
 			this.kryptonLabel1.TabIndex = 6;
 			this.kryptonLabel1.Values.Text = "Nhân viên (99)";
 			// 
-			// kryptonTextBox1
+			// txb_tim_kiem_nv
 			// 
-			this.kryptonTextBox1.Location = new System.Drawing.Point(332, 13);
-			this.kryptonTextBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.kryptonTextBox1.Name = "kryptonTextBox1";
-			this.kryptonTextBox1.Size = new System.Drawing.Size(325, 33);
-			this.kryptonTextBox1.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-			this.kryptonTextBox1.StateCommon.Border.Color2 = System.Drawing.Color.White;
-			this.kryptonTextBox1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+			this.txb_tim_kiem_nv.Location = new System.Drawing.Point(332, 13);
+			this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
+			this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
+			this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
+			this.txb_tim_kiem_nv.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+			this.txb_tim_kiem_nv.StateCommon.Border.Color2 = System.Drawing.Color.White;
+			this.txb_tim_kiem_nv.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.kryptonTextBox1.StateCommon.Border.Rounding = 15;
-			this.kryptonTextBox1.StateCommon.Content.Color1 = System.Drawing.Color.LightGray;
-			this.kryptonTextBox1.TabIndex = 28;
+			this.txb_tim_kiem_nv.StateCommon.Border.Rounding = 15;
+			this.txb_tim_kiem_nv.StateCommon.Content.Color1 = System.Drawing.Color.LightGray;
+			this.txb_tim_kiem_nv.TabIndex = 28;
+			this.txb_tim_kiem_nv.TextChanged += new System.EventHandler(this.txb_tim_kiem_LH_TextChanged);
 			// 
 			// kryBtShowCreate_NV
 			// 
@@ -1002,7 +1003,7 @@
 		private System.Windows.Forms.Label lbSoTrang;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel3;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txb_tim_kiem_nv;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kryBtShowCreate_NV;
 		private System.Windows.Forms.Panel panel4;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kryBtPre;

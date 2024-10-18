@@ -20,7 +20,7 @@ namespace GUI
         public void init()
         {
             initUser();
-            NHACUNGCAP_GUI_Load();
+           // NHACUNGCAP_GUI_Load();
             AddButtonColumn();
             AddButtonColumn_Edit();
         }

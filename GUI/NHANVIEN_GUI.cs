@@ -411,7 +411,7 @@ namespace GUI
 		// tìm kiếm nhân viên
 		private void txb_tim_kiem_LH_TextChanged(object sender, EventArgs e)
 		{
-			string keyword = txb_tim_kiem_LH.Text.Trim();
+			string keyword = txb_tim_kiem_nv.Text.Trim();
 			DataTable result = nhanVienBUS.SearchNV(keyword);
 			if (string.IsNullOrEmpty(keyword))
 			{
