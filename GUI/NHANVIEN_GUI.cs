@@ -108,7 +108,7 @@ namespace GUI
 				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
 				imgColumn.HeaderText = "Xóa";
 				imgColumn.Name = "imgDelete";
-				imgColumn.Image = Image.FromFile(@"D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
+				//imgColumn.Image = Image.FromFile(@"D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
 				imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
 				imgColumn.Width = 20;
 				// Thêm cột hình ảnh vào DataGridView
@@ -216,6 +216,7 @@ namespace GUI
 
 					}
 				}
+				clear();
 			}
 		}
 
