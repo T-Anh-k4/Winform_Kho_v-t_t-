@@ -234,8 +234,7 @@ namespace GUI
 
 		private void kryBtHangHoa_Click(object sender, EventArgs e)
 		{
-			OpenChildForm(new HANGHOA_GUI());
-
+				OpenChildForm(new HANGHOA_GUI());
 		}
 
 		private void btNhanVien_Click(object sender, EventArgs e)

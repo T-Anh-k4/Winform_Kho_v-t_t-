@@ -312,6 +312,11 @@ namespace GUI
 						if (result)
 						{
 							HangHoaGui_Load();
+							txb_Mahh.Clear();
+							txb_Ten_hang.Clear();
+							txb_xuat_xu.Clear();
+							cbx_don_vi_tinh.Items.Clear();
+							ResetForeText();
 							MessageBox.Show("Xóa thông tin hàng hóa thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 						}
 						else
@@ -326,7 +331,7 @@ namespace GUI
 				{
 
 					txb_Mahh.Text = row.Cells[2].Value?.ToString();
-					string maloai = row.Cells["Mã loại"]?.Value?.ToString();
+					cbx_ma_loai.Text = row.Cells[3].Value?.ToString();
 					txb_Ten_hang.Text = row.Cells[4].Value?.ToString();
 					txb_xuat_xu.Text = row.Cells[6].Value?.ToString();
 					string dvt = row.Cells["Đơn vị"]?.Value?.ToString();

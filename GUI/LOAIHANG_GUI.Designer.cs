@@ -29,10 +29,10 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.pn_bong = new ArtanComponent.ArtanPanel();
 			this.pn_chua_du_lieu = new ArtanComponent.ArtanPanel();
 			this.pn_data = new ArtanComponent.ArtanPanel();
-			this.k_datagrview_Loai_hang = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
 			this.pn_nhap = new System.Windows.Forms.Panel();
 			this.label4 = new System.Windows.Forms.Label();
 			this.check_trang_thai = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
@@ -51,12 +51,13 @@
 			this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.kbtn_themSua = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.createTransition = new System.Windows.Forms.Timer(this.components);
+			this.k_datagrview_Loai_hang = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
 			this.pn_bong.SuspendLayout();
 			this.pn_chua_du_lieu.SuspendLayout();
 			this.pn_data.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.k_datagrview_Loai_hang)).BeginInit();
 			this.pn_nhap.SuspendLayout();
 			this.artanPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.k_datagrview_Loai_hang)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pn_bong
@@ -104,35 +105,6 @@
 			this.pn_data.Name = "pn_data";
 			this.pn_data.Size = new System.Drawing.Size(1002, 348);
 			this.pn_data.TabIndex = 50;
-			// 
-			// k_datagrview_Loai_hang
-			// 
-			this.k_datagrview_Loai_hang.AllowUserToAddRows = false;
-			this.k_datagrview_Loai_hang.AllowUserToResizeColumns = false;
-			this.k_datagrview_Loai_hang.AllowUserToResizeRows = false;
-			this.k_datagrview_Loai_hang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.k_datagrview_Loai_hang.ColumnHeadersHeight = 50;
-			this.k_datagrview_Loai_hang.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.k_datagrview_Loai_hang.Location = new System.Drawing.Point(0, 0);
-			this.k_datagrview_Loai_hang.Name = "k_datagrview_Loai_hang";
-			this.k_datagrview_Loai_hang.ReadOnly = true;
-			this.k_datagrview_Loai_hang.RowHeadersVisible = false;
-			this.k_datagrview_Loai_hang.RowTemplate.Height = 40;
-			this.k_datagrview_Loai_hang.Size = new System.Drawing.Size(1002, 348);
-			this.k_datagrview_Loai_hang.StateCommon.Background.Color1 = System.Drawing.Color.White;
-			this.k_datagrview_Loai_hang.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-			this.k_datagrview_Loai_hang.StateCommon.DataCell.Back.Color1 = System.Drawing.Color.OldLace;
-			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.Orange;
-			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.Orange;
-			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.k_datagrview_Loai_hang.StateCommon.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.k_datagrview_Loai_hang.StateCommon.HeaderRow.Border.Width = 1;
-			this.k_datagrview_Loai_hang.TabIndex = 1;
-			this.k_datagrview_Loai_hang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.k_datagrview_Loai_hang_CellClick);
 			// 
 			// pn_nhap
 			// 
@@ -576,6 +548,50 @@
 			this.createTransition.Interval = 10;
 			this.createTransition.Tick += new System.EventHandler(this.createTransition_Tick_1);
 			// 
+			// k_datagrview_Loai_hang
+			// 
+			this.k_datagrview_Loai_hang.AllowUserToAddRows = false;
+			this.k_datagrview_Loai_hang.AllowUserToResizeColumns = false;
+			this.k_datagrview_Loai_hang.AllowUserToResizeRows = false;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.k_datagrview_Loai_hang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.k_datagrview_Loai_hang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.k_datagrview_Loai_hang.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.k_datagrview_Loai_hang.Location = new System.Drawing.Point(0, 0);
+			this.k_datagrview_Loai_hang.Margin = new System.Windows.Forms.Padding(2);
+			this.k_datagrview_Loai_hang.Name = "k_datagrview_Loai_hang";
+			this.k_datagrview_Loai_hang.RowHeadersVisible = false;
+			this.k_datagrview_Loai_hang.RowHeadersWidth = 51;
+			this.k_datagrview_Loai_hang.RowTemplate.Height = 24;
+			this.k_datagrview_Loai_hang.Size = new System.Drawing.Size(1002, 348);
+			this.k_datagrview_Loai_hang.StateCommon.Background.Color1 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.Background.Color2 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Border.Color2 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Border.Width = 0;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.Black;
+			this.k_datagrview_Loai_hang.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.Black;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.WhiteSmoke;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Border.Color1 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Border.Color2 = System.Drawing.Color.White;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Border.Width = 0;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Content.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderColumn.Content.Padding = new System.Windows.Forms.Padding(0);
+			this.k_datagrview_Loai_hang.StateCommon.HeaderRow.Back.Color1 = System.Drawing.Color.Black;
+			this.k_datagrview_Loai_hang.StateCommon.HeaderRow.Content.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+			this.k_datagrview_Loai_hang.TabIndex = 1;
+			this.k_datagrview_Loai_hang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.k_datagrview_Loai_hang_CellClick);
+			// 
 			// LOAIHANG_GUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -587,11 +603,11 @@
 			this.pn_bong.ResumeLayout(false);
 			this.pn_chua_du_lieu.ResumeLayout(false);
 			this.pn_data.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.k_datagrview_Loai_hang)).EndInit();
 			this.pn_nhap.ResumeLayout(false);
 			this.pn_nhap.PerformLayout();
 			this.artanPanel1.ResumeLayout(false);
 			this.artanPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.k_datagrview_Loai_hang)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -606,7 +622,6 @@
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kbtn_themSua;
 		private ArtanComponent.ArtanPanel pn_data;
-		private ComponentFactory.Krypton.Toolkit.KryptonDataGridView k_datagrview_Loai_hang;
 		private System.Windows.Forms.Panel pn_nhap;
 		private System.Windows.Forms.Label label4;
 		private ComponentFactory.Krypton.Toolkit.KryptonCheckBox check_trang_thai;
@@ -620,5 +635,6 @@
 		private System.Windows.Forms.Label label1;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kbtn_Them_sua;
 		private System.Windows.Forms.Timer createTransition;
+		private ComponentFactory.Krypton.Toolkit.KryptonDataGridView k_datagrview_Loai_hang;
 	}
 }
