@@ -52,7 +52,7 @@
     <Compile Include="USER_BUS.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAO\DAL.csproj">
+    <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{4d188072-b483-4fb9-8f1a-13b13f16a96d}</Project>
       <Name>DAL</Name>
     </ProjectReference>

@@ -393,10 +393,10 @@ InteropTests/NativeTests/out
 # GUI/bin/Debug/ArtanComponent.pdb
 # GUI/bin/Debug/BUS.dll
 # GUI/bin/Debug/BUS.pdb
-# GUI/bin/Debug/DAO.dll
-# GUI/bin/Debug/DAO.pdb
+# GUI/bin/Debug/DAL.dll
+# GUI/bin/Debug/DAL.pdb
 # GUI/bin/Debug/DTO.dll
 # GUI/bin/Debug/DTO.pdb
 # GUI/bin/Debug/GUI.exe
 # GUI/bin/Debug/GUI.pdb
-DAO/DataProvider.cs
+DAL/DataProvider.cs
