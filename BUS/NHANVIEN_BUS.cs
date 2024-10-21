@@ -10,50 +10,50 @@ namespace BUS
 {
 	public class NHANVIEN_BUS
 	{
-		NHANVIEN_DAL nhanVienDAO = new NHANVIEN_DAL();
+		NHANVIEN_DAL nhanVienDAL = new NHANVIEN_DAL();
 		DataProvider dataProvider = new DataProvider();
 
 		public DataTable GetDanhSachNhanVien()
 		{
-			return nhanVienDAO.getDanhSachNhanVien();
+			return nhanVienDAL.getDanhSachNhanVien();
 		}
 		public DataTable GetDanhSachNhanVienPage(int limit, int page)
 		{
-			return nhanVienDAO.getDanhSachNhanVienPage(limit, page);
+			return nhanVienDAL.getDanhSachNhanVienPage(limit, page);
 		}
 		public int GetSLSinhVien()
 		{
-			return nhanVienDAO.GetSLSinhVien();
+			return nhanVienDAL.GetSLSinhVien();
 		}
 
 
 		public DataTable GetNhanVien(string manv)
 		{
-			return nhanVienDAO.GetNhanVien(manv);
+			return nhanVienDAL.GetNhanVien(manv);
 		}
 
 		public DataTable GetGioiTinh()
 		{
-			return nhanVienDAO.GetGioiTinh();
+			return nhanVienDAL.GetGioiTinh();
 		}
 
 		public bool InsertNhanVien(string manv, string tennv, string gioitinh, string ngaysinh, string diachi, string sdt, string diengiai, int flag)
 		{
-			return nhanVienDAO.InsertNhanVien(manv, tennv, gioitinh, ngaysinh, diachi, sdt, diengiai, flag);
+			return nhanVienDAL.InsertNhanVien(manv, tennv, gioitinh, ngaysinh, diachi, sdt, diengiai, flag);
 		}
 		public bool UpdateNhanVien(string maNV, string tenNV, string gioiTinh, string ngaySinh, string diaChi, string soDT, string dienGia, int flag)
 		{
-			return nhanVienDAO.UpdateNhanVien(maNV, tenNV, gioiTinh, ngaySinh, diaChi, soDT, dienGia, flag);
+			return nhanVienDAL.UpdateNhanVien(maNV, tenNV, gioiTinh, ngaySinh, diaChi, soDT, dienGia, flag);
 
 		}
 		public bool DeleteNhanVien(string maNV)
 		{
-			return nhanVienDAO.DeleteNhanVien(maNV);
+			return nhanVienDAL.DeleteNhanVien(maNV);
 
 		}
 		public DataTable SearchNV(string key)
 		{
-			return nhanVienDAO.SearchNhanVien(key);
+			return nhanVienDAL.SearchNhanVien(key);
 		}
 	}
 }

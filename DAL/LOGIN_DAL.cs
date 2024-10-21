@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DTO;
-namespace DAO
+namespace DAL
 {
 	public class LOGIN_DAL : DataProvider
 	{
