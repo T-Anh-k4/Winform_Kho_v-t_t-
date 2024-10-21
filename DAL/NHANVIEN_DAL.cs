@@ -21,15 +21,15 @@ namespace DAL
 
 		public DataTable getDanhSachNhanVien()
 		{
-			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], CASE WHEN FLAG = 1 THEN 'Đang làm việc' ELSE 'Nghỉ việc' END AS [Trạng thái] FROM NHANVIEN";
+			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái],USERNAME AS [Tên tài khoản] FROM NHANVIEN";
 			return instance.execQuery(query);
 		}
 		public DataTable getDanhSachNhanVienPage(int limit, int page)
 		{
-			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN";
+            string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái],USERNAME AS [Tên tài khoản] FROM NHANVIEN";
 
-			// Khởi tạo đối tượng kết nối
-			using (SqlConnection con = new SqlConnection(LinkData))
+            // Khởi tạo đối tượng kết nối
+            using (SqlConnection con = new SqlConnection(LinkData))
 			{
 				con.Open(); // Mở kết nối
 
@@ -52,8 +52,8 @@ namespace DAL
 		}
 		public DataTable GetNhanVien(string maNV)
 		{
-			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN " +
-				"WHERE MANV = N'" + maNV + "'";
+            string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái],USERNAME AS [Tên tài khoản] FROM NHANVIEN " +
+            "WHERE MANV = N'" + maNV + "'";
 			return instance.execQuery(query);	
 		}
 		public DataTable GetGioiTinh()
@@ -61,36 +61,38 @@ namespace DAL
 			string query = "SELECT GIOITINH FROM NHANVIEN";
 			return instance.execQuery(query);
 		}
-		public bool DeleteNhanVien(string maNV)
-		{
-			try
-			{
-				string query = "delete from NHANVIEN " +
-					"WHERE MANV = N'" + maNV + "'";
-				// Thực hiện câu lệnh SQL
-				instance.execNonQuery(query);
-			}
-			catch
-			{
-				return false;
-			}
-			return true;
-		}
-		public bool InsertNhanVien(string maNV, string tenNV, string gioiTinh, string ngaySinh, string diaChi, string soDT, string dienGia, int flag)
-		{
-			try
-			{
-				string query = "INSERT INTO NHANVIEN(MANV, TENNV, GIOITINH, NGAYSINH, DIACHI, SDT, DIENGIAI, FLAG) " +
-							   "VALUES (N'" + maNV + "', N'" + tenNV + "', N'" + gioiTinh + "', N'" + ngaySinh + "', N'" + diaChi + "', N'" + soDT + "', N'" + dienGia + "', " + flag + ")";
-				instance.execNonQuery(query);
-			}
-			catch
-			{
-				return false;
-			}
-			return true;
-		}
-		public bool UpdateNhanVien(string maNV, string tenNV, string gioiTinh, string ngaySinh, string diaChi, string soDT, string dienGia, int flag)
+        public bool DeleteNhanVien(string maNV)
+        {
+            try
+            {
+                string deleteTaiKhoanQuery = "DELETE FROM NGUOIDUNG WHERE USERNAME = N'" + maNV + "'";
+                // Thực hiện câu lệnh SQL
+                instance.execNonQuery(deleteTaiKhoanQuery);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool InsertNhanVien(string maNV, string tenNV, string gioiTinh, string ngaySinh, string diaChi, string soDT, string dienGia, int flag, string username)
+        {
+            try
+            {
+                // Kiểm tra nếu username rỗng
+                string query = "INSERT INTO NHANVIEN(MANV, TENNV, GIOITINH, NGAYSINH, DIACHI, SDT, DIENGIAI, FLAG, USERNAME) " +
+                               "VALUES (N'" + maNV + "', N'" + tenNV + "', N'" + gioiTinh + "', N'" + ngaySinh + "', N'" + diaChi + "', N'" + soDT + "', N'" + dienGia + "', " + flag + ", " + (string.IsNullOrEmpty(username) ? "NULL" : "N'" + username + "'") + ")";
+                instance.execNonQuery(query);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool UpdateNhanVien(string maNV, string tenNV, string gioiTinh, string ngaySinh, string diaChi, string soDT, string dienGia, int flag, string username)
 		{
 			try
 			{
@@ -102,8 +104,9 @@ namespace DAL
 							   "DIACHI = N'" + diaChi + "', " +
 							   "SDT = N'" + soDT + "', " +
 							   "DIENGIAI = N'" + dienGia + "', " +
-							   "FLAG = " + flag + " " +
-							   "WHERE MANV = N'" + maNV + "'";
+							   "FLAG = " + flag + " , " +
+                               "USERNAME = N'" + username + "' " +
+                               "WHERE MANV = N'" + maNV + "'";
 
 				// Thực hiện câu lệnh SQL
 				instance.execNonQuery(query);
@@ -114,7 +117,16 @@ namespace DAL
 			}
 			return true;
 		}
-		public DataTable SearchNhanVien(string keyword)
+        public bool CheckUserName(string username)
+        {
+            string query = "select count(USERNAME) from NGUOIDUNG where USERNAME in (select USERNAME from NHANVIEN ) and USERNAME = N'"+ username +"'";
+            // Gọi execScalar để thực hiện truy vấn và lấy số lượng
+            object result = instance.execScalar(query);
+            // Chuyển đổi kết quả thành int và kiểm tra xem có lớn hơn 0 hay không
+            return result != null && (int)result > 0; // Trả về true nếu USERNAME đã tồn tại
+        }
+
+        public DataTable SearchNhanVien(string keyword)
 		{
 			try
 			{

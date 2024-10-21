@@ -16,7 +16,7 @@ namespace GUI
 	{
 		USER_DTO userDTO = new USER_DTO();
 		LOGIN_BUS loginBUS = new LOGIN_BUS();
-		MENU_GUI menuGUi = new MENU_GUI();
+		TEST_GUI menuGUi = new TEST_GUI();
 		public LOGIN_GUI()
 		{
 			InitializeComponent();

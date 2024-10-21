@@ -129,14 +129,15 @@ namespace GUI
 
 		private void dataViewUser_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			DataGridViewRow row = dataViewUser.Rows[e.RowIndex];
+			if (e.RowIndex >= 0)
+			{
+				DataGridViewRow row = dataViewUser.Rows[e.RowIndex];
 				if (e.ColumnIndex == dataViewUser.Columns["imgEdit"].Index)
 				{
 					kryTb_Name.Text = row.Cells[2].Value.ToString();
 					kryTb_Pass.Text = row.Cells[3].Value.ToString();
-					kryTbManv.Text = row.Cells[4].Value.ToString();
-					kryCb_Loai.Text = row.Cells[5].Value.ToString();
-					if (Convert.ToInt32(row.Cells[6].Value) == 1)
+					kryCb_Loai.Text = row.Cells[4].Value.ToString();
+					if (Convert.ToInt32(row.Cells[5].Value) == 1)
 					{
 						kryStatus.Checked = true;  // Đánh dấu checkbox
 					}
@@ -174,7 +175,8 @@ namespace GUI
 
 						}
 					}
-				}			
+				}
+			}
 		}
 
 		private void kryBt_Add_Click(object sender, EventArgs e)

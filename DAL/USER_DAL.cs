@@ -14,7 +14,7 @@ namespace DAL
 		DataProvider instance = new DataProvider();
 		public DataTable GetDataUserName()
 		{
-			string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu],TENNV AS [Tên nhân viên], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG JOIN NHANVIEN ON NGUOIDUNG.MANV = NHANVIEN.MANV ORDER BY LOAI";
+			string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG ORDER BY LOAI";
 			return instance.execQuery(query);
 		}
 		public DataTable GetMaNvUser(string manv)

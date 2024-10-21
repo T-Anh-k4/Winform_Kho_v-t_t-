@@ -33,7 +33,7 @@ namespace GUI
 			panelDoanhMuc.Height = 43;
 			palHangHoa.Height = 0;
 			panelHeThong.Height = 0;
-			panelHeThong.Location = new Point(0, 94);
+			panelHeThong.Location = new Point(247, 170);
 			panelTk_Bc.Height = 43;
 			AssignMouseEnterEvent(this); // Bắt đầu duyệt từ form
 			AssignMouseEvents(this);
@@ -48,12 +48,12 @@ namespace GUI
 					danhMucExplore = false;
 				}
 				else {
-					panelDoanhMuc.Height -= 10;
+					panelDoanhMuc.Height -= 15;
 				}
 				//khi nhan vao emnu to
 				if (panelDoanhMuc.Height <= 250)
 				{
-					panelHeThong.Location = new Point(0, 94);
+					panelHeThong.Location = new Point(247, 170);
 					palHangHoa.Height -= 15;
 					if (palHangHoa.Height <= 0)
 					{
@@ -124,7 +124,7 @@ namespace GUI
 		{
 			if (hangHoaExplore)
 			{
-				palHangHoa.Height -= 10;
+				palHangHoa.Height -= 20;
 				if (palHangHoa.Height <= 0)
 				{
 					HangHoa_Transition.Stop();
@@ -149,7 +149,7 @@ namespace GUI
 
 		private void kryBtDoanhMuc_Click(object sender, EventArgs e)
 		{
-			panelHeThong.Location = new Point(0, 308);
+			panelHeThong.Location = new Point(247, 377);
 			Danh_muc_Transition.Start();
 
 		}
@@ -157,7 +157,7 @@ namespace GUI
 		{
 			if (hethongExplore)
 			{
-				panelHeThong.Height -= 10;
+				panelHeThong.Height -= 20;
 				if (panelHeThong.Height <= 0)
 				{
 					HeThong_Transition.Stop();
@@ -231,6 +231,7 @@ namespace GUI
 		{
 			HangHoa_Transition.Start();
 		}
+//chuyen form cac nut
 
 		private void kryBtHangHoa_Click(object sender, EventArgs e)
 		{
@@ -242,5 +243,81 @@ namespace GUI
 			OpenChildForm(new NHANVIEN_GUI());
 
 		}
+
+		private void BtTrangChu_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new TRANGCHU_GUI());
+
+		}
+
+		private void btNhaCungCap_Click(object sender, EventArgs e)
+		{
+			OpenChildForm(new NHACUNGCAP_GUI());
+
+		}
+
+		private void btKhachHang_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new KHACHHANG_GUI());
+
+		}
+
+		private void btKho_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new KHO_GUI());
+
+		}
+
+		private void btLoaiHang_Click(object sender, EventArgs e)
+		{
+			OpenChildForm(new LOAIHANG_GUI());
+
+		}
+
+		private void btHangNhap_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new HANGNHAP_GUI());
+		}
+
+		private void btHangXuat_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new HANGXUAT_GUI());
+		}
+
+		private void btTaiKhoanUser_Click(object sender, EventArgs e)
+		{
+			OpenChildForm(new USER_GUI());
+		}
+
+		private void btDanhSachHangHoa_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new DANHSACHHANGHOA_GUI());
+		}
+
+		private void btDanhSachKhachHang_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new KHACHHANG_GUI());
+		}
+
+		private void btBaoCaoNhapHang_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new HANGHOA_GUI());
+		}
+
+		private void btBaoCaoXuatHang_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new HANGHOA_GUI());
+		}
+
+		private void btHuongDan_Click(object sender, EventArgs e)
+		{
+			OpenChildForm(new HUONGDAN_GUI());
+		}
+
+		private void btDangXuat_Click(object sender, EventArgs e)
+		{
+			//OpenChildForm(new HANGHOA_GUI());
+		}
+//END
 	}
 }
