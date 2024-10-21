@@ -23,7 +23,7 @@ namespace GUI
 			DataTable dt = hanghoa_bus.GetDanhSachHangHoa();
 
 			Bieudocot(dt);
-			bieudotron(dt); 
+			bieudoday(dt); 
 		}
 
 		public void Bieudocot(DataTable dt)
@@ -68,44 +68,45 @@ namespace GUI
 			chart1.Titles.Add("Thống kê hàng hóa theo loại");
 		}
 
-		private void bieudotron(DataTable dt)
-		{
-			// Khai báo biến thống kê cho xuất xứ
-			Dictionary<string, int> thongKeXuatXu = new Dictionary<string, int>();
+        private void bieudoday(DataTable dt)
+        {
+            // Khai báo biến thống kê cho xuất xứ
+            Dictionary<string, int> thongKeXuatXu = new Dictionary<string, int>();
 
-			// Duyệt qua các hàng trong DataTable lấy từ cơ sở dữ liệu
-			foreach (DataRow row in dt.Rows)
-			{
-				// Lấy giá trị của cột "Xuất xứ" từ DataTable
-				string xuatXu = row["Xuất xứ"].ToString();
+            // Duyệt qua các hàng trong DataTable lấy từ cơ sở dữ liệu
+            foreach (DataRow row in dt.Rows)
+            {
+                // Lấy giá trị của cột "Xuất xứ" từ DataTable
+                string xuatXu = row["Xuất xứ"].ToString();
 
-				// Kiểm tra nếu "Xuất xứ" không rỗng
-				if (!string.IsNullOrEmpty(xuatXu))
-				{
-					if (thongKeXuatXu.ContainsKey(xuatXu))
-					{
-						thongKeXuatXu[xuatXu]++;
-					}
-					else
-					{
-						thongKeXuatXu[xuatXu] = 1;
-					}
-				}
-			}
+                // Kiểm tra nếu "Xuất xứ" không rỗng
+                if (!string.IsNullOrEmpty(xuatXu))
+                {
+                    if (thongKeXuatXu.ContainsKey(xuatXu))
+                    {
+                        thongKeXuatXu[xuatXu]++;
+                    }
+                    else
+                    {
+                        thongKeXuatXu[xuatXu] = 1;
+                    }
+                }
+            }
 
-			// Hiển thị dữ liệu thống kê theo xuất xứ trên biểu đồ tròn
-			chart2.Series.Clear(); // Giả sử bạn đã thêm chart2 vào form để hiển thị biểu đồ tròn
-			Series series = chart2.Series.Add("Xuất xứ hàng hóa");
-			series.ChartType = SeriesChartType.Pie;
+            // Hiển thị dữ liệu thống kê theo xuất xứ trên biểu đồ dây
+            chart2.Series.Clear(); // Giả sử bạn đã thêm chart2 vào form để hiển thị biểu đồ
+            Series series = chart2.Series.Add("Xuất xứ hàng hóa");
+            series.ChartType = SeriesChartType.Line;  // Thay đổi thành biểu đồ dây
 
-			// Thêm dữ liệu vào biểu đồ tròn
-			foreach (var item in thongKeXuatXu)
-			{
-				series.Points.AddXY(item.Key, item.Value);
-			}
+            // Thêm dữ liệu vào biểu đồ dây
+            foreach (var item in thongKeXuatXu)
+            {
+                series.Points.AddXY(item.Key, item.Value);
+            }
 
-			// Tùy chỉnh biểu đồ tròn
-			chart2.Titles.Add("Thống kê hàng hóa theo xuất xứ");
-		}
-	}
+            // Tùy chỉnh biểu đồ
+            chart2.Titles.Add("Thống kê hàng hóa theo xuất xứ");
+        }
+
+    }
 }
