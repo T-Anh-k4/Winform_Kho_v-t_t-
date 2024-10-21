@@ -131,6 +131,12 @@
     <Compile Include="KHACHHANG_GUI.Designer.cs">
       <DependentUpon>KHACHHANG_GUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="KHO_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KHO_GUI.Designer.cs">
+      <DependentUpon>KHO_GUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="LOAIHANG_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HUONGDAN_GUI.resx">
       <DependentUpon>HUONGDAN_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KHO_GUI.resx">
+      <DependentUpon>KHO_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LOAIHANG_GUI.resx">
       <DependentUpon>LOAIHANG_GUI.cs</DependentUpon>

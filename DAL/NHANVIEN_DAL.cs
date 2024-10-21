@@ -21,7 +21,7 @@ namespace DAL
 
 		public DataTable getDanhSachNhanVien()
 		{
-			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN";
+			string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], CASE WHEN FLAG = 1 THEN 'Đang làm việc' ELSE 'Nghỉ việc' END AS [Trạng thái] FROM NHANVIEN";
 			return instance.execQuery(query);
 		}
 		public DataTable getDanhSachNhanVienPage(int limit, int page)

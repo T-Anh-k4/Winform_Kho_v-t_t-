@@ -183,7 +183,8 @@ namespace GUI
 			txb_Malh.Clear();
 			txb_Ten_loai_hang.Clear();
 			txb_Dien_giai.Clear();
-			ResetForeText();
+            txb_Malh.Enabled = true;
+            ResetForeText();
 		}
 		// nút sửa 
 		private void kbtn_sua_Click(object sender, EventArgs e)
@@ -242,7 +243,8 @@ namespace GUI
 				{
 					LoaiHangGui_Load();
 					MessageBox.Show("Thêm loại hàng thành công!");
-					txb_Malh.Clear();
+
+                    txb_Malh.Clear();
 					txb_Ten_loai_hang.Clear();
 					txb_Dien_giai.Clear();
 
@@ -320,6 +322,11 @@ namespace GUI
 						if (result)
 						{
 							LoaiHangGui_Load();
+							txb_Malh.Clear();
+							txb_Ten_loai_hang.Clear();
+							txb_Dien_giai.Clear();
+							txb_Malh.Enabled = true;
+							ResetForeText();
 							MessageBox.Show("Xóa thông tin loại hàng thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 						}
 						else
