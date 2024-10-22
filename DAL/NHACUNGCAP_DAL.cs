@@ -1,42 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using DTO;
-using DAL;
 
 namespace DAL
 {
     public class NHACUNGCAP_DAL : DataProvider
     {
         DataProvider instance = new DataProvider();
-        SqlDataAdapter nccAdapter = new SqlDataAdapter();
+        SqlDataAdapter nvAdapter = new SqlDataAdapter();
 
         public NHACUNGCAP_DAL()
         {
             instance = new DataProvider();
         }
 
-        public DataTable getDanhSachNhaCungCap()
+        public DataTable GetDanhSachNhaCungCap()
         {
-            string query = "SELECT MANCC AS [Mã nhà cung cấp], TENNCC AS [Tên nhà cung cấp], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại] FROM NHACUNGCAP";
+            string query = "SELECT MANCC as [Mã nhà cung cấp], TENNCC as [Tên nhà cung cấp], DIACHI as [Địa chỉ], SDT as [Số điện thoại] FROM NHACUNGCAP";
             return instance.execQuery(query);
         }
 
-        public DataTable getDanhSachNhaCungCapPage(int limit, int page)
+        public DataTable GetDanhSachNhaCungCapPage(int limit, int page)
         {
-            string query = "SELECT MANCC AS [Mã nhà cung cấp], TENNCC AS [Tên nhà cung cấp], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại] FROM NHACUNGCAP";
-
+            string query = "SELECT MANCC as [Mã nhà cung cấp], TENNCC as [Tên nhà cung cấp], DIACHI as [Địa chỉ], SDT as [Số điện thoại] FROM NHACUNGCAP";
+            //return instance.execQuery(query);
             using (SqlConnection con = new SqlConnection(LinkData))
             {
-                con.Open();
+                con.Open(); // Mở kết nối
 
-                nccAdapter.SelectCommand = new SqlCommand(query, con);
+                // Khởi tạo SqlDataAdapter với SqlCommand và SqlConnection
+                nvAdapter.SelectCommand = new SqlCommand(query, con);
+                DataTable dsNv = new DataTable();
+                nvAdapter.Fill((page - 1) * limit, limit, dsNv);
 
-                DataTable dsNcc = new DataTable();
-                nccAdapter.Fill((page - 1) * limit, limit, dsNcc);
-
-                con.Close();
-                return dsNcc;
+                con.Close(); // Đóng kết nối
+                return dsNv;
             }
         }
 
@@ -44,15 +44,42 @@ namespace DAL
         {
             string query = "SELECT COUNT(*) FROM NHACUNGCAP";
             object result = instance.execScalar(query);
-            int slNhaCungCap = result != null ? Convert.ToInt32(result) : 0;
-            return slNhaCungCap;
+            int slNhanVien = result != null ? Convert.ToInt32(result) : 0;
+            return slNhanVien;
         }
 
-        public DataTable GetNhaCungCap(string maNCC)
+
+        public bool InsertNhaCungCap(string maNCC, string tenNCC, string diaChi, string sdt)
         {
-            string query = "SELECT MANCC AS [Mã nhà cung cấp], TENNCC AS [Tên nhà cung cấp], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại] FROM NHACUNGCAP " +
-                           "WHERE MANCC = N'" + maNCC + "'";
-            return instance.execQuery(query);
+            try
+            {
+                string query = "INSERT INTO NHACUNGCAP(MANCC, TENNCC, DIACHI, SDT) " +
+                               "VALUES (N'" + maNCC + "', N'" + tenNCC + "', N'" + diaChi + "', N'" + sdt + "')";
+                instance.execNonQuery(query);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Có lỗi xảy ra khi thêm nhà cung cấp: " + ex.Message);
+            }
+        }
+
+        public bool UpdateNhaCungCap(string maNCC, string tenNCC, string diaChi, string sdt)
+        {
+            try
+            {
+                string query = "UPDATE NHACUNGCAP " +
+                               "SET TENNCC = N'" + tenNCC + "', " +
+                               "DIACHI = N'" + diaChi + "', " +
+                               "SDT = N'" + sdt + "' " +
+                               "WHERE MANCC = N'" + maNCC + "'";
+                instance.execNonQuery(query);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool DeleteNhaCungCap(string maNCC)
@@ -61,46 +88,27 @@ namespace DAL
             {
                 string query = "DELETE FROM NHACUNGCAP WHERE MANCC = N'" + maNCC + "'";
                 instance.execNonQuery(query);
+                return true;
             }
             catch
             {
                 return false;
             }
-            return true;
         }
 
-        public bool InsertNhaCungCap(string maNCC, string tenNCC, string diaChi, string soDT)
+        public DataTable SearchNhaCungCap(string keyword)
         {
             try
             {
-                string query = "INSERT INTO NHACUNGCAP(MANCC, TENNCC, DIACHI, SDT) " +
-                               "VALUES (N'" + maNCC + "', N'" + tenNCC + "', N'" + diaChi + "', N'" + soDT + "')";
-                instance.execNonQuery(query);
+                string query = "SELECT MANCC as [Mã nhà cung cấp], TENNCC as [Tên nhà cung cấp], DIACHI as [Địa chỉ], SDT as [Số điện thoại] " +
+                               "FROM NHACUNGCAP " +
+                               "WHERE TENNCC LIKE N'%" + keyword + "%'";
+                return instance.execQuery(query);
             }
             catch
             {
-                return false;
+                return null;
             }
-            return true;
-        }
-
-        public bool UpdateNhaCungCap(string maNCC, string tenNCC, string diaChi, string soDT)
-        {
-            try
-            {
-                string query = "UPDATE NHACUNGCAP " +
-                               "SET TENNCC = N'" + tenNCC + "', " +
-                               "DIACHI = N'" + diaChi + "', " +
-                               "SDT = N'" + soDT + "' " +
-                               "WHERE MANCC = N'" + maNCC + "'";
-
-                instance.execNonQuery(query);
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
         }
     }
 }
