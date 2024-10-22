@@ -29,7 +29,7 @@ namespace GUI
         public void init()
         {
             initUser();
-            panel2_ncc .Height = 0;
+            panel2_ncc.Height = 0;
         }
         public void initUser()
         {

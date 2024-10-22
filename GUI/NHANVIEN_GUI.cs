@@ -16,7 +16,7 @@ namespace GUI
 	{
 		NHANVIEN_BUS nhanVienBUS = new NHANVIEN_BUS();
 		bool createExplore = true;
-		int limit = 10;
+		int limit = 2;
 		int curentPage = 1;
 		int totalPage = 1;//so trang can tao
 
@@ -30,8 +30,11 @@ namespace GUI
 		{
 			initUser();
 			panel2_nv.Height = 0;
-		}
-		public void initUser()
+			soluong.Text = "Nhân viên ("+Convert.ToString(nhanVienBUS.GetSLSinhVien())+")";
+            dataViewNv.CellFormatting += dataViewNv_CellFormatting;
+
+        }
+        public void initUser()
 		{
 			loadDt_NhanVien();
 			loadCb_Gioitinh();
@@ -108,8 +111,8 @@ namespace GUI
 				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
 				imgColumn.HeaderText = "Xóa";
 				imgColumn.Name = "imgDelete";
-                imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-delete.png")); // Đường dẫn đến hình ảnh
-                imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+				//imgColumn.Image = Image.FromFile(@"D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
+				imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
 				imgColumn.Width = 20;
 				// Thêm cột hình ảnh vào DataGridView
 				dataViewNv.Columns.Add(imgColumn);
@@ -127,11 +130,10 @@ namespace GUI
 				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
 				imgColumn.HeaderText = "Edit";
 				imgColumn.Name = "imgEdit";
-                imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-edit.png"));
-                //imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
-                //imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
-                // Thêm cột hình ảnh vào DataGridView
-                dataViewNv.Columns.Add(imgColumn);
+				//imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
+				imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+				// Thêm cột hình ảnh vào DataGridView
+				dataViewNv.Columns.Add(imgColumn);
 			} 
 			// Căn giữa header của cột hình ảnh
 			dataViewNv.Columns["imgEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -155,7 +157,7 @@ namespace GUI
 			else
 			{
 				panel2_nv.Height += 10;
-				if (panel2_nv.Height >= 170)
+				if (panel2_nv.Height >= 180)
 				{
 					createTransition.Stop();
 					createExplore = true;
@@ -166,10 +168,10 @@ namespace GUI
 //Sự kiên database
 		private void dataViewNv_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			DataGridViewRow row = dataViewNv.Rows[e.RowIndex];
 			if (e.RowIndex >= 0)
 			{
-				if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
+                DataGridViewRow row = dataViewNv.Rows[e.RowIndex];
+                if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
 				{
 					kryTx_Id.ReadOnly = true;
 					kryTx_Id.Text = row.Cells[2].Value.ToString();
@@ -179,7 +181,8 @@ namespace GUI
 					kryTx_Address.Text = row.Cells[6].Value.ToString();
 					kryTb_Number.Text = row.Cells[7].Value.ToString();
 					kryTb_Pos.Text = row.Cells[8].Value.ToString();
-					if (Convert.ToInt32(row.Cells[9].Value) == 1)
+					txtTenNguoiDung.Text = row.Cells[10].Value.ToString();
+                    if (Convert.ToInt32(row.Cells[9].Value) == 1)
 					{
 						kryCheckBox_Status.Checked = true;  // Đánh dấu checkbox
 					}
@@ -189,7 +192,7 @@ namespace GUI
 					}
 					IsPressEdit();
 					createTransition.Start();
-					if (panel2_nv.Height >= 170)
+					if (panel2_nv.Height >=180)
 					{
 						createTransition.Stop();
 					}
@@ -199,25 +202,27 @@ namespace GUI
 					}
 
 				}
-			}
-			if (e.ColumnIndex == dataViewNv.Columns["imgDelete"].Index)
-			{
-				DialogResult check = MessageBox.Show("Bạn có muốn xóa nhân viên nay không ?" + "Tài khoản đăng nhập của nhân viên này sẽ bị xóa ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-				if (check == DialogResult.Yes)
-				{
-					bool result = nhanVienBUS.DeleteNhanVien(row.Cells[2].Value.ToString());
-					if (result)
-					{
-						loadDt_NhanVien();
-						MessageBox.Show("Xóa thông tin nhân viên thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-					}
-					else
-					{
-						MessageBox.Show("Xóa thông tin nhân viên không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (e.ColumnIndex == dataViewNv.Columns["imgDelete"].Index)
+                {
+                    DialogResult check = MessageBox.Show("Bạn có muốn xóa nhân viên nay không ?" + "Tài khoản đăng nhập của nhân viên này sẽ bị xóa ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    if (check == DialogResult.Yes)
+                    {
+                        bool result = nhanVienBUS.DeleteNhanVien(row.Cells[2].Value.ToString());
+                        if (result)
+                        {
+                            loadDt_NhanVien();
+                            MessageBox.Show("Xóa thông tin nhân viên thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thông tin nhân viên không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-					}
-				}
-			}
+                        }
+                    }
+                    clear();
+                    soluong.Text = "Nhân viên (" + Convert.ToString(nhanVienBUS.GetSLSinhVien()) + ")";
+                }
+            }
 		}
 
 //Sự kiện click
@@ -249,7 +254,12 @@ namespace GUI
 				MessageBox.Show("Vui lòng nhập số điện thoại.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			bool result = nhanVienBUS.InsertNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0);
+            if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
+            {
+                MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Ngăn không cho tiếp tục thực hiện cập nhật
+            }
+            bool result = nhanVienBUS.InsertNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0,txtTenNguoiDung.Text);
 
 			if (result)
 			{
@@ -262,12 +272,18 @@ namespace GUI
 			{
 				MessageBox.Show("Thêm nhân viên không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+            soluong.Text = "Nhân viên (" + Convert.ToString(nhanVienBUS.GetSLSinhVien()) + ")";
 
-		}
+        }
 
 		private void kryBt_Edit_Click(object sender, EventArgs e)
 		{
-			bool result = nhanVienBUS.UpdateNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0);
+            if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
+            {
+                MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Ngăn không cho tiếp tục thực hiện cập nhật
+            }
+            bool result = nhanVienBUS.UpdateNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0, txtTenNguoiDung.Text);
 
 			if (result)
 			{
@@ -403,7 +419,7 @@ namespace GUI
 			{
 				kryBt_Edit.Visible = false;
 			}
-			if (panel2_nv.Height >= 170)
+			if (panel2_nv.Height >= 180)
 			{
 				createTransition.Stop();
 
@@ -459,7 +475,21 @@ namespace GUI
 				e.SuppressKeyPress = true;
 			}
 		}
-	}
+//nếu Username rỗng
+        private void dataViewNv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Kiểm tra cột USERNAME (giả sử cột này là cột thứ 8 trong DataGridView)
+            if (dataViewNv.Columns[e.ColumnIndex].Name == "Tên tài khoản") // Thay đổi tên cột nếu cần
+            {
+                // Kiểm tra xem giá trị có phải là DBNull hay không
+                if (e.Value == DBNull.Value)
+                {
+                    e.Value = "null"; // Đặt giá trị hiển thị là "null"
+                    e.FormattingApplied = true; // Đánh dấu là đã áp dụng định dạng
+                }
+            }
+        }
+    }
 }
 
 

@@ -87,6 +87,7 @@
 			this.panelLoadForm = new ArtanComponent.ArtanPanel();
 			this.palHangHoa = new System.Windows.Forms.Panel();
 			this.artanPalRadious = new ArtanComponent.ArtanPanel();
+			this.panelKhoangCach = new System.Windows.Forms.Panel();
 			this.panel1.SuspendLayout();
 			this.panelContainer.SuspendLayout();
 			this.panelTk_Bc.SuspendLayout();
@@ -95,7 +96,6 @@
 			this.panel7.SuspendLayout();
 			this.pamelIcon.SuspendLayout();
 			this.panelHeThong.SuspendLayout();
-			this.panelLoadForm.SuspendLayout();
 			this.palHangHoa.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -125,12 +125,12 @@
 			this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.panel1.Location = new System.Drawing.Point(247, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1137, 70);
+			this.panel1.Size = new System.Drawing.Size(1249, 70);
 			this.panel1.TabIndex = 1;
 			// 
 			// btTinNhan
 			// 
-			this.btTinNhan.Location = new System.Drawing.Point(1082, 14);
+			this.btTinNhan.Location = new System.Drawing.Point(1170, 14);
 			this.btTinNhan.Name = "btTinNhan";
 			this.btTinNhan.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
 			this.btTinNhan.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -144,7 +144,7 @@
 			this.btTinNhan.Size = new System.Drawing.Size(43, 43);
 			this.btTinNhan.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btTinNhan.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btTinNhan.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton10.StateCommon.Back.Image")));
+			this.btTinNhan.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btTinNhan.StateCommon.Back.Image")));
 			this.btTinNhan.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btTinNhan.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btTinNhan.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -192,7 +192,7 @@
 			// 
 			// btThongBao
 			// 
-			this.btThongBao.Location = new System.Drawing.Point(1033, 14);
+			this.btThongBao.Location = new System.Drawing.Point(1121, 14);
 			this.btThongBao.Name = "btThongBao";
 			this.btThongBao.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
 			this.btThongBao.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -206,7 +206,7 @@
 			this.btThongBao.Size = new System.Drawing.Size(43, 43);
 			this.btThongBao.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btThongBao.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btThongBao.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton7.StateCommon.Back.Image")));
+			this.btThongBao.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btThongBao.StateCommon.Back.Image")));
 			this.btThongBao.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btThongBao.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btThongBao.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -247,10 +247,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.kryBtHangHoa.Palette = this.kryptonPalette1;
 			this.kryBtHangHoa.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.kryBtHangHoa.Size = new System.Drawing.Size(238, 43);
+			this.kryBtHangHoa.Size = new System.Drawing.Size(134, 43);
 			this.kryBtHangHoa.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.kryBtHangHoa.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.kryBtHangHoa.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryBtDoanhMuc.StateCommon.Back.Image")));
+			this.kryBtHangHoa.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryBtHangHoa.StateCommon.Back.Image")));
 			this.kryBtHangHoa.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.kryBtHangHoa.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.kryBtHangHoa.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -317,7 +317,7 @@
 			this.btDangXuat.Size = new System.Drawing.Size(227, 43);
 			this.btDangXuat.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btDangXuat.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btDangXuat.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton9.StateCommon.Back.Image")));
+			this.btDangXuat.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btDangXuat.StateCommon.Back.Image")));
 			this.btDangXuat.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btDangXuat.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btDangXuat.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -343,6 +343,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btDangXuat.TabIndex = 17;
 			this.btDangXuat.Values.Text = "Đăng xuất";
+			this.btDangXuat.Click += new System.EventHandler(this.btDangXuat_Click);
 			// 
 			// panel13
 			// 
@@ -369,7 +370,7 @@
 			this.btHuongDan.Size = new System.Drawing.Size(227, 43);
 			this.btHuongDan.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btHuongDan.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btHuongDan.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton6.StateCommon.Back.Image")));
+			this.btHuongDan.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btHuongDan.StateCommon.Back.Image")));
 			this.btHuongDan.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btHuongDan.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btHuongDan.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -395,6 +396,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btHuongDan.TabIndex = 6;
 			this.btHuongDan.Values.Text = "Hướng dẫn";
+			this.btHuongDan.Click += new System.EventHandler(this.btHuongDan_Click);
 			// 
 			// panelTk_Bc
 			// 
@@ -431,7 +433,7 @@
 			this.btBaoCaoXuatHang.Size = new System.Drawing.Size(227, 43);
 			this.btBaoCaoXuatHang.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btBaoCaoXuatHang.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btBaoCaoXuatHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton15.StateCommon.Back.Image")));
+			this.btBaoCaoXuatHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btBaoCaoXuatHang.StateCommon.Back.Image")));
 			this.btBaoCaoXuatHang.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btBaoCaoXuatHang.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btBaoCaoXuatHang.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -457,6 +459,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btBaoCaoXuatHang.TabIndex = 11;
 			this.btBaoCaoXuatHang.Values.Text = "Báo cáo xuất hàng";
+			this.btBaoCaoXuatHang.Click += new System.EventHandler(this.btBaoCaoXuatHang_Click);
 			// 
 			// panel21
 			// 
@@ -483,7 +486,7 @@
 			this.btBaoCaoNhapHang.Size = new System.Drawing.Size(227, 43);
 			this.btBaoCaoNhapHang.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btBaoCaoNhapHang.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btBaoCaoNhapHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton16.StateCommon.Back.Image")));
+			this.btBaoCaoNhapHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btBaoCaoNhapHang.StateCommon.Back.Image")));
 			this.btBaoCaoNhapHang.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btBaoCaoNhapHang.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btBaoCaoNhapHang.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -509,6 +512,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btBaoCaoNhapHang.TabIndex = 9;
 			this.btBaoCaoNhapHang.Values.Text = "Báo cáo nhập hàng";
+			this.btBaoCaoNhapHang.Click += new System.EventHandler(this.btBaoCaoNhapHang_Click);
 			// 
 			// panel22
 			// 
@@ -535,7 +539,7 @@
 			this.btDanhSachKhachHang.Size = new System.Drawing.Size(227, 43);
 			this.btDanhSachKhachHang.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btDanhSachKhachHang.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btDanhSachKhachHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton17.StateCommon.Back.Image")));
+			this.btDanhSachKhachHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btDanhSachKhachHang.StateCommon.Back.Image")));
 			this.btDanhSachKhachHang.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btDanhSachKhachHang.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btDanhSachKhachHang.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -561,6 +565,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btDanhSachKhachHang.TabIndex = 7;
 			this.btDanhSachKhachHang.Values.Text = "Danh sách khách hàng";
+			this.btDanhSachKhachHang.Click += new System.EventHandler(this.btDanhSachKhachHang_Click);
 			// 
 			// panel23
 			// 
@@ -587,7 +592,7 @@
 			this.btDanhSachHangHoa.Size = new System.Drawing.Size(227, 43);
 			this.btDanhSachHangHoa.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btDanhSachHangHoa.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btDanhSachHangHoa.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton18.StateCommon.Back.Image")));
+			this.btDanhSachHangHoa.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btDanhSachHangHoa.StateCommon.Back.Image")));
 			this.btDanhSachHangHoa.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btDanhSachHangHoa.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btDanhSachHangHoa.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -613,6 +618,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btDanhSachHangHoa.TabIndex = 5;
 			this.btDanhSachHangHoa.Values.Text = "Danh sách hàng hóa";
+			this.btDanhSachHangHoa.Click += new System.EventHandler(this.btDanhSachHangHoa_Click);
 			// 
 			// panel24
 			// 
@@ -747,6 +753,7 @@
 			this.panelDoanhMuc.Controls.Add(this.btNhaCungCap);
 			this.panelDoanhMuc.Controls.Add(this.panel9);
 			this.panelDoanhMuc.Controls.Add(this.BtHangHoaContainer);
+			this.panelDoanhMuc.Controls.Add(this.panelKhoangCach);
 			this.panelDoanhMuc.Controls.Add(this.panel10);
 			this.panelDoanhMuc.Controls.Add(this.BtDoanhMuc);
 			this.panelDoanhMuc.Dock = System.Windows.Forms.DockStyle.Top;
@@ -758,7 +765,7 @@
 			// btKho
 			// 
 			this.btKho.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btKho.Location = new System.Drawing.Point(0, 200);
+			this.btKho.Location = new System.Drawing.Point(20, 200);
 			this.btKho.Name = "btKho";
 			this.btKho.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
 			this.btKho.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -769,10 +776,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btKho.Palette = this.kryptonPalette1;
 			this.btKho.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.btKho.Size = new System.Drawing.Size(227, 43);
+			this.btKho.Size = new System.Drawing.Size(207, 43);
 			this.btKho.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btKho.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btKho.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton8.StateCommon.Back.Image")));
+			this.btKho.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btKho.StateCommon.Back.Image")));
 			this.btKho.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btKho.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btKho.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -798,19 +805,20 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btKho.TabIndex = 11;
 			this.btKho.Values.Text = "Kho hàng";
+			this.btKho.Click += new System.EventHandler(this.btKho_Click);
 			// 
 			// panel12
 			// 
 			this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel12.Location = new System.Drawing.Point(0, 193);
+			this.panel12.Location = new System.Drawing.Point(20, 193);
 			this.panel12.Name = "panel12";
-			this.panel12.Size = new System.Drawing.Size(227, 7);
+			this.panel12.Size = new System.Drawing.Size(207, 7);
 			this.panel12.TabIndex = 10;
 			// 
 			// btKhachHang
 			// 
 			this.btKhachHang.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btKhachHang.Location = new System.Drawing.Point(0, 150);
+			this.btKhachHang.Location = new System.Drawing.Point(20, 150);
 			this.btKhachHang.Name = "btKhachHang";
 			this.btKhachHang.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
 			this.btKhachHang.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -821,10 +829,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btKhachHang.Palette = this.kryptonPalette1;
 			this.btKhachHang.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.btKhachHang.Size = new System.Drawing.Size(227, 43);
+			this.btKhachHang.Size = new System.Drawing.Size(207, 43);
 			this.btKhachHang.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btKhachHang.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btKhachHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton4.StateCommon.Back.Image")));
+			this.btKhachHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btKhachHang.StateCommon.Back.Image")));
 			this.btKhachHang.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btKhachHang.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btKhachHang.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -850,19 +858,20 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btKhachHang.TabIndex = 9;
 			this.btKhachHang.Values.Text = "Khách hàng";
+			this.btKhachHang.Click += new System.EventHandler(this.btKhachHang_Click);
 			// 
 			// panel8
 			// 
 			this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel8.Location = new System.Drawing.Point(0, 143);
+			this.panel8.Location = new System.Drawing.Point(20, 143);
 			this.panel8.Name = "panel8";
-			this.panel8.Size = new System.Drawing.Size(227, 7);
+			this.panel8.Size = new System.Drawing.Size(207, 7);
 			this.panel8.TabIndex = 8;
 			// 
 			// btNhaCungCap
 			// 
 			this.btNhaCungCap.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btNhaCungCap.Location = new System.Drawing.Point(0, 100);
+			this.btNhaCungCap.Location = new System.Drawing.Point(20, 100);
 			this.btNhaCungCap.Name = "btNhaCungCap";
 			this.btNhaCungCap.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
 			this.btNhaCungCap.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -873,10 +882,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btNhaCungCap.Palette = this.kryptonPalette1;
 			this.btNhaCungCap.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.btNhaCungCap.Size = new System.Drawing.Size(227, 43);
+			this.btNhaCungCap.Size = new System.Drawing.Size(207, 43);
 			this.btNhaCungCap.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btNhaCungCap.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btNhaCungCap.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton5.StateCommon.Back.Image")));
+			this.btNhaCungCap.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btNhaCungCap.StateCommon.Back.Image")));
 			this.btNhaCungCap.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btNhaCungCap.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btNhaCungCap.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -902,19 +911,20 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btNhaCungCap.TabIndex = 7;
 			this.btNhaCungCap.Values.Text = "Nhà cung cấp";
+			this.btNhaCungCap.Click += new System.EventHandler(this.btNhaCungCap_Click);
 			// 
 			// panel9
 			// 
 			this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel9.Location = new System.Drawing.Point(0, 93);
+			this.panel9.Location = new System.Drawing.Point(20, 93);
 			this.panel9.Name = "panel9";
-			this.panel9.Size = new System.Drawing.Size(227, 7);
+			this.panel9.Size = new System.Drawing.Size(207, 7);
 			this.panel9.TabIndex = 6;
 			// 
 			// BtHangHoaContainer
 			// 
 			this.BtHangHoaContainer.Dock = System.Windows.Forms.DockStyle.Top;
-			this.BtHangHoaContainer.Location = new System.Drawing.Point(0, 50);
+			this.BtHangHoaContainer.Location = new System.Drawing.Point(20, 50);
 			this.BtHangHoaContainer.Name = "BtHangHoaContainer";
 			this.BtHangHoaContainer.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
 			this.BtHangHoaContainer.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -925,7 +935,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.BtHangHoaContainer.Palette = this.kryptonPalette1;
 			this.BtHangHoaContainer.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.BtHangHoaContainer.Size = new System.Drawing.Size(227, 43);
+			this.BtHangHoaContainer.Size = new System.Drawing.Size(207, 43);
 			this.BtHangHoaContainer.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.BtHangHoaContainer.StateCommon.Back.Color2 = System.Drawing.Color.White;
 			this.BtHangHoaContainer.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("BtHangHoaContainer.StateCommon.Back.Image")));
@@ -1069,6 +1079,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.BtTrangChu.TabIndex = 10;
 			this.BtTrangChu.Values.Text = "Trang chủ";
+			this.BtTrangChu.Click += new System.EventHandler(this.BtTrangChu_Click);
 			// 
 			// panel3
 			// 
@@ -1125,10 +1136,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btHangXuat.Palette = this.kryptonPalette1;
 			this.btHangXuat.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.btHangXuat.Size = new System.Drawing.Size(238, 43);
+			this.btHangXuat.Size = new System.Drawing.Size(134, 43);
 			this.btHangXuat.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btHangXuat.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btHangXuat.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton3.StateCommon.Back.Image")));
+			this.btHangXuat.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btHangXuat.StateCommon.Back.Image")));
 			this.btHangXuat.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btHangXuat.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btHangXuat.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -1154,13 +1165,14 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btHangXuat.TabIndex = 9;
 			this.btHangXuat.Values.Text = "Hàng xuất";
+			this.btHangXuat.Click += new System.EventHandler(this.btHangXuat_Click);
 			// 
 			// panel5
 			// 
 			this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel5.Location = new System.Drawing.Point(0, 43);
 			this.panel5.Name = "panel5";
-			this.panel5.Size = new System.Drawing.Size(238, 6);
+			this.panel5.Size = new System.Drawing.Size(134, 6);
 			this.panel5.TabIndex = 8;
 			// 
 			// btHangNhap
@@ -1177,10 +1189,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btHangNhap.Palette = this.kryptonPalette1;
 			this.btHangNhap.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.btHangNhap.Size = new System.Drawing.Size(238, 43);
+			this.btHangNhap.Size = new System.Drawing.Size(134, 43);
 			this.btHangNhap.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btHangNhap.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btHangNhap.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton2.StateCommon.Back.Image")));
+			this.btHangNhap.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btHangNhap.StateCommon.Back.Image")));
 			this.btHangNhap.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btHangNhap.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btHangNhap.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -1206,6 +1218,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btHangNhap.TabIndex = 7;
 			this.btHangNhap.Values.Text = "Hàng nhập";
+			this.btHangNhap.Click += new System.EventHandler(this.btHangNhap_Click);
 			// 
 			// btLoaiHang
 			// 
@@ -1221,10 +1234,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btLoaiHang.Palette = this.kryptonPalette1;
 			this.btLoaiHang.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.btLoaiHang.Size = new System.Drawing.Size(238, 43);
+			this.btLoaiHang.Size = new System.Drawing.Size(134, 43);
 			this.btLoaiHang.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btLoaiHang.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btLoaiHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.StateCommon.Back.Image")));
+			this.btLoaiHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btLoaiHang.StateCommon.Back.Image")));
 			this.btLoaiHang.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btLoaiHang.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btLoaiHang.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -1250,13 +1263,14 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btLoaiHang.TabIndex = 5;
 			this.btLoaiHang.Values.Text = "Loại hàng";
+			this.btLoaiHang.Click += new System.EventHandler(this.btLoaiHang_Click);
 			// 
 			// panel4
 			// 
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel4.Location = new System.Drawing.Point(0, 92);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(238, 6);
+			this.panel4.Size = new System.Drawing.Size(134, 6);
 			this.panel4.TabIndex = 4;
 			// 
 			// Danh_muc_Transition
@@ -1277,9 +1291,9 @@
 			this.panelHeThong.Controls.Add(this.btNhanVien);
 			this.panelHeThong.Controls.Add(this.panel18);
 			this.panelHeThong.Controls.Add(this.btTaiKhoanUser);
-			this.panelHeThong.Location = new System.Drawing.Point(0, 308);
+			this.panelHeThong.Location = new System.Drawing.Point(247, 377);
 			this.panelHeThong.Name = "panelHeThong";
-			this.panelHeThong.Size = new System.Drawing.Size(238, 100);
+			this.panelHeThong.Size = new System.Drawing.Size(134, 100);
 			this.panelHeThong.TabIndex = 10;
 			// 
 			// btNhanVien
@@ -1296,10 +1310,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btNhanVien.Palette = this.kryptonPalette1;
 			this.btNhanVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.btNhanVien.Size = new System.Drawing.Size(238, 43);
+			this.btNhanVien.Size = new System.Drawing.Size(134, 43);
 			this.btNhanVien.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btNhanVien.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btNhanVien.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton12.StateCommon.Back.Image")));
+			this.btNhanVien.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btNhanVien.StateCommon.Back.Image")));
 			this.btNhanVien.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btNhanVien.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btNhanVien.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -1332,7 +1346,7 @@
 			this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel18.Location = new System.Drawing.Point(0, 43);
 			this.panel18.Name = "panel18";
-			this.panel18.Size = new System.Drawing.Size(238, 6);
+			this.panel18.Size = new System.Drawing.Size(134, 6);
 			this.panel18.TabIndex = 4;
 			// 
 			// btTaiKhoanUser
@@ -1349,10 +1363,10 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btTaiKhoanUser.Palette = this.kryptonPalette1;
 			this.btTaiKhoanUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.btTaiKhoanUser.Size = new System.Drawing.Size(238, 43);
+			this.btTaiKhoanUser.Size = new System.Drawing.Size(134, 43);
 			this.btTaiKhoanUser.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.btTaiKhoanUser.StateCommon.Back.Color2 = System.Drawing.Color.White;
-			this.btTaiKhoanUser.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton13.StateCommon.Back.Image")));
+			this.btTaiKhoanUser.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btTaiKhoanUser.StateCommon.Back.Image")));
 			this.btTaiKhoanUser.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
 			this.btTaiKhoanUser.StateCommon.Border.Color1 = System.Drawing.Color.White;
 			this.btTaiKhoanUser.StateCommon.Border.Color2 = System.Drawing.Color.White;
@@ -1378,6 +1392,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btTaiKhoanUser.TabIndex = 3;
 			this.btTaiKhoanUser.Values.Text = "Tài khoản";
+			this.btTaiKhoanUser.Click += new System.EventHandler(this.btTaiKhoanUser_Click);
 			// 
 			// HeThong_Transition
 			// 
@@ -1395,19 +1410,18 @@
 			// 
 			this.panelLoadForm.BackColor = System.Drawing.Color.White;
 			this.panelLoadForm.BorderRadius = 30;
-			this.panelLoadForm.Controls.Add(this.palHangHoa);
-			this.panelLoadForm.Controls.Add(this.panelHeThong);
 			this.panelLoadForm.ForeColor = System.Drawing.Color.Black;
 			this.panelLoadForm.GradientAngle = 90F;
 			this.panelLoadForm.GradientBottomColor = System.Drawing.Color.White;
 			this.panelLoadForm.GradientTopColor = System.Drawing.Color.White;
-			this.panelLoadForm.Location = new System.Drawing.Point(253, 76);
+			this.panelLoadForm.Location = new System.Drawing.Point(397, 76);
 			this.panelLoadForm.Name = "panelLoadForm";
-			this.panelLoadForm.Size = new System.Drawing.Size(1131, 715);
+			this.panelLoadForm.Size = new System.Drawing.Size(1063, 715);
 			this.panelLoadForm.TabIndex = 11;
 			// 
 			// palHangHoa
 			// 
+			this.palHangHoa.BackColor = System.Drawing.Color.White;
 			this.palHangHoa.Controls.Add(this.btHangXuat);
 			this.palHangHoa.Controls.Add(this.artanPalRadious);
 			this.palHangHoa.Controls.Add(this.btHangNhap);
@@ -1415,9 +1429,9 @@
 			this.palHangHoa.Controls.Add(this.btLoaiHang);
 			this.palHangHoa.Controls.Add(this.panel5);
 			this.palHangHoa.Controls.Add(this.kryBtHangHoa);
-			this.palHangHoa.Location = new System.Drawing.Point(0, 94);
+			this.palHangHoa.Location = new System.Drawing.Point(247, 170);
 			this.palHangHoa.Name = "palHangHoa";
-			this.palHangHoa.Size = new System.Drawing.Size(238, 200);
+			this.palHangHoa.Size = new System.Drawing.Size(134, 200);
 			this.palHangHoa.TabIndex = 12;
 			// 
 			// artanPalRadious
@@ -1431,15 +1445,25 @@
 			this.artanPalRadious.GradientTopColor = System.Drawing.Color.White;
 			this.artanPalRadious.Location = new System.Drawing.Point(0, 141);
 			this.artanPalRadious.Name = "artanPalRadious";
-			this.artanPalRadious.Size = new System.Drawing.Size(238, 5);
+			this.artanPalRadious.Size = new System.Drawing.Size(134, 5);
 			this.artanPalRadious.TabIndex = 10;
+			// 
+			// panelKhoangCach
+			// 
+			this.panelKhoangCach.Dock = System.Windows.Forms.DockStyle.Left;
+			this.panelKhoangCach.Location = new System.Drawing.Point(0, 50);
+			this.panelKhoangCach.Name = "panelKhoangCach";
+			this.panelKhoangCach.Size = new System.Drawing.Size(20, 200);
+			this.panelKhoangCach.TabIndex = 12;
 			// 
 			// TEST_GUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.ClientSize = new System.Drawing.Size(1384, 811);
+			this.ClientSize = new System.Drawing.Size(1496, 811);
+			this.Controls.Add(this.palHangHoa);
+			this.Controls.Add(this.panelHeThong);
 			this.Controls.Add(this.panelLoadForm);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.panelContainer);
@@ -1456,7 +1480,6 @@
 			this.panel7.ResumeLayout(false);
 			this.pamelIcon.ResumeLayout(false);
 			this.panelHeThong.ResumeLayout(false);
-			this.panelLoadForm.ResumeLayout(false);
 			this.palHangHoa.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -1521,5 +1544,6 @@
 		private System.Windows.Forms.Panel panel13;
 		private ArtanComponent.ArtanPanel artanPalRadious;
 		private System.Windows.Forms.Panel palHangHoa;
+		private System.Windows.Forms.Panel panelKhoangCach;
 	}
 }
