@@ -185,10 +185,11 @@ namespace GUI
 			this.bt_Nha_cung_cap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.bt_Nha_cung_cap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.bt_Nha_cung_cap.UseVisualStyleBackColor = false;
-			// 
-			// bt_xuat_hang
-			// 
-			this.bt_xuat_hang.BackColor = System.Drawing.Color.White;
+            this.bt_Nha_cung_cap.Click += new System.EventHandler(this.bt_Nha_cung_cap_Click);
+            // 
+            // bt_xuat_hang
+            // 
+            this.bt_xuat_hang.BackColor = System.Drawing.Color.White;
 			this.bt_xuat_hang.Dock = System.Windows.Forms.DockStyle.Top;
 			this.bt_xuat_hang.FlatAppearance.BorderSize = 0;
 			this.bt_xuat_hang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
