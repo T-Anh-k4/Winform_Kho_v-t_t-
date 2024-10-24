@@ -16,7 +16,7 @@ namespace GUI
 	{
 		NHANVIEN_BUS nhanVienBUS = new NHANVIEN_BUS();
 		bool createExplore = true;
-		int limit = 2;
+		int limit = 5;
 		int curentPage = 1;
 		int totalPage = 1;//so trang can tao
 
@@ -50,13 +50,16 @@ namespace GUI
 			kryTx_Address.Leave += kryTbSearch_Leave;
 			kryTb_Pos.Enter += kryTbSearch_Enter;
 			kryTb_Pos.Leave += kryTbSearch_Leave;
-			SetPlaceholder(kryTbSearch, "Tìm kiếm");
+            txtTenNguoiDung.Enter += kryTbSearch_Enter;
+            txtTenNguoiDung.Leave += kryTbSearch_Leave;
+            SetPlaceholder(kryTbSearch, "Tìm kiếm");
 			SetPlaceholder(kryTx_Id, "Nhập mã nhân viên");
 			SetPlaceholder(kryTb_Name, "Nhập tên nhân viên");
 			SetPlaceholder(kryTb_Number, "Nhập số điện thoại");
 			SetPlaceholder(kryTx_Address, "Nhập địa chỉ");
 			SetPlaceholder(kryTb_Pos, "Nhập chức vụ");
-		}
+            SetPlaceholder(txtTenNguoiDung, "Nhập tên tài khoản");
+        }
 		public bool IsPressAdd()
 		{
 			kryBt_Add.Visible = true;
@@ -292,7 +295,7 @@ namespace GUI
 			}
 			else
 			{
-				MessageBox.Show("Sửa nhân viên không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Sửa nhân viên không thành công! Kiểm tra lại tên người dùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -333,7 +336,9 @@ namespace GUI
 					return "Nhập địa chỉ";
 				case "kryTb_Pos":
 					return "Nhập chức vụ";
-				default:
+                case "txtTenNguoiDung":
+                    return "Nhập tên tài khoản";
+                default:
 					return string.Empty;
 			}
 		}

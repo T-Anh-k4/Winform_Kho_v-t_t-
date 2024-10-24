@@ -21,7 +21,8 @@ namespace GUI
 		{
 			InitializeComponent();
 			panel2_nv.Height = 0;
-			loadDataUser();
+            soluong.Text = "Nhân viên (" + Convert.ToString(userBUS.GetSLNguoiDung()) + ")";
+            loadDataUser();
 			loadCb_LoaiUser();
 		}
 		public void loadDataUser()

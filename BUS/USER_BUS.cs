@@ -31,6 +31,11 @@ namespace BUS
 		{
 			return userDAL.SearchUser(keyword);
 		}
+        public int GetSLNguoiDung()
+		{
+			return userDAL.GetSLNguoiDung();
+		}
 
-	}
+
+    }
 }
