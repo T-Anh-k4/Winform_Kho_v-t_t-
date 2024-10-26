@@ -59,7 +59,7 @@
             this.kryTb_Pass1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.artanPanel3 = new ArtanComponent.ArtanPanel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.soluong = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryCb_Loai)).BeginInit();
             this.artanPanel1.SuspendLayout();
             this.panel0_nv.SuspendLayout();
@@ -663,7 +663,7 @@
             // 
             this.artanPanel3.BackColor = System.Drawing.Color.White;
             this.artanPanel3.BorderRadius = 25;
-            this.artanPanel3.Controls.Add(this.kryptonLabel1);
+            this.artanPanel3.Controls.Add(this.soluong);
             this.artanPanel3.Controls.Add(this.kryBtShowCreate_User);
             this.artanPanel3.Controls.Add(this.txb_tim_kiem_LH);
             this.artanPanel3.ForeColor = System.Drawing.Color.Black;
@@ -676,15 +676,15 @@
             this.artanPanel3.Size = new System.Drawing.Size(1044, 63);
             this.artanPanel3.TabIndex = 5;
             // 
-            // kryptonLabel1
+            // soluong
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(16, 20);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(143, 26);
-            this.kryptonLabel1.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
-            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel1.TabIndex = 29;
-            this.kryptonLabel1.Values.Text = "Tài khoản (99)";
+            this.soluong.Location = new System.Drawing.Point(16, 20);
+            this.soluong.Name = "soluong";
+            this.soluong.Size = new System.Drawing.Size(143, 26);
+            this.soluong.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
+            this.soluong.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.soluong.TabIndex = 29;
+            this.soluong.Values.Text = "Tài khoản (99)";
             // 
             // USER_GUI
             // 
@@ -738,7 +738,7 @@
 		private System.Windows.Forms.Label label3;
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txb_tim_kiem_LH;
 		private ArtanComponent.ArtanPanel artanPanel3;
-		private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+		private ComponentFactory.Krypton.Toolkit.KryptonLabel soluong;
 		private System.Windows.Forms.Panel panel4;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton kryBt_Next;
 		private System.Windows.Forms.Label labelSoTrang;

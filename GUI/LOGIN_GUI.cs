@@ -43,7 +43,10 @@ namespace GUI
 					return;
 			}
 			MessageBox.Show("Đăng nhập thành công.");
-			menuGUi.Show();
+			this.Hide();
+			menuGUi.ShowDialog();
+			this.Close();
+
 		}
 
 		private void kryBtExit_Click(object sender, EventArgs e)

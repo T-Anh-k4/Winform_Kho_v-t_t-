@@ -72,7 +72,14 @@ namespace DAL
 			}
 			return true;
 		}
-		public DataTable SearchUser(string keyword)
+        public int GetSLNguoiDung()
+        {
+            string query = "SELECT COUNT(*) FROM NGUOIDUNG";
+            object result = instance.execScalar(query);
+            int sluser = result != null ? Convert.ToInt32(result) : 0;
+            return sluser;
+        }
+        public DataTable SearchUser(string keyword)
 		{
 			string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG "+
 							"WHERE USERNAME LIKE N'%" + keyword + "%'";

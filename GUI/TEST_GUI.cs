@@ -124,7 +124,7 @@ namespace GUI
 		{
 			if (hangHoaExplore)
 			{
-				palHangHoa.Height -= 20;
+				palHangHoa.Height -= 25;
 				if (palHangHoa.Height <= 0)
 				{
 					HangHoa_Transition.Stop();
@@ -141,23 +141,72 @@ namespace GUI
 				}
 			}
 		}
-
-		private void kryBtHangNhap_Click(object sender, EventArgs e)
+		public void closeCongDong()
 		{
+            if (panelHeThong.Height >= 100)
+            {
+                HeThong_Transition.Start();
+                if (panelHeThong.Height <= 0)
+                {
+                    HeThong_Transition.Stop();
+                    hethongExplore = false;
+                    return;
+                }
+            }
+        }
+        public void closeDoanhMuc()
+        {
+            if (palHangHoa.Height >= 200)
+            {
+                HangHoa_Transition.Start();
+                if (palHangHoa.Height <= 0)
+                {
+                    HangHoa_Transition.Stop();
+                    hangHoaExplore = false;
+                    return;
+                }
+            }
+        }
+        public void closeDoanhMucContainer()
+        {
+            if (panelDoanhMuc.Height >= 250)
+            {
+                Danh_muc_Transition.Start();
+                if (panelDoanhMuc.Height <= 0)
+                {
+                    Danh_muc_Transition.Stop();
+                    danhMucExplore = false;
+                    return;
+                }
+            }
+        }
+        public void closeBc_Tk()
+        {
+            if (panelTk_Bc.Height >= 250)
+            {
+                Tk_Bc_Transition.Start();
+                if (panelTk_Bc.Height <= 0)
+                {
+                    Tk_Bc_Transition.Stop();
+                    tkBcExplore = false;
+                    return;
+                }
+            }
+        }
 
-		}
-
-		private void kryBtDoanhMuc_Click(object sender, EventArgs e)
+        private void kryBtDoanhMuc_Click(object sender, EventArgs e)
 		{
 			panelHeThong.Location = new Point(247, 377);
 			Danh_muc_Transition.Start();
+            closeCongDong();
+			closeBc_Tk();
 
-		}
-		private void HeThong_Transition_Tick(object sender, EventArgs e)
+        }
+        private void HeThong_Transition_Tick(object sender, EventArgs e)
 		{
 			if (hethongExplore)
 			{
-				panelHeThong.Height -= 20;
+				panelHeThong.Height -= 25;
 				if (panelHeThong.Height <= 0)
 				{
 					HeThong_Transition.Stop();
@@ -178,11 +227,16 @@ namespace GUI
 		private void BtHeThong_Click(object sender, EventArgs e)
 		{
 			HeThong_Transition.Start();
-		}
+            closeDoanhMuc();
 
-		private void BtTk_Bc_Click(object sender, EventArgs e)
+        }
+
+        private void BtTk_Bc_Click(object sender, EventArgs e)
 		{
 			Tk_Bc_Transition.Start();
+			closeDoanhMucContainer();
+            closeDoanhMuc();
+			closeCongDong();
 		}
 
 		private void Tk_Bc_Transition_Tick(object sender, EventArgs e)
@@ -230,94 +284,138 @@ namespace GUI
 		private void kryBtHangHoaContainer_Click(object sender, EventArgs e)
 		{
 			HangHoa_Transition.Start();
-		}
-//chuyen form cac nut
+            closeCongDong();
+        }
+        //chuyen form cac nut
 
-		private void kryBtHangHoa_Click(object sender, EventArgs e)
+        private void kryBtHangHoa_Click(object sender, EventArgs e)
 		{
-				OpenChildForm(new HANGHOA_GUI());
-		}
+            OpenChildForm(new HANGHOA_GUI());
+			closeCongDong();
+			closeDoanhMuc();
+
+
+        }
 
 		private void btNhanVien_Click(object sender, EventArgs e)
 		{
 			OpenChildForm(new NHANVIEN_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		}
+        }
 
-		private void BtTrangChu_Click(object sender, EventArgs e)
+        private void BtTrangChu_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new TRANGCHU_GUI());
+            //OpenChildForm(new TRANGCHU_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		}
+        }
 
-		private void btNhaCungCap_Click(object sender, EventArgs e)
+        private void btNhaCungCap_Click(object sender, EventArgs e)
 		{
 			OpenChildForm(new NHACUNGCAP_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		}
+        }
 
-		private void btKhachHang_Click(object sender, EventArgs e)
+        private void btKhachHang_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new KHACHHANG_GUI());
+            //OpenChildForm(new KHACHHANG_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		}
+        }
 
-		private void btKho_Click(object sender, EventArgs e)
+        private void btKho_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new KHO_GUI());
+            //OpenChildForm(new KHO_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		}
+        }
 
-		private void btLoaiHang_Click(object sender, EventArgs e)
+        private void btLoaiHang_Click(object sender, EventArgs e)
 		{
 			OpenChildForm(new LOAIHANG_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		}
+        }
 
-		private void btHangNhap_Click(object sender, EventArgs e)
+        private void btHangNhap_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new HANGNHAP_GUI());
-		}
+            //OpenChildForm(new HANGNHAP_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		private void btHangXuat_Click(object sender, EventArgs e)
+        }
+
+        private void btHangXuat_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new HANGXUAT_GUI());
-		}
+            //OpenChildForm(new HANGXUAT_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		private void btTaiKhoanUser_Click(object sender, EventArgs e)
+        }
+
+        private void btTaiKhoanUser_Click(object sender, EventArgs e)
 		{
 			OpenChildForm(new USER_GUI());
-		}
+            closeCongDong();
+            closeDoanhMuc();
 
-		private void btDanhSachHangHoa_Click(object sender, EventArgs e)
+        }
+
+        private void btDanhSachHangHoa_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new DANHSACHHANGHOA_GUI());
-		}
+            //OpenChildForm(new DANHSACHHANGHOA_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		private void btDanhSachKhachHang_Click(object sender, EventArgs e)
+        }
+
+        private void btDanhSachKhachHang_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new KHACHHANG_GUI());
-		}
+            //OpenChildForm(new KHACHHANG_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		private void btBaoCaoNhapHang_Click(object sender, EventArgs e)
+        }
+
+        private void btBaoCaoNhapHang_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new HANGHOA_GUI());
-		}
+            //OpenChildForm(new HANGHOA_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		private void btBaoCaoXuatHang_Click(object sender, EventArgs e)
+        }
+
+        private void btBaoCaoXuatHang_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new HANGHOA_GUI());
-		}
+            //OpenChildForm(new HANGHOA_GUI());
+            closeCongDong();
+            closeDoanhMuc();
 
-		private void btHuongDan_Click(object sender, EventArgs e)
+        }
+
+        private void btHuongDan_Click(object sender, EventArgs e)
 		{
 			OpenChildForm(new HUONGDAN_GUI());
-		}
+            closeCongDong();
+            closeDoanhMuc();
 
-		private void btDangXuat_Click(object sender, EventArgs e)
+        }
+
+        private void btDangXuat_Click(object sender, EventArgs e)
 		{
-			//OpenChildForm(new HANGHOA_GUI());
-		}
-//END
-	}
+            //OpenChildForm(new HANGHOA_GUI());
+            closeCongDong();
+            closeDoanhMuc();
+
+        }
+        //END
+    }
 }
