@@ -260,7 +260,13 @@ namespace GUI
             if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
             {
                 MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Ngăn không cho tiếp tục thực hiện cập nhật
+                return; 
+            }
+           // string username = string.IsNullOrWhiteSpace(txtTenNguoiDung.Text) ? null : txtTenNguoiDung.Text;
+			if (txtTenNguoiDung.Text == "Nhập tên tài khoản")
+			{
+				txtTenNguoiDung.Text = null;
+
             }
             bool result = nhanVienBUS.InsertNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0,txtTenNguoiDung.Text);
 
@@ -336,9 +342,9 @@ namespace GUI
 					return "Nhập địa chỉ";
 				case "kryTb_Pos":
 					return "Nhập chức vụ";
-                case "txtTenNguoiDung":
-                    return "Nhập tên tài khoản";
-                default:
+				case "txtTenNguoiDung":
+					return "Nhập tên tài khoản";
+				default:
 					return string.Empty;
 			}
 		}
@@ -484,7 +490,7 @@ namespace GUI
         private void dataViewNv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Kiểm tra cột USERNAME (giả sử cột này là cột thứ 8 trong DataGridView)
-            if (dataViewNv.Columns[e.ColumnIndex].Name == "Tên tài khoản") // Thay đổi tên cột nếu cần
+            if (dataViewNv.Columns[e.ColumnIndex].Name == "Tên tài khoản" || txtTenNguoiDung.Text == "") // Thay đổi tên cột nếu cần
             {
                 // Kiểm tra xem giá trị có phải là DBNull hay không
                 if (e.Value == DBNull.Value)
