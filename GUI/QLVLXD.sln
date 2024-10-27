@@ -13,12 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL\DAL.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtanComponent", "..\ArtanComponent\ArtanComponent.csproj", "{D71C2C3D-4BAC-496E-BD18-0688B8CEA4B6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Image", "Image", "{6A37E958-9CC3-4363-8BC0-A91CBD746F84}"
-	ProjectSection(SolutionItems) = preProject
-		..\Images\icon-delete_1.png = ..\Images\icon-delete_1.png
-		..\Images\icon-edit.png = ..\Images\icon-edit.png
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
