@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAOCAONHAPKHO_DAL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="HANGHOA_DAL.cs" />
     <Compile Include="KHO_DAL.cs" />
