@@ -312,6 +312,7 @@
             this.txtTenNguoiDung.StateCommon.Content.Color1 = System.Drawing.Color.Black;
             this.txtTenNguoiDung.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.txtTenNguoiDung.TabIndex = 32;
+            this.txtTenNguoiDung.Text = "\';[p";
             // 
             // label9
             // 

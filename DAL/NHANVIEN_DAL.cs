@@ -65,7 +65,7 @@ namespace DAL
         {
             try
             {
-                string deleteTaiKhoanQuery = "DELETE FROM NGUOIDUNG WHERE USERNAME = N'" + maNV + "'";
+                string deleteTaiKhoanQuery = "DELETE FROM NHANVIEN WHERE MANV = N'" + maNV + "'";
                 // Thực hiện câu lệnh SQL
                 instance.execNonQuery(deleteTaiKhoanQuery);
             }
