@@ -114,7 +114,7 @@ namespace GUI
 				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
 				imgColumn.HeaderText = "Xóa";
 				imgColumn.Name = "imgDelete";
-				//imgColumn.Image = Image.FromFile(@"D:\Lập Trình Trực Quan\Winform_Kho_v-t_t-\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
+                imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-delete.png"));
 				imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
 				imgColumn.Width = 20;
 				// Thêm cột hình ảnh vào DataGridView
@@ -133,10 +133,11 @@ namespace GUI
 				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
 				imgColumn.HeaderText = "Edit";
 				imgColumn.Name = "imgEdit";
-				//imgColumn.Image = Image.FromFile(@"E:\\CODE\\LapTrinhTrucQuan\\Winform_Kho_v-t_t-\\Images\\icon-edit.png"); // Đường dẫn đến hình ảnh
-				imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
-				// Thêm cột hình ảnh vào DataGridView
-				dataViewNv.Columns.Add(imgColumn);
+                imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-edit.png"));
+                imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+                imgColumn.Width = 20;
+                // Thêm cột hình ảnh vào DataGridView
+                dataViewNv.Columns.Add(imgColumn);
 			} 
 			// Căn giữa header của cột hình ảnh
 			dataViewNv.Columns["imgEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -260,7 +261,13 @@ namespace GUI
             if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
             {
                 MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Ngăn không cho tiếp tục thực hiện cập nhật
+                return; 
+            }
+           // string username = string.IsNullOrWhiteSpace(txtTenNguoiDung.Text) ? null : txtTenNguoiDung.Text;
+			if (txtTenNguoiDung.Text == "Nhập tên tài khoản")
+			{
+				txtTenNguoiDung.Text = null;
+
             }
             bool result = nhanVienBUS.InsertNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0,txtTenNguoiDung.Text);
 
@@ -336,9 +343,9 @@ namespace GUI
 					return "Nhập địa chỉ";
 				case "kryTb_Pos":
 					return "Nhập chức vụ";
-                case "txtTenNguoiDung":
-                    return "Nhập tên tài khoản";
-                default:
+				case "txtTenNguoiDung":
+					return "Nhập tên tài khoản";
+				default:
 					return string.Empty;
 			}
 		}
@@ -484,7 +491,7 @@ namespace GUI
         private void dataViewNv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Kiểm tra cột USERNAME (giả sử cột này là cột thứ 8 trong DataGridView)
-            if (dataViewNv.Columns[e.ColumnIndex].Name == "Tên tài khoản") // Thay đổi tên cột nếu cần
+            if (dataViewNv.Columns[e.ColumnIndex].Name == "Tên tài khoản" || txtTenNguoiDung.Text == "") // Thay đổi tên cột nếu cần
             {
                 // Kiểm tra xem giá trị có phải là DBNull hay không
                 if (e.Value == DBNull.Value)
