@@ -9,10 +9,11 @@ using DTO;
 using System.Data.SqlClient;
 namespace DAL
 {
-	public class USER_DAL
-	{
+	public class USER_DAL : DataProvider
+    {
 		DataProvider instance = new DataProvider();
-		public DataTable GetDataUserName()
+        SqlDataAdapter nvAdapter = new SqlDataAdapter();
+        public DataTable GetDataUserName()
 		{
 			string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG ORDER BY LOAI";
 			return instance.execQuery(query);
@@ -22,7 +23,26 @@ namespace DAL
 			string query = "SELECT NGUOIDUNG.MANV FROM NGUOIDUNG JOIN NHANVIEN ON NGUOIDUNG.MANV = NHANVIEN.MANV";
 			return instance.execQuery(query);
 		}
-		public bool DeleteUser(string username)
+        public DataTable getDanhSachUserPage(int limit, int page)
+        {
+            string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG ORDER BY LOAI";
+
+            // Khởi tạo đối tượng kết nối
+            using (SqlConnection con = new SqlConnection(LinkData))
+            {
+                con.Open(); // Mở kết nối
+
+                // Khởi tạo SqlDataAdapter với SqlCommand và SqlConnection
+                nvAdapter.SelectCommand = new SqlCommand(query, con);
+
+                DataTable dsNv = new DataTable();
+                nvAdapter.Fill((page - 1) * limit, limit, dsNv);
+
+                con.Close(); // Đóng kết nối
+                return dsNv;
+            }
+        }
+        public bool DeleteUser(string username)
 		{
 			try
 			{

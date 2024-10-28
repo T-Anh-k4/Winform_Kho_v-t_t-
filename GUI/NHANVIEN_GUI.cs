@@ -103,6 +103,7 @@ namespace GUI
 			kryTx_Address.Text = "";
 			kryTb_Number.Text = "";
 			kryTb_Pos.Text = "";
+			txtTenNguoiDung.Text = "";
 		}
 
 		// Thêm cột chứa nút vào DataGridView
@@ -308,8 +309,9 @@ namespace GUI
 
 		private void kry_Clear_Click(object sender, EventArgs e)
 		{
-			clear();
-			createTransition.Start();
+			ResetForeText();
+
+            createTransition.Start();
 
 		}
 
@@ -378,9 +380,9 @@ namespace GUI
 			SetPlaceholder(kryTb_Number, GetPlaceholder(kryTb_Number));
 			SetPlaceholder(kryTx_Address, GetPlaceholder(kryTx_Address));
 			SetPlaceholder(kryTb_Pos, GetPlaceholder(kryTb_Pos));
+            SetPlaceholder(txtTenNguoiDung, GetPlaceholder(txtTenNguoiDung));
 
-
-		}
+        }
 		//end
 		private void kryBtPredious_Click(object sender, EventArgs e)
 		{

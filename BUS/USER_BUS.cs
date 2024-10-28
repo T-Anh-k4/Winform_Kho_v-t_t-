@@ -35,6 +35,10 @@ namespace BUS
 		{
 			return userDAL.GetSLNguoiDung();
 		}
+        public DataTable getDanhSachUserPage(int limit, int page)
+		{
+			return userDAL.getDanhSachUserPage(limit, page);
+		}
 
 
     }
