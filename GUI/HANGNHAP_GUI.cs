@@ -15,6 +15,7 @@ namespace GUI
     public partial class HANGNHAP_GUI : KryptonForm
     {
         HANGNHAP_BUS hangNhapBUS = new HANGNHAP_BUS();
+        CHITIETNHAP_GUI chitietnhap;
         bool createExplore = true;
         int limit = 5;
         int curentPage = 1;
@@ -63,12 +64,15 @@ namespace GUI
         //load data và combobox
         public void loadDt_HangNhap()
         {
-            DataTable dt = new DataTable();
-            dt = hangNhapBUS.GetDanhSachNhaCungCapPage(limit, curentPage);
-            //3dt_nhanvien.ColumnHeadersVisible = false;//ẩn header datagridview
+            DataTable dt = hangNhapBUS.GetDanhSachNhaCungCapPage(limit, curentPage);
             dataViewHNhap.DataSource = dt;
             totalPage = hangNhapBUS.GetSLNhaCungCap() / limit;
             if (totalPage * limit < hangNhapBUS.GetSLNhaCungCap()) totalPage++;
+
+            // Ensure button columns are added and visible
+            infoButtonColumn();
+            DelButtonColumn();
+            AddButtonColumn_Edit();
             EnsureButtonColumnsVisible();
         }
 
@@ -84,62 +88,55 @@ namespace GUI
 
 
 
-        // private void infoButtonColumn()
-        // {
-        //     // Tạo một cột hình ảnh mới
-        //     if (!dataViewHNhap.Columns.Contains("imgInfo"))
-        //     {
-        //         DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
-        //         imgColumn.HeaderText = "Chi tiết";
-        //         imgColumn.Name = "imgInfo";
-        //         imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-delete.png"));
-        //         imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
-        //         imgColumn.Width = 20;
-        //         // Thêm cột hình ảnh vào DataGridView
-        //         dataViewHNhap.Columns.Add(imgColumn);
-        //     }
-        //     // Căn giữa header của cột hình ảnh
-        //     dataViewHNhap.Columns["imgInfo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        //     dataViewHNhap.Columns["imgInfo"].DisplayIndex = dataViewHNhap.Columns.Count - 1;
+        private void infoButtonColumn()
+        {
+            // Check if the column already exists
+            if (!dataViewHNhap.Columns.Contains("imgInfo"))
+            {
+                DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+                imgColumn.HeaderText = "Chi tiết";
+                imgColumn.Name = "imgInfo";
+                imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-info.png"));
+                imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                imgColumn.Width = 20;
+                dataViewHNhap.Columns.Add(imgColumn);
+            }
+            // Set the display index to ensure the column order
+            dataViewHNhap.Columns["imgInfo"].DisplayIndex = dataViewHNhap.Columns.Count - 3;
+            dataViewHNhap.Columns["imgInfo"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
 
-        // }
         private void DelButtonColumn()
         {
-            // Tạo một cột hình ảnh mới
             if (!dataViewHNhap.Columns.Contains("imgDelete"))
             {
                 DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
                 imgColumn.HeaderText = "Xóa";
                 imgColumn.Name = "imgDelete";
                 imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-delete.png"));
-                imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+                imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 imgColumn.Width = 20;
-                // Thêm cột hình ảnh vào DataGridView
                 dataViewHNhap.Columns.Add(imgColumn);
             }
-            // Căn giữa header của cột hình ảnh
-            dataViewHNhap.Columns["imgDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataViewHNhap.Columns["imgDelete"].DisplayIndex = dataViewHNhap.Columns.Count - 1;
-
+            dataViewHNhap.Columns["imgDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+
         private void AddButtonColumn_Edit()
         {
-            // Tạo một cột hình ảnh mới
             if (!dataViewHNhap.Columns.Contains("imgEdit"))
             {
                 DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
                 imgColumn.HeaderText = "Edit";
                 imgColumn.Name = "imgEdit";
                 imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-edit.png"));
-                imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
-                                                                          // Thêm cột hình ảnh vào DataGridView
+                imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 dataViewHNhap.Columns.Add(imgColumn);
             }
-            // Căn giữa header của cột hình ảnh
-            dataViewHNhap.Columns["imgEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataViewHNhap.Columns["imgEdit"].DisplayIndex = dataViewHNhap.Columns.Count - 2;
-
+            dataViewHNhap.Columns["imgEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+
         //end
 
         //Chỉnh phần trượt giao diện tạo
@@ -174,10 +171,10 @@ namespace GUI
                 if (e.ColumnIndex == dataViewHNhap.Columns["imgEdit"].Index)
                 {
                     kryTx_Id.ReadOnly = true;
-                    kryTx_Id.Text = row.Cells[2].Value.ToString();
-                    kryTb_Name.Text = row.Cells[3].Value.ToString();
-                    kryTb_eID.Text = row.Cells[4].Value.ToString();
-                    kry_Datetime.Value = Convert.ToDateTime(row.Cells[5].Value);
+                    kryTx_Id.Text = row.Cells[3].Value.ToString();
+                    kryTb_Name.Text = row.Cells[4].Value.ToString();
+                    kryTb_eID.Text = row.Cells[5].Value.ToString();
+                    kry_Datetime.Value = Convert.ToDateTime(row.Cells[6].Value);
 
                     IsPressEdit();
                     createTransition.Start();
@@ -196,7 +193,7 @@ namespace GUI
                     DialogResult check = MessageBox.Show("Bạn có muốn xóa hàng nhập này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                     if (check == DialogResult.Yes)
                     {
-                        bool result = hangNhapBUS.DeleteHoaDonNhap(row.Cells[2].Value.ToString());
+                        bool result = hangNhapBUS.DeleteHoaDonNhap(row.Cells[3].Value.ToString());
                         if (result)
                         {
                             loadDt_HangNhap();
@@ -211,10 +208,11 @@ namespace GUI
                     clear();
                     soluong.Text = "Hàng nhập (" + Convert.ToString(hangNhapBUS.GetSLNhaCungCap()) + ")";
                 }
-                //if (e.ColumnIndex == dataViewHNhap.Columns["imgInfo"].Index)
-                //{
-
-                //}
+                if (e.ColumnIndex == dataViewHNhap.Columns["imgInfo"].Index)
+                {
+                    chitietnhap = new CHITIETNHAP_GUI(row.Cells[3].Value.ToString());
+                    chitietnhap.ShowDialog();
+                }
             }
         }
 
@@ -404,10 +402,10 @@ namespace GUI
         {
             // Kiểm tra và thêm cột nếu cần
             DelButtonColumn();
-            // infoButtonColumn();
+            infoButtonColumn();
             AddButtonColumn_Edit();
 
-            // Đặt DisplayIndex cho cột "Chỉnh sửa" và "Xóa"
+            dataViewHNhap.Columns["imgInfo"].DisplayIndex = dataViewHNhap.Columns.Count - 3;
             dataViewHNhap.Columns["imgEdit"].DisplayIndex = dataViewHNhap.Columns.Count - 2; // Đặt "Chỉnh sửa" ở vị trí thứ hai từ cuối
             dataViewHNhap.Columns["imgDelete"].DisplayIndex = dataViewHNhap.Columns.Count - 1; // Đặt "Xóa" ở vị trí cuối cùng
 
@@ -415,7 +413,7 @@ namespace GUI
             int index = 0;
             foreach (DataGridViewColumn column in dataViewHNhap.Columns)
             {
-                if (column.Name != "imgEdit" && column.Name != "imgDelete") // Bỏ qua các cột nút
+                if (column.Name != "imgEdit" && column.Name != "imgDelete" && column.Name != "imgInfo") // Bỏ qua các cột nút
                 {
                     column.DisplayIndex = index++;
                 }

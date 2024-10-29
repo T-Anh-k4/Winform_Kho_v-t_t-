@@ -48,7 +48,6 @@ namespace DAL
 
         public bool InsertHoaDonNhap(string soHDNhap, string maNCC, string maNV, DateTime ngayLapNhap, int flagHoNhap)
         {
-            Console.WriteLine(soHDNhap, maNCC, maNV, ngayLapNhap, flagHoNhap);
             try
             {
                 string query = "INSERT INTO HOADON_NHAP(SO_HD_NHAP, MANCC, MANV, NGAYLAP_NHAP, FLAGHONHAP) " +
