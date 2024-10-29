@@ -8,17 +8,13 @@ using DAL;
 
 namespace BUS
 {
-    public class BAOCAONHAPKHO_BUS
+    public class BAOCAOXUATKHO_BUS
     {
-        BAOCAONHAPKHO_DAL hanghoaDAL = new BAOCAONHAPKHO_DAL();
+        BAOCAOXUATKHO_DAL hanghoaDAL = new BAOCAOXUATKHO_DAL();
 
         public DataTable GetDanhSachHangHoa()
         {
             return hanghoaDAL.getDanhSachHangHoa();
-        }
-        public DataTable GetNhaCC()
-        {
-            return hanghoaDAL.GetNhaCungCap();
         }
         public DataTable GetHangHoa()
         {
@@ -28,9 +24,9 @@ namespace BUS
         {
             return hanghoaDAL.SearchHangHoa(keyword);
         }
-        public DataTable SearchNhaCC(string keyword)
+        public DataTable SearchKH(string keyword)
         {
-            return hanghoaDAL.SearchNhaCC(keyword);
+            return hanghoaDAL.SearchKHACHHANG(keyword);
         }
         public DataTable SearchNgay(DateTime? fromDate = null, DateTime? toDate = null)
         {

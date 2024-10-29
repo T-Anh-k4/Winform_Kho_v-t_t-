@@ -317,8 +317,6 @@ namespace GUI
 							txb_xuat_xu.Clear();
                             cbx_don_vi_tinh.SelectedIndex = -1;
 							cbx_ma_loai.SelectedIndex = -1;
-                            // cho người dùng nhập lại
-                            txb_Mahh.Enabled = true;
 
                             ResetForeText();
 							MessageBox.Show("Xóa thông tin hàng hóa thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

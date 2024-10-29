@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class BAOCAONHAPKHO_DAL
+    public class BAOCAOXUATKHO_DAL
     {
         DataProvider instance = new DataProvider();
 
-        public BAOCAONHAPKHO_DAL()
+        public BAOCAOXUATKHO_DAL()
         {
             instance = new DataProvider();
         }
@@ -21,30 +21,26 @@ namespace DAL
         {
             string query = @"
         SELECT 
-            NCC.TENNCC AS [Tên nhà cung cấp],
+            kh.TENKH AS [Tên khách hàng],
             HH.TENHH AS [Tên hàng hóa],
             HH.DONVI_TINH AS [Đơn vị tính],
-            CTHD_N.SOLUONG_NHAP AS [Số lượng],
-            CTHD_N.DONGIA_NHAP AS [Đơn giá],
-            HD_N.NGAYLAP_NHAP AS [Ngày lập]
+            CTHD_X.SOLUONG_XUAT AS [Số lượng],
+            CTHD_X.DONGIA_XUAT AS [Đơn giá],
+            HD_X.NGAYLAP_XUAT AS [Ngày lập]
         FROM 
-            NHACUNGCAP NCC
+            KHACHHANG kh
         JOIN 
-            HOADON_NHAP HD_N ON NCC.MANCC = HD_N.MANCC
+            HOADON_XUAT HD_X ON kh.MAKH = HD_X.MAKH
         JOIN 
-            CHITIET_HD_NHAP CTHD_N ON HD_N.SO_HD_NHAP = CTHD_N.SO_HD_NHAP
+            CHITIET_HD_XUAT CTHD_X ON HD_X.SO_HD_XUAT = CTHD_X.SO_HD_XUAT
+        JOIN
+            KHO k ON K.IDKHO = CTHD_X.IDKHO 
         JOIN 
-            HANGHOA HH ON CTHD_N.MAHH = HH.MAHH;
+            HANGHOA HH ON K.MAHH = HH.MAHH;
     ";
             return instance.execQuery(query);
         }
 
-        public DataTable GetNhaCungCap()
-        {
-            string query = "SELECT DISTINCT TENNCC " +
-                           "FROM NHACUNGCAP ";
-            return instance.execQuery(query);
-        }
         public DataTable GetHanhHoa()
         {
             string query = "SELECT DISTINCT TENHH " +
@@ -58,20 +54,22 @@ namespace DAL
             {
                 string query = @"
         SELECT 
-            NCC.TENNCC AS [Tên nhà cung cấp],
+            kh.TENKH AS [Tên khách hàng],
             HH.TENHH AS [Tên hàng hóa],
             HH.DONVI_TINH AS [Đơn vị tính],
-            CTHD_N.SOLUONG_NHAP AS [Số lượng],
-            CTHD_N.DONGIA_NHAP AS [Đơn giá],
-            HD_N.NGAYLAP_NHAP AS [Ngày lập]
+            CTHD_X.SOLUONG_XUAT AS [Số lượng],
+            CTHD_X.DONGIA_XUAT AS [Đơn giá],
+            HD_X.NGAYLAP_XUAT AS [Ngày lập]
         FROM 
-            NHACUNGCAP NCC
+            KHACHHANG kh
         JOIN 
-            HOADON_NHAP HD_N ON NCC.MANCC = HD_N.MANCC
+            HOADON_XUAT HD_X ON kh.MAKH = HD_X.MAKH
         JOIN 
-            CHITIET_HD_NHAP CTHD_N ON HD_N.SO_HD_NHAP = CTHD_N.SO_HD_NHAP
+            CHITIET_HD_XUAT CTHD_X ON HD_X.SO_HD_XUAT = CTHD_X.SO_HD_XUAT
+        JOIN
+            KHO k ON K.IDKHO = CTHD_X.IDKHO 
         JOIN 
-            HANGHOA HH ON CTHD_N.MAHH = HH.MAHH
+            HANGHOA HH ON K.MAHH = HH.MAHH
         WHERE 
             HH.TENHH LIKE N'%" + keyword + @"%'";
 
@@ -79,36 +77,41 @@ namespace DAL
             }
             catch
             {
+     
                 return null;
             }
         }
-        public DataTable SearchNhaCC(string keyword)
+
+        public DataTable SearchKHACHHANG(string keyword)
         {
             try
             {
                 string query = @"
         SELECT 
-            NCC.TENNCC AS [Tên nhà cung cấp],
+            kh.TENKH AS [Tên khách hàng],
             HH.TENHH AS [Tên hàng hóa],
             HH.DONVI_TINH AS [Đơn vị tính],
-            CTHD_N.SOLUONG_NHAP AS [Số lượng],
-            CTHD_N.DONGIA_NHAP AS [Đơn giá],
-            HD_N.NGAYLAP_NHAP AS [Ngày lập]
+            CTHD_X.SOLUONG_XUAT AS [Số lượng],
+            CTHD_X.DONGIA_XUAT AS [Đơn giá],
+            HD_X.NGAYLAP_XUAT AS [Ngày lập]
         FROM 
-            NHACUNGCAP NCC
+            KHACHHANG kh
         JOIN 
-            HOADON_NHAP HD_N ON NCC.MANCC = HD_N.MANCC
+            HOADON_XUAT HD_X ON kh.MAKH = HD_X.MAKH
         JOIN 
-            CHITIET_HD_NHAP CTHD_N ON HD_N.SO_HD_NHAP = CTHD_N.SO_HD_NHAP
+            CHITIET_HD_XUAT CTHD_X ON HD_X.SO_HD_XUAT = CTHD_X.SO_HD_XUAT
+        JOIN
+            KHO k ON K.IDKHO = CTHD_X.IDKHO 
         JOIN 
-            HANGHOA HH ON CTHD_N.MAHH = HH.MAHH
+            HANGHOA HH ON K.MAHH = HH.MAHH
         WHERE 
-            NCC.TENNCC LIKE N'%" + keyword + @"%'";
+            kh.TENKH LIKE N'%" + keyword + @"%'";
 
                 return instance.execQuery(query);
             }
             catch
             {
+
                 return null;
             }
         }
@@ -119,20 +122,22 @@ namespace DAL
             {
                 string query = @"
         SELECT 
-            NCC.TENNCC AS [Tên nhà cung cấp],
+            kh.TENKH AS [Tên khách hàng],
             HH.TENHH AS [Tên hàng hóa],
             HH.DONVI_TINH AS [Đơn vị tính],
-            CTHD_N.SOLUONG_NHAP AS [Số lượng],
-            CTHD_N.DONGIA_NHAP AS [Đơn giá],
-            HD_N.NGAYLAP_NHAP AS [Ngày lập]
+            CTHD_X.SOLUONG_XUAT AS [Số lượng],
+            CTHD_X.DONGIA_XUAT AS [Đơn giá],
+            HD_X.NGAYLAP_XUAT AS [Ngày lập]
         FROM 
-            NHACUNGCAP NCC
+            KHACHHANG kh
         JOIN 
-            HOADON_NHAP HD_N ON NCC.MANCC = HD_N.MANCC
+            HOADON_XUAT HD_X ON kh.MAKH = HD_X.MAKH
         JOIN 
-            CHITIET_HD_NHAP CTHD_N ON HD_N.SO_HD_NHAP = CTHD_N.SO_HD_NHAP
+            CHITIET_HD_XUAT CTHD_X ON HD_X.SO_HD_XUAT = CTHD_X.SO_HD_XUAT
+        JOIN
+            KHO k ON K.IDKHO = CTHD_X.IDKHO 
         JOIN 
-            HANGHOA HH ON CTHD_N.MAHH = HH.MAHH
+            HANGHOA HH ON K.MAHH = HH.MAHH
         WHERE 1=1";
 
                 // Thêm điều kiện từ ngày và đến ngày nếu có
@@ -140,13 +145,13 @@ namespace DAL
 
                 if (fromDate.HasValue)
                 {
-                    query += " AND HD_N.NGAYLAP_NHAP >= @FromDate";
+                    query += " AND HD_X.NGAYLAP_XUAT >= @FromDate";
                     parameters.Add(new SqlParameter("@FromDate", fromDate.Value));
                 }
 
                 if (toDate.HasValue)
                 {
-                    query += " AND HD_N.NGAYLAP_NHAP <= @ToDate";
+                    query += " AND HD_X.NGAYLAP_XUAT <= @ToDate";
                     parameters.Add(new SqlParameter("@ToDate", toDate.Value));
                 }
 
@@ -158,6 +163,6 @@ namespace DAL
                 return null;
             }
         }
+
     }
 }
-

@@ -77,12 +77,13 @@ namespace GUI
 		{
 			if (!k_datagrview_Loai_hang.Columns.Contains("btnDelete"))
 			{
-				DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+				DataGridViewImageColumn btnColumn = new DataGridViewImageColumn();
 
 				btnColumn.HeaderText = "Xóa";
 				btnColumn.Name = "btnDelete";
-				btnColumn.Text = "Xóa";
-				btnColumn.UseColumnTextForButtonValue = true;
+                btnColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-delete.png"));
+                btnColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+                btnColumn.Width = 20;
 
 				k_datagrview_Loai_hang.Columns.Add(btnColumn);
 			}
@@ -94,12 +95,13 @@ namespace GUI
 		{
 			if (!k_datagrview_Loai_hang.Columns.Contains("btnEdit"))
 			{
-				DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+				DataGridViewImageColumn btnColumn = new DataGridViewImageColumn();
 				btnColumn.HeaderText = "Chinh sửa";
 				btnColumn.Name = "btnEdit";
-				btnColumn.Text = "Sửa";
-				btnColumn.UseColumnTextForButtonValue = true;
-				k_datagrview_Loai_hang.Columns.Add(btnColumn);
+                btnColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-edit.png"));
+                btnColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+                btnColumn.Width = 20;
+                k_datagrview_Loai_hang.Columns.Add(btnColumn);
 			}
 			k_datagrview_Loai_hang.Columns["btnEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 			k_datagrview_Loai_hang.Columns["btnEdit"].DisplayIndex = k_datagrview_Loai_hang.Columns.Count - 2;
@@ -163,7 +165,8 @@ namespace GUI
 		// nút mở pn_nhap
 		private void kbtn_themSua_Click(object sender, EventArgs e)
 		{
-			kbtn_Them_sua.Visible = true;
+            txb_Malh.ReadOnly = false;
+            kbtn_Them_sua.Visible = true;
 			createTransition.Start();
 			if (kbtn_sua.Visible)
 			{
@@ -183,8 +186,8 @@ namespace GUI
 			txb_Malh.Clear();
 			txb_Ten_loai_hang.Clear();
 			txb_Dien_giai.Clear();
-            txb_Malh.Enabled = true;
-            ResetForeText();
+            txb_Malh.ReadOnly = false;
+			ResetForeText();
 		}
 		// nút sửa 
 		private void kbtn_sua_Click(object sender, EventArgs e)
@@ -216,7 +219,7 @@ namespace GUI
 		{
 			bool isValid = true;
 
-			string maloai = txb_Malh.Text;
+            string maloai = txb_Malh.Text;
 			string tenloaihang = txb_Ten_loai_hang.Text;
 			string diengiai = txb_Dien_giai.Text;
 			int flag = check_trang_thai.Checked ? 1 : 0;
@@ -325,7 +328,6 @@ namespace GUI
 							txb_Malh.Clear();
 							txb_Ten_loai_hang.Clear();
 							txb_Dien_giai.Clear();
-							txb_Malh.Enabled = true;
 							ResetForeText();
 							MessageBox.Show("Xóa thông tin loại hàng thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 						}
@@ -343,14 +345,21 @@ namespace GUI
 					txb_Malh.Text = row.Cells[2].Value?.ToString();
 					txb_Ten_loai_hang.Text = row.Cells[3].Value?.ToString();
 					txb_Dien_giai.Text = row.Cells[4].Value?.ToString();
-					// Kiểm tra nếu giá trị của ô không phải là DBNull và không null
-					if (row.Cells[5].Value != DBNull.Value && row.Cells[5].Value != null)
-					{
-						// Chuyển đổi giá trị thành int và kiểm tra
-						bool trangThai = Convert.ToInt32(row.Cells[5].Value) == 1;
-						check_trang_thai.Checked = trangThai;
-					}
-					else
+                    // Kiểm tra nếu giá trị của ô không phải là DBNull và không null
+                    if (row.Cells[5].Value != DBNull.Value)
+                    {
+                        string cellValue = row.Cells[5].Value.ToString(); 
+                        if (cellValue == "Còn kinh doanh")
+                        {
+                            check_trang_thai.Checked = true;
+							
+                        }
+                        else
+                        {
+                            MessageBox.Show("Giá trị không hợp lệ.");
+                        }
+                    }
+                    else
 					{
 						// Nếu là DBNull hoặc null, checkbox sẽ không được tích (unchecked)
 						check_trang_thai.Checked = false;
@@ -358,8 +367,8 @@ namespace GUI
 
 					IsPressEdit();
 					createTransition.Start();
-					txb_Malh.Enabled = false;
-					if (pn_nhap.Height > 232)
+                    txb_Malh.ReadOnly = true;
+                    if (pn_nhap.Height > 232)
 					{
 						createTransition.Stop();
 
