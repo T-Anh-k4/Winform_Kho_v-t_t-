@@ -17,7 +17,7 @@ namespace GUI
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			//Application.Run(new LOGIN_GUI());
-			Application.Run(new BAOCAOHANGXUATKHO_GUI());
+			Application.Run(new HANGNHAP_GUI());
 
 		}
 	}

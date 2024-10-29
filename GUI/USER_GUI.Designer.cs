@@ -500,6 +500,7 @@
             this.kryBt_Next.StatePressed.Border.Width = 0;
             this.kryBt_Next.TabIndex = 6;
             this.kryBt_Next.Values.Text = "kryptonButton2";
+            this.kryBt_Next.Click += new System.EventHandler(this.kryBtNext_Click);
             // 
             // labelSoTrang
             // 
@@ -548,6 +549,7 @@
             this.kryBtPre.StatePressed.Border.Width = 0;
             this.kryBtPre.TabIndex = 3;
             this.kryBtPre.Values.Text = "kryptonButton1";
+            this.kryBtPre.Click += new System.EventHandler(this.kryBtPredious_Click);
             // 
             // artanPanel2
             // 

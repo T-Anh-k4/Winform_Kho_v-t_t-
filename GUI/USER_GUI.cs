@@ -17,7 +17,10 @@ namespace GUI
 	{
 		USER_BUS userBUS = new USER_BUS();
 		bool createExplore = true;
-		public USER_GUI()
+        int limit = 5;
+        int curentPage = 1;
+        int totalPage = 1;//so trang can tao
+        public USER_GUI()
 		{
 			InitializeComponent();
 			panel2_nv.Height = 0;
@@ -27,11 +30,14 @@ namespace GUI
 		}
 		public void loadDataUser()
 		{
-			DataTable dt = new DataTable();
-			dt = userBUS.GetDataUserName();
-			dataViewUser.DataSource = dt;
-			EnsureButtonColumnsVisible();
-		}
+            DataTable dt = new DataTable();
+            dt = userBUS.getDanhSachUserPage(limit, curentPage);
+            //3dt_nhanvien.ColumnHeadersVisible = false;//ẩn header datagridview
+            dataViewUser.DataSource = dt;
+            totalPage = userBUS.GetSLNguoiDung() / limit;
+            if (totalPage * limit < userBUS.GetSLNguoiDung()) totalPage++;
+            EnsureButtonColumnsVisible();
+        }
 		public void loadCb_LoaiUser()
 		{
 			DataTable dtDefault = new DataTable();
@@ -90,8 +96,33 @@ namespace GUI
 			kryBt_Edit.Visible = true;
 			return kryBt_Edit.Visible;
 		}
+        private void kryBtPredious_Click(object sender, EventArgs e)
+        {
+            curentPage--;
+            loadDataUser();
+            kryBt_Next.Enabled = true;
+            if (curentPage == 1)
+            {
+                kryBtPre.Enabled = false;
 
-		private void createTransition_Tick(object sender, EventArgs e)
+            }
+            labelSoTrang.Text = Convert.ToString(curentPage);
+        }
+
+
+        private void kryBtNext_Click(object sender, EventArgs e)
+        {
+            curentPage++;
+            loadDataUser();
+            kryBtPre.Enabled = true;
+            if (curentPage == totalPage)
+            {
+                kryBt_Next.Enabled = false;
+            }
+            labelSoTrang.Text = Convert.ToString(curentPage);
+
+        }
+        private void createTransition_Tick(object sender, EventArgs e)
 		{
 			if (createExplore)
 			{

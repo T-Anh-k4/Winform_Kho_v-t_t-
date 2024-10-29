@@ -347,7 +347,7 @@ namespace GUI
 
         private void btHangNhap_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new HANGNHAP_GUI());
+			OpenChildForm(new HANGNHAP_GUI());
             closeCongDong();
             closeDoanhMuc();
 
