@@ -187,10 +187,10 @@ namespace GUI
 					kryTb_Number.Text = row.Cells[7].Value.ToString();
 					kryTb_Pos.Text = row.Cells[8].Value.ToString();
 					txtTenNguoiDung.Text = row.Cells[10].Value.ToString();
-                    if (Convert.ToInt32(row.Cells[9].Value) == 1)
+                    if ( row.Cells[9].Value.ToString() == "Đang hoạt động")
 					{
-						kryCheckBox_Status.Checked = true;  // Đánh dấu checkbox
-					}
+                        kryCheckBox_Status.Checked = true;  // Đánh dấu checkbox
+                    }
 					else
 					{
 						kryCheckBox_Status.Checked = false; // Bỏ đánh dấu checkbox
@@ -233,18 +233,31 @@ namespace GUI
 //Sự kiện click
 		private void kryBt_Add_Click(object sender, EventArgs e)
 		{
-			// Kiểm tra các trường bắt buộc
-			if (string.IsNullOrWhiteSpace(kryTx_Id.Text))
+			int flag = kryCheckBox_Status.Checked ? 1 : 0;
+            // Kiểm tra các trường bắt buộc
+            if (string.IsNullOrWhiteSpace(kryTx_Id.Text))
 			{
 				MessageBox.Show("Vui lòng nhập mã nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
+            // Kiểm tra định dạng mã nhân viên (phải bắt đầu bằng NV và theo sau là số nguyên)
+            if (!System.Text.RegularExpressions.Regex.IsMatch(kryTx_Id.Text, @"^NV\d+$"))
+            {
+                MessageBox.Show("Mã nhân viên không hợp lệ. Vui lòng nhập mã theo định dạng NV+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
 			{
 				MessageBox.Show("Vui lòng nhập tên nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			if (kryCb_Gender.SelectedIndex == -1)
+            // Kiểm tra tên không chứa số
+            if (System.Text.RegularExpressions.Regex.IsMatch(kryTb_Name.Text, @"\d"))
+            {
+                MessageBox.Show("Tên nhân viên không hợp lệ. Vui lòng không nhập số trong tên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (kryCb_Gender.SelectedIndex == -1)
 			{
 				MessageBox.Show("Vui lòng chọn giới tính.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
@@ -259,6 +272,12 @@ namespace GUI
 				MessageBox.Show("Vui lòng nhập số điện thoại.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
+            // Kiểm tra số điện thoại: không được chứa chữ và không quá 10 ký tự
+            if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_Number.Text, @"^\d{10}$"))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập 10 số.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
             {
                 MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -270,7 +289,7 @@ namespace GUI
 				txtTenNguoiDung.Text = null;
 
             }
-            bool result = nhanVienBUS.InsertNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0,txtTenNguoiDung.Text);
+            bool result = nhanVienBUS.InsertNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, flag, txtTenNguoiDung.Text);
 
 			if (result)
 			{
@@ -294,6 +313,7 @@ namespace GUI
                 MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Ngăn không cho tiếp tục thực hiện cập nhật
             }
+
             bool result = nhanVienBUS.UpdateNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0, txtTenNguoiDung.Text);
 
 			if (result)

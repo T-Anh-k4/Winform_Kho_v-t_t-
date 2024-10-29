@@ -15,8 +15,10 @@ namespace GUI
 	public partial class HANGHOA_GUI : KryptonForm
 	{
 		private HANGHOA_BUS hanghoa_bus;
-
-		public bool createExplore = true;
+        int limit = 5;
+        int curentPage = 1;
+        int totalPage = 1;//so trang can tao
+        public bool createExplore = true;
 
 		int pageNumber = 1;
 		int numberrecord = 13;
@@ -31,10 +33,12 @@ namespace GUI
 		{
 			initUser();
 			HangHoaGui_Load();
-		}
+            soluong.Text = "Hàng hóa (" + Convert.ToString(hanghoa_bus.GetSLHangHoa()) + ")";
 
-		//thiết lập ban đầu của form
-		public void initUser()
+        }
+
+        //thiết lập ban đầu của form
+        public void initUser()
 		{
 			pn_nhap.Height = 0;
 			pn_data.Height = 620;
@@ -82,14 +86,14 @@ namespace GUI
 		{
 			if (!k_datagrview_hang_hoa.Columns.Contains("btnDelete"))
 			{
-				DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+                DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+                imgColumn.HeaderText = "Xóa";
+                imgColumn.Name = "btnDelete";
+                imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-delete.png"));
+                imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+                imgColumn.Width = 20;
 
-				btnColumn.HeaderText = "Xóa";
-				btnColumn.Name = "btnDelete";
-				btnColumn.Text = "Xóa";
-				btnColumn.UseColumnTextForButtonValue = true;
-
-				k_datagrview_hang_hoa.Columns.Add(btnColumn);
+                k_datagrview_hang_hoa.Columns.Add(imgColumn);
 			}
 			k_datagrview_hang_hoa.Columns["btnDelete"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 			k_datagrview_hang_hoa.Columns["btnDelete"].DisplayIndex = k_datagrview_hang_hoa.Columns.Count - 1;
@@ -98,12 +102,13 @@ namespace GUI
 		{
 			if (!k_datagrview_hang_hoa.Columns.Contains("btnEdit"))
 			{
-				DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-				btnColumn.HeaderText = "Chinh sửa";
-				btnColumn.Name = "btnEdit";
-				btnColumn.Text = "Sửa";
-				btnColumn.UseColumnTextForButtonValue = true;
-				k_datagrview_hang_hoa.Columns.Add(btnColumn);
+                DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+                imgColumn.HeaderText = "Edit";
+                imgColumn.Name = "btnEdit";
+                imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-edit.png"));
+                imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)
+                imgColumn.Width = 20;
+                k_datagrview_hang_hoa.Columns.Add(imgColumn);
 			}
 			k_datagrview_hang_hoa.Columns["btnEdit"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 			k_datagrview_hang_hoa.Columns["btnEdit"].DisplayIndex = k_datagrview_hang_hoa.Columns.Count - 2;
@@ -172,15 +177,43 @@ namespace GUI
 		// load datagrview
 		public void HangHoaGui_Load()
 		{
-			DataTable dt = new DataTable();
-			dt = hanghoa_bus.GetDanhSachHangHoa();
-			k_datagrview_hang_hoa.DataSource = dt;
-			EnsureButtonColumnsVisible();
+            DataTable dt = new DataTable();
+            dt = hanghoa_bus.getDanhSachHangHoaPage(limit, curentPage);
+            //3dt_nhanvien.ColumnHeadersVisible = false;//ẩn header datagridview
+            k_datagrview_hang_hoa.DataSource = dt;
+            totalPage = hanghoa_bus.GetSLHangHoa() / limit;
+            if (totalPage * limit < hanghoa_bus.GetSLHangHoa()) totalPage++;
+            EnsureButtonColumnsVisible();
 		}
-		
 
-		/*animation*/
-		private void createTransition_Tick_1(object sender, EventArgs e)
+        private void kryBtPredious_Click(object sender, EventArgs e)
+        {
+            curentPage--;
+            HangHoaGui_Load();
+            kryBt_Next.Enabled = true;
+            if (curentPage == 1)
+            {
+                kryBtPre.Enabled = false;
+
+            }
+            labelSoTrang.Text = Convert.ToString(curentPage);
+        }
+
+
+        private void kryBtNext_Click(object sender, EventArgs e)
+        {
+            curentPage++;
+            HangHoaGui_Load();
+            kryBtPre.Enabled = true;
+            if (curentPage == totalPage)
+            {
+                kryBt_Next.Enabled = false;
+            }
+            labelSoTrang.Text = Convert.ToString(curentPage);
+
+        }
+        /*animation*/
+        private void createTransition_Tick_1(object sender, EventArgs e)
 		{
 			if (createExplore)
 			{
@@ -201,7 +234,7 @@ namespace GUI
 			else
 			{
 				pn_nhap.Height += 10;
-				if (pn_nhap.Height >= 232)
+				if (pn_nhap.Height >= 190)
 				{
 					createTransition.Stop();
 					createExplore = true;
@@ -220,12 +253,13 @@ namespace GUI
 		private void kbtn_themSua_Click(object sender, EventArgs e)
 		{
 			kbtn_Them_sua.Visible = true;
-			createTransition.Start();
+            txb_Mahh.ReadOnly = false;
+            createTransition.Start();
 			if (kbtn_sua.Visible)
 			{
 				kbtn_sua.Visible = false;
 			}
-			if (pn_nhap.Height >= 232)
+			if (pn_nhap.Height >= 190)
 				createTransition.Stop();
 
 		}
@@ -245,12 +279,23 @@ namespace GUI
 				MessageBox.Show("Vui lòng nhập mã hàng hóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
 			}
-			else if (string.IsNullOrWhiteSpace(txb_Ten_hang.Text) || txb_Ten_hang.Text == "Nhập tên hàng")
+            // Kiểm tra định dạng mã nhân viên (phải bắt đầu bằng NV và theo sau là số nguyên)
+            if (!System.Text.RegularExpressions.Regex.IsMatch(mahh, @"^HH\d+$"))
+            {
+                MessageBox.Show("Mã hàng hóa không hợp lệ. Vui lòng nhập mã theo định dạng HH+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txb_Ten_hang.Text) || txb_Ten_hang.Text == "Nhập tên hàng")
 			{
 				MessageBox.Show("Vui lòng nhập tên hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
 			}
-			else if (cbx_ma_loai.SelectedItem == null)
+            if (System.Text.RegularExpressions.Regex.IsMatch(tenhang, @"\d"))
+            {
+                MessageBox.Show("Tên hàng hóa không hợp lệ. Vui lòng không nhập số trong tên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (cbx_ma_loai.SelectedItem == null)
 			{
 				MessageBox.Show("Vui lòng chọn mã loại hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
@@ -265,7 +310,12 @@ namespace GUI
 				MessageBox.Show("Vui lòng nhập xuất xứ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
 			}
-			else
+            else if (hanghoa_bus.CheckMaHH(txb_Mahh.Text))
+            {
+                MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
 			{
 				bool them = hanghoa_bus.InsertHangHoa(mahh, maloai, tenhang, dvt, xuatxu);
 				if (them)
@@ -278,8 +328,10 @@ namespace GUI
 					txb_xuat_xu.Clear();
 					cbx_don_vi_tinh.SelectedIndex = -1;
 					ResetForeText();
-				}
-				else
+                    soluong.Text = "Hàng hóa (" + Convert.ToString(hanghoa_bus.GetSLHangHoa()) + ")";
+
+                }
+                else
 				{
 					MessageBox.Show("Có lỗi xảy ra khi thêm hàng hóa.");
 				}
@@ -319,13 +371,15 @@ namespace GUI
 							MessageBox.Show("Xóa thông tin hàng hóa không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						}
 					}
-				}
+                    soluong.Text = "Hàng hóa (" + Convert.ToString(hanghoa_bus.GetSLHangHoa()) + ")";
 
-				// Kiểm tra cột được nhấn có phải là btnEdit không
-				if (e.ColumnIndex == k_datagrview_hang_hoa.Columns["btnEdit"].Index)
+                }
+
+                // Kiểm tra cột được nhấn có phải là btnEdit không
+                if (e.ColumnIndex == k_datagrview_hang_hoa.Columns["btnEdit"].Index)
 				{
-
-					txb_Mahh.Text = row.Cells[2].Value?.ToString();
+                    txb_Mahh.ReadOnly = true;
+                    txb_Mahh.Text = row.Cells[2].Value?.ToString();
 					string maloai = row.Cells["Mã loại"]?.Value?.ToString();
 					txb_Ten_hang.Text = row.Cells[4].Value?.ToString();
 					txb_xuat_xu.Text = row.Cells[6].Value?.ToString();
@@ -346,8 +400,7 @@ namespace GUI
 
 					IsPressEdit();
 					createTransition.Start();
-					txb_Mahh.Enabled = false;
-					if (pn_nhap.Height > 232)
+					if (pn_nhap.Height >= 190)
 					{
 						createTransition.Stop();
 
@@ -440,12 +493,14 @@ namespace GUI
 		// nút quay lại
 		private void kbtn_Cancle_Click(object sender, EventArgs e)
 		{
-			if (pn_nhap.Height > 232)
+			if (pn_nhap.Height >= 190)
 			{
 				createTransition.Start();
 
 			}
-			txb_Mahh.Clear();
+
+            txb_Mahh.ReadOnly = false;
+            txb_Mahh.Clear();
 			cbx_ma_loai.SelectedIndex = -1;
 			txb_Ten_hang.Clear();
 			txb_xuat_xu.Clear();

@@ -24,7 +24,7 @@ namespace GUI
 		{
 			InitializeComponent();
 			panel2_nv.Height = 0;
-            soluong.Text = "Nhân viên (" + Convert.ToString(userBUS.GetSLNguoiDung()) + ")";
+            soluong.Text = "Tài khoản (" + Convert.ToString(userBUS.GetSLNguoiDung()) + ")";
             loadDataUser();
 			loadCb_LoaiUser();
 		}
@@ -207,8 +207,10 @@ namespace GUI
 
 						}
 					}
-				}
-			}
+                    soluong.Text = "Tài khoản (" + Convert.ToString(userBUS.GetSLNguoiDung()) + ")";
+
+                }
+            }
 		}
 
 		private void kryBt_Add_Click(object sender, EventArgs e)
@@ -245,8 +247,8 @@ namespace GUI
 			if (result)
 			{
 				loadDataUser(); // Gọi lại để tải lại danh sách
-
-				MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                soluong.Text = "Tài khoản (" + Convert.ToString(userBUS.GetSLNguoiDung()) + ")";
+                MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
