@@ -312,6 +312,13 @@ namespace GUI
 						if (result)
 						{
 							HangHoaGui_Load();
+							txb_Mahh.Clear();
+							txb_Ten_hang.Clear();
+							txb_xuat_xu.Clear();
+                            cbx_don_vi_tinh.SelectedIndex = -1;
+							cbx_ma_loai.SelectedIndex = -1;
+
+                            ResetForeText();
 							MessageBox.Show("Xóa thông tin hàng hóa thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 						}
 						else
@@ -322,11 +329,11 @@ namespace GUI
 				}
 
 				// Kiểm tra cột được nhấn có phải là btnEdit không
-				if (e.ColumnIndex == k_datagrview_hang_hoa.Columns["btnEdit"].Index)
+				else if (e.ColumnIndex == k_datagrview_hang_hoa.Columns["btnEdit"].Index)
 				{
 
 					txb_Mahh.Text = row.Cells[2].Value?.ToString();
-					string maloai = row.Cells["Mã loại"]?.Value?.ToString();
+					cbx_ma_loai.Text = row.Cells[3].Value?.ToString();
 					txb_Ten_hang.Text = row.Cells[4].Value?.ToString();
 					txb_xuat_xu.Text = row.Cells[6].Value?.ToString();
 					string dvt = row.Cells["Đơn vị"]?.Value?.ToString();
@@ -450,7 +457,8 @@ namespace GUI
 			txb_Ten_hang.Clear();
 			txb_xuat_xu.Clear();
 			cbx_don_vi_tinh.SelectedIndex = -1;
-			ResetForeText();
+            txb_Mahh.Enabled = true;
+            ResetForeText();
 		}
 		//cbx loại hàng
 		private void cbx_ma_loai_DropDown(object sender, EventArgs e)
