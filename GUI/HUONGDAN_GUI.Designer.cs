@@ -49,6 +49,7 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
 			this.panel3.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -300,6 +301,18 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "PHẦN MỀM QUẢN LÝ VẬT LIỆU XÂY DỰNG";
 			// 
+			// iconSplitButton1
+			// 
+			this.iconSplitButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+			this.iconSplitButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+			this.iconSplitButton1.IconColor = System.Drawing.Color.Black;
+			this.iconSplitButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+			this.iconSplitButton1.IconSize = 48;
+			this.iconSplitButton1.Name = "iconSplitButton1";
+			this.iconSplitButton1.Rotation = 0D;
+			this.iconSplitButton1.Size = new System.Drawing.Size(23, 23);
+			this.iconSplitButton1.Text = "iconSplitButton1";
+			// 
 			// HUONGDAN_GUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,5 +352,6 @@
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label label14;
+		private FontAwesome.Sharp.IconSplitButton iconSplitButton1;
 	}
 }

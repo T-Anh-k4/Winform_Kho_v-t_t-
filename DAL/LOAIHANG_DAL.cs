@@ -20,7 +20,7 @@ namespace DAL
 
 		public DataTable getDanhSachLoaiHanh()
 		{
-			string query = "SELECT MALOAI as [Mã loại hàng],TENLOAI as [Tên loại hàng],DIENGIAI as [Diễn giải],FLAG as [Trạng thái] FROM LOAIHANG";
+			string query = "SELECT MALOAI as [Mã loại hàng],TENLOAI as [Tên loại hàng],DIENGIAI as [Diễn giải], CASE WHEN FLAG = 1 THEN 'Còn kinh doanh' ELSE 'Không còn kinh doanh' END as [Trạng thái] FROM LOAIHANG";
 			return instance.execQuery(query);
 		}
 
