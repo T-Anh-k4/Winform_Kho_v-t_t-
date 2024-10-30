@@ -41,10 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAOCAONHAPKHO_DAL.cs" />
+    <Compile Include="BAOCAOXUATKHO_DAL.cs" />
     <Compile Include="CHITIETNHAP_DAL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="HANGHOA_DAL.cs" />
     <Compile Include="HANGNHAP_DAL.cs" />
+    <Compile Include="KHO_DAL.cs" />
     <Compile Include="LOAIHANG_DAL.cs" />
     <Compile Include="LOGIN_DAL.cs" />
     <Compile Include="NHACUNGCAP_DAL.cs" />
