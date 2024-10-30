@@ -308,6 +308,11 @@ namespace GUI
 
 		private void kryBt_Edit_Click(object sender, EventArgs e)
 		{
+            if (string.IsNullOrWhiteSpace(txtTenNguoiDung.Text))
+            {
+                MessageBox.Show("Tên người dùng không được để trống khi sửa. Vui lòng nhập tên người dùng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Ngăn không cho tiếp tục thực hiện cập nhật
+            }
             if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
             {
                 MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
