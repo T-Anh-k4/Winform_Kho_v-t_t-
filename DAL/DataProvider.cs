@@ -84,22 +84,41 @@ namespace DAL
 			return user;
 
 		}
-		//public DataTable getDanhSachNhanVienPage(int limit, int page)
-		//{
-		//	SqlDataAdapter nvAdapter = new SqlDataAdapter();
-		//	string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN";
+        // Thực hiện truy vấn SELECT và trả về kết quả dưới dạng DataTable
+        public DataSet readDataSet(string query, params SqlParameter[] parameters)
+        {
+            DataSet dataSet = new DataSet();
+            using (SqlConnection con = new SqlConnection(linkData))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataSet); // Điền dữ liệu vào DataSet
+                con.Close();
+            }
+            return dataSet;
+        }
 
-		//	// Khởi tạo đối tượng kết nối
-		//	using (SqlConnection con = new SqlConnection(linkData))
-		//	{
-		//		con.Open(); // Mở kết nối
-		//		// Khởi tạo SqlDataAdapter với SqlCommand và SqlConnection
-		//		nvAdapter.SelectCommand = new SqlCommand(query, con);
-		//		DataTable dsNv = new DataTable();
-		//		nvAdapter.Fill((page - 1) * limit, limit, dsNv);
-		//		con.Close(); // Đóng kết nối
-		//		return dsNv;
-		//	}
-		//}
-	}
+        //public DataTable getDanhSachNhanVienPage(int limit, int page)
+        //{
+        //	SqlDataAdapter nvAdapter = new SqlDataAdapter();
+        //	string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], FLAG AS [Trạng thái] FROM NHANVIEN";
+
+        //	// Khởi tạo đối tượng kết nối
+        //	using (SqlConnection con = new SqlConnection(linkData))
+        //	{
+        //		con.Open(); // Mở kết nối
+        //		// Khởi tạo SqlDataAdapter với SqlCommand và SqlConnection
+        //		nvAdapter.SelectCommand = new SqlCommand(query, con);
+        //		DataTable dsNv = new DataTable();
+        //		nvAdapter.Fill((page - 1) * limit, limit, dsNv);
+        //		con.Close(); // Đóng kết nối
+        //		return dsNv;
+        //	}
+        //}
+    }
 }

@@ -17,7 +17,10 @@ namespace GUI
 	{
 		private LOAIHANG_BUS LoaiHang_BUS;
 		public bool createExplore = true;
-		public LOAIHANG_GUI()
+        int limit = 5;
+        int curentPage = 1;
+        int totalPage = 1;//so trang can tao
+        public LOAIHANG_GUI()
 		{
 			LoaiHang_BUS = new LOAIHANG_BUS();
 			InitializeComponent();
@@ -26,7 +29,8 @@ namespace GUI
 		public void init()
 		{
 			initUser();
-			LoaiHangGui_Load();
+            soluong.Text = "Loại hàng (" + Convert.ToString(LoaiHang_BUS.GetSLLoaiHang()) + ")";
+            LoaiHangGui_Load();
 	
 		}
 		//thiết lập ban đầu của form
@@ -66,11 +70,13 @@ namespace GUI
 		}
 		public void LoaiHangGui_Load()
 		{
-			DataTable dt = new DataTable();
-			dt = LoaiHang_BUS.GetDanhSachLoaiHang();
-			k_datagrview_Loai_hang.DataSource = dt;
-			EnsureButtonColumnsVisible();
-
+            DataTable dt = new DataTable();
+            dt = LoaiHang_BUS.getDanhSachLoaiHangPage(limit, curentPage);
+            //3dt_nhanvien.ColumnHeadersVisible = false;//ẩn header datagridview
+            k_datagrview_Loai_hang.DataSource = dt;
+            totalPage = LoaiHang_BUS.GetSLLoaiHang() / limit;
+            if (totalPage * limit < LoaiHang_BUS.GetSLLoaiHang()) totalPage++;
+            EnsureButtonColumnsVisible();
 		}
 		// Thêm cột sửa xóa vào datagridview
 		private void AddButtonColumn()
@@ -172,13 +178,13 @@ namespace GUI
 			{
 				kbtn_sua.Visible = false;
 			}
-			if (pn_nhap.Height >= 232)
+			if (pn_nhap.Height >= 190)
 				createTransition.Stop();
 		}
 		// nút quay lại
 		private void kbtn_Cancle_Click(object sender, EventArgs e)
 		{
-			if (pn_nhap.Height > 232)
+			if (pn_nhap.Height >= 190)
 			{
 				createTransition.Start();
 
@@ -258,8 +264,9 @@ namespace GUI
 				{
 					MessageBox.Show("Có lỗi xảy ra khi thêm hàng hóa.");
 				}
-			}
-		}
+                soluong.Text = "Loại hàng (" + Convert.ToString(LoaiHang_BUS.GetSLLoaiHang()) + ")";
+            }
+        }
 
 		/*animation*/
 		private void createTransition_Tick_1(object sender, EventArgs e)
@@ -277,7 +284,7 @@ namespace GUI
 			else
 			{
 				pn_nhap.Height += 10;
-				if (pn_nhap.Height >= 232)
+				if (pn_nhap.Height >= 190)
 				{
 					createTransition.Stop();
 					createExplore = true;
@@ -335,8 +342,9 @@ namespace GUI
 						{
 							MessageBox.Show("Xóa thông tin loại hàng không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						}
-					}
-				}
+                        soluong.Text = "Loại hàng (" + Convert.ToString(LoaiHang_BUS.GetSLLoaiHang()) + ")";
+                    }
+                }
 
 				// Kiểm tra cột được nhấn có phải là btnEdit không
 				if (e.ColumnIndex == k_datagrview_Loai_hang.Columns["btnEdit"].Index)
@@ -368,7 +376,7 @@ namespace GUI
 					IsPressEdit();
 					createTransition.Start();
                     txb_Malh.ReadOnly = true;
-                    if (pn_nhap.Height > 232)
+                    if (pn_nhap.Height >= 190)
 					{
 						createTransition.Stop();
 
@@ -432,7 +440,32 @@ namespace GUI
 				e.SuppressKeyPress = true; 
 			}
 		}
-	}
+
+        private void kryBt_Next_Click(object sender, EventArgs e)
+        {
+            curentPage++;
+			LoaiHangGui_Load();
+            kryBtPre.Enabled = true;
+            if (curentPage == totalPage)
+            {
+                kryBt_Next.Enabled = false;
+            }
+            labelSoTrang.Text = Convert.ToString(curentPage);
+        }
+
+        private void kryBtPre_Click(object sender, EventArgs e)
+        {
+            curentPage--;
+            LoaiHangGui_Load();
+            kryBt_Next.Enabled = true;
+            if (curentPage == 1)
+            {
+                kryBtPre.Enabled = false;
+
+            }
+            labelSoTrang.Text = Convert.ToString(curentPage);
+        }
+    }
 }
 
 

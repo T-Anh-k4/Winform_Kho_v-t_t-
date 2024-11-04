@@ -74,7 +74,7 @@ namespace GUI
 			if (!dataViewUser.Columns.Contains("imgEdit"))
 			{
 				DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
-				imgColumn.HeaderText = "Edit";
+				imgColumn.HeaderText = "Chỉnh sửa";
 				imgColumn.Name = "imgEdit";
                 imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-edit.png"));
                 imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Chỉnh cách hiển thị hình ảnh (căn giữa, zoom,...)

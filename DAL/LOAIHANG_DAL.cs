@@ -6,14 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 
 namespace DAL
 {
-	public class LOAIHANG_DAL
+	public class LOAIHANG_DAL : DataProvider
 	{
 		DataProvider instance = new DataProvider();
-
-		public LOAIHANG_DAL()
+        SqlDataAdapter nvAdapter = new SqlDataAdapter();
+        public LOAIHANG_DAL()
 		{
 			instance = new DataProvider();
 		}
@@ -23,8 +24,33 @@ namespace DAL
 			string query = "SELECT MALOAI as [Mã loại hàng],TENLOAI as [Tên loại hàng],DIENGIAI as [Diễn giải], CASE WHEN FLAG = 1 THEN 'Còn kinh doanh' ELSE 'Không còn kinh doanh' END as [Trạng thái] FROM LOAIHANG";
 			return instance.execQuery(query);
 		}
+        public DataTable getDanhSachLoaiHangPage(int limit, int page)
+        {
+            string query = "SELECT MALOAI as [Mã loại hàng],TENLOAI as [Tên loại hàng],DIENGIAI as [Diễn giải], CASE WHEN FLAG = 1 THEN 'Còn kinh doanh' ELSE 'Không còn kinh doanh' END as [Trạng thái] FROM LOAIHANG";
 
-		public bool Deleteloaihang(string malh)
+            // Khởi tạo đối tượng kết nối
+            using (SqlConnection con = new SqlConnection(LinkData))
+            {
+                con.Open(); // Mở kết nối
+
+                // Khởi tạo SqlDataAdapter với SqlCommand và SqlConnection
+                nvAdapter.SelectCommand = new SqlCommand(query, con);
+
+                DataTable dsNv = new DataTable();
+                nvAdapter.Fill((page - 1) * limit, limit, dsNv);
+
+                con.Close(); // Đóng kết nối
+                return dsNv;
+            }
+        }
+        public int GetSLLoaiHang()
+        {
+            string query = "SELECT COUNT(*) FROM LOAIHANG";
+            object result = instance.execScalar(query);
+            int slNhanVien = result != null ? Convert.ToInt32(result) : 0;
+            return slNhanVien;
+        }
+        public bool Deleteloaihang(string malh)
 		{
 			try
 			{
