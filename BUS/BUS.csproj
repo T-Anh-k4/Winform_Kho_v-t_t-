@@ -43,14 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAOCAONHAPKHO_BUS.cs" />
+    <Compile Include="BAOCAOXUATKHO_BUS.cs" />
     <Compile Include="CHITIETNHAP_BUS.cs" />
     <Compile Include="HANGHOA_BUS.cs" />
     <Compile Include="HANGNHAP_BUS.cs" />
+    <Compile Include="KHO_BUS.cs" />
     <Compile Include="LOAIHANG_BUS.cs" />
     <Compile Include="LOGIN_BUS.cs" />
     <Compile Include="NHACUNGCAP_BUS.cs" />
     <Compile Include="NHANVIEN_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RDLC_BUS.cs" />
     <Compile Include="USER_BUS.cs" />
   </ItemGroup>
   <ItemGroup>
