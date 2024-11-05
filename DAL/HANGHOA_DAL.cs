@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Data.SqlClient;
 namespace DAL
 {
-	public class HANGHOA_DAL
-	{
-
-		DataProvider instance = new DataProvider();
+	public class HANGHOA_DAL : DataProvider
+    {
+        SqlDataAdapter nvAdapter = new SqlDataAdapter();
+        DataProvider instance = new DataProvider();
 
 		public HANGHOA_DAL()
 		{
@@ -23,8 +24,41 @@ namespace DAL
 			string query = "SELECT MAHH as [Mã hàng hóa],MALOAI as [Mã loại],TENHH as [Tên hàng hóa],DONVI_TINH as [Đơn vị],XUATXU as [Xuất xứ] FROM HANGHOA";
 			return instance.execQuery(query);
 		}
+        public DataTable getDanhSachHangHoaPage(int limit, int page)
+        {
+            string query = "SELECT MAHH as [Mã hàng hóa],MALOAI as [Mã loại],TENHH as [Tên hàng hóa],DONVI_TINH as [Đơn vị],XUATXU as [Xuất xứ] FROM HANGHOA";
 
-		public DataTable GetLoaihang()
+            // Khởi tạo đối tượng kết nối
+            using (SqlConnection con = new SqlConnection(LinkData))
+            {
+                con.Open(); // Mở kết nối
+
+                // Khởi tạo SqlDataAdapter với SqlCommand và SqlConnection
+                nvAdapter.SelectCommand = new SqlCommand(query, con);
+
+                DataTable dsNv = new DataTable();
+                nvAdapter.Fill((page - 1) * limit, limit, dsNv);
+
+                con.Close(); // Đóng kết nối
+                return dsNv;
+            }
+        }
+        public int GetSLHangHoa()
+        {
+            string query = "SELECT COUNT(*) FROM HANGHOA";
+            object result = instance.execScalar(query);
+            int slNhanVien = result != null ? Convert.ToInt32(result) : 0;
+            return slNhanVien;
+        }
+        public bool CheckMaHH(string username)
+        {
+            string query = "select count(MAHH) from HANGHOA where MAHH in (select MAHH from HANGHOA ) and MAHH = N'" + username + "'";
+            // Gọi execScalar để thực hiện truy vấn và lấy số lượng
+            object result = instance.execScalar(query);
+            // Chuyển đổi kết quả thành int và kiểm tra xem có lớn hơn 0 hay không
+            return result != null && (int)result > 0; // Trả về true nếu USERNAME đã tồn tại
+        }
+        public DataTable GetLoaihang()
 		{
 			string query = "SELECT LOAIHANG.MALOAI " +
 						   "FROM LOAIHANG ";
