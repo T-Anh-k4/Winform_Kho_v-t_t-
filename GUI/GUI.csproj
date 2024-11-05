@@ -126,6 +126,11 @@
     <Compile Include="CHITIETXUAT_GUI.Designer.cs">
       <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="CTHDNDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTHDNDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FORMLOAD_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,7 +239,7 @@
     <EmbeddedResource Include="CHITIETXUAT_GUI.resx">
       <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DETAILREPORT.rdlc" />
+    <EmbeddedResource Include="CTHDN_RP.rdlc" />
     <EmbeddedResource Include="FORMLOAD_GUI.resx">
       <DependentUpon>FORMLOAD_GUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +285,17 @@
     <EmbeddedResource Include="USER_GUI.resx">
       <DependentUpon>USER_GUI.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CTHDNDataSet.xsc">
+      <DependentUpon>CTHDNDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CTHDNDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CTHDNDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CTHDNDataSet.xss">
+      <DependentUpon>CTHDNDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
