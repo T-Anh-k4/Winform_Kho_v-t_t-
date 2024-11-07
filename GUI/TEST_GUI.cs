@@ -307,7 +307,7 @@ namespace GUI
 
         private void BtTrangChu_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new TRANGCHU_GUI());
+            OpenChildForm(new NHANVIEN_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -414,6 +414,12 @@ namespace GUI
             //OpenChildForm(new HANGHOA_GUI());
             closeCongDong();
             closeDoanhMuc();
+
+        }
+
+        private void TEST_GUI_Load(object sender, EventArgs e)
+        {
+            OpenChildForm(new NHANVIEN_GUI());
 
         }
         //END
