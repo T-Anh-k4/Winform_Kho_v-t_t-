@@ -347,11 +347,30 @@ namespace GUI
 
         private void btHangNhap_Click(object sender, EventArgs e)
 		{
-			OpenChildForm(new HANGNHAP_GUI());
+			OpenChildForm(new HANGNHAP_GUI(this));
             closeCongDong();
             closeDoanhMuc();
 
         }
+
+		public void eventHangNhap()
+		{
+			btHangNhap_Click(this, EventArgs.Empty);
+        }
+
+        public void btChiTietNhap_Click(string maHDN)
+        {
+            eventChiTietNhap(this, EventArgs.Empty, maHDN);
+        }
+
+        private void eventChiTietNhap(object sender, EventArgs e, string maHDN)
+        {
+            OpenChildForm(new CHITIETNHAP_GUI(maHDN,this));
+            closeCongDong();
+            closeDoanhMuc();
+
+        }
+
 
         private void btHangXuat_Click(object sender, EventArgs e)
 		{
