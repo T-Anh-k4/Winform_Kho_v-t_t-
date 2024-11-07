@@ -76,7 +76,9 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
@@ -125,6 +127,9 @@
     </Compile>
     <Compile Include="CHITIETXUAT_GUI.Designer.cs">
       <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CTHDNDataSet.cs">
+      <DependentUpon>CTHDNDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="CTHDNDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -245,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HANGHOA_GUI.resx">
       <DependentUpon>HANGHOA_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HANGNHAP_GUI.resx">
+      <DependentUpon>HANGNHAP_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HUONGDAN_GUI.resx">
       <DependentUpon>HUONGDAN_GUI.cs</DependentUpon>

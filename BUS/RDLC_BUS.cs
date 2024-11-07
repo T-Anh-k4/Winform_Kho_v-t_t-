@@ -10,14 +10,9 @@ namespace BUS
     public class RDLC_BUS
     {
         RDLC_DAL rdlcDal = new RDLC_DAL();
-        public DataSet GetDanhSachChiTietNhap()
+        public DataSet GetDanhSachChiTietNhap(string ma)
         {
-            return rdlcDal.GetDanhSachChiTietNhap();
+            return rdlcDal.GetDanhSachChiTietNhap(ma);
         }
-        public DataSet GetDanhSachChiTietNhap1()
-        {
-            return rdlcDal.GetDanhSachChiTietNhap();
-        }
-
     }
 }
