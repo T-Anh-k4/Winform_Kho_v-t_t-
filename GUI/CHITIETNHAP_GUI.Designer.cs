@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel0_nv = new ArtanComponent.ArtanPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.kryBt_Next = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -64,6 +64,7 @@
             this.artanPanel1 = new ArtanComponent.ArtanPanel();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.artanPanel3 = new ArtanComponent.ArtanPanel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel0_nv.SuspendLayout();
             this.panel4.SuspendLayout();
             this.artanPanel2.SuspendLayout();
@@ -210,9 +211,9 @@
             this.dataViewNv.AllowUserToAddRows = false;
             this.dataViewNv.AllowUserToResizeColumns = false;
             this.dataViewNv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -554,6 +555,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.soluong);
             this.panel3.Controls.Add(this.txb_tim_kiem_nv);
             this.panel3.Controls.Add(this.kryBtShowCreate_NV);
@@ -566,7 +568,7 @@
             // 
             // soluong
             // 
-            this.soluong.Location = new System.Drawing.Point(16, 20);
+            this.soluong.Location = new System.Drawing.Point(257, 20);
             this.soluong.Name = "soluong";
             this.soluong.Size = new System.Drawing.Size(146, 26);
             this.soluong.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
@@ -576,7 +578,7 @@
             // 
             // txb_tim_kiem_nv
             // 
-            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(332, 13);
+            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(423, 13);
             this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
             this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
             this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
@@ -813,6 +815,17 @@
             this.artanPanel3.Size = new System.Drawing.Size(1044, 63);
             this.artanPanel3.TabIndex = 6;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label5.Location = new System.Drawing.Point(29, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 31);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "< Quay lại";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // CHITIETNHAP_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -879,5 +892,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryBt_Next;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel soluong;
         private ArtanComponent.ArtanPanel artanPanel3;
+        private System.Windows.Forms.Label label5;
     }
 }

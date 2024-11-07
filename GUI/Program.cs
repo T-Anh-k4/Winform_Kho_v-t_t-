@@ -17,9 +17,8 @@ namespace GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			//Application.Run(new LOGIN_GUI());
-			Application.Run(new RDLC_GUI());
-
+			Application.Run(new LOGIN_GUI());
+			//Application.Run(new RDLC_GUI());
 		}
 	}
 }

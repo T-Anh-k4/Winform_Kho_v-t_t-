@@ -1,4 +1,5 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using BUS;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace GUI
 {
     public partial class RDLC_GUI : Form
     {
+        RDLC_BUS rdlcBus = new RDLC_BUS();
         public RDLC_GUI()
         {
             InitializeComponent();
@@ -20,18 +22,28 @@ namespace GUI
 
         private void RDLC_GUI_Load(object sender, EventArgs e)
         {
-            reportViewer1.SetDisplayMode(DisplayMode.PrintLayout); // Đặt chế độ hiển thị xem trước khi in
+            reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
+            reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
             reportViewer1.ZoomMode = ZoomMode.Percent;
             reportViewer1.ZoomPercent = 100;
-            // TODO: This line of code loads data into the 'cTHDNDataSet.CHITIET_HD_NHAP' table. You can move, or remove it, as needed.
-            this.cHITIET_HD_NHAPTableAdapter.Fill(this.cTHDNDataSet.CHITIET_HD_NHAP);
+            reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.CTHDN_RP.rdlc";
+
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void txtSoHDN_TextChanged(object sender, EventArgs e)
         {
-            this.cTHDNTableAdapter.Fill(this.cTHDNDataSet.CTHDN,textBox1.Text);
-            this.reportViewer1.RefreshReport();
-
+            if (!string.IsNullOrWhiteSpace(txtSoHDN.Text))
+            {
+                DataSet ds = rdlcBus.GetDanhSachChiTietNhap(txtSoHDN.Text);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ReportDataSource rds = new ReportDataSource();
+                    rds.Name = "CTHDN1";
+                    rds.Value = ds.Tables[0];
+                    reportViewer1.LocalReport.DataSources.Clear();
+                    reportViewer1.LocalReport.DataSources.Add(rds);
+                }
+                this.reportViewer1.RefreshReport();
+            }
         }
     }
 }

@@ -20,13 +20,19 @@ namespace GUI
 		public LOGIN_GUI()
 		{
 			InitializeComponent();
-		}
+            init();
 
-		private void artanPanel1_Paint(object sender, PaintEventArgs e)
+        }
+		public void init()
 		{
+            SetPlaceholder(kryTbTaiKhoan, "Tài khoản...");
+            SetPlaceholder(kryTbMatKhau, "Mật khẩu...");
+            kryTbTaiKhoan.Enter += kryTbTaiKhoan_Enter;
+            kryTbTaiKhoan.Leave += kryTbTaiKhoan_Leave;
+            kryTbMatKhau.Enter += kryTbTaiKhoan_Enter;
+            kryTbMatKhau.Leave += kryTbTaiKhoan_Leave;
 
-		}
-
+        }
 		private void kryBtLogin_Click(object sender, EventArgs e)
 		{
 			userDTO.UserName = kryTbTaiKhoan.Text;
@@ -48,8 +54,30 @@ namespace GUI
 			this.Close();
 
 		}
+        private void SetPlaceholder(KryptonTextBox textBox, string placeholder)
+        {
+            textBox.Text = placeholder;
+            textBox.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+        }
+        private void ResetForeText()
+        {
+            SetPlaceholder(kryTbTaiKhoan, GetPlaceholder(kryTbTaiKhoan));
+            SetPlaceholder(kryTbMatKhau, GetPlaceholder(kryTbMatKhau));
 
-		private void kryBtExit_Click(object sender, EventArgs e)
+        }
+        private string GetPlaceholder(KryptonTextBox textBox)
+        {
+            switch (textBox.Name)
+            {
+                case "kryTbTaiKhoan":
+                    return "Tài khoản...";
+                case "kryTbMatKhau":
+                    return "Mật khẩu...";
+                default:
+                    return string.Empty;
+            }
+        }
+        private void kryBtExit_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
@@ -63,5 +91,34 @@ namespace GUI
 		{
 
 		}
-	}
+
+        private void kryTbTaiKhoan_Enter(object sender, EventArgs e)
+        {
+            KryptonTextBox textBox = sender as KryptonTextBox;
+            if (textBox != null)
+            {
+                if (textBox.Text == GetPlaceholder(textBox))
+                {
+                    textBox.Text = "";
+                    textBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+                }
+            }
+        }
+
+        private void kryTbTaiKhoan_Leave(object sender, EventArgs e)
+        {
+            KryptonTextBox textBox = sender as KryptonTextBox;
+            if (textBox != null)
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text) || textBox.Text == GetPlaceholder(textBox))
+                {
+                    SetPlaceholder(textBox, GetPlaceholder(textBox));
+                }
+                else
+                {
+                    textBox.StateCommon.Content.Color1 = System.Drawing.Color.Black;
+                }
+            }
+        }
+    }
 }

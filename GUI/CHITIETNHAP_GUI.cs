@@ -17,16 +17,18 @@ namespace GUI
 	{
 		private string maHDN;
 		CHITIETNHAP_BUS chiTietNhapBUS = new CHITIETNHAP_BUS();
-		bool createExplore = true;
+        TEST_GUI testGui = new TEST_GUI();
+        bool createExplore = true;
 		int limit = 5;
 		int curentPage = 1;
 		int totalPage = 1; //so trang can tao
 
-		public CHITIETNHAP_GUI(string _maHDN)
+		public CHITIETNHAP_GUI(string _maHDN, TEST_GUI testGui)
 		{
 			InitializeComponent();
 			maHDN = _maHDN;
-			init();
+            this.testGui = testGui;
+            init();
 		}
 
 		public void init()
@@ -433,5 +435,11 @@ namespace GUI
 			//    }
 			//}
 		}
-	}
+
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            testGui.eventHangNhap();
+        }
+    }
 }

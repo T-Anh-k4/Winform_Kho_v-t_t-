@@ -307,7 +307,7 @@ namespace GUI
 
         private void BtTrangChu_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new TRANGCHU_GUI());
+            OpenChildForm(new NHANVIEN_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -347,11 +347,30 @@ namespace GUI
 
         private void btHangNhap_Click(object sender, EventArgs e)
 		{
-			OpenChildForm(new HANGNHAP_GUI());
+			OpenChildForm(new HANGNHAP_GUI(this));
             closeCongDong();
             closeDoanhMuc();
 
         }
+
+		public void eventHangNhap()
+		{
+			btHangNhap_Click(this, EventArgs.Empty);
+        }
+
+        public void btChiTietNhap_Click(string maHDN)
+        {
+            eventChiTietNhap(this, EventArgs.Empty, maHDN);
+        }
+
+        private void eventChiTietNhap(object sender, EventArgs e, string maHDN)
+        {
+            OpenChildForm(new CHITIETNHAP_GUI(maHDN,this));
+            closeCongDong();
+            closeDoanhMuc();
+
+        }
+
 
         private void btHangXuat_Click(object sender, EventArgs e)
 		{
@@ -414,6 +433,12 @@ namespace GUI
             //OpenChildForm(new HANGHOA_GUI());
             closeCongDong();
             closeDoanhMuc();
+
+        }
+
+        private void TEST_GUI_Load(object sender, EventArgs e)
+        {
+            OpenChildForm(new NHANVIEN_GUI());
 
         }
         //END
