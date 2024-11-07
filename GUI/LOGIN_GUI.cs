@@ -16,7 +16,7 @@ namespace GUI
 	{
 		USER_DTO userDTO = new USER_DTO();
 		LOGIN_BUS loginBUS = new LOGIN_BUS();
-		TEST_GUI menuGUi = new TEST_GUI();
+		//TEST_GUI menuGUi = new TEST_GUI();
 		public LOGIN_GUI()
 		{
 			InitializeComponent();
@@ -49,10 +49,11 @@ namespace GUI
 					return;
 			}
 			MessageBox.Show("Đăng nhập thành công.");
-			this.Hide();
-			menuGUi.ShowDialog();
+            bool isAdmin = getUser == "Admin";
+            TEST_GUI menuGui = new TEST_GUI(isAdmin);
+            this.Hide();
+            menuGui.ShowDialog();
 			this.Close();
-
 		}
         private void SetPlaceholder(KryptonTextBox textBox, string placeholder)
         {

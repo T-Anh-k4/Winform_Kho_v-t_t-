@@ -1,36 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
+﻿	using System;
+	using System.Collections.Generic;
+	using System.ComponentModel;
+	using System.Data;
+	using System.Drawing;
+	using System.Linq;
+	using System.Text;
+	using System.Threading.Tasks;
+	using System.Windows.Forms;
+	using ComponentFactory.Krypton.Toolkit;
 
-namespace GUI
-{
-	public partial class TEST_GUI : KryptonForm
+	namespace GUI
 	{
-		private bool isDanhMucVisible = false;
-		private bool isBaoCaoVisible = false;
-		private bool danhMucExplore = true;
-		private bool hangHoaExplore = true;
-		private bool hethongExplore = true;
-		private bool tkBcExplore = true;
-		private KryptonForm currentChildForm;
+		public partial class TEST_GUI : KryptonForm
+		{
+			private bool isAdmin;
+			private bool isDanhMucVisible = false;
+			private bool isBaoCaoVisible = false;
+			private bool danhMucExplore = true;
+			private bool hangHoaExplore = true;
+			private bool hethongExplore = true;
+			private bool tkBcExplore = true;
+			private KryptonForm currentChildForm;
 
 
-		private bool BaoCaoExplore = true;
-		public TEST_GUI()
+			private bool BaoCaoExplore = true;
+			public TEST_GUI()
+			{
+				InitializeComponent();
+				Init();
+			}
+			public TEST_GUI(bool isAdmin)
+			{
+				InitializeComponent();
+            Init();
+            this.isAdmin = isAdmin;
+				if (isAdmin)
+				{
+					panel15.Visible = true;
+				}
+				else
+				{
+					panel15.Visible = false;
+				}
+			}
+        public void Init()
 		{
-			InitializeComponent();
-			Init();
-		}
-		public void Init()
-		{
-			panelDoanhMuc.Height = 43;
+       
+            panelDoanhMuc.Height = 43;
 			palHangHoa.Height = 0;
 			panelHeThong.Height = 0;
 			panelHeThong.Location = new Point(247, 170);
@@ -439,7 +455,6 @@ namespace GUI
         private void TEST_GUI_Load(object sender, EventArgs e)
         {
             OpenChildForm(new NHANVIEN_GUI());
-
         }
         //END
     }
