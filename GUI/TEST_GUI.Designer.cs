@@ -41,6 +41,7 @@
             this.btDangXuat = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel13 = new System.Windows.Forms.Panel();
             this.btHuongDan = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panelTk_Bc = new System.Windows.Forms.Panel();
             this.btBaoCaoXuatHang = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -49,6 +50,7 @@
             this.btDanhSachKhachHang = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel23 = new System.Windows.Forms.Panel();
             this.btDanhSachHangHoa = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.panel16 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.BtTk_Bc = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -72,6 +74,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pamelIcon = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.artanPanel1 = new ArtanComponent.ArtanPanel();
             this.btHangXuat = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -89,9 +92,6 @@
             this.panelLoadForm = new ArtanComponent.ArtanPanel();
             this.palHangHoa = new System.Windows.Forms.Panel();
             this.artanPalRadious = new ArtanComponent.ArtanPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelContainer.SuspendLayout();
             this.panelTk_Bc.SuspendLayout();
@@ -121,7 +121,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.kryptonButton1);
             this.panel1.Controls.Add(this.btTinNhan);
             this.panel1.Controls.Add(this.txtSeachComponent);
@@ -447,6 +447,14 @@
             this.btHuongDan.Values.Text = "Hướng dẫn";
             this.btHuongDan.Click += new System.EventHandler(this.btHuongDan_Click);
             // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(10, 677);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(227, 7);
+            this.panel6.TabIndex = 19;
+            // 
             // panelTk_Bc
             // 
             this.panelTk_Bc.BackColor = System.Drawing.Color.White;
@@ -669,6 +677,14 @@
             this.btDanhSachHangHoa.TabIndex = 5;
             this.btDanhSachHangHoa.Values.Text = "Hàng hóa";
             this.btDanhSachHangHoa.Click += new System.EventHandler(this.btDanhSachHangHoa_Click);
+            // 
+            // panel16
+            // 
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel16.Location = new System.Drawing.Point(0, 50);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(20, 200);
+            this.panel16.TabIndex = 12;
             // 
             // panel24
             // 
@@ -1166,19 +1182,29 @@
             this.pamelIcon.Size = new System.Drawing.Size(247, 70);
             this.pamelIcon.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(74, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "QUẢN LÝ VẬT TƯ";
+            // 
             // artanPanel1
             // 
             this.artanPanel1.BackColor = System.Drawing.Color.White;
             this.artanPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("artanPanel1.BackgroundImage")));
             this.artanPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.artanPanel1.BorderRadius = 40;
+            this.artanPanel1.BorderRadius = 45;
             this.artanPanel1.ForeColor = System.Drawing.Color.Black;
             this.artanPanel1.GradientAngle = 90F;
             this.artanPanel1.GradientBottomColor = System.Drawing.Color.Transparent;
             this.artanPanel1.GradientTopColor = System.Drawing.Color.Transparent;
             this.artanPanel1.Location = new System.Drawing.Point(12, 12);
             this.artanPanel1.Name = "artanPanel1";
-            this.artanPanel1.Size = new System.Drawing.Size(42, 43);
+            this.artanPanel1.Size = new System.Drawing.Size(45, 45);
             this.artanPanel1.TabIndex = 0;
             // 
             // btHangXuat
@@ -1468,11 +1494,12 @@
             // panelLoadForm
             // 
             this.panelLoadForm.BackColor = System.Drawing.Color.White;
+            this.panelLoadForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLoadForm.BorderRadius = 30;
             this.panelLoadForm.ForeColor = System.Drawing.Color.Black;
             this.panelLoadForm.GradientAngle = 90F;
-            this.panelLoadForm.GradientBottomColor = System.Drawing.Color.White;
-            this.panelLoadForm.GradientTopColor = System.Drawing.Color.White;
+            this.panelLoadForm.GradientBottomColor = System.Drawing.Color.Transparent;
+            this.panelLoadForm.GradientTopColor = System.Drawing.Color.Transparent;
             this.panelLoadForm.Location = new System.Drawing.Point(275, 76);
             this.panelLoadForm.Name = "panelLoadForm";
             this.panelLoadForm.Size = new System.Drawing.Size(1067, 715);
@@ -1507,37 +1534,11 @@
             this.artanPalRadious.Size = new System.Drawing.Size(134, 5);
             this.artanPalRadious.TabIndex = 10;
             // 
-            // panel6
-            // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(10, 677);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(227, 7);
-            this.panel6.TabIndex = 19;
-            // 
-            // panel16
-            // 
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel16.Location = new System.Drawing.Point(0, 50);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(20, 200);
-            this.panel16.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(60, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "QUẢN LÝ VẬT TƯ";
-            // 
             // TEST_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1365, 811);
             this.Controls.Add(this.palHangHoa);
             this.Controls.Add(this.panelHeThong);
@@ -1549,6 +1550,7 @@
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.TEST_GUI_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelContainer.ResumeLayout(false);
