@@ -33,14 +33,14 @@ namespace BUS
             return chiTietNhapDAL.InsertChiTietNhap(maHH, maHDN, soLuongNhap, donGiaNhap);
         }
 
-        public bool UpdateChiTietNhap(int id, string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
+        public bool UpdateChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
         {
-            return chiTietNhapDAL.UpdateChiTietNhap(id, maHH, maHDN, soLuongNhap, donGiaNhap);
+            return chiTietNhapDAL.UpdateChiTietNhap(maHH, maHDN, soLuongNhap, donGiaNhap);
         }
 
-        public bool DeleteChiTietNhap(int id, string maHDN)
+        public bool DeleteChiTietNhap(string maHH, string maHDN, int donGiaNhap)
         {
-            return chiTietNhapDAL.DeleteChiTietNhap(id, maHDN);
+            return chiTietNhapDAL.DeleteChiTietNhap(maHH, maHDN, donGiaNhap);
         }
 
         public DataTable SearchChiTietNhap(string maHDN, string keyword)
