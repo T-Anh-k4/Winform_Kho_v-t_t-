@@ -15,17 +15,20 @@ namespace GUI
     public partial class HANGNHAP_GUI : KryptonForm
     {
         HANGNHAP_BUS hangNhapBUS = new HANGNHAP_BUS();
-        CHITIETNHAP_GUI chitietnhap;
+        //CHITIETNHAP_GUI chitietnhap;
+
+        TEST_GUI testGui = new TEST_GUI();
         bool createExplore = true;
         int limit = 5;
         int curentPage = 1;
         int totalPage = 1;//so trang can tao
 
 
-        public HANGNHAP_GUI()
+        public HANGNHAP_GUI(TEST_GUI testGui)
         {
             InitializeComponent();
             init();
+            this.testGui = testGui;
         }
         public void init()
         {
@@ -210,8 +213,9 @@ namespace GUI
                 }
                 if (e.ColumnIndex == dataViewHNhap.Columns["imgInfo"].Index)
                 {
-                    chitietnhap = new CHITIETNHAP_GUI(row.Cells[3].Value.ToString());
-                    chitietnhap.ShowDialog();
+                    //chitietnhap = new CHITIETNHAP_GUI(row.Cells[3].Value.ToString());
+                    //chitietnhap.ShowDialog();
+                    testGui.btChiTietNhap_Click(row.Cells[3].Value.ToString());
                 }
             }
         }
