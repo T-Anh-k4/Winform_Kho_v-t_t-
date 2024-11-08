@@ -17,7 +17,7 @@ namespace DAL
 
         public DataTable GetDanhSachChiTietNhap(string maHDN)
         {
-            string query = "SELECT ID, MAHH as [Mã hàng hóa], SO_HD_NHAP as [Số hóa đơn nhập], SOLUONG_NHAP as [Số lượng nhập], DONGIA_NHAP as [Đơn giá nhập] " +
+            string query = "SELECT MAHH as [Mã hàng hóa], SOLUONG_NHAP as [Số lượng nhập], DONGIA_NHAP as [Đơn giá nhập] " +
                            "FROM CHITIET_HD_NHAP WHERE SO_HD_NHAP = @maHDN";
             SqlParameter[] parameters = {
                 new SqlParameter("@maHDN", maHDN)
@@ -27,7 +27,7 @@ namespace DAL
 
         public DataTable GetDanhSachChiTietNhapPage(string maHDN, int limit, int page)
         {
-            string query = "SELECT ID, MAHH as [Mã hàng hóa], SO_HD_NHAP as [Số hóa đơn nhập], SOLUONG_NHAP as [Số lượng nhập], DONGIA_NHAP as [Đơn giá nhập] " +
+            string query = "SELECT MAHH as [Mã hàng hóa], SOLUONG_NHAP as [Số lượng nhập], DONGIA_NHAP as [Đơn giá nhập] " +
                            "FROM CHITIET_HD_NHAP WHERE SO_HD_NHAP = @maHDN";
             using (SqlConnection con = new SqlConnection(LinkData))
             {
@@ -67,17 +67,41 @@ namespace DAL
         {
             try
             {
-                int newID = GetMaxID() + 1;
-                string query = "INSERT INTO CHITIET_HD_NHAP(ID, MAHH, SO_HD_NHAP, SOLUONG_NHAP, DONGIA_NHAP) " +
-                               "VALUES (@id, @maHH, @maHDN, @soLuongNhap, @donGiaNhap)";
-                SqlParameter[] parameters = {
-            new SqlParameter("@id", newID),
-            new SqlParameter("@maHH", maHH),
-            new SqlParameter("@maHDN", maHDN),
-            new SqlParameter("@soLuongNhap", soLuongNhap),
-            new SqlParameter("@donGiaNhap", donGiaNhap)
-        };
-                instance.execNonQuery(query, parameters);
+                string checkQuery = "SELECT SOLUONG_NHAP FROM CHITIET_HD_NHAP WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
+                SqlParameter[] checkParameters = {
+                    new SqlParameter("@maHH", maHH),
+                    new SqlParameter("@maHDN", maHDN),
+                    new SqlParameter("@donGiaNhap", donGiaNhap)
+                };
+                object result = instance.execScalar(checkQuery, checkParameters);
+
+                if (result != null)
+                {
+                    int existingSLNhap = Convert.ToInt32(result);
+                    int newSLNhap = existingSLNhap + soLuongNhap;
+                    string updateQuery = "UPDATE CHITIET_HD_NHAP SET SOLUONG_NHAP = @newSLNhap WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
+                    SqlParameter[] updateParameters = {
+                        new SqlParameter("@newSLNhap", newSLNhap),
+                        new SqlParameter("@maHH", maHH),
+                        new SqlParameter("@maHDN", maHDN),
+                        new SqlParameter("@donGiaNhap", donGiaNhap)
+                    };
+                    instance.execNonQuery(updateQuery, updateParameters);
+                }
+                else
+                {
+                    int newID = GetMaxID() + 1;
+                    string insertQuery = "INSERT INTO CHITIET_HD_NHAP(ID, MAHH, SO_HD_NHAP, SOLUONG_NHAP, DONGIA_NHAP) " +
+                                         "VALUES (@id, @maHH, @maHDN, @soLuongNhap, @donGiaNhap)";
+                    SqlParameter[] insertParameters = {
+                        new SqlParameter("@id", newID),
+                        new SqlParameter("@maHH", maHH),
+                        new SqlParameter("@maHDN", maHDN),
+                        new SqlParameter("@soLuongNhap", soLuongNhap),
+                        new SqlParameter("@donGiaNhap", donGiaNhap)
+                    };
+                    instance.execNonQuery(insertQuery, insertParameters);
+                }
                 return true;
             }
             catch (Exception ex)
@@ -86,7 +110,7 @@ namespace DAL
             }
         }
 
-        public bool UpdateChiTietNhap(int id, string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
+        public bool UpdateChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
         {
             try
             {
@@ -95,9 +119,8 @@ namespace DAL
                                "SO_HD_NHAP = @maHDN, " +
                                "SOLUONG_NHAP = @soLuongNhap, " +
                                "DONGIA_NHAP = @donGiaNhap " +
-                               "WHERE ID = @id";
+                               "WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
                 SqlParameter[] parameters = {
-                    new SqlParameter("@id", id),
                     new SqlParameter("@maHH", maHH),
                     new SqlParameter("@maHDN", maHDN),
                     new SqlParameter("@soLuongNhap", soLuongNhap),
@@ -112,14 +135,15 @@ namespace DAL
             }
         }
 
-        public bool DeleteChiTietNhap(int id, string maHDN)
+        public bool DeleteChiTietNhap(string maHH, string maHDN, int donGiaNhap)
         {
             try
             {
-                string query = "DELETE FROM CHITIET_HD_NHAP WHERE ID = @id AND SO_HD_NHAP = @maHDN";
+                string query = "DELETE FROM CHITIET_HD_NHAP WHERE MaHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
                 SqlParameter[] parameters = {
-                    new SqlParameter("@id", id),
-                    new SqlParameter("@maHDN", maHDN)
+                    new SqlParameter("@maHH", maHH),
+                    new SqlParameter("@maHDN", maHDN),
+                    new SqlParameter("@donGiaNhap", donGiaNhap)
                 };
                 instance.execNonQuery(query, parameters);
                 return true;
@@ -134,7 +158,7 @@ namespace DAL
         {
             try
             {
-                string query = "SELECT ID, MAHH as [Mã hàng hóa], SO_HD_NHAP as [Số hóa đơn nhập], SOLUONG_NHAP as [Số lượng nhập], DONGIA_NHAP as [Đơn giá nhập] " +
+                string query = "SELECT MAHH as [Mã hàng hóa], SO_HD_NHAP as [Số hóa đơn nhập], SOLUONG_NHAP as [Số lượng nhập], DONGIA_NHAP as [Đơn giá nhập] " +
                                "FROM CHITIET_HD_NHAP " +
                                "WHERE SO_HD_NHAP = @maHDN AND (MAHH LIKE N'%" + keyword + "%' OR SO_HD_NHAP LIKE N'%" + keyword + "%')";
                 SqlParameter[] parameters = {

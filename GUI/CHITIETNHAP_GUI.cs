@@ -17,8 +17,8 @@ namespace GUI
 	{
 		private string maHDN;
 		CHITIETNHAP_BUS chiTietNhapBUS = new CHITIETNHAP_BUS();
-        TEST_GUI testGui = new TEST_GUI();
-        bool createExplore = true;
+		TEST_GUI testGui = new TEST_GUI();
+		bool createExplore = true;
 		int limit = 5;
 		int curentPage = 1;
 		int totalPage = 1; //so trang can tao
@@ -27,8 +27,9 @@ namespace GUI
 		{
 			InitializeComponent();
 			maHDN = _maHDN;
-            this.testGui = testGui;
-            init();
+			this.testGui = testGui;
+			init();
+			PopulateComboBox();
 		}
 
 		public void init()
@@ -42,21 +43,18 @@ namespace GUI
 		public void initUser()
 		{
 			loadDt_ChiTietNhap();
-			loadCb_Gioitinh();
 			kryTbSearch.Enter += kryTbSearch_Enter;
 			kryTbSearch.Leave += kryTbSearch_Leave;
-			kryTx_Id.Enter += kryTbSearch_Enter;
-			kryTx_Id.Leave += kryTbSearch_Leave;
-			kryTb_Name.Enter += kryTbSearch_Enter;
-			kryTb_Name.Leave += kryTbSearch_Leave;
-			kryTb_Number.Enter += kryTbSearch_Enter;
-			kryTb_Number.Leave += kryTbSearch_Leave;
-			kryTx_Address.Enter += kryTbSearch_Enter;
-			kryTx_Address.Leave += kryTbSearch_Leave;
+			kryTb_MaHH.Enter += kryTbSearch_Enter;
+			kryTb_MaHH.Leave += kryTbSearch_Leave;
+			kryTb_SLNhap.Enter += kryTbSearch_Enter;
+			kryTb_SLNhap.Leave += kryTbSearch_Leave;
+			kryTb_DGNhap.Enter += kryTbSearch_Enter;
+			kryTb_DGNhap.Leave += kryTbSearch_Leave;
 			SetPlaceholder(kryTbSearch, "Tìm kiếm");
-			SetPlaceholder(kryTb_Name, "Nhập tên hàng hóa");
-			SetPlaceholder(kryTb_Number, "Nhập số lượng nhập");
-			SetPlaceholder(kryTx_Address, "Nhập đơn giá nhập");
+			SetPlaceholder(kryTb_MaHH, "Nhập tên hàng hóa");
+			SetPlaceholder(kryTb_SLNhap, "Nhập số lượng nhập");
+			SetPlaceholder(kryTb_DGNhap, "Nhập đơn giá nhập");
 		}
 
 		public bool IsPressAdd()
@@ -68,7 +66,10 @@ namespace GUI
 		public bool IsPressEdit()
 		{
 			kryBt_Edit.Visible = true;
-			return kryBt_Edit.Visible;
+            kryTb_MaHH.Enabled = false;
+            kryTb_DGNhap.Enabled = false;
+
+            return kryBt_Edit.Visible;
 		}
 
 		//load data và combobox
@@ -82,21 +83,12 @@ namespace GUI
 			EnsureButtonColumnsVisible();
 		}
 
-		public void loadCb_Gioitinh()
-		{
-			DataTable dtDefault = new DataTable();
-			dtDefault.Columns.Add("GIOITINH");
-			dtDefault.Rows.Add("Nam");
-			dtDefault.Rows.Add("Nữ");
-		}
-
 		//Xóa các ô khi thoát chỉnh sửa
 		public void clear()
 		{
-			kryTx_Id.Text = "";
-			kryTb_Name.Text = "";
-			kryTx_Address.Text = "";
-			kryTb_Number.Text = "";
+			kryTb_MaHH.Text = "";
+			kryTb_DGNhap.Text = "";
+			kryTb_SLNhap.Text = "";
 		}
 
 		// Thêm cột chứa nút vào DataGridView
@@ -171,11 +163,9 @@ namespace GUI
 				DataGridViewRow row = dataViewNv.Rows[e.RowIndex];
 				if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
 				{
-					kryTx_Id.ReadOnly = true;
-					kryTx_Id.Text = row.Cells[2].Value.ToString();
-					kryTb_Name.Text = row.Cells[3].Value.ToString();
-					kryTx_Address.Text = row.Cells[5].Value.ToString();
-					kryTb_Number.Text = row.Cells[6].Value.ToString();
+					kryTb_MaHH.Text = row.Cells[2].Value.ToString();
+					kryTb_SLNhap.Text = row.Cells[3].Value.ToString();
+					kryTb_DGNhap.Text = row.Cells[4].Value.ToString();
 					IsPressEdit();
 					createTransition.Start();
 					if (panel2_nv.Height >= 125)
@@ -192,18 +182,27 @@ namespace GUI
 					DialogResult check = MessageBox.Show("Bạn có muốn xóa chi tiết nhập này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 					if (check == DialogResult.Yes)
 					{
-						bool result = chiTietNhapBUS.DeleteChiTietNhap(Convert.ToInt32(row.Cells[2].Value), maHDN);
-						if (result)
+						try
 						{
-							loadDt_ChiTietNhap();
-							MessageBox.Show("Xóa chi tiết nhập thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+							bool result = chiTietNhapBUS.DeleteChiTietNhap(row.Cells[2].Value.ToString(), maHDN, Convert.ToInt32(row.Cells[4].Value));
+							if (result)
+							{
+								loadDt_ChiTietNhap();
+								MessageBox.Show("Xóa chi tiết nhập thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+							}
+							else
+							{
+								MessageBox.Show("Xóa chi tiết nhập không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+							}
 						}
-						else
-						{
-							MessageBox.Show("Xóa chi tiết nhập không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-						}
-					}
+                        catch
+                        {
+                            MessageBox.Show("Xóa chi tiết nhập không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+					
 					clear();
+					createTransition_Tick(sender, e);
 					soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
 				}
 			}
@@ -213,47 +212,66 @@ namespace GUI
 		private void kryBt_Add_Click(object sender, EventArgs e)
 		{
 
-            // Kiểm tra các trường bắt buộc
-			if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
+			// Kiểm tra các trường bắt buộc
+			if (string.IsNullOrWhiteSpace(kryTb_MaHH.Text))
 			{
 				MessageBox.Show("Vui lòng nhập tên hàng hóa.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			if (string.IsNullOrWhiteSpace(kryTb_Number.Text))
+			if (string.IsNullOrWhiteSpace(kryTb_SLNhap.Text))
 			{
 				MessageBox.Show("Vui lòng nhập số lượng nhập.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			if (string.IsNullOrWhiteSpace(kryTx_Address.Text))
+			if (string.IsNullOrWhiteSpace(kryTb_DGNhap.Text))
 			{
 				MessageBox.Show("Vui lòng nhập đơn giá nhập.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 
-			bool result = chiTietNhapBUS.InsertChiTietNhap(kryTb_Name.Text, maHDN, Convert.ToInt32(kryTb_Number.Text), Convert.ToInt32(kryTx_Address.Text));
-
-			if (result)
+			try
 			{
-				loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
-				MessageBox.Show("Thêm chi tiết nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+				bool result = chiTietNhapBUS.InsertChiTietNhap(kryTb_MaHH.Text, maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
+
+				if (result)
+				{
+					loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
+					MessageBox.Show("Thêm chi tiết nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					clear();
+					createTransition_Tick(sender, e);
+				}
+				else
+				{
+					MessageBox.Show("Thêm chi tiết nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
 			}
-			else
+			catch
 			{
 				MessageBox.Show("Thêm chi tiết nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-			soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
 		}
 
 		private void kryBt_Edit_Click(object sender, EventArgs e)
 		{
-			bool result = chiTietNhapBUS.UpdateChiTietNhap(Convert.ToInt32(kryTx_Id.Text), kryTb_Name.Text, maHDN, Convert.ToInt32(kryTb_Number.Text), Convert.ToInt32(kryTx_Address.Text));
-
-			if (result)
+			try
 			{
-				MessageBox.Show("Sửa chi tiết nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
+				bool result = chiTietNhapBUS.UpdateChiTietNhap(kryTb_MaHH.Text, maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
+
+				if (result)
+				{
+					MessageBox.Show("Sửa chi tiết nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					clear();
+					createTransition_Tick(sender, e);
+					loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
+				}
+				else
+				{
+					MessageBox.Show("Sửa chi tiết nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
-			else
+			catch
 			{
 				MessageBox.Show("Sửa chi tiết nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
@@ -324,14 +342,13 @@ namespace GUI
 		// reset chữ mặc định
 		private void ResetForeText()
 		{
-			SetPlaceholder(kryTx_Id, GetPlaceholder(kryTx_Id));
-			SetPlaceholder(kryTb_Name, GetPlaceholder(kryTb_Name));
-			SetPlaceholder(kryTb_Number, GetPlaceholder(kryTb_Number));
-			SetPlaceholder(kryTx_Address, GetPlaceholder(kryTx_Address));
+			SetPlaceholder(kryTb_MaHH, GetPlaceholder(kryTb_MaHH));
+			SetPlaceholder(kryTb_SLNhap, GetPlaceholder(kryTb_SLNhap));
+			SetPlaceholder(kryTb_DGNhap, GetPlaceholder(kryTb_DGNhap));
 		}
 
 		//end
-		private void kryBtPredious_Click(object sender, EventArgs e)
+		private void kryBtPrevious_Click(object sender, EventArgs e)
 		{
 			curentPage--;
 			loadDt_ChiTietNhap();
@@ -359,7 +376,6 @@ namespace GUI
 		private void kryBtShowCreate_NV_Click(object sender, EventArgs e)
 		{
 			kryBt_Add.Visible = true;
-			kryTx_Id.ReadOnly = true;
 			createTransition.Start();
 			if (kryBt_Edit.Visible)
 			{
@@ -434,12 +450,27 @@ namespace GUI
 			//        e.FormattingApplied = true; // Đánh dấu là đã áp dụng định dạng
 			//    }
 			//}
+
 		}
 
+		private void label5_Click(object sender, EventArgs e)
+		{
+			testGui.eventHangNhap();
+		}
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            testGui.eventHangNhap();
-        }
-    }
+		private void PopulateComboBox()
+		{
+			this.comboBoxMaHH.DataSource = new ComboItem[] {
+                new ComboItem{ID = 1,Text = "One"},
+				new ComboItem{ ID = 2, Text = "Two" },
+				new ComboItem{ ID = 3, Text = "Three" }
+			};
+		}
+	}
+
+	public class ComboItem
+	{
+		public int ID { get; set; }
+		public string Text { get; set; }
+	}
 }
