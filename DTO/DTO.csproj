@@ -42,11 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CHITIETNHAP_DTO.cs" />
-    <Compile Include="CHITIETXUAT_DAL.cs" />
     <Compile Include="HANGHOA_DTO.cs" />
     <Compile Include="HANGNHAP_DTO.cs" />
-    <Compile Include="HOADONXUAT_DTO.cs" />
-    <Compile Include="KHACHHANG_DTO.cs" />
     <Compile Include="LOAIHANG_DTO.cs" />
     <Compile Include="NHACUNGCAP_DTO.cs" />
     <Compile Include="NHANVIEN_DTO.cs" />

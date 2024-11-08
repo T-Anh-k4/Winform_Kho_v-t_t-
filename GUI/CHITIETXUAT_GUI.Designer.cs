@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-	partial class KHACHHANG_GUI
+	partial class CHITIETXUAT_GUI
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,10 +28,17 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.SuspendLayout();
+			// 
+			// CHITIETXUAT_GUI
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Text = "KHACHHANG_GUI";
+			this.Name = "CHITIETXUAT_GUI";
+			this.Text = "G ";
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion

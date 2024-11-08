@@ -46,15 +46,9 @@
     <Compile Include="BAOCAONHAPKHO_BUS.cs" />
     <Compile Include="BAOCAOXUATKHO_BUS.cs" />
     <Compile Include="CHITIETNHAP_BUS.cs" />
-    <Compile Include="CHITIETXUAT_BUS.cs" />
     <Compile Include="HANGHOA_BUS.cs" />
     <Compile Include="HANGNHAP_BUS.cs" />
-<<<<<<< HEAD
     <Compile Include="KHO_BUS.cs" />
-=======
-    <Compile Include="HOADONXUAT_BUS.cs" />
-    <Compile Include="KHACHHANG_BUS.cs" />
->>>>>>> Dan
     <Compile Include="LOAIHANG_BUS.cs" />
     <Compile Include="LOGIN_BUS.cs" />
     <Compile Include="NHACUNGCAP_BUS.cs" />

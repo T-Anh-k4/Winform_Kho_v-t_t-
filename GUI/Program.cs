@@ -17,14 +17,8 @@ namespace GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
 			Application.Run(new LOGIN_GUI());
 			//Application.Run(new RDLC_GUI());
-=======
-			//Application.Run(new LOGIN_GUI());
-			Application.Run(new TEST_GUI());
-
->>>>>>> Dan
 		}
 	}
 }
