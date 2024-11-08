@@ -91,17 +91,17 @@
 		}
 		private void KryptonButton_MouseEnter(object sender, EventArgs e)
 		{
-			KryptonButton btn = (KryptonButton)sender; // Lấy nút Krypton được hover
-			btn.StateCommon.Back.Color1 = Color.MediumPurple; // Màu đầu tiên của nền
-			btn.StateCommon.Back.Color2 = Color.MediumSlateBlue; // Màu thứ hai của nền (gradient)
-			btn.StateCommon.Content.ShortText.Color1 = Color.White; // Màu chữ
+			KryptonButton btn = (KryptonButton)sender; 
+			btn.StateCommon.Back.Color1 = Color.MediumPurple; 
+			btn.StateCommon.Back.Color2 = Color.MediumSlateBlue; 
+			btn.StateCommon.Content.ShortText.Color1 = Color.White; 
 		}
 		private void KryptonButton_MouseLeave(object sender, EventArgs e)
 		{
-			KryptonButton btn = (KryptonButton)sender; // Lấy nút Krypton khi chuột rời khỏi
-			btn.StateCommon.Back.Color1 = Color.Empty; // Đặt lại màu nền về mặc định
-			btn.StateCommon.Back.Color2 = Color.Empty; // Đặt lại màu nền về mặc định
-			btn.StateCommon.Content.ShortText.Color1 = Color.Black; // Đặt lại màu chữ về màu đen
+			KryptonButton btn = (KryptonButton)sender; 
+			btn.StateCommon.Back.Color1 = Color.Empty; 
+			btn.StateCommon.Back.Color2 = Color.Empty; 
+			btn.StateCommon.Content.ShortText.Color1 = Color.Black; 
 		}
 		private void AssignMouseEnterEvent(Control parent)
 		{
@@ -126,7 +126,7 @@
 				if (control is KryptonButton)
 				{
 					control.MouseEnter += KryptonButton_MouseEnter;
-					control.MouseLeave += KryptonButton_MouseLeave; // Gán sự kiện MouseLeave
+					control.MouseLeave += KryptonButton_MouseLeave; 
 				}
 
 				// Nếu control là một container (Panel, GroupBox, TabControl), gọi đệ quy để duyệt tiếp các control con
@@ -451,7 +451,6 @@
             closeDoanhMuc();
 
         }
-
         private void TEST_GUI_Load(object sender, EventArgs e)
         {
             OpenChildForm(new NHANVIEN_GUI());
