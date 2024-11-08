@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel0_nv = new ArtanComponent.ArtanPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.kryBt_Next = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -38,6 +38,7 @@
             this.artanPanel2 = new ArtanComponent.ArtanPanel();
             this.dataViewNv = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.panel2_nv = new System.Windows.Forms.Panel();
+            this.comboBoxMaHH = new System.Windows.Forms.ComboBox();
             this.kry_Clear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryBt_Edit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryBt_Add = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -47,7 +48,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxMaHH = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.soluong = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -64,6 +64,7 @@
             this.artanPanel1 = new ArtanComponent.ArtanPanel();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.artanPanel3 = new ArtanComponent.ArtanPanel();
+            this.kryCb_Gender = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.panel0_nv.SuspendLayout();
             this.panel4.SuspendLayout();
             this.artanPanel2.SuspendLayout();
@@ -74,6 +75,7 @@
             this.panel1.SuspendLayout();
             this.artanPanel1.SuspendLayout();
             this.artanPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryCb_Gender)).BeginInit();
             this.SuspendLayout();
             // 
             // panel0_nv
@@ -210,9 +212,9 @@
             this.dataViewNv.AllowUserToAddRows = false;
             this.dataViewNv.AllowUserToResizeColumns = false;
             this.dataViewNv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -252,8 +254,8 @@
             // 
             // panel2_nv
             // 
+            this.panel2_nv.Controls.Add(this.kryCb_Gender);
             this.panel2_nv.Controls.Add(this.comboBoxMaHH);
-            this.panel2_nv.Controls.SetChildIndex(this.comboBoxMaHH, 0);
             this.panel2_nv.Controls.Add(this.kry_Clear);
             this.panel2_nv.Controls.Add(this.kryBt_Edit);
             this.panel2_nv.Controls.Add(this.kryBt_Add);
@@ -269,6 +271,17 @@
             this.panel2_nv.Name = "panel2_nv";
             this.panel2_nv.Size = new System.Drawing.Size(973, 125);
             this.panel2_nv.TabIndex = 1;
+            // 
+            // comboBoxMaHH
+            // 
+            this.comboBoxMaHH.DisplayMember = "Text";
+            this.comboBoxMaHH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMaHH.FormattingEnabled = true;
+            this.comboBoxMaHH.Location = new System.Drawing.Point(253, 5);
+            this.comboBoxMaHH.Name = "comboBoxMaHH";
+            this.comboBoxMaHH.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxMaHH.TabIndex = 31;
+            this.comboBoxMaHH.ValueMember = "ID";
             // 
             // kry_Clear
             // 
@@ -521,17 +534,6 @@
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Mã hàng hóa";
-            // 
-            // comboBoxMaHH
-            // 
-            this.comboBoxMaHH.FormattingEnabled = true;
-            this.comboBoxMaHH.Location = new System.Drawing.Point(253, 5);
-            this.comboBoxMaHH.Name = "comboBoxMaHH";
-            this.comboBoxMaHH.Size = new System.Drawing.Size(200, 21);
-            this.comboBoxMaHH.TabIndex = 31;
-            this.comboBoxMaHH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMaHH.DisplayMember = "Text";
-            this.comboBoxMaHH.ValueMember = "ID";
             // 
             // panel3
             // 
@@ -807,6 +809,24 @@
             this.artanPanel3.Size = new System.Drawing.Size(1044, 63);
             this.artanPanel3.TabIndex = 6;
             // 
+            // kryCb_Gender
+            // 
+            this.kryCb_Gender.DropDownWidth = 184;
+            this.kryCb_Gender.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.kryCb_Gender.Location = new System.Drawing.Point(56, 34);
+            this.kryCb_Gender.Margin = new System.Windows.Forms.Padding(2);
+            this.kryCb_Gender.Name = "kryCb_Gender";
+            this.kryCb_Gender.Size = new System.Drawing.Size(150, 33);
+            this.kryCb_Gender.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
+            this.kryCb_Gender.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
+            this.kryCb_Gender.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryCb_Gender.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryCb_Gender.StateCommon.ComboBox.Border.Rounding = 20;
+            this.kryCb_Gender.StateCommon.ComboBox.Border.Width = 1;
+            this.kryCb_Gender.TabIndex = 32;
+            // 
             // CHITIETNHAP_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -833,6 +853,7 @@
             this.panel1.PerformLayout();
             this.artanPanel1.ResumeLayout(false);
             this.artanPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kryCb_Gender)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -873,6 +894,7 @@
         private ArtanComponent.ArtanPanel artanPanel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxMaHH;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kryCb_Gender;
     }
 
 }

@@ -55,7 +55,11 @@ namespace DAL
             return slChiTietNhap;
         }
 
-
+		public DataTable getMaVaTenHH(){
+			string query = "SELECT MAHH as [Mã hàng hóa], TENHH as [Tên hàng hóa]" +
+						   "FROM HANGHOA";
+			return instance.execQuery(query);
+		}
         public int GetMaxID()
         {
             string query = "SELECT ISNULL(MAX(ID), 0) FROM CHITIET_HD_NHAP";

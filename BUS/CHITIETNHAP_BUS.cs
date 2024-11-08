@@ -27,6 +27,11 @@ namespace BUS
         {
             return chiTietNhapDAL.GetSLChiTietNhap(maHDN);
         }
+        
+		public DataTable getMaVaTenHH()
+		{
+			return chiTietNhapDAL.getMaVaTenHH();
+		}
 
         public bool InsertChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
         {

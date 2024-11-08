@@ -40,24 +40,50 @@ namespace GUI
 			dataViewNv.CellFormatting += dataViewNv_CellFormatting;
 		}
 
-		public void initUser()
-		{
-			loadDt_ChiTietNhap();
-			kryTbSearch.Enter += kryTbSearch_Enter;
-			kryTbSearch.Leave += kryTbSearch_Leave;
-			kryTb_MaHH.Enter += kryTbSearch_Enter;
-			kryTb_MaHH.Leave += kryTbSearch_Leave;
-			kryTb_SLNhap.Enter += kryTbSearch_Enter;
-			kryTb_SLNhap.Leave += kryTbSearch_Leave;
-			kryTb_DGNhap.Enter += kryTbSearch_Enter;
-			kryTb_DGNhap.Leave += kryTbSearch_Leave;
-			SetPlaceholder(kryTbSearch, "Tìm kiếm");
-			SetPlaceholder(kryTb_MaHH, "Nhập tên hàng hóa");
-			SetPlaceholder(kryTb_SLNhap, "Nhập số lượng nhập");
-			SetPlaceholder(kryTb_DGNhap, "Nhập đơn giá nhập");
-		}
+        public void initUser()
+        {
+            loadDt_ChiTietNhap();
 
-		public bool IsPressAdd()
+            // Create a list of key-value pairs for gender options
+            var genderItems = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("1", "Nam"),
+                new KeyValuePair<string, string>("2", "Nữ")
+            };
+
+            // Load the gender ComboBox with the list
+            loadCb_Gioitinh(genderItems);
+
+            kryTbSearch.Enter += kryTbSearch_Enter;
+            kryTbSearch.Leave += kryTbSearch_Leave;
+            kryTb_MaHH.Enter += kryTbSearch_Enter;
+            kryTb_MaHH.Leave += kryTbSearch_Leave;
+            kryTb_SLNhap.Enter += kryTbSearch_Enter;
+            kryTb_SLNhap.Leave += kryTbSearch_Leave;
+            kryTb_DGNhap.Enter += kryTbSearch_Enter;
+            kryTb_DGNhap.Leave += kryTbSearch_Leave;
+            SetPlaceholder(kryTbSearch, "Tìm kiếm");
+            //SetPlaceholder(kryTb_MaHH, "Nhập tên hàng hóa");
+            //SetPlaceholder(kryTb_SLNhap, "Nhập số lượng nhập");
+            //SetPlaceholder(kryTb_DGNhap, "Nhập đơn giá nhập");
+        }
+        public void loadCb_Gioitinh(List<KeyValuePair<string, string>> items)
+        {
+            DataTable dtDefault = new DataTable();
+            dtDefault.Columns.Add("ID");
+            dtDefault.Columns.Add("Value");
+
+            foreach (var item in items)
+            {
+                dtDefault.Rows.Add(item.Key, item.Value);
+            }
+
+            kryCb_Gender.DisplayMember = "Value";
+            kryCb_Gender.ValueMember = "ID";
+            kryCb_Gender.DataSource = dtDefault;
+        }
+
+        public bool IsPressAdd()
 		{
 			kryBt_Add.Visible = true;
 			return kryBt_Add.Visible;
@@ -213,11 +239,11 @@ namespace GUI
 		{
 
 			// Kiểm tra các trường bắt buộc
-			if (string.IsNullOrWhiteSpace(kryTb_MaHH.Text))
-			{
-				MessageBox.Show("Vui lòng nhập tên hàng hóa.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
+			//if (string.IsNullOrWhiteSpace(kryTb_MaHH.Text))
+			//{
+			//	MessageBox.Show("Vui lòng nhập tên hàng hóa.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			//	return;
+			//}
 			if (string.IsNullOrWhiteSpace(kryTb_SLNhap.Text))
 			{
 				MessageBox.Show("Vui lòng nhập số lượng nhập.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -232,8 +258,8 @@ namespace GUI
 			try
 			{
 
-				bool result = chiTietNhapBUS.InsertChiTietNhap(kryTb_MaHH.Text, maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
-
+				bool result = chiTietNhapBUS.InsertChiTietNhap(kryCb_Gender.Text, maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
+				// Console.WriteLine(kryCb_Gender);
 				if (result)
 				{
 					loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
@@ -249,7 +275,12 @@ namespace GUI
 			}
 			catch
 			{
-				MessageBox.Show("Thêm chi tiết nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Console.WriteLine("Error");
+				Console.WriteLine(kryCb_Gender.Text);
+                Console.WriteLine(kryCb_Gender.SelectedValue.ToString());
+				Console.WriteLine(kryCb_Gender.SelectedItem.ToString());
+				Console.WriteLine(kryCb_Gender.SelectedText.ToString());
+                MessageBox.Show("Thêm chi tiết nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -459,18 +490,28 @@ namespace GUI
 		}
 
 		private void PopulateComboBox()
-		{
-			this.comboBoxMaHH.DataSource = new ComboItem[] {
-                new ComboItem{ID = 1,Text = "One"},
-				new ComboItem{ ID = 2, Text = "Two" },
-				new ComboItem{ ID = 3, Text = "Three" }
-			};
-		}
+		 {
+			 DataTable hangHoaTable = chiTietNhapBUS.getMaVaTenHH();
+			 List<ComboItem> comboItems = new List<ComboItem>();
+		
+			 foreach (DataRow row in hangHoaTable.Rows)
+			 {
+				 comboItems.Add(new ComboItem
+				 {
+					 ID = row["Mã hàng hóa"].ToString(),
+					 Text = row["Tên hàng hóa"].ToString()
+				 });
+			 }
+		
+			 comboBoxMaHH.DataSource = comboItems;
+			 comboBoxMaHH.DisplayMember = "Text";
+			 comboBoxMaHH.ValueMember = "ID";
+		 }
 	}
 
 	public class ComboItem
 	{
-		public int ID { get; set; }
+		public string ID { get; set; }
 		public string Text { get; set; }
 	}
 }
