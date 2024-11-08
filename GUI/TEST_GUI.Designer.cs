@@ -1493,6 +1493,9 @@
             // 
             // panelLoadForm
             // 
+            this.panelLoadForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelLoadForm.BackColor = System.Drawing.Color.White;
             this.panelLoadForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelLoadForm.BorderRadius = 30;

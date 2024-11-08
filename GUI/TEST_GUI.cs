@@ -291,7 +291,7 @@
 			childForm.FormBorderStyle = FormBorderStyle.None;
 			childForm.Dock = DockStyle.Fill;
 
-			panelLoadForm.Controls.Add(childForm);
+            panelLoadForm.Controls.Add(childForm);
 			panelLoadForm.Tag = childForm;
 			childForm.BringToFront();
 			childForm.Show();
