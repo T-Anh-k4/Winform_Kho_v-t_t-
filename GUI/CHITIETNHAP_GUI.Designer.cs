@@ -87,10 +87,9 @@
             this.panel0_nv.GradientAngle = 90F;
             this.panel0_nv.GradientBottomColor = System.Drawing.Color.White;
             this.panel0_nv.GradientTopColor = System.Drawing.Color.White;
-            this.panel0_nv.Location = new System.Drawing.Point(35, 24);
-            this.panel0_nv.Margin = new System.Windows.Forms.Padding(2);
+            this.panel0_nv.Location = new System.Drawing.Point(52, 37);
             this.panel0_nv.Name = "panel0_nv";
-            this.panel0_nv.Size = new System.Drawing.Size(973, 547);
+            this.panel0_nv.Size = new System.Drawing.Size(1460, 842);
             this.panel0_nv.TabIndex = 0;
             // 
             // panel4
@@ -98,14 +97,16 @@
             this.panel4.Controls.Add(this.kryBt_Next);
             this.panel4.Controls.Add(this.labelSoTrang);
             this.panel4.Controls.Add(this.kryBtPre);
-            this.panel4.Location = new System.Drawing.Point(898, 508);
+            this.panel4.Location = new System.Drawing.Point(1347, 782);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(64, 25);
+            this.panel4.Size = new System.Drawing.Size(96, 38);
             this.panel4.TabIndex = 6;
             // 
             // kryBt_Next
             // 
-            this.kryBt_Next.Location = new System.Drawing.Point(41, 3);
+            this.kryBt_Next.Location = new System.Drawing.Point(62, 5);
+            this.kryBt_Next.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.kryBt_Next.Name = "kryBt_Next";
             this.kryBt_Next.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
             this.kryBt_Next.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -116,7 +117,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryBt_Next.OverrideDefault.Border.Rounding = 20;
             this.kryBt_Next.OverrideDefault.Border.Width = 1;
-            this.kryBt_Next.Size = new System.Drawing.Size(20, 20);
+            this.kryBt_Next.Size = new System.Drawing.Size(30, 31);
             this.kryBt_Next.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryBt_Next.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.kryBt_Next.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
@@ -145,15 +146,17 @@
             // labelSoTrang
             // 
             this.labelSoTrang.AutoSize = true;
-            this.labelSoTrang.Location = new System.Drawing.Point(23, 6);
+            this.labelSoTrang.Location = new System.Drawing.Point(34, 9);
+            this.labelSoTrang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSoTrang.Name = "labelSoTrang";
-            this.labelSoTrang.Size = new System.Drawing.Size(13, 13);
+            this.labelSoTrang.Size = new System.Drawing.Size(18, 20);
             this.labelSoTrang.TabIndex = 5;
             this.labelSoTrang.Text = "1";
             // 
             // kryBtPre
             // 
-            this.kryBtPre.Location = new System.Drawing.Point(0, 3);
+            this.kryBtPre.Location = new System.Drawing.Point(0, 5);
+            this.kryBtPre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.kryBtPre.Name = "kryBtPre";
             this.kryBtPre.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
             this.kryBtPre.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -164,7 +167,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryBtPre.OverrideDefault.Border.Rounding = 20;
             this.kryBtPre.OverrideDefault.Border.Width = 1;
-            this.kryBtPre.Size = new System.Drawing.Size(20, 20);
+            this.kryBtPre.Size = new System.Drawing.Size(30, 31);
             this.kryBtPre.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryBtPre.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.kryBtPre.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterRight;
@@ -200,9 +203,10 @@
             this.artanPanel2.GradientAngle = 90F;
             this.artanPanel2.GradientBottomColor = System.Drawing.Color.White;
             this.artanPanel2.GradientTopColor = System.Drawing.Color.White;
-            this.artanPanel2.Location = new System.Drawing.Point(0, 125);
+            this.artanPanel2.Location = new System.Drawing.Point(0, 192);
+            this.artanPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.artanPanel2.Name = "artanPanel2";
-            this.artanPanel2.Size = new System.Drawing.Size(973, 301);
+            this.artanPanel2.Size = new System.Drawing.Size(1460, 463);
             this.artanPanel2.TabIndex = 4;
             // 
             // dataViewNv
@@ -217,12 +221,11 @@
             this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataViewNv.Location = new System.Drawing.Point(0, 0);
-            this.dataViewNv.Margin = new System.Windows.Forms.Padding(2);
             this.dataViewNv.Name = "dataViewNv";
             this.dataViewNv.RowHeadersVisible = false;
             this.dataViewNv.RowHeadersWidth = 51;
             this.dataViewNv.RowTemplate.Height = 24;
-            this.dataViewNv.Size = new System.Drawing.Size(973, 301);
+            this.dataViewNv.Size = new System.Drawing.Size(1460, 463);
             this.dataViewNv.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataViewNv.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.dataViewNv.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -265,14 +268,14 @@
             this.panel2_nv.Controls.Add(this.label1);
             this.panel2_nv.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2_nv.Location = new System.Drawing.Point(0, 0);
-            this.panel2_nv.Margin = new System.Windows.Forms.Padding(2);
             this.panel2_nv.Name = "panel2_nv";
-            this.panel2_nv.Size = new System.Drawing.Size(973, 125);
+            this.panel2_nv.Size = new System.Drawing.Size(1460, 192);
             this.panel2_nv.TabIndex = 1;
             // 
             // kry_Clear
             // 
-            this.kry_Clear.Location = new System.Drawing.Point(882, 85);
+            this.kry_Clear.Location = new System.Drawing.Point(1323, 131);
+            this.kry_Clear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.kry_Clear.Name = "kry_Clear";
             this.kry_Clear.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kry_Clear.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -286,7 +289,7 @@
             this.kry_Clear.OverrideDefault.Border.Rounding = 20;
             this.kry_Clear.OverrideDefault.Border.Width = 1;
             this.kry_Clear.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kry_Clear.Size = new System.Drawing.Size(56, 34);
+            this.kry_Clear.Size = new System.Drawing.Size(84, 52);
             this.kry_Clear.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kry_Clear.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.kry_Clear.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -327,7 +330,8 @@
             // 
             // kryBt_Edit
             // 
-            this.kryBt_Edit.Location = new System.Drawing.Point(26, 85);
+            this.kryBt_Edit.Location = new System.Drawing.Point(39, 131);
+            this.kryBt_Edit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.kryBt_Edit.Name = "kryBt_Edit";
             this.kryBt_Edit.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBt_Edit.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -341,7 +345,7 @@
             this.kryBt_Edit.OverrideDefault.Border.Rounding = 20;
             this.kryBt_Edit.OverrideDefault.Border.Width = 1;
             this.kryBt_Edit.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryBt_Edit.Size = new System.Drawing.Size(56, 34);
+            this.kryBt_Edit.Size = new System.Drawing.Size(84, 52);
             this.kryBt_Edit.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBt_Edit.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.kryBt_Edit.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -382,7 +386,8 @@
             // 
             // kryBt_Add
             // 
-            this.kryBt_Add.Location = new System.Drawing.Point(26, 85);
+            this.kryBt_Add.Location = new System.Drawing.Point(39, 131);
+            this.kryBt_Add.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.kryBt_Add.Name = "kryBt_Add";
             this.kryBt_Add.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBt_Add.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -396,7 +401,7 @@
             this.kryBt_Add.OverrideDefault.Border.Rounding = 20;
             this.kryBt_Add.OverrideDefault.Border.Width = 1;
             this.kryBt_Add.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryBt_Add.Size = new System.Drawing.Size(56, 34);
+            this.kryBt_Add.Size = new System.Drawing.Size(84, 52);
             this.kryBt_Add.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBt_Add.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.kryBt_Add.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -437,10 +442,9 @@
             // 
             // kryTx_Address
             // 
-            this.kryTx_Address.Location = new System.Drawing.Point(738, 34);
-            this.kryTx_Address.Margin = new System.Windows.Forms.Padding(2);
+            this.kryTx_Address.Location = new System.Drawing.Point(1107, 52);
             this.kryTx_Address.Name = "kryTx_Address";
-            this.kryTx_Address.Size = new System.Drawing.Size(200, 30);
+            this.kryTx_Address.Size = new System.Drawing.Size(300, 38);
             this.kryTx_Address.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryTx_Address.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
             this.kryTx_Address.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
@@ -456,10 +460,9 @@
             // 
             // kryTb_Number
             // 
-            this.kryTb_Number.Location = new System.Drawing.Point(488, 34);
-            this.kryTb_Number.Margin = new System.Windows.Forms.Padding(2);
+            this.kryTb_Number.Location = new System.Drawing.Point(732, 52);
             this.kryTb_Number.Name = "kryTb_Number";
-            this.kryTb_Number.Size = new System.Drawing.Size(200, 30);
+            this.kryTb_Number.Size = new System.Drawing.Size(300, 38);
             this.kryTb_Number.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryTb_Number.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
             this.kryTb_Number.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
@@ -475,10 +478,9 @@
             // 
             // kryTb_Name
             // 
-            this.kryTb_Name.Location = new System.Drawing.Point(253, 34);
-            this.kryTb_Name.Margin = new System.Windows.Forms.Padding(2);
+            this.kryTb_Name.Location = new System.Drawing.Point(380, 52);
             this.kryTb_Name.Name = "kryTb_Name";
-            this.kryTb_Name.Size = new System.Drawing.Size(200, 30);
+            this.kryTb_Name.Size = new System.Drawing.Size(300, 38);
             this.kryTb_Name.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryTb_Name.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
             this.kryTb_Name.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
@@ -494,10 +496,9 @@
             // 
             // kryTx_Id
             // 
-            this.kryTx_Id.Location = new System.Drawing.Point(26, 34);
-            this.kryTx_Id.Margin = new System.Windows.Forms.Padding(2);
+            this.kryTx_Id.Location = new System.Drawing.Point(39, 52);
             this.kryTx_Id.Name = "kryTx_Id";
-            this.kryTx_Id.Size = new System.Drawing.Size(200, 30);
+            this.kryTx_Id.Size = new System.Drawing.Size(300, 38);
             this.kryTx_Id.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryTx_Id.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
             this.kryTx_Id.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
@@ -514,40 +515,36 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(735, 13);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(1102, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.Size = new System.Drawing.Size(104, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "Đơn giá nhập";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(485, 13);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(728, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.Size = new System.Drawing.Size(112, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Số lượng nhập";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(250, 13);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(375, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.Size = new System.Drawing.Size(102, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "Mã hàng hóa";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 13);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(36, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(121, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "Mã chi tiết nhập";
             // 
@@ -559,16 +556,16 @@
             this.panel3.Controls.Add(this.kryBtShowCreate_NV);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1044, 63);
+            this.panel3.Size = new System.Drawing.Size(1566, 97);
             this.panel3.TabIndex = 5;
             // 
             // soluong
             // 
-            this.soluong.Location = new System.Drawing.Point(16, 20);
+            this.soluong.Location = new System.Drawing.Point(24, 31);
+            this.soluong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.soluong.Name = "soluong";
-            this.soluong.Size = new System.Drawing.Size(146, 26);
+            this.soluong.Size = new System.Drawing.Size(215, 38);
             this.soluong.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
             this.soluong.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.soluong.TabIndex = 6;
@@ -576,10 +573,9 @@
             // 
             // txb_tim_kiem_nv
             // 
-            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(332, 13);
-            this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
+            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(498, 20);
             this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
-            this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
+            this.txb_tim_kiem_nv.Size = new System.Drawing.Size(488, 41);
             this.txb_tim_kiem_nv.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
             this.txb_tim_kiem_nv.StateCommon.Border.Color2 = System.Drawing.Color.White;
             this.txb_tim_kiem_nv.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -592,7 +588,8 @@
             // 
             // kryBtShowCreate_NV
             // 
-            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(968, 13);
+            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(1452, 20);
+            this.kryBtShowCreate_NV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.kryBtShowCreate_NV.Name = "kryBtShowCreate_NV";
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -606,7 +603,7 @@
             this.kryBtShowCreate_NV.OverrideDefault.Border.Rounding = 20;
             this.kryBtShowCreate_NV.OverrideDefault.Border.Width = 1;
             this.kryBtShowCreate_NV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryBtShowCreate_NV.Size = new System.Drawing.Size(56, 34);
+            this.kryBtShowCreate_NV.Size = new System.Drawing.Size(84, 52);
             this.kryBtShowCreate_NV.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBtShowCreate_NV.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.kryBtShowCreate_NV.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -660,7 +657,7 @@
             this.lbSoTrang.AutoSize = true;
             this.lbSoTrang.Location = new System.Drawing.Point(32, 12);
             this.lbSoTrang.Name = "lbSoTrang";
-            this.lbSoTrang.Size = new System.Drawing.Size(13, 13);
+            this.lbSoTrang.Size = new System.Drawing.Size(18, 20);
             this.lbSoTrang.TabIndex = 7;
             this.lbSoTrang.Text = "1";
             // 
@@ -711,7 +708,7 @@
             // 
             this.kryTbSearch.Location = new System.Drawing.Point(296, 21);
             this.kryTbSearch.Name = "kryTbSearch";
-            this.kryTbSearch.Size = new System.Drawing.Size(433, 33);
+            this.kryTbSearch.Size = new System.Drawing.Size(433, 41);
             this.kryTbSearch.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
             this.kryTbSearch.StateCommon.Border.Color2 = System.Drawing.Color.White;
             this.kryTbSearch.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -793,10 +790,9 @@
             this.artanPanel1.GradientAngle = 90F;
             this.artanPanel1.GradientBottomColor = System.Drawing.Color.Gainsboro;
             this.artanPanel1.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-            this.artanPanel1.Location = new System.Drawing.Point(10, 94);
-            this.artanPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.artanPanel1.Location = new System.Drawing.Point(15, 145);
             this.artanPanel1.Name = "artanPanel1";
-            this.artanPanel1.Size = new System.Drawing.Size(1044, 596);
+            this.artanPanel1.Size = new System.Drawing.Size(1566, 917);
             this.artanPanel1.TabIndex = 2;
             // 
             // artanPanel3
@@ -808,20 +804,20 @@
             this.artanPanel3.GradientAngle = 90F;
             this.artanPanel3.GradientBottomColor = System.Drawing.Color.CadetBlue;
             this.artanPanel3.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.artanPanel3.Location = new System.Drawing.Point(10, 11);
+            this.artanPanel3.Location = new System.Drawing.Point(15, 17);
+            this.artanPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.artanPanel3.Name = "artanPanel3";
-            this.artanPanel3.Size = new System.Drawing.Size(1044, 63);
+            this.artanPanel3.Size = new System.Drawing.Size(1566, 97);
             this.artanPanel3.TabIndex = 6;
             // 
             // CHITIETNHAP_GUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1068, 700);
+            this.ClientSize = new System.Drawing.Size(1602, 1077);
             this.Controls.Add(this.artanPanel3);
             this.Controls.Add(this.artanPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CHITIETNHAP_GUI";
             this.Text = "CHITIETNHAP_GUI";
             this.panel0_nv.ResumeLayout(false);
