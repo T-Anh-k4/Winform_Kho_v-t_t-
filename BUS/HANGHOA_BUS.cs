@@ -22,8 +22,23 @@ namespace BUS
 		{
 			return hanghoaDAL.GetLoaihang();
 		}
+        public DataTable getDanhSachHangHoaPage(int limit, int page)
+		{
+            return hanghoaDAL.getDanhSachHangHoaPage(limit,page);
 
-		public bool InsertHangHoa(string mahh, string malh, string tenHang, string dvt, string xuatXu)
+        }
+        public int GetSLHangHoa()
+		{
+			return hanghoaDAL.GetSLHangHoa();
+
+        }
+        public bool CheckMaHH(string username)
+		{
+            return hanghoaDAL.CheckMaHH(username);
+
+        }
+
+        public bool InsertHangHoa(string mahh, string malh, string tenHang, string dvt, string xuatXu)
 		{
 			return hanghoaDAL.InsertHangHoa(mahh, malh, tenHang, dvt, xuatXu);
 		}

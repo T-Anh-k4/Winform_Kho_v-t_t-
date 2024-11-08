@@ -17,8 +17,17 @@ namespace BUS
 		{
 			return Loaihang_dal.getDanhSachLoaiHanh();
 		}
+        public DataTable getDanhSachLoaiHangPage(int limit, int page)
+        {
+            return Loaihang_dal.getDanhSachLoaiHangPage(limit, page);
 
-		public bool InsertLoaiHang(string malh, string Tenlh, string diengiai, int flag)
+        }
+        public int GetSLLoaiHang()
+		{
+			return Loaihang_dal.GetSLLoaiHang();
+		}
+
+        public bool InsertLoaiHang(string malh, string Tenlh, string diengiai, int flag)
 		{
 			return Loaihang_dal.InsertLoaiHang(malh, Tenlh, diengiai, flag);
 		}

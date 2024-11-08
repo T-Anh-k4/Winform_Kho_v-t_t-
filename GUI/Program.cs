@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,9 +17,14 @@ namespace GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
 			//Application.Run(new LOGIN_GUI());
 			Application.Run(new TEST_GUI());
 
+=======
+			Application.Run(new LOGIN_GUI());
+			//Application.Run(new RDLC_GUI());
+>>>>>>> 6ee70094013bec07e18934daf55f504953dcf267
 		}
 	}
 }
