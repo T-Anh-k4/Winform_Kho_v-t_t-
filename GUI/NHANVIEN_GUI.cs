@@ -308,17 +308,17 @@ namespace GUI
 
 		private void kryBt_Edit_Click(object sender, EventArgs e)
 		{
-            if (string.IsNullOrWhiteSpace(txtTenNguoiDung.Text))
-            {
-                MessageBox.Show("Tên người dùng không được để trống khi sửa. Vui lòng nhập tên người dùng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Ngăn không cho tiếp tục thực hiện cập nhật
-            }
             if (txtTenNguoiDung.Text == "Nhập tên tài khoản" || txtTenNguoiDung.Text == "")
             {
-                txtTenNguoiDung.Text = "";
-
+                MessageBox.Show("Vui lòng nhập tên tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            bool result = nhanVienBUS.UpdateNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0, txtTenNguoiDung.Text);
+            if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
+			{
+                MessageBox.Show("Tài khoản này đã tồn tại.Vui lòng chọn tài khoản khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+            }
+            bool result = nhanVienBUS.UpdateNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0,txtTenNguoiDung.Text);
 
 			if (result)
 			{

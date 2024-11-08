@@ -32,8 +32,8 @@
 			public TEST_GUI(bool isAdmin)
 			{
 				InitializeComponent();
-            Init();
-            this.isAdmin = isAdmin;
+				Init();
+				this.isAdmin = isAdmin;
 				if (isAdmin)
 				{
 					panel15.Visible = true;
@@ -281,21 +281,23 @@
 		}
 		private void OpenChildForm(KryptonForm childForm)
 		{
-			if (currentChildForm != null)
-			{
-				currentChildForm.Close();
-			}
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+                panelLoadForm.Controls.Clear();
+            }
 
-			currentChildForm = childForm;
-			childForm.TopLevel = false;
-			childForm.FormBorderStyle = FormBorderStyle.None;
-			childForm.Dock = DockStyle.Fill;
+            currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            //childForm.Dock = DockStyle.Fill;
+            childForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
-			panelLoadForm.Controls.Add(childForm);
-			panelLoadForm.Tag = childForm;
-			childForm.BringToFront();
-			childForm.Show();
-		}
+            panelLoadForm.Controls.Add(childForm);
+            panelLoadForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
 		private void kryBtHangHoaContainer_Click(object sender, EventArgs e)
 		{
@@ -454,7 +456,7 @@
 
         private void TEST_GUI_Load(object sender, EventArgs e)
         {
-            OpenChildForm(new NHANVIEN_GUI());
+            //OpenChildForm(new NHANVIEN_GUI());
         }
         //END
     }

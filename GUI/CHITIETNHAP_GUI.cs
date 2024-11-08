@@ -200,12 +200,13 @@ namespace GUI
 								MessageBox.Show("Xóa chi tiết nhập không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 							}
 						}
-					}	catch
-					{
-						MessageBox.Show("Xóa chi tiết nhập không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						catch
+						{
+							MessageBox.Show("Xóa chi tiết nhập không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
+						clear();
+						soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
 					}
-					clear();
-					soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
 				}
 			}
 		}
