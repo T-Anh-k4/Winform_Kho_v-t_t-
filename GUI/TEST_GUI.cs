@@ -323,7 +323,7 @@ namespace GUI
 
         private void btKhachHang_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new KHACHHANG_GUI());
+			//OpenChildForm(new KHACHHANG_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -355,8 +355,8 @@ namespace GUI
 
         private void btHangXuat_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new HANGXUAT_GUI());
-            closeCongDong();
+            OpenChildForm(new HOADONXUAT_GUI());
+			closeCongDong();
             closeDoanhMuc();
 
         }

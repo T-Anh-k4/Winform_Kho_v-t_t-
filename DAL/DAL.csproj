@@ -42,9 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CHITIETNHAP_DAL.cs" />
+    <Compile Include="CHITIETXUAT_DAL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="HANGHOA_DAL.cs" />
     <Compile Include="HANGNHAP_DAL.cs" />
+    <Compile Include="HOADONXUAT_DAL.cs" />
+    <Compile Include="KHACHHANG_DAL.cs" />
     <Compile Include="LOAIHANG_DAL.cs" />
     <Compile Include="LOGIN_DAL.cs" />
     <Compile Include="NHACUNGCAP_DAL.cs" />
