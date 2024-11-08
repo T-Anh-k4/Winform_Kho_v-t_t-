@@ -313,11 +313,6 @@ namespace GUI
                 MessageBox.Show("Tên người dùng không được để trống khi sửa. Vui lòng nhập tên người dùng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Ngăn không cho tiếp tục thực hiện cập nhật
             }
-            if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
-            {
-                MessageBox.Show("Tên người dùng đã tồn tại. Vui lòng chọn tên người dùng khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Ngăn không cho tiếp tục thực hiện cập nhật
-            }
             if (txtTenNguoiDung.Text == "Nhập tên tài khoản" || txtTenNguoiDung.Text == "")
             {
                 txtTenNguoiDung.Text = "";
