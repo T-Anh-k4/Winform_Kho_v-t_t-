@@ -47,6 +47,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxMaHH = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.soluong = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -187,7 +188,7 @@
             this.kryBtPre.StatePressed.Border.Width = 0;
             this.kryBtPre.TabIndex = 3;
             this.kryBtPre.Values.Text = "kryptonButton1";
-            this.kryBtPre.Click += new System.EventHandler(this.kryBtPredious_Click);
+            this.kryBtPre.Click += new System.EventHandler(this.kryBtPrevious_Click);
             // 
             // artanPanel2
             // 
@@ -251,6 +252,8 @@
             // 
             // panel2_nv
             // 
+            this.panel2_nv.Controls.Add(this.comboBoxMaHH);
+            this.panel2_nv.Controls.SetChildIndex(this.comboBoxMaHH, 0);
             this.panel2_nv.Controls.Add(this.kry_Clear);
             this.panel2_nv.Controls.Add(this.kryBt_Edit);
             this.panel2_nv.Controls.Add(this.kryBt_Add);
@@ -518,6 +521,17 @@
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Mã hàng hóa";
+            // 
+            // comboBoxMaHH
+            // 
+            this.comboBoxMaHH.FormattingEnabled = true;
+            this.comboBoxMaHH.Location = new System.Drawing.Point(253, 5);
+            this.comboBoxMaHH.Name = "comboBoxMaHH";
+            this.comboBoxMaHH.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxMaHH.TabIndex = 31;
+            this.comboBoxMaHH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMaHH.DisplayMember = "Text";
+            this.comboBoxMaHH.ValueMember = "ID";
             // 
             // panel3
             // 
@@ -858,5 +872,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel soluong;
         private ArtanComponent.ArtanPanel artanPanel3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxMaHH;
     }
+
 }

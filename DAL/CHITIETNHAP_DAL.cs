@@ -63,7 +63,7 @@ namespace DAL
             return result != null ? Convert.ToInt32(result) : 0;
         }
 
-        private bool CombineOrInsertChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
+        public bool InsertChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
         {
             try
             {
@@ -87,16 +87,6 @@ namespace DAL
                         new SqlParameter("@donGiaNhap", donGiaNhap)
                     };
                     instance.execNonQuery(updateQuery, updateParameters);
-
-                    // Delete the previous entry
-                    string deleteQuery = "DELETE FROM CHITIET_HD_NHAP WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap AND SOLUONG_NHAP = @existingSLNhap";
-                    SqlParameter[] deleteParameters = {
-                        new SqlParameter("@maHH", maHH),
-                        new SqlParameter("@maHDN", maHDN),
-                        new SqlParameter("@donGiaNhap", donGiaNhap),
-                        new SqlParameter("@existingSLNhap", existingSLNhap)
-                    };
-                    instance.execNonQuery(deleteQuery, deleteParameters);
                 }
                 else
                 {
@@ -106,7 +96,7 @@ namespace DAL
                     SqlParameter[] insertParameters = {
                         new SqlParameter("@id", newID),
                         new SqlParameter("@maHH", maHH),
-                        new SqlParameter("@maHDN", maHDN),  
+                        new SqlParameter("@maHDN", maHDN),
                         new SqlParameter("@soLuongNhap", soLuongNhap),
                         new SqlParameter("@donGiaNhap", donGiaNhap)
                     };
@@ -116,18 +106,33 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Có lỗi xảy ra khi thực hiện thao tác: " + ex.Message);
+                throw new Exception("Có lỗi xảy ra khi thêm chi tiết nhập: " + ex.Message);
             }
-        }
-
-        public bool InsertChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
-        {
-            return CombineOrInsertChiTietNhap(maHH, maHDN, soLuongNhap, donGiaNhap);
         }
 
         public bool UpdateChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
         {
-            return CombineOrInsertChiTietNhap(maHH, maHDN, soLuongNhap, donGiaNhap);
+            try
+            {
+                string query = "UPDATE CHITIET_HD_NHAP " +
+                               "SET MAHH = @maHH, " +
+                               "SO_HD_NHAP = @maHDN, " +
+                               "SOLUONG_NHAP = @soLuongNhap, " +
+                               "DONGIA_NHAP = @donGiaNhap " +
+                               "WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
+                SqlParameter[] parameters = {
+                    new SqlParameter("@maHH", maHH),
+                    new SqlParameter("@maHDN", maHDN),
+                    new SqlParameter("@soLuongNhap", soLuongNhap),
+                    new SqlParameter("@donGiaNhap", donGiaNhap)
+                };
+                instance.execNonQuery(query, parameters);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool DeleteChiTietNhap(string maHH, string maHDN, int donGiaNhap)
