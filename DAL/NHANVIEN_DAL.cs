@@ -96,7 +96,7 @@ namespace DAL
         {
             try
             {
-                // Sử dụng NULL nếu username rỗng
+                // Sử dụng NULL cho USERNAME nếu username trống
                 string query = "UPDATE NHANVIEN " +
                                "SET TENNV = N'" + tenNV + "', " +
                                "GIOITINH = N'" + gioiTinh + "', " +
@@ -104,8 +104,8 @@ namespace DAL
                                "DIACHI = N'" + diaChi + "', " +
                                "SDT = N'" + soDT + "', " +
                                "DIENGIAI = N'" + dienGia + "', " +
-                               "FLAG = " + flag + " , " +
-                               "USERNAME = " + (username == null ? "NULL" : "N'" + username + "'") + " " +
+                               "FLAG = " + flag + ", " +
+                               "USERNAME = " + (string.IsNullOrEmpty(username) ? "NULL" : $"'{username}'") + " " +
                                "WHERE MANV = N'" + maNV + "'";
 
                 instance.execNonQuery(query);
@@ -120,14 +120,8 @@ namespace DAL
         public bool CheckUserName(string username)
         {
             // Kiểm tra xem tên tài khoản đã tồn tại hoặc là NULL
-            string query = "SELECT COUNT(USERNAME) FROM NGUOIDUNG " +
-                           "WHERE USERNAME IN (SELECT USERNAME FROM NHANVIEN) " +
-                           "AND (USERNAME = N'" + username + "' OR USERNAME IS NULL)";
-
-            // Gọi execScalar để thực hiện truy vấn và lấy số lượng
-            object result = instance.execScalar(query);
-
-            // Chuyển đổi kết quả thành int và kiểm tra xem có lớn hơn 0 hay không
+            string query = "select count(USERNAME) from NGUOIDUNG where USERNAME in (select USERNAME from NHANVIEN ) and USERNAME = N'" + username + "'";
+            object result = instance.execScalar(query); 
             return result != null && (int)result > 0; // Trả về true nếu USERNAME đã tồn tại hoặc là NULL
         }
 

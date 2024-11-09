@@ -310,14 +310,14 @@ namespace GUI
 		{
             if (txtTenNguoiDung.Text == "Nhập tên tài khoản" || txtTenNguoiDung.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập tên tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                txtTenNguoiDung.Text = null;
+
             }
-            if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
+			if (nhanVienBUS.CheckUserName(txtTenNguoiDung.Text))
 			{
-                MessageBox.Show("Tài khoản này đã tồn tại.Vui lòng chọn tài khoản khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Tài khoản này đã tồn tại.Vui lòng chọn tài khoản khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
-            }
+			}
             bool result = nhanVienBUS.UpdateNhanVien(kryTx_Id.Text, kryTb_Name.Text, kryCb_Gender.SelectedValue.ToString(), kry_Datetime.Value.ToString("yyyy-MM-dd"), kryTx_Address.Text, kryTb_Number.Text, kryTb_Pos.Text, kryCheckBox_Status.Checked ? 1 : 0,txtTenNguoiDung.Text);
 
 			if (result)
