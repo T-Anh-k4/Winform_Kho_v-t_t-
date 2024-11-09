@@ -37,6 +37,7 @@ namespace GUI
 			initUser();
 			panel2_nv.Height = 0;
 			soluong.Text = "Chi tiết nhập (" + maHDN + ")";
+			fillHDNLabel();
 			dataViewNv.CellFormatting += dataViewNv_CellFormatting;
 		}
 
@@ -343,7 +344,7 @@ namespace GUI
 			SetPlaceholder(kryTb_SLNhap, GetPlaceholder(kryTb_SLNhap));
 			SetPlaceholder(kryTb_DGNhap, GetPlaceholder(kryTb_DGNhap));
 		}
-		
+
 		private void kryBtPrevious_Click(object sender, EventArgs e)
 		{
 			curentPage--;
@@ -381,7 +382,7 @@ namespace GUI
 				createTransition.Stop();
 			}
 		}
-		
+
 		private void txb_tim_kiem_LH_TextChanged(object sender, EventArgs e)
 		{
 			string keyword = txb_tim_kiem_nv.Text.Trim();
@@ -468,6 +469,18 @@ namespace GUI
 			kryCb_HangHoa.DataSource = comboItems;
 			kryCb_HangHoa.DisplayMember = "Text";
 			kryCb_HangHoa.ValueMember = "ID";
+		}
+
+		private void fillHDNLabel()
+		{
+			DataTable dt = chiTietNhapBUS.getHoaDonNhapDetail(maHDN);
+			if (dt.Rows.Count > 0)
+			{
+				// labelMaHDN.Text = dt.Rows[0]["Số hóa đơn nhập"].ToString();
+				LB_NCC.Text = dt.Rows[0]["Tên nhà cung cấp"].ToString();
+				LB_NV.Text = dt.Rows[0]["Tên nhân viên"].ToString();
+				LB_NgayNhap.Text = dt.Rows[0]["Ngày lập hóa đơn"].ToString();
+			}
 		}
 	}
 

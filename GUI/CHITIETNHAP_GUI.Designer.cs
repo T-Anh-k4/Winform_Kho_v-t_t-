@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel0_nv = new ArtanComponent.ArtanPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.kryBt_Next = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -63,6 +63,9 @@
             this.artanPanel1 = new ArtanComponent.ArtanPanel();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.artanPanel3 = new ArtanComponent.ArtanPanel();
+            this.LB_NCC = new System.Windows.Forms.Label();
+            this.LB_NV = new System.Windows.Forms.Label();
+            this.LB_NgayNhap = new System.Windows.Forms.Label();
             this.panel0_nv.SuspendLayout();
             this.panel4.SuspendLayout();
             this.artanPanel2.SuspendLayout();
@@ -210,9 +213,9 @@
             this.dataViewNv.AllowUserToAddRows = false;
             this.dataViewNv.AllowUserToResizeColumns = false;
             this.dataViewNv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -522,6 +525,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.LB_NgayNhap);
+            this.panel3.Controls.Add(this.LB_NV);
+            this.panel3.Controls.Add(this.LB_NCC);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.soluong);
             this.panel3.Controls.Add(this.txb_tim_kiem_nv);
@@ -546,7 +552,7 @@
             // 
             // soluong
             // 
-            this.soluong.Location = new System.Drawing.Point(257, 20);
+            this.soluong.Location = new System.Drawing.Point(611, 15);
             this.soluong.Name = "soluong";
             this.soluong.Size = new System.Drawing.Size(146, 26);
             this.soluong.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
@@ -556,7 +562,7 @@
             // 
             // txb_tim_kiem_nv
             // 
-            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(423, 13);
+            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(644, 13);
             this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
             this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
             this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
@@ -793,6 +799,36 @@
             this.artanPanel3.Size = new System.Drawing.Size(1044, 63);
             this.artanPanel3.TabIndex = 6;
             // 
+            // LB_NCC
+            // 
+            this.LB_NCC.AutoSize = true;
+            this.LB_NCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LB_NCC.Location = new System.Drawing.Point(171, 11);
+            this.LB_NCC.Name = "LB_NCC";
+            this.LB_NCC.Size = new System.Drawing.Size(34, 17);
+            this.LB_NCC.TabIndex = 30;
+            this.LB_NCC.Text = "LVS";
+            // 
+            // LB_NV
+            // 
+            this.LB_NV.AutoSize = true;
+            this.LB_NV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LB_NV.Location = new System.Drawing.Point(171, 45);
+            this.LB_NV.Name = "LB_NV";
+            this.LB_NV.Size = new System.Drawing.Size(34, 17);
+            this.LB_NV.TabIndex = 31;
+            this.LB_NV.Text = "LVS";
+            // 
+            // LB_NgayNhap
+            // 
+            this.LB_NgayNhap.AutoSize = true;
+            this.LB_NgayNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LB_NgayNhap.Location = new System.Drawing.Point(171, 28);
+            this.LB_NgayNhap.Name = "LB_NgayNhap";
+            this.LB_NgayNhap.Size = new System.Drawing.Size(34, 17);
+            this.LB_NgayNhap.TabIndex = 32;
+            this.LB_NgayNhap.Text = "LVS";
+            // 
             // CHITIETNHAP_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -859,6 +895,9 @@
         private ArtanComponent.ArtanPanel artanPanel3;
         private System.Windows.Forms.Label label5;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox kryCb_HangHoa;
+        private System.Windows.Forms.Label LB_NgayNhap;
+        private System.Windows.Forms.Label LB_NV;
+        private System.Windows.Forms.Label LB_NCC;
     }
 
 }
