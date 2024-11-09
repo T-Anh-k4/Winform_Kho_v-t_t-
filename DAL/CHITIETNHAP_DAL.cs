@@ -55,6 +55,24 @@ namespace DAL
             return slChiTietNhap;
         }
 
+		public DataTable getMaVaTenHH(){
+			string query = "SELECT MAHH as [Mã hàng hóa], TENHH as [Tên hàng hóa]" +
+						   "FROM HANGHOA";
+			return instance.execQuery(query);
+		}
+
+        public DataTable getHoaDonNhapDetail(string maHDN)
+        {
+            string query = "SELECT SO_HD_NHAP as [Số hóa đơn nhập], TENNCC as [Tên nhà cung cấp], TENNV as [Tên nhân viên], NGAYLAP_NHAP as [Ngày lập hóa đơn] " +
+                           "FROM HOADON_NHAP " +
+                           "JOIN NHACUNGCAP ON HOADON_NHAP.MANCC = NHACUNGCAP.MANCC " +
+                           "JOIN NHANVIEN ON HOADON_NHAP.MANV = NHANVIEN.MANV " +
+                           "WHERE SO_HD_NHAP = @maHDN";
+            SqlParameter[] parameters = {
+                new SqlParameter("@maHDN", SqlDbType.NVarChar) { Value = maHDN }
+            };
+            return instance.execQuery(query, parameters);
+        }
 
         public int GetMaxID()
         {

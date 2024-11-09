@@ -6,7 +6,7 @@ namespace BUS
 {
     public class CHITIETNHAP_BUS
     {
-        private CHITIETNHAP_DAL chiTietNhapDAL;
+        private CHITIETNHAP_DAL chiTietNhapDAL = new CHITIETNHAP_DAL();
 
         public CHITIETNHAP_BUS()
         {
@@ -26,6 +26,16 @@ namespace BUS
         public int GetSLChiTietNhap(string maHDN)
         {
             return chiTietNhapDAL.GetSLChiTietNhap(maHDN);
+        }
+        
+		public DataTable getMaVaTenHH()
+		{
+			return chiTietNhapDAL.getMaVaTenHH();
+		}
+
+        public DataTable getHoaDonNhapDetail(string maHDN)
+        {
+            return chiTietNhapDAL.getHoaDonNhapDetail(maHDN);
         }
 
         public bool InsertChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)

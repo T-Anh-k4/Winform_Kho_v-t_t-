@@ -38,16 +38,15 @@
             this.artanPanel2 = new ArtanComponent.ArtanPanel();
             this.dataViewNv = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.panel2_nv = new System.Windows.Forms.Panel();
+            this.kryCb_HangHoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kry_Clear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryBt_Edit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryBt_Add = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryTb_DGNhap = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryTb_SLNhap = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryTb_MaHH = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxMaHH = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.soluong = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -64,11 +63,15 @@
             this.artanPanel1 = new ArtanComponent.ArtanPanel();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.artanPanel3 = new ArtanComponent.ArtanPanel();
+            this.LB_NCC = new System.Windows.Forms.Label();
+            this.LB_NV = new System.Windows.Forms.Label();
+            this.LB_NgayNhap = new System.Windows.Forms.Label();
             this.panel0_nv.SuspendLayout();
             this.panel4.SuspendLayout();
             this.artanPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewNv)).BeginInit();
             this.panel2_nv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryCb_HangHoa)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -252,14 +255,12 @@
             // 
             // panel2_nv
             // 
-            this.panel2_nv.Controls.Add(this.comboBoxMaHH);
-            this.panel2_nv.Controls.SetChildIndex(this.comboBoxMaHH, 0);
+            this.panel2_nv.Controls.Add(this.kryCb_HangHoa);
             this.panel2_nv.Controls.Add(this.kry_Clear);
             this.panel2_nv.Controls.Add(this.kryBt_Edit);
             this.panel2_nv.Controls.Add(this.kryBt_Add);
             this.panel2_nv.Controls.Add(this.kryTb_DGNhap);
             this.panel2_nv.Controls.Add(this.kryTb_SLNhap);
-            this.panel2_nv.Controls.Add(this.kryTb_MaHH);
             this.panel2_nv.Controls.Add(this.label4);
             this.panel2_nv.Controls.Add(this.label3);
             this.panel2_nv.Controls.Add(this.label2);
@@ -269,6 +270,24 @@
             this.panel2_nv.Name = "panel2_nv";
             this.panel2_nv.Size = new System.Drawing.Size(973, 125);
             this.panel2_nv.TabIndex = 1;
+            // 
+            // kryCb_HangHoa
+            // 
+            this.kryCb_HangHoa.DropDownWidth = 184;
+            this.kryCb_HangHoa.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.kryCb_HangHoa.Location = new System.Drawing.Point(253, 34);
+            this.kryCb_HangHoa.Margin = new System.Windows.Forms.Padding(2);
+            this.kryCb_HangHoa.Name = "kryCb_HangHoa";
+            this.kryCb_HangHoa.Size = new System.Drawing.Size(210, 33);
+            this.kryCb_HangHoa.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
+            this.kryCb_HangHoa.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
+            this.kryCb_HangHoa.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryCb_HangHoa.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryCb_HangHoa.StateCommon.ComboBox.Border.Rounding = 20;
+            this.kryCb_HangHoa.StateCommon.ComboBox.Border.Width = 1;
+            this.kryCb_HangHoa.TabIndex = 32;
             // 
             // kry_Clear
             // 
@@ -473,25 +492,6 @@
             this.kryTb_SLNhap.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.kryTb_SLNhap.TabIndex = 23;
             // 
-            // kryTb_MaHH
-            // 
-            this.kryTb_MaHH.Location = new System.Drawing.Point(253, 34);
-            this.kryTb_MaHH.Margin = new System.Windows.Forms.Padding(2);
-            this.kryTb_MaHH.Name = "kryTb_MaHH";
-            this.kryTb_MaHH.Size = new System.Drawing.Size(200, 30);
-            this.kryTb_MaHH.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.kryTb_MaHH.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.kryTb_MaHH.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
-            this.kryTb_MaHH.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryTb_MaHH.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.kryTb_MaHH.StateCommon.Border.Rounding = 20;
-            this.kryTb_MaHH.StateCommon.Border.Width = 1;
-            this.kryTb_MaHH.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.kryTb_MaHH.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.kryTb_MaHH.TabIndex = 22;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -518,24 +518,16 @@
             this.label2.Location = new System.Drawing.Point(250, 13);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Mã hàng hóa";
-            // 
-            // comboBoxMaHH
-            // 
-            this.comboBoxMaHH.FormattingEnabled = true;
-            this.comboBoxMaHH.Location = new System.Drawing.Point(253, 5);
-            this.comboBoxMaHH.Name = "comboBoxMaHH";
-            this.comboBoxMaHH.Size = new System.Drawing.Size(200, 21);
-            this.comboBoxMaHH.TabIndex = 31;
-            this.comboBoxMaHH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMaHH.DisplayMember = "Text";
-            this.comboBoxMaHH.ValueMember = "ID";
+            this.label2.Text = "Hàng hóa";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.LB_NgayNhap);
+            this.panel3.Controls.Add(this.LB_NV);
+            this.panel3.Controls.Add(this.LB_NCC);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.soluong);
             this.panel3.Controls.Add(this.txb_tim_kiem_nv);
@@ -560,7 +552,7 @@
             // 
             // soluong
             // 
-            this.soluong.Location = new System.Drawing.Point(257, 20);
+            this.soluong.Location = new System.Drawing.Point(611, 15);
             this.soluong.Name = "soluong";
             this.soluong.Size = new System.Drawing.Size(146, 26);
             this.soluong.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
@@ -570,7 +562,7 @@
             // 
             // txb_tim_kiem_nv
             // 
-            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(423, 13);
+            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(644, 13);
             this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
             this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
             this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
@@ -807,6 +799,36 @@
             this.artanPanel3.Size = new System.Drawing.Size(1044, 63);
             this.artanPanel3.TabIndex = 6;
             // 
+            // LB_NCC
+            // 
+            this.LB_NCC.AutoSize = true;
+            this.LB_NCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LB_NCC.Location = new System.Drawing.Point(171, 11);
+            this.LB_NCC.Name = "LB_NCC";
+            this.LB_NCC.Size = new System.Drawing.Size(34, 17);
+            this.LB_NCC.TabIndex = 30;
+            this.LB_NCC.Text = "LVS";
+            // 
+            // LB_NV
+            // 
+            this.LB_NV.AutoSize = true;
+            this.LB_NV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LB_NV.Location = new System.Drawing.Point(171, 45);
+            this.LB_NV.Name = "LB_NV";
+            this.LB_NV.Size = new System.Drawing.Size(34, 17);
+            this.LB_NV.TabIndex = 31;
+            this.LB_NV.Text = "LVS";
+            // 
+            // LB_NgayNhap
+            // 
+            this.LB_NgayNhap.AutoSize = true;
+            this.LB_NgayNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LB_NgayNhap.Location = new System.Drawing.Point(171, 28);
+            this.LB_NgayNhap.Name = "LB_NgayNhap";
+            this.LB_NgayNhap.Size = new System.Drawing.Size(34, 17);
+            this.LB_NgayNhap.TabIndex = 32;
+            this.LB_NgayNhap.Text = "LVS";
+            // 
             // CHITIETNHAP_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -825,6 +847,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataViewNv)).EndInit();
             this.panel2_nv.ResumeLayout(false);
             this.panel2_nv.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryCb_HangHoa)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -848,7 +871,6 @@
         private System.Windows.Forms.Label label2;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryTb_DGNhap;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryTb_SLNhap;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryTb_MaHH;
         private System.Windows.Forms.Panel panel1;
         private ArtanComponent.ArtanPanel artanPanel1;
         private ArtanComponent.ArtanPanel artanPanel2;
@@ -872,7 +894,10 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel soluong;
         private ArtanComponent.ArtanPanel artanPanel3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBoxMaHH;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox kryCb_HangHoa;
+        private System.Windows.Forms.Label LB_NgayNhap;
+        private System.Windows.Forms.Label LB_NV;
+        private System.Windows.Forms.Label LB_NCC;
     }
 
 }
