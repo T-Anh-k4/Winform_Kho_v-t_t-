@@ -17,7 +17,7 @@ namespace GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new TEST_GUI());
+			Application.Run(new KHACHHANG_GUI());
 			//Application.Run(new RDLC_GUI());
 		}
 	}

@@ -132,12 +132,6 @@
     <Compile Include="CHITIETNHAP_GUI.Designer.cs">
       <DependentUpon>CHITIETNHAP_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="CHITIETXUAT_GUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CHITIETXUAT_GUI.Designer.cs">
-      <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="CTHDNDataSet.cs">
       <DependentUpon>CTHDNDataSet.xsd</DependentUpon>
     </Compile>
@@ -169,6 +163,12 @@
     </Compile>
     <Compile Include="HANGXUAT_GUI.Designer.cs">
       <DependentUpon>HANGXUAT_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HOADONXUAT_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HOADONXUAT_GUI.Designer.cs">
+      <DependentUpon>HOADONXUAT_GUI.cs</DependentUpon>
     </Compile>
     <Compile Include="HUONGDAN_GUI.cs">
       <SubType>Form</SubType>
@@ -257,9 +257,6 @@
     <EmbeddedResource Include="CHITIETNHAP_GUI.resx">
       <DependentUpon>CHITIETNHAP_GUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CHITIETXUAT_GUI.resx">
-      <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CTHDN_RP.rdlc" />
     <EmbeddedResource Include="FORMLOAD_GUI.resx">
       <DependentUpon>FORMLOAD_GUI.cs</DependentUpon>
@@ -270,8 +267,14 @@
     <EmbeddedResource Include="HANGNHAP_GUI.resx">
       <DependentUpon>HANGNHAP_GUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HOADONXUAT_GUI.resx">
+      <DependentUpon>HOADONXUAT_GUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HUONGDAN_GUI.resx">
       <DependentUpon>HUONGDAN_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KHACHHANG_GUI.resx">
+      <DependentUpon>KHACHHANG_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KHO_GUI.resx">
       <DependentUpon>KHO_GUI.cs</DependentUpon>

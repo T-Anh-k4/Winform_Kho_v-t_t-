@@ -28,12 +28,7 @@ namespace GUI
 			InitializeComponent();
 			maHDN = _maHDN;
 			this.testGui = testGui;
-			init();
 			PopulateComboBox();
-		}
-
-		public void init()
-		{
 			initUser();
 			panel2_nv.Height = 0;
 			fillHDNLabel();
@@ -44,8 +39,6 @@ namespace GUI
 		{
 			loadDt_ChiTietNhap();
 
-			// Create a list of key-value pairs for gender options
-
 
 			kryTbSearch.Enter += kryTbSearch_Enter;
 			kryTbSearch.Leave += kryTbSearch_Leave;
@@ -54,25 +47,25 @@ namespace GUI
 			kryTb_DGNhap.Enter += kryTbSearch_Enter;
 			kryTb_DGNhap.Leave += kryTbSearch_Leave;
 			SetPlaceholder(kryTbSearch, "Tìm kiếm");
-			//SetPlaceholder(kryTb_MaHH, "Nhập tên hàng hóa");
-			//SetPlaceholder(kryTb_SLNhap, "Nhập số lượng nhập");
-			//SetPlaceholder(kryTb_DGNhap, "Nhập đơn giá nhập");
+			// SetPlaceholder(kryTb_MaHH, "Nhập tên hàng hóa");
+			SetPlaceholder(kryTb_SLNhap, "Nhập số lượng nhập");
+			SetPlaceholder(kryTb_DGNhap, "Nhập đơn giá nhập");
 		}
 
-		public bool IsPressAdd()
+		public void IsPressAdd()
 		{
 			clear();
 			kryBt_Add.Visible = true;
 			kryTb_DGNhap.Enabled = true;
-			return kryBt_Add.Visible;
+			// return kryBt_Add.Visible;
 		}
 
-		public bool IsPressEdit()
+		public void IsPressEdit()
 		{
 			kryBt_Edit.Visible = true;
 			kryTb_DGNhap.Enabled = false;
 
-			return kryBt_Edit.Visible;
+			// return kryBt_Edit.Visible;
 		}
 
 		public void loadDt_ChiTietNhap()
