@@ -20,13 +20,13 @@ namespace DAL
 
         public DataTable getDanhSachKhachHang()
         {
-            string query = "SELECT MAKH AS [Mã khách hàng], TENKH AS [Tên khách hàng], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], FLAG AS [Trạng thái] FROM KHACHHANG";
+            string query = "SELECT MAKH AS [Mã khách hàng], TENKH AS [Tên khách hàng], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại] FROM KHACHHANG";
             return instance.execQuery(query);
         }
 
         public DataTable getDanhSachKhachHangPage(int limit, int page)
         {
-            string query = "SELECT MAKH AS [Mã khách hàng], TENKH AS [Tên khách hàng], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], FLAG AS [Trạng thái] FROM KHACHHANG";
+            string query = "SELECT MAKH AS [Mã khách hàng], TENKH AS [Tên khách hàng], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại] FROM KHACHHANG";
 
             using (SqlConnection con = new SqlConnection(LinkData))
             {
@@ -49,11 +49,11 @@ namespace DAL
             return slKhachHang;
         }
 
-        public DataTable GetKhachHang(string maKH)
-        {
-            string query = "SELECT MAKH AS [Mã khách hàng], TENKH AS [Tên khách hàng], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], FLAG AS [Trạng thái] FROM KHACHHANG WHERE MAKH = N'" + maKH + "'";
-            return instance.execQuery(query);
-        }
+        //public DataTable GetKhachHang(string maKH)
+        //{
+        //    string query = "SELECT MAKH AS [Mã khách hàng], TENKH AS [Tên khách hàng], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], FLAG AS [Trạng thái] FROM KHACHHANG WHERE MAKH = N'" + maKH + "'";
+        //    return instance.execQuery(query);
+        //}
 
         public bool DeleteKhachHang(string maKH)
         {
@@ -69,12 +69,12 @@ namespace DAL
             return true;
         }
 
-        public bool InsertKhachHang(string maKH, string tenKH, string diaChi, string soDT, int flag)
+        public bool InsertKhachHang(string maKH, string tenKH, string diaChi, string soDT)
         {
             try
             {
-                string query = "INSERT INTO KHACHHANG(MAKH, TENKH, DIACHI, SDT, FLAG) " +
-                               "VALUES (N'" + maKH + "', N'" + tenKH + "', N'" + diaChi + "', N'" + soDT + "', " + flag + ")";
+                string query = "INSERT INTO KHACHHANG(MAKH, TENKH, DIACHI, SDT) " +
+                 "VALUES (N'" + maKH + "', N'" + tenKH + "', N'" + diaChi + "', N'" + soDT + "')";
                 instance.execNonQuery(query);
             }
             catch
@@ -84,16 +84,16 @@ namespace DAL
             return true;
         }
 
-        public bool UpdateKhachHang(string maKH, string tenKH, string diaChi, string soDT, int flag)
+        public bool UpdateKhachHang(string maKH, string tenKH, string diaChi, string soDT)
         {
             try
             {
                 string query = "UPDATE KHACHHANG " +
-                               "SET TENKH = N'" + tenKH + "', " +
-                               "DIACHI = N'" + diaChi + "', " +
-                               "SDT = N'" + soDT + "', " +
-                               "FLAG = " + flag + " " +
-                               "WHERE MAKH = N'" + maKH + "'";
+                "SET TENKH = N'" + tenKH + "', " +
+                "DIACHI = N'" + diaChi + "', " +
+                "SDT = N'" + soDT + "' " +  
+                "WHERE MAKH = N'" + maKH + "'";
+
 
                 instance.execNonQuery(query);
             }
@@ -108,7 +108,7 @@ namespace DAL
         {
             try
             {
-                string query = "SELECT MAKH AS [Mã khách hàng], TENKH AS [Tên khách hàng], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], FLAG AS [Trạng thái] " +
+                string query = "SELECT MAKH AS [Mã khách hàng], TENKH AS [Tên khách hàng], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại]" +
                                "FROM KHACHHANG " +
                                "WHERE TENKH LIKE N'%" + keyword + "%'";
 

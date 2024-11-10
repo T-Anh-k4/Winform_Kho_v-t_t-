@@ -27,19 +27,15 @@ namespace BUS
             return khachHangDAO.GetSoLuongKhachHang();
         }
 
-        public DataTable GetKhachHang(string maKH)
+
+        public bool InsertKhachHang(string maKH, string tenKH, string diaChi, string soDT)
         {
-            return khachHangDAO.GetKhachHang(maKH);
+            return khachHangDAO.InsertKhachHang(maKH, tenKH, diaChi, soDT);
         }
 
-        public bool InsertKhachHang(string maKH, string tenKH, string diaChi, string soDT, int flag)
+        public bool UpdateKhachHang(string maKH, string tenKH, string diaChi, string soDT)
         {
-            return khachHangDAO.InsertKhachHang(maKH, tenKH, diaChi, soDT, flag);
-        }
-
-        public bool UpdateKhachHang(string maKH, string tenKH, string diaChi, string soDT, int flag)
-        {
-            return khachHangDAO.UpdateKhachHang(maKH, tenKH, diaChi, soDT, flag);
+            return khachHangDAO.UpdateKhachHang(maKH, tenKH, diaChi, soDT);
         }
 
         public bool DeleteKhachHang(string maKH)

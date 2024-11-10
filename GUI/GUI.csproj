@@ -263,6 +263,9 @@
     <EmbeddedResource Include="HUONGDAN_GUI.resx">
       <DependentUpon>HUONGDAN_GUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KHACHHANG_GUI.resx">
+      <DependentUpon>KHACHHANG_GUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KHO_GUI.resx">
       <DependentUpon>KHO_GUI.cs</DependentUpon>
     </EmbeddedResource>
