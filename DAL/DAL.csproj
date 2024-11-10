@@ -54,6 +54,7 @@
     <Compile Include="NHANVIEN_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RDLC_DAL.cs" />
+    <Compile Include="TRANGCHU_DAL.cs" />
     <Compile Include="USER_DAL.cs" />
   </ItemGroup>
   <ItemGroup>

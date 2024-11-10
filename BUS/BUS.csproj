@@ -55,6 +55,7 @@
     <Compile Include="NHANVIEN_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RDLC_BUS.cs" />
+    <Compile Include="TRANGCHU_BUS.cs" />
     <Compile Include="USER_BUS.cs" />
   </ItemGroup>
   <ItemGroup>
