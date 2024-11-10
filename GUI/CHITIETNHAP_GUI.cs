@@ -36,7 +36,6 @@ namespace GUI
 		{
 			initUser();
 			panel2_nv.Height = 0;
-			soluong.Text = "Chi tiết nhập (" + maHDN + ")";
 			fillHDNLabel();
 			dataViewNv.CellFormatting += dataViewNv_CellFormatting;
 		}
@@ -199,7 +198,7 @@ namespace GUI
 
 					clear();
 					createTransition_Tick(sender, e);
-					soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
+					//soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
 				}
 			}
 		}
@@ -234,13 +233,13 @@ namespace GUI
 					loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
 					MessageBox.Show("Thêm chi tiết nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					clear();
-					createTransition_Tick(sender, e);
+					//createTransition_Tick(sender, e);
 				}
 				else
 				{
 					MessageBox.Show("Thêm chi tiết nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
-				soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
+				//soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
 			}
 			catch
 			{
@@ -265,7 +264,7 @@ namespace GUI
 				{
 					MessageBox.Show("Sửa chi tiết nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					clear();
-					createTransition_Tick(sender, e);
+					//createTransition_Tick(sender, e);
 					loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
 				}
 				else
@@ -476,10 +475,10 @@ namespace GUI
 			DataTable dt = chiTietNhapBUS.getHoaDonNhapDetail(maHDN);
 			if (dt.Rows.Count > 0)
 			{
-				// labelMaHDN.Text = dt.Rows[0]["Số hóa đơn nhập"].ToString();
-				LB_NCC.Text = dt.Rows[0]["Tên nhà cung cấp"].ToString();
-				LB_NV.Text = dt.Rows[0]["Tên nhân viên"].ToString();
-				LB_NgayNhap.Text = dt.Rows[0]["Ngày lập hóa đơn"].ToString();
+				lbSoHDN.Text = dt.Rows[0]["Số hóa đơn nhập"].ToString();
+				lbNcc.Text =  dt.Rows[0]["Tên nhà cung cấp"].ToString();
+				lbNhanVien.Text =  dt.Rows[0]["Tên nhân viên"].ToString();
+				lbNgayLap.Text =  dt.Rows[0]["Ngày lập hóa đơn"].ToString();
 			}
 		}
 	}
