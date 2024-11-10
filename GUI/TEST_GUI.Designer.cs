@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TEST_GUI));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btTinNhan = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.txtSeachComponent = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btThongBao = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btTinNhan = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryBtHangHoa = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.btDangXuat = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -93,6 +93,7 @@
             this.palHangHoa = new System.Windows.Forms.Panel();
             this.artanPalRadious = new ArtanComponent.ArtanPanel();
             this.panel1.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.panelContainer.SuspendLayout();
             this.panelTk_Bc.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -122,10 +123,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.kryptonButton1);
-            this.panel1.Controls.Add(this.btTinNhan);
-            this.panel1.Controls.Add(this.txtSeachComponent);
-            this.panel1.Controls.Add(this.btThongBao);
+            this.panel1.Controls.Add(this.panel19);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(247, 0);
@@ -133,9 +131,20 @@
             this.panel1.Size = new System.Drawing.Size(1118, 70);
             this.panel1.TabIndex = 1;
             // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.kryptonButton1);
+            this.panel19.Controls.Add(this.btThongBao);
+            this.panel19.Controls.Add(this.btTinNhan);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel19.Location = new System.Drawing.Point(912, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(206, 70);
+            this.panel19.TabIndex = 32;
+            // 
             // kryptonButton1
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(1052, 12);
+            this.kryptonButton1.Location = new System.Drawing.Point(136, 12);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
             this.kryptonButton1.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -176,71 +185,9 @@
             this.kryptonButton1.TabIndex = 31;
             this.kryptonButton1.Values.Text = "";
             // 
-            // btTinNhan
-            // 
-            this.btTinNhan.Location = new System.Drawing.Point(1002, 14);
-            this.btTinNhan.Name = "btTinNhan";
-            this.btTinNhan.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
-            this.btTinNhan.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
-            this.btTinNhan.OverrideDefault.Border.Color1 = System.Drawing.Color.White;
-            this.btTinNhan.OverrideDefault.Border.Color2 = System.Drawing.Color.White;
-            this.btTinNhan.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btTinNhan.Palette = this.kryptonPalette1;
-            this.btTinNhan.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.btTinNhan.Size = new System.Drawing.Size(43, 43);
-            this.btTinNhan.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.btTinNhan.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.btTinNhan.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btTinNhan.StateCommon.Back.Image")));
-            this.btTinNhan.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
-            this.btTinNhan.StateCommon.Border.Color1 = System.Drawing.Color.White;
-            this.btTinNhan.StateCommon.Border.Color2 = System.Drawing.Color.White;
-            this.btTinNhan.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btTinNhan.StateCommon.Border.Rounding = 30;
-            this.btTinNhan.StateCommon.Content.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btTinNhan.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTinNhan.StateDisabled.Back.Color1 = System.Drawing.Color.White;
-            this.btTinNhan.StateDisabled.Back.Color2 = System.Drawing.Color.White;
-            this.btTinNhan.StateDisabled.Border.Color1 = System.Drawing.Color.White;
-            this.btTinNhan.StateDisabled.Border.Color2 = System.Drawing.Color.White;
-            this.btTinNhan.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btTinNhan.StateNormal.Back.Color1 = System.Drawing.Color.White;
-            this.btTinNhan.StateNormal.Back.Color2 = System.Drawing.Color.White;
-            this.btTinNhan.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btTinNhan.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btTinNhan.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btTinNhan.TabIndex = 30;
-            this.btTinNhan.Values.Text = "";
-            // 
-            // txtSeachComponent
-            // 
-            this.txtSeachComponent.Location = new System.Drawing.Point(279, 14);
-            this.txtSeachComponent.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSeachComponent.Multiline = true;
-            this.txtSeachComponent.Name = "txtSeachComponent";
-            this.txtSeachComponent.Size = new System.Drawing.Size(421, 43);
-            this.txtSeachComponent.StateCommon.Border.Color1 = System.Drawing.Color.WhiteSmoke;
-            this.txtSeachComponent.StateCommon.Border.Color2 = System.Drawing.Color.WhiteSmoke;
-            this.txtSeachComponent.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtSeachComponent.StateCommon.Border.Rounding = 20;
-            this.txtSeachComponent.StateCommon.Content.Color1 = System.Drawing.Color.LightGray;
-            this.txtSeachComponent.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeachComponent.StateCommon.Content.Padding = new System.Windows.Forms.Padding(7, 5, -1, -1);
-            this.txtSeachComponent.TabIndex = 29;
-            this.txtSeachComponent.Text = "Tìm kiếm";
-            // 
             // btThongBao
             // 
-            this.btThongBao.Location = new System.Drawing.Point(953, 14);
+            this.btThongBao.Location = new System.Drawing.Point(37, 14);
             this.btThongBao.Name = "btThongBao";
             this.btThongBao.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
             this.btThongBao.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -280,6 +227,49 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btThongBao.TabIndex = 16;
             this.btThongBao.Values.Text = "";
+            // 
+            // btTinNhan
+            // 
+            this.btTinNhan.Location = new System.Drawing.Point(86, 14);
+            this.btTinNhan.Name = "btTinNhan";
+            this.btTinNhan.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
+            this.btTinNhan.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
+            this.btTinNhan.OverrideDefault.Border.Color1 = System.Drawing.Color.White;
+            this.btTinNhan.OverrideDefault.Border.Color2 = System.Drawing.Color.White;
+            this.btTinNhan.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btTinNhan.Palette = this.kryptonPalette1;
+            this.btTinNhan.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.btTinNhan.Size = new System.Drawing.Size(43, 43);
+            this.btTinNhan.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.btTinNhan.StateCommon.Back.Color2 = System.Drawing.Color.White;
+            this.btTinNhan.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btTinNhan.StateCommon.Back.Image")));
+            this.btTinNhan.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
+            this.btTinNhan.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.btTinNhan.StateCommon.Border.Color2 = System.Drawing.Color.White;
+            this.btTinNhan.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btTinNhan.StateCommon.Border.Rounding = 30;
+            this.btTinNhan.StateCommon.Content.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.btTinNhan.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTinNhan.StateDisabled.Back.Color1 = System.Drawing.Color.White;
+            this.btTinNhan.StateDisabled.Back.Color2 = System.Drawing.Color.White;
+            this.btTinNhan.StateDisabled.Border.Color1 = System.Drawing.Color.White;
+            this.btTinNhan.StateDisabled.Border.Color2 = System.Drawing.Color.White;
+            this.btTinNhan.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btTinNhan.StateNormal.Back.Color1 = System.Drawing.Color.White;
+            this.btTinNhan.StateNormal.Back.Color2 = System.Drawing.Color.White;
+            this.btTinNhan.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btTinNhan.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btTinNhan.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btTinNhan.TabIndex = 30;
+            this.btTinNhan.Values.Text = "";
             // 
             // kryBtHangHoa
             // 
@@ -1555,7 +1545,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.TEST_GUI_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel19.ResumeLayout(false);
             this.panelContainer.ResumeLayout(false);
             this.panelTk_Bc.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
@@ -1621,7 +1611,6 @@
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btHuongDan;
 		private ArtanComponent.ArtanPanel artanPanel1;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btThongBao;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSeachComponent;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btDangXuat;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btTinNhan;
 		private ArtanComponent.ArtanPanel panelLoadForm;
@@ -1633,5 +1622,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel19;
     }
 }

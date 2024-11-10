@@ -1,4 +1,5 @@
 ﻿using BUS;
+using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class BAOCAOHANGXUATKHO_GUI : Form
+    public partial class BAOCAOHANGXUATKHO_GUI : KryptonForm
     {
         BAOCAOXUATKHO_BUS hanghoa_bus;
 

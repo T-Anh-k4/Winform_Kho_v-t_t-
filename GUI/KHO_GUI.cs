@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace GUI
 {
-    public partial class KHO_GUI : Form
+    public partial class KHO_GUI : KryptonForm
     {
         KHO_BUS kHOBUS;
         public KHO_GUI()

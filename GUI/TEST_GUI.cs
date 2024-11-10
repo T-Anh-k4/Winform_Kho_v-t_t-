@@ -32,8 +32,8 @@
 			public TEST_GUI(bool isAdmin)
 			{
 				InitializeComponent();
-            Init();
-            this.isAdmin = isAdmin;
+				Init();
+				this.isAdmin = isAdmin;
 				if (isAdmin)
 				{
 					panel15.Visible = true;
@@ -91,17 +91,17 @@
 		}
 		private void KryptonButton_MouseEnter(object sender, EventArgs e)
 		{
-			KryptonButton btn = (KryptonButton)sender; 
-			btn.StateCommon.Back.Color1 = Color.MediumPurple; 
-			btn.StateCommon.Back.Color2 = Color.MediumSlateBlue; 
-			btn.StateCommon.Content.ShortText.Color1 = Color.White; 
+			KryptonButton btn = (KryptonButton)sender; // Lấy nút Krypton được hover
+			btn.StateCommon.Back.Color1 = Color.MediumPurple; // Màu đầu tiên của nền
+			btn.StateCommon.Back.Color2 = Color.MediumSlateBlue; // Màu thứ hai của nền (gradient)
+			btn.StateCommon.Content.ShortText.Color1 = Color.White; // Màu chữ
 		}
 		private void KryptonButton_MouseLeave(object sender, EventArgs e)
 		{
-			KryptonButton btn = (KryptonButton)sender; 
-			btn.StateCommon.Back.Color1 = Color.Empty; 
-			btn.StateCommon.Back.Color2 = Color.Empty; 
-			btn.StateCommon.Content.ShortText.Color1 = Color.Black; 
+			KryptonButton btn = (KryptonButton)sender; // Lấy nút Krypton khi chuột rời khỏi
+			btn.StateCommon.Back.Color1 = Color.Empty; // Đặt lại màu nền về mặc định
+			btn.StateCommon.Back.Color2 = Color.Empty; // Đặt lại màu nền về mặc định
+			btn.StateCommon.Content.ShortText.Color1 = Color.Black; // Đặt lại màu chữ về màu đen
 		}
 		private void AssignMouseEnterEvent(Control parent)
 		{
@@ -126,7 +126,7 @@
 				if (control is KryptonButton)
 				{
 					control.MouseEnter += KryptonButton_MouseEnter;
-					control.MouseLeave += KryptonButton_MouseLeave; 
+					control.MouseLeave += KryptonButton_MouseLeave; // Gán sự kiện MouseLeave
 				}
 
 				// Nếu control là một container (Panel, GroupBox, TabControl), gọi đệ quy để duyệt tiếp các control con
@@ -281,21 +281,23 @@
 		}
 		private void OpenChildForm(KryptonForm childForm)
 		{
-			if (currentChildForm != null)
-			{
-				currentChildForm.Close();
-			}
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+                panelLoadForm.Controls.Clear();
+            }
 
-			currentChildForm = childForm;
-			childForm.TopLevel = false;
-			childForm.FormBorderStyle = FormBorderStyle.None;
-			childForm.Dock = DockStyle.Fill;
+            currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            //childForm.Dock = DockStyle.Fill;
+            childForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
             panelLoadForm.Controls.Add(childForm);
-			panelLoadForm.Tag = childForm;
-			childForm.BringToFront();
-			childForm.Show();
-		}
+            panelLoadForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
 		private void kryBtHangHoaContainer_Click(object sender, EventArgs e)
 		{
@@ -347,7 +349,7 @@
 
         private void btKho_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new KHO_GUI());
+            OpenChildForm(new KHO_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -378,7 +380,16 @@
         {
             eventChiTietNhap(this, EventArgs.Empty, maHDN);
         }
-
+        public void btInBaoCao_Click(string maHDN)
+        {
+            eventBCHDN(this, EventArgs.Empty, maHDN);
+        }
+        private void eventBCHDN(object sender, EventArgs e, string maHDN)
+        {
+            OpenChildForm(new RDLC_GUI(maHDN,this));
+            closeCongDong();
+            closeDoanhMuc();
+        }
         private void eventChiTietNhap(object sender, EventArgs e, string maHDN)
         {
             OpenChildForm(new CHITIETNHAP_GUI(maHDN,this));
@@ -406,7 +417,7 @@
 
         private void btDanhSachHangHoa_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new DANHSACHHANGHOA_GUI());
+            OpenChildForm(new BAOCAOHANGHOA_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -422,7 +433,7 @@
 
         private void btBaoCaoNhapHang_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new HANGHOA_GUI());
+            OpenChildForm(new BAOCAOHANGNHAPKHO_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -430,7 +441,7 @@
 
         private void btBaoCaoXuatHang_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new HANGHOA_GUI());
+            OpenChildForm(new BAOCAOHANGXUATKHO_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -451,9 +462,10 @@
             closeDoanhMuc();
 
         }
+
         private void TEST_GUI_Load(object sender, EventArgs e)
         {
-            OpenChildForm(new NHANVIEN_GUI());
+            //OpenChildForm(new NHANVIEN_GUI());
         }
         //END
     }
