@@ -93,38 +93,38 @@ namespace DAL
         }
 
         public bool UpdateNhanVien(string maNV, string tenNV, string gioiTinh, string ngaySinh, string diaChi, string soDT, string dienGia, int flag, string username)
-		{
-			try
-			{
-				// Xây dựng câu lệnh SQL với các biến được chèn trực tiếp
-				string query = "UPDATE NHANVIEN " +
-							   "SET TENNV = N'" + tenNV + "', " +
-							   "GIOITINH = N'" + gioiTinh + "', " +
-							   "NGAYSINH = '" + ngaySinh + "', " +
-							   "DIACHI = N'" + diaChi + "', " +
-							   "SDT = N'" + soDT + "', " +
-							   "DIENGIAI = N'" + dienGia + "', " +
-							   "FLAG = " + flag + " , " +
-                               "USERNAME = N'" + username + "' " +
+        {
+            try
+            {
+                // Sử dụng NULL cho USERNAME nếu username trống
+                string query = "UPDATE NHANVIEN " +
+                               "SET TENNV = N'" + tenNV + "', " +
+                               "GIOITINH = N'" + gioiTinh + "', " +
+                               "NGAYSINH = '" + ngaySinh + "', " +
+                               "DIACHI = N'" + diaChi + "', " +
+                               "SDT = N'" + soDT + "', " +
+                               "DIENGIAI = N'" + dienGia + "', " +
+                               "FLAG = " + flag + ", " +
+                               "USERNAME = " + (string.IsNullOrEmpty(username) ? "NULL" : $"'{username}'") + " " +
                                "WHERE MANV = N'" + maNV + "'";
 
-				// Thực hiện câu lệnh SQL
-				instance.execNonQuery(query);
-			}
-			catch
-			{
-				return false;
-			}
-			return true;
-		}
+                instance.execNonQuery(query);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
         public bool CheckUserName(string username)
         {
-            string query = "select count(USERNAME) from NGUOIDUNG where USERNAME in (select USERNAME from NHANVIEN ) and USERNAME = N'"+ username +"'";
-            // Gọi execScalar để thực hiện truy vấn và lấy số lượng
-            object result = instance.execScalar(query);
-            // Chuyển đổi kết quả thành int và kiểm tra xem có lớn hơn 0 hay không
-            return result != null && (int)result > 0; // Trả về true nếu USERNAME đã tồn tại
+            // Kiểm tra xem tên tài khoản đã tồn tại hoặc là NULL
+            string query = "select count(USERNAME) from NGUOIDUNG where USERNAME in (select USERNAME from NHANVIEN ) and USERNAME = N'" + username + "'";
+            object result = instance.execScalar(query); 
+            return result != null && (int)result > 0; // Trả về true nếu USERNAME đã tồn tại hoặc là NULL
         }
+
 
         public DataTable SearchNhanVien(string keyword)
 		{
