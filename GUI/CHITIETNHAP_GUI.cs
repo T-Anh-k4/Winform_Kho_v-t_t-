@@ -481,9 +481,13 @@ namespace GUI
 				lbNgayLap.Text =  dt.Rows[0]["Ngày lập hóa đơn"].ToString();
 			}
 		}
-	}
+        private void kryInBaoCao_Click(object sender, EventArgs e)
+        {
+			testGui.btInBaoCao_Click(maHDN);
+        }
+    }
 
-	public class ComboItem
+    public class ComboItem
 	{
 		public string ID { get; set; }
 		public string Text { get; set; }
