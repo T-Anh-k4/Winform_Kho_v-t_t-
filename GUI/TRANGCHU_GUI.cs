@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-	public partial class CHITIETXUAT_GUI : Form
-	{
-		public CHITIETXUAT_GUI()
-		{
-			InitializeComponent();
-		}
-	}
+    public partial class TRANGCHU_GUI : Form
+    {
+        public TRANGCHU_GUI()
+        {
+            InitializeComponent();
+        }
+    }
 }
