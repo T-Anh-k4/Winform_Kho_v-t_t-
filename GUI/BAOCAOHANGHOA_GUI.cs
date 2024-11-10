@@ -1,4 +1,5 @@
 ﻿using BUS;
+using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,8 +8,8 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI
 {
-	public partial class BAOCAOHANGHOA_GUI : Form
-	{
+	public partial class BAOCAOHANGHOA_GUI : KryptonForm
+    {
 		HANGHOA_BUS hanghoa_bus = new HANGHOA_BUS();
 
 		public BAOCAOHANGHOA_GUI()

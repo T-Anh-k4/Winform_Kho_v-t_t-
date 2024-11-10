@@ -150,6 +150,28 @@
   <metadata name="kryptonPalette1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>154, 17</value>
   </metadata>
+  <data name="kryptonButton1.StateCommon.Back.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAfhJREFUWEft181LVFEcxvFJzUqppJXQwlWJghhEibgoaFHhyjIkEAQhEFwKbfob
+        IirSVQSCbnpZhEKERRDZok1J0KZNlCj4RiKW9mLfJ+bAIc51fscOzOY+8FnMiGeeuXPm3N8U8uQpQ6px
+        AAeN9qMCSaMFL+M1ZiK8xT0cQrKcwld8w5cI8/iFF9iHJNG728IAjuKIUQueYwOnkSSTUBm9QEyqMIxN
+        dOmJFMnLZKXsZfaiCSfwCipzEScjtOMBfuAqjuMwdsGcGtzAAn5DRVJQqffogDltWENowVirmIIOwZ/F
+        5z7AnD78u+hO6KregvZOA2bh/mbOFfiL7pTK3MQelL2MLOMRpuE+JjEnq8x36P4Uwy/gMyerzCAuROjG
+        E4TWMierjDv0NKdortmO9ok79EJrmdOD0AIqo9lGJ/KzEvqRVUYb25xm+DvfUZlKfMZSCdcQKqP55jHM
+        0SKXoKHoE7QRXRkd5WfRGXAGrUX18Mss4iPuQreEqOhFa1GHp3BldGU0xa0EPIQfV0a3gV5oLtZe+q9M
+        wi/zEm8CbsOPK5N0hJiAyjT+fRT+9ohusH5UZgRJy+gdq8x1nMc5I40c76AZWCNFkhzDHPTZ625utQ79
+        z33oKiWJzhb9XLmDMYwbjWIIOiSTR6X0q9JqN6Kmujx5wikU/gAc/UL4/sDgSQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="kryptonButton2.StateCommon.Back.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EAAACxABrSO9dQAAAHJJREFUSEvtzcEJgDAMheFsoQd1/wF0DgVRD+Is+h40IBpKqz3mhw9Kjal4npdV
+        BWPAc9G4cIEz4LnYIzWsoMsV7/jtVw1s8Fyu+AhnPtXCDtbiO85wNqsODrAWWjjLf5KbwFoUM0NyPVhL
+        YgbwPO+VyAUN30QilNGPagAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>70</value>
   </metadata>

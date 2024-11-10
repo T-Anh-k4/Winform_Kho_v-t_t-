@@ -349,7 +349,7 @@
 
         private void btKho_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new KHO_GUI());
+            OpenChildForm(new KHO_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -380,7 +380,16 @@
         {
             eventChiTietNhap(this, EventArgs.Empty, maHDN);
         }
-
+        public void btInBaoCao_Click(string maHDN)
+        {
+            eventBCHDN(this, EventArgs.Empty, maHDN);
+        }
+        private void eventBCHDN(object sender, EventArgs e, string maHDN)
+        {
+            OpenChildForm(new RDLC_GUI(maHDN,this));
+            closeCongDong();
+            closeDoanhMuc();
+        }
         private void eventChiTietNhap(object sender, EventArgs e, string maHDN)
         {
             OpenChildForm(new CHITIETNHAP_GUI(maHDN,this));
@@ -408,7 +417,7 @@
 
         private void btDanhSachHangHoa_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new DANHSACHHANGHOA_GUI());
+            OpenChildForm(new BAOCAOHANGHOA_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -424,7 +433,7 @@
 
         private void btBaoCaoNhapHang_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new HANGHOA_GUI());
+            OpenChildForm(new BAOCAOHANGNHAPKHO_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -432,7 +441,7 @@
 
         private void btBaoCaoXuatHang_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new HANGHOA_GUI());
+            OpenChildForm(new BAOCAOHANGXUATKHO_GUI());
             closeCongDong();
             closeDoanhMuc();
 
