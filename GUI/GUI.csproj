@@ -122,6 +122,12 @@
     <Compile Include="CHITIETNHAP_GUI.Designer.cs">
       <DependentUpon>CHITIETNHAP_GUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="CHITIETXUAT_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CHITIETXUAT_GUI.Designer.cs">
+      <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="CTHDNDataSet.cs">
       <DependentUpon>CTHDNDataSet.xsd</DependentUpon>
     </Compile>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CHITIETNHAP_GUI.resx">
       <DependentUpon>CHITIETNHAP_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CHITIETXUAT_GUI.resx">
+      <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CTHDN_RP.rdlc" />
     <EmbeddedResource Include="FORMLOAD_GUI.resx">
