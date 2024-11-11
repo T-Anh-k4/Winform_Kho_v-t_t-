@@ -74,7 +74,7 @@ namespace DAL
                 new SqlParameter("@maHDN", maHDN)
             };
             object result = instance.execScalar(query, parameters);
-            return result != null ? Convert.ToInt32(result) : 0;
+            return result != DBNull.Value ? Convert.ToInt32(result) : 0;
         }
 
         public DataTable getHoaDonNhapDetail(string maHDN)
