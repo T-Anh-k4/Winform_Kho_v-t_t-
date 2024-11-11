@@ -33,6 +33,11 @@ namespace BUS
 			return chiTietNhapDAL.getMaVaTenHH();
 		}
 
+        public int getTotalCost(string maHDN)
+        {
+            return chiTietNhapDAL.getTotalCost(maHDN);
+        }
+
         public DataTable getHoaDonNhapDetail(string maHDN)
         {
             return chiTietNhapDAL.getHoaDonNhapDetail(maHDN);
@@ -43,14 +48,14 @@ namespace BUS
             return chiTietNhapDAL.InsertChiTietNhap(maHH, maHDN, soLuongNhap, donGiaNhap);
         }
 
-        public bool UpdateChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
+        public bool UpdateChiTietNhap(int ID, string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
         {
-            return chiTietNhapDAL.UpdateChiTietNhap(maHH, maHDN, soLuongNhap, donGiaNhap);
+            return chiTietNhapDAL.UpdateChiTietNhap(ID, maHH, maHDN, soLuongNhap, donGiaNhap);
         }
 
-        public bool DeleteChiTietNhap(string maHH, string maHDN, int donGiaNhap)
+        public bool DeleteChiTietNhap(int ID)
         {
-            return chiTietNhapDAL.DeleteChiTietNhap(maHH, maHDN, donGiaNhap);
+            return chiTietNhapDAL.DeleteChiTietNhap(ID);
         }
 
         public DataTable SearchChiTietNhap(string maHDN, string keyword)
