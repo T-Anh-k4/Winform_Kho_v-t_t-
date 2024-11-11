@@ -55,7 +55,7 @@ namespace DAL
         GROUP BY 
             KHO.IDKHO, KHO.MAHH, HANGHOA.TENHH;";
             object result = instance.execScalar(query);
-            double tongtiennhap = result != null ? Convert.ToDouble(result) : 0;
+            double tongtiennhap = (result == DBNull.Value) ? 0 : Convert.ToDouble(result);
             return tongtiennhap;
         }
         public DataTable GetTenNhaCungCap()
