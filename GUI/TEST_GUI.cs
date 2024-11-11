@@ -341,7 +341,7 @@
 
         private void btKhachHang_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new KHACHHANG_GUI());
+            OpenChildForm(new KHACHHANG_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -425,7 +425,7 @@
 
         private void btDanhSachKhachHang_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new KHACHHANG_GUI());
+            OpenChildForm(new KHACHHANG_GUI());
             closeCongDong();
             closeDoanhMuc();
 

@@ -190,7 +190,6 @@ namespace GUI
 					}
 
 					clear();
-					createTransition_Tick(sender, e);
 					//soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
 				}
 			}

@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>ed6f3a95-a501-409f-a476-10d70226fac6</rd:DataSourceID>
+      <rd:DataSourceID>6b14ebcd-35f7-4f55-8989-49edf756cae6</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -29,18 +29,6 @@
           <DataField>DONGIA_NHAP</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="NGAYLAP_NHAP">
-          <DataField>NGAYLAP_NHAP</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="TENNCC">
-          <DataField>TENNCC</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TENNV">
-          <DataField>TENNV</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="TENHH">
           <DataField>TENHH</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -53,13 +41,25 @@
           <DataField>XUATXU</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="NGAYLAP_NHAP">
+          <DataField>NGAYLAP_NHAP</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="TENNCC">
+          <DataField>TENNCC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TENNV">
+          <DataField>TENNV</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="THANHTIEN">
           <DataField>THANHTIEN</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="TONGTIEN">
           <DataField>TONGTIEN</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
