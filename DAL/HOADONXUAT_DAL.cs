@@ -194,5 +194,24 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public bool IsCustomerExists(string customerId)
+        {
+            string query = "SELECT COUNT(*) AS Count FROM KHACHHANG WHERE TENKH = @customerId";
+            DataTable result = execQuery(query, new SqlParameter("@customerId", customerId));
+
+            // Kiểm tra số lượng bản ghi trả về
+            return result.Rows.Count > 0 && Convert.ToInt32(result.Rows[0]["Count"]) > 0;
+        }
+
+        // Phương thức kiểm tra mã nhân viên có tồn tại không
+        public bool IsEmployeeExists(string employeeId)
+        {
+            string query = "SELECT COUNT(*) AS Count FROM NHANVIEN WHERE TENNV = @employeeId";
+            DataTable result = execQuery(query, new SqlParameter("@employeeId", employeeId));
+
+            // Kiểm tra số lượng bản ghi trả về
+            return result.Rows.Count > 0 && Convert.ToInt32(result.Rows[0]["Count"]) > 0;
+        }
     }
 }

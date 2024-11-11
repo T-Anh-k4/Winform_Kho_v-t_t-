@@ -30,7 +30,7 @@ namespace GUI
         {
             initUser();
             panel2_nv.Height = 0;
-            soluong.Text = "Nhân viên (" + Convert.ToString(nhanVienBUS.GetSoLuongKhachHang()) + ")";
+            soluong.Text = "Khách hàng (" + Convert.ToString(nhanVienBUS.GetSoLuongKhachHang()) + ")";
         }
         public void initUser()
         {
@@ -180,7 +180,7 @@ namespace GUI
                         }
                         else
                         {
-                            MessageBox.Show("Xóa thông tin nhân viên không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Xóa thông tin Khách hàng không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         }
                     }
@@ -196,24 +196,24 @@ namespace GUI
             // Kiểm tra các trường bắt buộc
             if (string.IsNullOrWhiteSpace(txb_MAKH.Text))
             {
-                MessageBox.Show("Vui lòng nhập mã nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập mã Khách hàng.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Kiểm tra định dạng mã nhân viên (phải bắt đầu bằng NV và theo sau là số nguyên)
+            // Kiểm tra định dạng mã Khách hàng (phải bắt đầu bằng NV và theo sau là số nguyên)
             if (!System.Text.RegularExpressions.Regex.IsMatch(txb_MAKH.Text, @"^KH\d+$"))
             {
-                MessageBox.Show("Mã nhân viên không hợp lệ. Vui lòng nhập mã theo định dạng KH+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mã Khách hàng không hợp lệ. Vui lòng nhập mã theo định dạng KH+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (string.IsNullOrWhiteSpace(txb_TEN.Text))
             {
-                MessageBox.Show("Vui lòng nhập tên nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên Khách hàng.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             // Kiểm tra tên không chứa số
             if (System.Text.RegularExpressions.Regex.IsMatch(txb_TEN.Text, @"\d"))
             {
-                MessageBox.Show("Tên nhân viên không hợp lệ. Vui lòng không nhập số trong tên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Tên Khách hàng không hợp lệ. Vui lòng không nhập số trong tên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (string.IsNullOrWhiteSpace(txb_DIACHI.Text))
@@ -239,14 +239,14 @@ namespace GUI
             {
                 loadDt_NhanVien(); // Gọi lại để tải lại danh sách
 
-                MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm Khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else
             {
-                MessageBox.Show("Thêm nhân viên không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm Khách hàng không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            soluong.Text = "Nhân viên (" + Convert.ToString(nhanVienBUS.GetSoLuongKhachHang()) + ")";
+            soluong.Text = "Khách hàng (" + Convert.ToString(nhanVienBUS.GetSoLuongKhachHang()) + ")";
 
         }
 
@@ -256,12 +256,12 @@ namespace GUI
 
             if (result)
             {
-                MessageBox.Show("Sửa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa Khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadDt_NhanVien(); // Gọi lại để tải lại danh sách
             }
             else
             {
-                MessageBox.Show("Sửa nhân viên không thành công! Kiểm tra lại tên người dùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sửa Khách hàng không thành công! Kiểm tra lại tên người dùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -380,7 +380,7 @@ namespace GUI
             }
             ResetForeText();
         }
-        // tìm kiếm nhân viên
+        // tìm kiếm Khách hàng
         private void txb_tim_kiem_LH_TextChanged(object sender, EventArgs e)
         {
             string keyword = txb_tim_kiem_nv.Text.Trim();

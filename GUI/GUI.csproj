@@ -138,9 +138,6 @@
     <Compile Include="CHITIETXUAT_GUI.Designer.cs">
       <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="CTHDNDataSet.cs">
-      <DependentUpon>CTHDNDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="CTHDNDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

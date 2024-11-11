@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>6b14ebcd-35f7-4f55-8989-49edf756cae6</rd:DataSourceID>
+      <rd:DataSourceID>865c7d8f-ddcf-4e21-8127-3e276d7ab014</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -29,25 +29,25 @@
           <DataField>DONGIA_NHAP</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="TENHH">
-          <DataField>TENHH</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="DONVI_TINH">
           <DataField>DONVI_TINH</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TENHH">
+          <DataField>TENHH</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="XUATXU">
           <DataField>XUATXU</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NGAYLAP_NHAP">
-          <DataField>NGAYLAP_NHAP</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
         <Field Name="TENNCC">
           <DataField>TENNCC</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NGAYLAP_NHAP">
+          <DataField>NGAYLAP_NHAP</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="TENNV">
           <DataField>TENNV</DataField>
@@ -64,7 +64,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>CTHDNDataSet</rd:DataSetName>
-        <rd:SchemaPath>E:\CODE\LapTrinhTrucQuan\Winform_Kho_v-t_t-\GUI\CTHDNDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Lập Trình Trực Quan\Winform_Kho_v-t_t\GUI\CTHDNDataSet.xsd</rd:SchemaPath>
         <rd:TableName>CTHDN1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

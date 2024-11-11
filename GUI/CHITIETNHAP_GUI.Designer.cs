@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHITIETNHAP_GUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel0_nv = new ArtanComponent.ArtanPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -278,9 +278,9 @@
             this.dataViewNv.AllowUserToAddRows = false;
             this.dataViewNv.AllowUserToResizeColumns = false;
             this.dataViewNv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -681,9 +681,9 @@
             this.label6.Location = new System.Drawing.Point(43, 37);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 13);
+            this.label6.Size = new System.Drawing.Size(98, 13);
             this.label6.TabIndex = 40;
-            this.label6.Text = "Số hóa đơn nhập :";
+            this.label6.Text = "Số hóa đơn Nhập :";
             // 
             // panel8
             // 
@@ -787,7 +787,7 @@
             this.kryInBaoCao.Size = new System.Drawing.Size(36, 36);
             this.kryInBaoCao.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryInBaoCao.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.kryInBaoCao.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.StateCommon.Back.Image")));
+            this.kryInBaoCao.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryInBaoCao.StateCommon.Back.Image")));
             this.kryInBaoCao.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
             this.kryInBaoCao.StateCommon.Border.Color1 = System.Drawing.Color.White;
             this.kryInBaoCao.StateCommon.Border.Color2 = System.Drawing.Color.White;
