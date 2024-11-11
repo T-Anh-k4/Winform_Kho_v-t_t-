@@ -34,6 +34,9 @@
             this.artanPanel3 = new ArtanComponent.ArtanPanel();
             this.lbtonghangton = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.artanPanel4 = new ArtanComponent.ArtanPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.artanPanel1 = new ArtanComponent.ArtanPanel();
             this.lbtonghangnhap = new System.Windows.Forms.Label();
             this.lbtongtiennhap = new System.Windows.Forms.Label();
@@ -49,30 +52,27 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btPieXuat = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btPieNhap = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.kryCb_Month = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.cthdN1TableAdapter3 = new GUI.CTHDNDataSetTableAdapters.CTHDN1TableAdapter();
             this.label7 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.artanPanel4 = new ArtanComponent.ArtanPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btPieNhap = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btPieXuat = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.artanPanel3.SuspendLayout();
+            this.artanPanel4.SuspendLayout();
             this.artanPanel1.SuspendLayout();
             this.artanPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryCb_Month)).BeginInit();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.artanPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // cthdN1TableAdapter1
@@ -136,6 +136,51 @@
             this.label3.Size = new System.Drawing.Size(177, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tổng sản phẩm tồn kho : ";
+            // 
+            // artanPanel4
+            // 
+            this.artanPanel4.BackColor = System.Drawing.Color.White;
+            this.artanPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("artanPanel4.BackgroundImage")));
+            this.artanPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.artanPanel4.BorderRadius = 25;
+            this.artanPanel4.Controls.Add(this.label13);
+            this.artanPanel4.Controls.Add(this.label12);
+            this.artanPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.artanPanel4.ForeColor = System.Drawing.Color.Black;
+            this.artanPanel4.GradientAngle = 90F;
+            this.artanPanel4.GradientBottomColor = System.Drawing.Color.Transparent;
+            this.artanPanel4.GradientTopColor = System.Drawing.Color.Transparent;
+            this.artanPanel4.Location = new System.Drawing.Point(786, 11);
+            this.artanPanel4.Margin = new System.Windows.Forms.Padding(16, 3, 3, 3);
+            this.artanPanel4.Name = "artanPanel4";
+            this.artanPanel4.Size = new System.Drawing.Size(238, 177);
+            this.artanPanel4.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Transparent;
+            this.label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
+            this.label13.Location = new System.Drawing.Point(3, 90);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 18);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "   ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Transparent;
+            this.label12.Image = ((System.Drawing.Image)(resources.GetObject("label12.Image")));
+            this.label12.Location = new System.Drawing.Point(215, 90);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 18);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "   ";
             // 
             // artanPanel1
             // 
@@ -322,117 +367,6 @@
             this.pieChart1.TabIndex = 1;
             this.pieChart1.Text = "pieChart1";
             // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
-            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.kryCb_Month, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(35, 227);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(35, 3, 3, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(230, 39);
-            this.tableLayoutPanel4.TabIndex = 5;
-            // 
-            // kryCb_Month
-            // 
-            this.kryCb_Month.DropDownWidth = 184;
-            this.kryCb_Month.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-            this.kryCb_Month.Location = new System.Drawing.Point(78, 2);
-            this.kryCb_Month.Margin = new System.Windows.Forms.Padding(2);
-            this.kryCb_Month.Name = "kryCb_Month";
-            this.kryCb_Month.Size = new System.Drawing.Size(69, 33);
-            this.kryCb_Month.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
-            this.kryCb_Month.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kryCb_Month.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kryCb_Month.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryCb_Month.StateCommon.ComboBox.Border.Rounding = 20;
-            this.kryCb_Month.StateCommon.ComboBox.Border.Width = 1;
-            this.kryCb_Month.TabIndex = 4;
-            this.kryCb_Month.SelectedIndexChanged += new System.EventHandler(this.kryCb_Month_SelectedIndexChanged);
-            // 
-            // cthdN1TableAdapter3
-            // 
-            this.cthdN1TableAdapter3.ClearBeforeFill = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(31, 15);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 29);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Tháng ";
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.btPieXuat, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.btPieNhap, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label10, 0, 1);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(916, 149);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 70, 3, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 3;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.97521F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.264462F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.76033F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(69, 97);
-            this.tableLayoutPanel5.TabIndex = 5;
-            // 
-            // artanPanel4
-            // 
-            this.artanPanel4.BackColor = System.Drawing.Color.White;
-            this.artanPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("artanPanel4.BackgroundImage")));
-            this.artanPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.artanPanel4.BorderRadius = 25;
-            this.artanPanel4.Controls.Add(this.label13);
-            this.artanPanel4.Controls.Add(this.label12);
-            this.artanPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.artanPanel4.ForeColor = System.Drawing.Color.Black;
-            this.artanPanel4.GradientAngle = 90F;
-            this.artanPanel4.GradientBottomColor = System.Drawing.Color.Transparent;
-            this.artanPanel4.GradientTopColor = System.Drawing.Color.Transparent;
-            this.artanPanel4.Location = new System.Drawing.Point(786, 11);
-            this.artanPanel4.Margin = new System.Windows.Forms.Padding(16, 3, 3, 3);
-            this.artanPanel4.Name = "artanPanel4";
-            this.artanPanel4.Size = new System.Drawing.Size(238, 177);
-            this.artanPanel4.TabIndex = 4;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Transparent;
-            this.label12.Image = ((System.Drawing.Image)(resources.GetObject("label12.Image")));
-            this.label12.Location = new System.Drawing.Point(215, 90);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 18);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "   ";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Transparent;
-            this.label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
-            this.label13.Location = new System.Drawing.Point(3, 90);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 18);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "   ";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -452,6 +386,79 @@
             this.label14.Size = new System.Drawing.Size(308, 19);
             this.label14.TabIndex = 7;
             this.label14.Text = "Biểu đồ lượng tiền thu chi hàng tháng :";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.btPieXuat, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.btPieNhap, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label10, 0, 1);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(916, 149);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 70, 3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.97521F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.264462F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.76033F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(69, 97);
+            this.tableLayoutPanel5.TabIndex = 5;
+            // 
+            // btPieXuat
+            // 
+            this.btPieXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btPieXuat.Location = new System.Drawing.Point(10, 52);
+            this.btPieXuat.Name = "btPieXuat";
+            this.btPieXuat.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
+            this.btPieXuat.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
+            this.btPieXuat.OverrideDefault.Back.ColorAngle = 45F;
+            this.btPieXuat.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btPieXuat.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btPieXuat.OverrideDefault.Border.ColorAngle = 45F;
+            this.btPieXuat.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btPieXuat.OverrideDefault.Border.Rounding = 20;
+            this.btPieXuat.OverrideDefault.Border.Width = 1;
+            this.btPieXuat.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btPieXuat.Size = new System.Drawing.Size(56, 34);
+            this.btPieXuat.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.btPieXuat.StateCommon.Back.Color2 = System.Drawing.Color.White;
+            this.btPieXuat.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btPieXuat.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btPieXuat.StateCommon.Border.ColorAngle = 45F;
+            this.btPieXuat.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btPieXuat.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btPieXuat.StateCommon.Border.Rounding = 25;
+            this.btPieXuat.StateCommon.Border.Width = 1;
+            this.btPieXuat.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.DimGray;
+            this.btPieXuat.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.DimGray;
+            this.btPieXuat.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPieXuat.StatePressed.Back.Color1 = System.Drawing.Color.White;
+            this.btPieXuat.StatePressed.Back.Color2 = System.Drawing.Color.White;
+            this.btPieXuat.StatePressed.Back.ColorAngle = 135F;
+            this.btPieXuat.StatePressed.Border.ColorAngle = 135F;
+            this.btPieXuat.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btPieXuat.StatePressed.Border.Rounding = 25;
+            this.btPieXuat.StatePressed.Border.Width = 1;
+            this.btPieXuat.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btPieXuat.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btPieXuat.StateTracking.Back.ColorAngle = 45F;
+            this.btPieXuat.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btPieXuat.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btPieXuat.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btPieXuat.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btPieXuat.StateTracking.Border.Rounding = 25;
+            this.btPieXuat.StateTracking.Border.Width = 1;
+            this.btPieXuat.TabIndex = 33;
+            this.btPieXuat.Values.Text = "Xuất";
+            this.btPieXuat.Click += new System.EventHandler(this.btpieXuat_Click);
             // 
             // btPieNhap
             // 
@@ -518,61 +525,20 @@
             this.label10.Size = new System.Drawing.Size(0, 8);
             this.label10.TabIndex = 8;
             // 
-            // btPieXuat
+            // tableLayoutPanel4
             // 
-            this.btPieXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btPieXuat.Location = new System.Drawing.Point(10, 52);
-            this.btPieXuat.Name = "btPieXuat";
-            this.btPieXuat.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
-            this.btPieXuat.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
-            this.btPieXuat.OverrideDefault.Back.ColorAngle = 45F;
-            this.btPieXuat.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btPieXuat.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btPieXuat.OverrideDefault.Border.ColorAngle = 45F;
-            this.btPieXuat.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btPieXuat.OverrideDefault.Border.Rounding = 20;
-            this.btPieXuat.OverrideDefault.Border.Width = 1;
-            this.btPieXuat.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btPieXuat.Size = new System.Drawing.Size(56, 34);
-            this.btPieXuat.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.btPieXuat.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.btPieXuat.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btPieXuat.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btPieXuat.StateCommon.Border.ColorAngle = 45F;
-            this.btPieXuat.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btPieXuat.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btPieXuat.StateCommon.Border.Rounding = 25;
-            this.btPieXuat.StateCommon.Border.Width = 1;
-            this.btPieXuat.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.DimGray;
-            this.btPieXuat.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.DimGray;
-            this.btPieXuat.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btPieXuat.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.btPieXuat.StatePressed.Back.Color2 = System.Drawing.Color.White;
-            this.btPieXuat.StatePressed.Back.ColorAngle = 135F;
-            this.btPieXuat.StatePressed.Border.ColorAngle = 135F;
-            this.btPieXuat.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btPieXuat.StatePressed.Border.Rounding = 25;
-            this.btPieXuat.StatePressed.Border.Width = 1;
-            this.btPieXuat.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btPieXuat.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btPieXuat.StateTracking.Back.ColorAngle = 45F;
-            this.btPieXuat.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btPieXuat.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btPieXuat.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btPieXuat.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btPieXuat.StateTracking.Border.Rounding = 25;
-            this.btPieXuat.StateTracking.Border.Width = 1;
-            this.btPieXuat.TabIndex = 33;
-            this.btPieXuat.Values.Text = "Xuất";
-            this.btPieXuat.Click += new System.EventHandler(this.btpieXuat_Click);
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
+            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.kryCb_Month, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(35, 227);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(35, 3, 3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(230, 39);
+            this.tableLayoutPanel4.TabIndex = 5;
             // 
             // label6
             // 
@@ -584,6 +550,40 @@
             this.label6.Size = new System.Drawing.Size(68, 19);
             this.label6.TabIndex = 7;
             this.label6.Text = "Tháng :";
+            // 
+            // kryCb_Month
+            // 
+            this.kryCb_Month.DropDownWidth = 184;
+            this.kryCb_Month.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.kryCb_Month.Location = new System.Drawing.Point(78, 2);
+            this.kryCb_Month.Margin = new System.Windows.Forms.Padding(2);
+            this.kryCb_Month.Name = "kryCb_Month";
+            this.kryCb_Month.Size = new System.Drawing.Size(69, 33);
+            this.kryCb_Month.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
+            this.kryCb_Month.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kryCb_Month.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kryCb_Month.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryCb_Month.StateCommon.ComboBox.Border.Rounding = 20;
+            this.kryCb_Month.StateCommon.ComboBox.Border.Width = 1;
+            this.kryCb_Month.TabIndex = 4;
+            this.kryCb_Month.SelectedIndexChanged += new System.EventHandler(this.kryCb_Month_SelectedIndexChanged);
+            // 
+            // cthdN1TableAdapter3
+            // 
+            this.cthdN1TableAdapter3.ClearBeforeFill = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
+            this.label7.Location = new System.Drawing.Point(31, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 29);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Tháng ";
             // 
             // TRANGCHU_GUI
             // 
@@ -599,6 +599,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.artanPanel3.ResumeLayout(false);
             this.artanPanel3.PerformLayout();
+            this.artanPanel4.ResumeLayout(false);
+            this.artanPanel4.PerformLayout();
             this.artanPanel1.ResumeLayout(false);
             this.artanPanel1.PerformLayout();
             this.artanPanel2.ResumeLayout(false);
@@ -606,13 +608,11 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryCb_Month)).EndInit();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            this.artanPanel4.ResumeLayout(false);
-            this.artanPanel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
