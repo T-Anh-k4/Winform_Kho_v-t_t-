@@ -39,17 +39,17 @@ namespace BUS
             return chiTietXuatDAL.getHoaDonXUatDetail(maHDX);
         }
 
-        public bool InsertChiTietXuat(string maHH, string maHDX, int soLuongXuat, int donGiaXuat)
+        public bool InsertChiTietXuat(string maHH, string maHDX, int soLuongXuat, decimal donGiaXuat)
         {
-            return chiTietXuatDAL.InsertChiTietXUAT(maHH, maHDX, soLuongXuat, donGiaXuat);
+            return chiTietXuatDAL.InsertChiTietXuat(maHH, maHDX, soLuongXuat, donGiaXuat);
         }
 
-        public bool UpdateChiTietXuat(string maHH, string maHDX, int soLuongNhap, int donGiaNhap)
+        public bool UpdateChiTietXuat(string maHH, string maHDX, int soLuongNhap, decimal donGiaNhap)
         {
             return chiTietXuatDAL.UpdateChiTietXuat(maHH, maHDX, soLuongNhap, donGiaNhap);
         }
 
-        public bool DeleteChiTietXuat(string maHH, string maHDX, int donGiaNhap)
+        public bool DeleteChiTietXuat(string maHH, string maHDX, decimal donGiaNhap)
         {
             return chiTietXuatDAL.DeleteChiTietXuat(maHH, maHDX, donGiaNhap);
         }
