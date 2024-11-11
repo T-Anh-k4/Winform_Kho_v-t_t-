@@ -46,5 +46,14 @@ namespace BUS
         {
             return dal.SearchHoaDonXuat(keyword);
         }
+
+        public bool hasKhachHang(string makh)
+        {
+            return dal.IsCustomerExists(makh);
+        }
+        public bool hasNhanVien(string manv)
+        {
+            return dal.IsEmployeeExists(manv);
+        }
     }
 }

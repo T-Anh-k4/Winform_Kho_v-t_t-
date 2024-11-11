@@ -26,7 +26,7 @@ namespace GUI
         bool createExplore = true;
         int limit = 5;
         int curentPage = 1;
-        int totalPage = 1;//so trang can tao
+        int totalPage = 1;
 
         public void init()
         {
@@ -48,9 +48,9 @@ namespace GUI
             kryTb_eID.Enter += kryTbSearch_Enter;
             kryTb_eID.Leave += kryTbSearch_Leave;
             SetPlaceholder(txb_tim_kiem_nv, "Tìm kiếm");
-            SetPlaceholder(kryTx_Id, "Nhập mã hàng nhập");
-            SetPlaceholder(kryTb_Name, "Nhập tên hàng nhập");
-            SetPlaceholder(kryTb_eID, "Nhập mã nhân viên");
+            SetPlaceholder(kryTx_Id, "Nhập mã hàng Xuất");
+            SetPlaceholder(kryTb_Name, "Nhập tên hàng Xuất");
+            SetPlaceholder(kryTb_eID, "Nhập tên nhân viên");
         }
         public bool IsPressAdd()
         {
@@ -62,7 +62,6 @@ namespace GUI
             kryBt_Edit.Visible = true;
             return kryBt_Edit.Visible;
         }
-        //load data và combobox
         public void loadDt_HangNhap()
         {
             DataTable dt = hangNhapBUS.GetDanhSachHoaDonXuatPage(limit, curentPage);
@@ -70,14 +69,12 @@ namespace GUI
             totalPage = hangNhapBUS.GetSLHoaDonXuat() / limit;
             if (totalPage * limit < hangNhapBUS.GetSLHoaDonXuat()) totalPage++;
 
-            // Ensure button columns are added and visible
             infoButtonColumn();
             DelButtonColumn();
             AddButtonColumn_Edit();
             EnsureButtonColumnsVisible();
         }
 
-        //Xóa các ô khi thoát chỉnh sửa
         public void clear()
         {
             kryTx_Id.Text = "";
@@ -191,18 +188,18 @@ namespace GUI
                 }
                 if (e.ColumnIndex == dataViewHNhap.Columns["imgDelete"].Index)
                 {
-                    DialogResult check = MessageBox.Show("Bạn có muốn xóa hàng nhập này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    DialogResult check = MessageBox.Show("Bạn có muốn xóa hàng xuất này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                     if (check == DialogResult.Yes)
                     {
                         bool result = hangNhapBUS.DeleteHoaDonXuat(row.Cells[3].Value.ToString());
                         if (result)
                         {
                             loadDt_HangNhap();
-                            MessageBox.Show("Xóa thông tin hàng nhập thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show("Xóa thông tin hàng xuất thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else
                         {
-                            MessageBox.Show("Xóa thông tin hàng nhập không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Xóa thông tin hàng xuất không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         }
                     }
@@ -211,8 +208,7 @@ namespace GUI
                 }
                 if (e.ColumnIndex == dataViewHNhap.Columns["imgInfo"].Index)
                 {
-                    //chitietnhap = new CHITIETNHAP_GUI(row.Cells[3].Value.ToString());
-                    //chitietnhap.ShowDialog();
+                    
                     testGui.btChiTietNhap_Click(row.Cells[3].Value.ToString());
                 }
             }
@@ -224,12 +220,12 @@ namespace GUI
             // Kiểm tra các trường bắt buộc
             if (string.IsNullOrWhiteSpace(kryTx_Id.Text))
             {
-                MessageBox.Show("Vui lòng nhập mã hàng nhập.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập mã hàng xuất.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
             {
-                MessageBox.Show("Vui lòng nhập tên hàng nhập.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên hàng xuất.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (string.IsNullOrWhiteSpace(kryTb_eID.Text))
@@ -237,35 +233,59 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập mã nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (!hangNhapBUS.hasKhachHang(kryTb_Name.Text))
+            {
+                MessageBox.Show("Không tồn tại tên khách hàng này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!hangNhapBUS.hasNhanVien(kryTb_eID.Text))
+            {
+                MessageBox.Show("Không tồn tại nhân viên này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             bool result = hangNhapBUS.InsertHoaDonXuat(kryTx_Id.Text, kryTb_Name.Text, kryTb_eID.Text, kry_Datetime.Value, 1);
 
             if (result)
             {
                 loadDt_HangNhap(); // Gọi lại để tải lại danh sách
-
-                MessageBox.Show("Thêm hàng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetForeText();
+                MessageBox.Show("Thêm hàng xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else
             {
-                MessageBox.Show("Thêm hàng nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm hàng Xuất không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            soluong.Text = "Hàng nhập (" + Convert.ToString(hangNhapBUS.GetSLHoaDonXuat()) + ")";
+            soluong.Text = "Hàng Xuất (" + Convert.ToString(hangNhapBUS.GetSLHoaDonXuat()) + ")";
 
         }
 
         private void kryBt_Edit_Click(object sender, EventArgs e)
         {
+            if (!hangNhapBUS.hasKhachHang(kryTb_Name.Text))
+            {
+                MessageBox.Show("Không tồn tại tên khách hàng này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Kiểm tra mã nhân viên
+            if (!hangNhapBUS.hasNhanVien(kryTb_eID.Text))
+            {
+                MessageBox.Show("Không tồn tại nhân viên này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             bool result = hangNhapBUS.UpdateHoaDonXuat(kryTx_Id.Text, kryTb_Name.Text, kryTb_eID.Text, kry_Datetime.Value, 1);
 
             if (result)
             {
-                MessageBox.Show("Sửa hàng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa hàng Xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadDt_HangNhap(); // Gọi lại để tải lại danh sách
+                ResetForeText();
             }
             else
             {
-                MessageBox.Show("Sửa hàng nhập không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sửa hàng Xuất không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -297,11 +317,11 @@ namespace GUI
                 case "kryTbSearch":
                     return "Tìm kiếm...";
                 case "kryTx_Id":
-                    return "Nhập mã hàng nhập";
+                    return "Nhập mã hàng Xuất";
                 case "kryTb_Name":
-                    return "Nhập tên hàng nhập";
+                    return "Nhập tên hàng Xuất";
                 case "kryTb_eID":
-                    return "Nhập mã người dùng";
+                    return "Nhập tên nhân viên";
                 default:
                     return string.Empty;
             }
@@ -339,10 +359,10 @@ namespace GUI
         {
             curentPage--;
             loadDt_HangNhap();
-            kryBt_Next.Enabled = true;
+            kryBtNext.Enabled = true;
             if (curentPage == 1)
             {
-                kryBtPre.Enabled = false;
+                kryBtPrevious.Enabled = false;
 
             }
             labelSoTrang.Text = Convert.ToString(curentPage);
@@ -353,10 +373,10 @@ namespace GUI
         {
             curentPage++;
             loadDt_HangNhap();
-            kryBtPre.Enabled = true;
+            kryBtPrevious.Enabled = true;
             if (curentPage == totalPage)
             {
-                kryBt_Next.Enabled = false;
+                kryBtNext.Enabled = false;
             }
             labelSoTrang.Text = Convert.ToString(curentPage);
 
@@ -365,6 +385,7 @@ namespace GUI
 
         private void kryBtShowCreate_HNhap_Click(object sender, EventArgs e)
         {
+            ResetForeText();
             kryBt_Add.Visible = true;
             kryTx_Id.ReadOnly = false;
             createTransition.Start();
