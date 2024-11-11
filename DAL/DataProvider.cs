@@ -11,7 +11,7 @@ namespace DAL
 {
 	public class DataProvider
 	{
-		private static string linkData = @"Data Source=NAUDA\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True";
+		private static string linkData = @"Data Source=NQH\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True";
 
 		public string LinkData { get => linkData; set => linkData = value; }
 
