@@ -69,6 +69,7 @@ namespace GUI
         {
             DataTable dt = hangNhapBUS.GetDanhSachNhaCungCapPage(limit, curentPage);
             dataViewHNhap.DataSource = dt;
+            dataViewHNhap.Columns["Trạng thái hóa đơn nhập"].Visible = false;
             totalPage = hangNhapBUS.GetSLNhaCungCap() / limit;
             if (totalPage * limit < hangNhapBUS.GetSLNhaCungCap()) totalPage++;
 
@@ -303,7 +304,7 @@ namespace GUI
                 case "kryTb_Name":
                     return "Nhập tên hàng nhập";
                 case "kryTb_eID":
-                    return "Nhập mã người dùng";
+                    return "Nhập mã nhân viên";
                 default:
                     return string.Empty;
             }
