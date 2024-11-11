@@ -406,6 +406,22 @@
             closeDoanhMuc();
 
         }
+        public void eventHangXuat()
+        {
+            btHangXuat_Click(this, EventArgs.Empty);
+        }
+
+        public void btChiTietXuat_Click(string maHDN)
+        {
+            eventChiTietXuat(this, EventArgs.Empty, maHDN);
+        }
+        private void eventChiTietXuat(object sender, EventArgs e, string maHDN)
+        {
+            OpenChildForm(new CHITIETXUAT_GUI(maHDN, this));
+            closeCongDong();
+            closeDoanhMuc();
+
+        }
 
         private void btTaiKhoanUser_Click(object sender, EventArgs e)
 		{

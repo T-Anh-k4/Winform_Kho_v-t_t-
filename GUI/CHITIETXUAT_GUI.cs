@@ -28,14 +28,12 @@ namespace GUI
             maHDN = _maHDN;
             this.testGui = testGui;
             init();
-            PopulateComboBox();
         }
 
         public void init()
         {
             initUser();
             panel2_nv.Height = 0;
-            fillHDNLabel();
             dataViewNv.CellFormatting += dataViewNv_CellFormatting;
         }
 
@@ -53,9 +51,8 @@ namespace GUI
             kryTb_DGNhap.Enter += kryTbSearch_Enter;
             kryTb_DGNhap.Leave += kryTbSearch_Leave;
             SetPlaceholder(txb_tim_kiem_nv, "Tìm kiếm");
-            //SetPlaceholder(kryTb_MaHH, "Nhập tên hàng hóa");
-            //SetPlaceholder(kryTb_SLNhap, "Nhập số lượng nhập");
-            //SetPlaceholder(kryTb_DGNhap, "Nhập đơn giá nhập");
+            SetPlaceholder(kryTb_SLNhap, "Nhập số lượng Xuất");
+            SetPlaceholder(kryTb_DGNhap, "Nhập đơn giá Xuất");
         }
 
         public bool IsPressAdd()
@@ -157,7 +154,7 @@ namespace GUI
                 DataGridViewRow row = dataViewNv.Rows[e.RowIndex];
                 if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
                 {
-                    kryCb_HangHoa.SelectedValue = row.Cells[2].Value.ToString();
+                    kryCb_HangHoa.SelectedItem = row.Cells[2].Value.ToString();
                     kryTb_SLNhap.Text = row.Cells[3].Value.ToString();
                     kryTb_DGNhap.Text = row.Cells[4].Value.ToString();
                     IsPressEdit();
@@ -204,18 +201,14 @@ namespace GUI
 
         private void kryBt_Add_Click(object sender, EventArgs e)
         {
-
-            // Kiểm tra các trường bắt buộc
-            //if (string.IsNullOrWhiteSpace(kryTb_MaHH.Text))
-            //{
-            //	MessageBox.Show("Vui lòng nhập tên hàng hóa.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //	return;
-            // //}
+            // Kiểm tra trường số lượng
             if (string.IsNullOrWhiteSpace(kryTb_SLNhap.Text))
             {
                 MessageBox.Show("Vui lòng nhập số lượng Xuất.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            // Kiểm tra trường đơn giá
             if (string.IsNullOrWhiteSpace(kryTb_DGNhap.Text))
             {
                 MessageBox.Show("Vui lòng nhập đơn giá Xuất.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -224,58 +217,114 @@ namespace GUI
 
             try
             {
+                // Kiểm tra giá trị số lượng và đơn giá hợp lệ
+                int soLuong;decimal donGia;
+                bool isValidSL = int.TryParse(kryTb_SLNhap.Text, out soLuong);
+                bool isValidDG = decimal.TryParse(kryTb_DGNhap.Text, out donGia);
 
-                bool result = chiTietNhapBUS.InsertChiTietXuat(kryCb_HangHoa.SelectedValue.ToString(), maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
-                // Console.WriteLine(kryCb_Gender);
+                if (!isValidSL || !isValidDG || soLuong <= 0 || donGia <= 0)
+                {
+                    MessageBox.Show("Số lượng hoặc đơn giá không hợp lệ! Số lượng và đơn giá phải là số dương.");
+                    return;
+                }
+
+                // Lấy mã hàng hóa từ ComboBox (đảm bảo đã chọn mục hợp lệ)
+                if (kryCb_HangHoa.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn mã hàng hóa.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string maHangHoa = kryCb_HangHoa.SelectedItem.ToString();
+
+                // Kiểm tra mã hóa đơn
+                if (string.IsNullOrWhiteSpace(maHDN))
+                {
+                    MessageBox.Show("Mã hóa đơn không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Gọi phương thức InsertChiTietXuat để thêm chi tiết xuất
+                bool result = chiTietNhapBUS.InsertChiTietXuat(maHangHoa, maHDN, soLuong, donGia);
+
                 if (result)
                 {
                     loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
                     MessageBox.Show("Thêm chi tiết Xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    clear();
-                    //createTransition_Tick(sender, e);
+                    clear(); // Xóa dữ liệu input sau khi thêm thành công
                 }
                 else
                 {
                     MessageBox.Show("Thêm chi tiết Xuất không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                //soluong.Text = "Chi tiết nhập (" + Convert.ToString(chiTietNhapBUS.GetSLChiTietNhap(maHDN)) + ")";
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("Error");
-                Console.WriteLine(kryCb_HangHoa.SelectedValue.ToString());
-                Console.WriteLine(maHDN);
-                Console.WriteLine(kryTb_SLNhap.Text);
-                Console.WriteLine(kryTb_DGNhap.Text);
-                MessageBox.Show("Thêm chi tiết Xuất không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // In ra lỗi chi tiết để tiện cho việc gỡ lỗi
+                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Mã hàng hóa: " + kryCb_HangHoa.SelectedItem);
+                Console.WriteLine("Mã hóa đơn: " + maHDN);
+                Console.WriteLine("Số lượng: " + kryTb_SLNhap.Text);
+                Console.WriteLine("Đơn giá: " + kryTb_DGNhap.Text);
+
+                MessageBox.Show("Có lỗi xảy ra khi thêm chi tiết Xuất. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            // Gọi hàm xử lý sau khi nhấn nút Add
             IsPressAdd();
         }
+
 
         private void kryBt_Edit_Click(object sender, EventArgs e)
         {
             try
             {
-                bool result = chiTietNhapBUS.UpdateChiTietXuat(kryCb_HangHoa.SelectedValue.ToString(), maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
+                // Kiểm tra mã hàng hóa
+                string maHH = kryCb_HangHoa.SelectedValue?.ToString();
+                //if (string.IsNullOrEmpty(maHH))
+                //{
+                //    MessageBox.Show("Vui lòng chọn mã hàng hóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+
+                // Kiểm tra số lượng nhập
+                int soLuongXuat;
+                if (!int.TryParse(kryTb_SLNhap.Text, out soLuongXuat))
+                {
+                    MessageBox.Show("Số lượng xuất không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Kiểm tra đơn giá nhập
+                decimal donGiaXuat;
+                if (!decimal.TryParse(kryTb_DGNhap.Text, out donGiaXuat))
+                {
+                    MessageBox.Show("Đơn giá xuất không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Cập nhật chi tiết xuất
+                bool result = chiTietNhapBUS.UpdateChiTietXuat(maHH, maHDN, soLuongXuat, donGiaXuat);
 
                 if (result)
                 {
-                    MessageBox.Show("Sửa chi tiết Xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sửa chi tiết xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clear();
-                    //createTransition_Tick(sender, e);
                     loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
                 }
                 else
                 {
-                    MessageBox.Show("Sửa chi tiết Xuất không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sửa chi tiết xuất không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Sửa chi tiết Xuất không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message + "\n" + ex.StackTrace, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
 
         private void kry_Clear_Click(object sender, EventArgs e)
         {
@@ -451,45 +500,15 @@ namespace GUI
             testGui.eventHangNhap();
         }
 
-        private void PopulateComboBox()
+        private void kryCb_HangHoa_DropDown(object sender, EventArgs e)
         {
-            DataTable hangHoaTable = chiTietNhapBUS.getMaVaTenHH();
-            List<ComboItem> comboItems = new List<ComboItem>();
-
-            foreach (DataRow row in hangHoaTable.Rows)
+            kryCb_HangHoa.Items.Clear();
+            DataTable dtLoaiHang = chiTietNhapBUS.getMaVaTenHH();
+            foreach (DataRow row in dtLoaiHang.Rows)
             {
-                comboItems.Add(new ComboItem
-                {
-                    ID = row["Mã hàng hóa"].ToString(),
-                    Text = row["Tên hàng hóa"].ToString()
-                });
-            }
-            kryCb_HangHoa.DataSource = comboItems;
-            kryCb_HangHoa.DisplayMember = "Text";
-            kryCb_HangHoa.ValueMember = "ID";
-        }
-
-        private void fillHDNLabel()
-        {
-            DataTable dt = chiTietNhapBUS.getHoaDonXuatpDetail(maHDN);
-            if (dt.Rows.Count > 0)
-            {
-                lbSoHDX.Text = dt.Rows[0]["Số hóa đơn nhập"].ToString();
-                lbKH.Text = dt.Rows[0]["Tên nhà cung cấp"].ToString();
-                lbNhanVien.Text = dt.Rows[0]["Tên nhân viên"].ToString();
-                lbNgayLap.Text = dt.Rows[0]["Ngày lập hóa đơn"].ToString();
+                kryCb_HangHoa.Items.Add(row["Mã hàng hóa"].ToString()); 
             }
         }
-        private void kryInBaoCao_Click(object sender, EventArgs e)
-        {
-            testGui.btInBaoCao_Click(maHDN);
-        }
-    }
-
-    public class ComboItem1
-    {
-        public string ID { get; set; }
-        public string Text { get; set; }
     }
 }
 

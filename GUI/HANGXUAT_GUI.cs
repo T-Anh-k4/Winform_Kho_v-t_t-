@@ -209,7 +209,7 @@ namespace GUI
                 if (e.ColumnIndex == dataViewHNhap.Columns["imgInfo"].Index)
                 {
                     
-                    testGui.btChiTietNhap_Click(row.Cells[3].Value.ToString());
+                    testGui.btChiTietXuat_Click(row.Cells[3].Value.ToString());
                 }
             }
         }
