@@ -135,6 +135,14 @@
         XRWKLLsFxzRV/kwIN1eDRCIv2WRXAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="kry_Clear.StateCommon.Back.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DQAACw0B7QfALAAAAHJJREFUSEvtzcEJgDAMheFsoQd1/wF0DgVRD+Is+h40IBpKqz3mhw9Kjal4npdV
+        BWPAc9G4cIEz4LnYIzWsoMsV7/jtVw1s8Fyu+AhnPtXCDtbiO85wNqsODrAWWjjLf5KbwFoUM0NyPVhL
+        YgbwPO+VyAUN30QilNGPagAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="createTransition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>154, 17</value>
   </metadata>

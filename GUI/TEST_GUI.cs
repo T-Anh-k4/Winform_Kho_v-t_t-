@@ -341,8 +341,8 @@
 
         private void btKhachHang_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new KHACHHANG_GUI());
-            closeCongDong();
+			OpenChildForm(new KHACHHANG_GUI());
+			closeCongDong();
             closeDoanhMuc();
 
         }
@@ -403,6 +403,23 @@
 		{
 			OpenChildForm(new HANGXUAT_GUI(this));
 			closeCongDong();
+            closeDoanhMuc();
+
+        }
+        public void eventHangXuat()
+        {
+            btHangNhap_Click(this, EventArgs.Empty);
+        }
+
+        public void btChiTietXuat_Click(string maHDX)
+        {
+            eventChiTietXuat(this, EventArgs.Empty, maHDX);
+        }
+
+        private void eventChiTietXuat(object sender, EventArgs e, string maHDX)
+        {
+            OpenChildForm(new CHITIETXUAT_GUI(maHDX, this));
+            closeCongDong();
             closeDoanhMuc();
 
         }
