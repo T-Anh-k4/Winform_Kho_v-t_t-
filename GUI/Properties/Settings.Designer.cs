@@ -26,8 +26,19 @@ namespace GUI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NQH\\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True;E" +
-            "ncrypt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-T4N0A0R\\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Sec" +
+            "urity=True;TrustServerCertificate=True")]
+        public string QLVATLIEUXDConnectionString1 {
+            get {
+                return ((string)(this["QLVATLIEUXDConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("NQH\\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True;Encrypt=True;" +
+            "TrustServerCertificate=True")]
         public string QLVATLIEUXDConnectionString {
             get {
                 return ((string)(this["QLVATLIEUXDConnectionString"]));
@@ -37,11 +48,11 @@ namespace GUI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-T4N0A0R\\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Sec" +
-            "urity=True;TrustServerCertificate=True")]
-        public string QLVATLIEUXDConnectionString1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NQH\\SQLEXPRESS;Initial Catalog=QLVATLIEUXD;Integrated Security=True;E" +
+            "ncrypt=True;TrustServerCertificate=True")]
+        public string QLVATLIEUXDConnectionString2 {
             get {
-                return ((string)(this["QLVATLIEUXDConnectionString1"]));
+                return ((string)(this["QLVATLIEUXDConnectionString2"]));
             }
         }
     }

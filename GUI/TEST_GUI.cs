@@ -325,7 +325,7 @@
 
         private void BtTrangChu_Click(object sender, EventArgs e)
 		{
-            OpenChildForm(new NHANVIEN_GUI());
+            OpenChildForm(new TRANGCHU_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -341,8 +341,8 @@
 
         private void btKhachHang_Click(object sender, EventArgs e)
 		{
-			OpenChildForm(new KHACHHANG_GUI());
-			closeCongDong();
+            OpenChildForm(new KHACHHANG_GUI());
+            closeCongDong();
             closeDoanhMuc();
 
         }
@@ -406,23 +406,6 @@
             closeDoanhMuc();
 
         }
-        public void eventHangXuat()
-        {
-            btHangNhap_Click(this, EventArgs.Empty);
-        }
-
-        public void btChiTietXuat_Click(string maHDX)
-        {
-            eventChiTietXuat(this, EventArgs.Empty, maHDX);
-        }
-
-        private void eventChiTietXuat(object sender, EventArgs e, string maHDX)
-        {
-            OpenChildForm(new CHITIETXUAT_GUI(maHDX, this));
-            closeCongDong();
-            closeDoanhMuc();
-
-        }
 
         private void btTaiKhoanUser_Click(object sender, EventArgs e)
 		{
@@ -442,7 +425,7 @@
 
         private void btDanhSachKhachHang_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new KHACHHANG_GUI());
+            OpenChildForm(new KHACHHANG_GUI());
             closeCongDong();
             closeDoanhMuc();
 
@@ -482,7 +465,7 @@
 
         private void TEST_GUI_Load(object sender, EventArgs e)
         {
-            //OpenChildForm(new NHANVIEN_GUI());
+            OpenChildForm(new TRANGCHU_GUI());
         }
         //END
     }

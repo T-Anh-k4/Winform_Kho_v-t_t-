@@ -52,6 +52,7 @@
     <Compile Include="NHACUNGCAP_DTO.cs" />
     <Compile Include="NHANVIEN_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TRANGCHU_DTO.cs" />
     <Compile Include="USER_DTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
