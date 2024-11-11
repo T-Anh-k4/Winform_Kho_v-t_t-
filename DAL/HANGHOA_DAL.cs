@@ -26,7 +26,8 @@ namespace DAL
 		}
         public DataTable getDanhSachHangHoaPage(int limit, int page)
         {
-            string query = "SELECT MAHH as [Mã hàng hóa],MALOAI as [Mã loại],TENHH as [Tên hàng hóa],DONVI_TINH as [Đơn vị],XUATXU as [Xuất xứ] FROM HANGHOA";
+            string query = "SELECT MAHH as [Mã hàng hóa],TENLOAI as [Tên loại hàng],HANGHOA.MALOAI as [Mã loại],TENHH as [Tên hàng hóa],DONVI_TINH as [Đơn vị],XUATXU as [Xuất xứ] "
+			+"FROM HANGHOA "+"JOIN LOAIHANG ON HANGHOA.MALOAI = LOAIHANG.MALOAI";
 
             // Khởi tạo đối tượng kết nối
             using (SqlConnection con = new SqlConnection(LinkData))

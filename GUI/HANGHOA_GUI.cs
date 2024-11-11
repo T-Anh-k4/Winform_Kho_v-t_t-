@@ -182,6 +182,7 @@ namespace GUI
             dt = hanghoa_bus.getDanhSachHangHoaPage(limit, curentPage);
             //3dt_nhanvien.ColumnHeadersVisible = false;//ẩn header datagridview
             k_datagrview_hang_hoa.DataSource = dt;
+			k_datagrview_hang_hoa.Columns["Mã loại"].Visible = false;
             totalPage = hanghoa_bus.GetSLHangHoa() / limit;
             if (totalPage * limit < hanghoa_bus.GetSLHangHoa()) totalPage++;
             EnsureButtonColumnsVisible();
@@ -345,7 +346,7 @@ namespace GUI
 				{
 
 					txb_Mahh.Text = row.Cells["Mã hàng hóa"].Value?.ToString();
-					cbx_ma_loai.Text = row.Cells["Mã loại"].Value?.ToString();
+					cbx_ma_loai.SelectedValue = row.Cells["Mã loại"].Value?.ToString();
 					txb_Ten_hang.Text = row.Cells["Tên hàng hóa"].Value?.ToString();
 					txb_xuat_xu.Text = row.Cells["Xuất xứ"].Value?.ToString();
 					string dvt = row.Cells["Đơn vị"]?.Value?.ToString();
