@@ -60,7 +60,7 @@ namespace DAL
         }
         public DataTable GetLoaihang()
 		{
-			string query = "SELECT LOAIHANG.MALOAI " +
+			string query = "SELECT MALOAI, TENLOAI " +
 						   "FROM LOAIHANG ";
 			return instance.execQuery(query);
 		}

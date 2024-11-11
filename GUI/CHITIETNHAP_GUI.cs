@@ -84,6 +84,7 @@ namespace GUI
 		{
 			kryTb_DGNhap.Text = "";
 			kryTb_SLNhap.Text = "";
+			kryCb_HangHoa.SelectedIndex = -1;
 		}
 
 		private void DelButtonColumn()

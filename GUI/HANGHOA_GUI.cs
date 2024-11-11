@@ -244,7 +244,7 @@ namespace GUI
 			bool isValid = true;
 
 			string mahh = txb_Mahh.Text;
-			string maloai = cbx_ma_loai.SelectedItem?.ToString();
+			string maloai = cbx_ma_loai.SelectedValue?.ToString();
 			string tenhang = txb_Ten_hang.Text;
 			string xuatxu = txb_xuat_xu.Text;
 			string dvt = cbx_don_vi_tinh.SelectedItem?.ToString();
@@ -344,10 +344,10 @@ namespace GUI
 				else if (e.ColumnIndex == k_datagrview_hang_hoa.Columns["btnEdit"].Index)
 				{
 
-					txb_Mahh.Text = row.Cells[2].Value?.ToString();
-					cbx_ma_loai.Text = row.Cells[3].Value?.ToString();
-					txb_Ten_hang.Text = row.Cells[4].Value?.ToString();
-					txb_xuat_xu.Text = row.Cells[6].Value?.ToString();
+					txb_Mahh.Text = row.Cells["Mã hàng hóa"].Value?.ToString();
+					cbx_ma_loai.Text = row.Cells["Mã loại"].Value?.ToString();
+					txb_Ten_hang.Text = row.Cells["Tên hàng hóa"].Value?.ToString();
+					txb_xuat_xu.Text = row.Cells["Xuất xứ"].Value?.ToString();
 					string dvt = row.Cells["Đơn vị"]?.Value?.ToString();
 
 					if (!string.IsNullOrEmpty(dvt))
@@ -475,13 +475,29 @@ namespace GUI
 		//cbx loại hàng
 		private void cbx_ma_loai_DropDown(object sender, EventArgs e)
 		{
-			cbx_ma_loai.Items.Clear();
+			PopulateLoaiHangComboBox();
+		}
+
+		private void PopulateLoaiHangComboBox()
+		{
 			DataTable dtLoaiHang = hanghoa_bus.GetLoaiHang();
+			List<ComboItem> comboItems = new List<ComboItem>();
+
 			foreach (DataRow row in dtLoaiHang.Rows)
 			{
-				cbx_ma_loai.Items.Add(row["MALOAI"].ToString());
+				comboItems.Add(new ComboItem
+				{
+					ID = row["MALOAI"].ToString(),
+					Text = row["TENLOAI"].ToString()
+				});
 			}
+
+			cbx_ma_loai.DataSource = comboItems;
+			cbx_ma_loai.DisplayMember = "Text";
+			cbx_ma_loai.ValueMember = "ID";
 		}
+
+
 		// Ngăn chặn hành động ấn enter
 		private void txb_tim_kiem_HH_KeyDown(object sender, KeyEventArgs e)
 		{
@@ -517,4 +533,5 @@ namespace GUI
             labelSoTrang.Text = Convert.ToString(curentPage);
         }
     }
+	
 }
