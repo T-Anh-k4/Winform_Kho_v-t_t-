@@ -537,7 +537,7 @@
             this.kryCb_HangHoa.StateCommon.ComboBox.Border.Rounding = 20;
             this.kryCb_HangHoa.StateCommon.ComboBox.Border.Width = 1;
             this.kryCb_HangHoa.TabIndex = 32;
-            this.kryCb_HangHoa.DropDown += new System.EventHandler(this.kryCb_HangHoa_DropDown);
+            // this.kryCb_HangHoa.DropDown += new System.EventHandler(this.kryCb_HangHoa_DropDown);
             // 
             // kry_Clear
             // 
