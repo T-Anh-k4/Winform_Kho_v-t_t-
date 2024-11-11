@@ -392,8 +392,8 @@
 
         private void btHangXuat_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new HANGXUAT_GUI());
-            closeCongDong();
+			OpenChildForm(new HANGXUAT_GUI(this));
+			closeCongDong();
             closeDoanhMuc();
 
         }
