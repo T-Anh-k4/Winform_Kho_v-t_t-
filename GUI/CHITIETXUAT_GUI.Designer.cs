@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHITIETXUAT_GUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.kryInBaoCao = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label5 = new System.Windows.Forms.Label();
@@ -236,6 +236,7 @@
             this.kryBtShowCreate_NV.StateTracking.Border.Width = 1;
             this.kryBtShowCreate_NV.TabIndex = 27;
             this.kryBtShowCreate_NV.Values.Text = "+";
+            this.kryBtShowCreate_NV.Click += new System.EventHandler(this.kryBtShowCreate_NV_Click);
             // 
             // artanPanel1
             // 
@@ -431,9 +432,9 @@
             this.dataViewNv.AllowUserToAddRows = false;
             this.dataViewNv.AllowUserToResizeColumns = false;
             this.dataViewNv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -468,6 +469,7 @@
             this.dataViewNv.StateCommon.HeaderRow.Back.Color1 = System.Drawing.Color.Black;
             this.dataViewNv.StateCommon.HeaderRow.Content.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.dataViewNv.TabIndex = 0;
+            this.dataViewNv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewNv_CellClick);
             // 
             // panel2_nv
             // 
@@ -535,6 +537,7 @@
             this.kryCb_HangHoa.StateCommon.ComboBox.Border.Rounding = 20;
             this.kryCb_HangHoa.StateCommon.ComboBox.Border.Width = 1;
             this.kryCb_HangHoa.TabIndex = 32;
+            // this.kryCb_HangHoa.DropDown += new System.EventHandler(this.kryCb_HangHoa_DropDown);
             // 
             // kry_Clear
             // 
@@ -592,10 +595,11 @@
             this.kry_Clear.StateTracking.Border.Width = 1;
             this.kry_Clear.TabIndex = 30;
             this.kry_Clear.Values.Text = "";
+            this.kry_Clear.Click += new System.EventHandler(this.kry_Clear_Click);
             // 
             // kryBt_Edit
             // 
-            this.kryBt_Edit.Location = new System.Drawing.Point(41, 79);
+            this.kryBt_Edit.Location = new System.Drawing.Point(41, 80);
             this.kryBt_Edit.Name = "kryBt_Edit";
             this.kryBt_Edit.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBt_Edit.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -646,6 +650,7 @@
             this.kryBt_Edit.StateTracking.Border.Width = 1;
             this.kryBt_Edit.TabIndex = 29;
             this.kryBt_Edit.Values.Text = "Sửa";
+            this.kryBt_Edit.Click += new System.EventHandler(this.kryBt_Edit_Click);
             // 
             // kryBt_Add
             // 
@@ -700,6 +705,7 @@
             this.kryBt_Add.StateTracking.Border.Width = 1;
             this.kryBt_Add.TabIndex = 28;
             this.kryBt_Add.Values.Text = "Thêm";
+            this.kryBt_Add.Click += new System.EventHandler(this.kryBt_Add_Click);
             // 
             // kryTb_DGNhap
             // 

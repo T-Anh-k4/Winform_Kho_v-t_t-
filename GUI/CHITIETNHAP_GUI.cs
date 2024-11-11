@@ -47,7 +47,6 @@ namespace GUI
 			kryTb_DGNhap.Enter += kryTbSearch_Enter;
 			kryTb_DGNhap.Leave += kryTbSearch_Leave;
 			SetPlaceholder(kryTbSearch, "Tìm kiếm");
-			// SetPlaceholder(kryTb_MaHH, "Nhập tên hàng hóa");
 			SetPlaceholder(kryTb_SLNhap, "Nhập số lượng nhập");
 			SetPlaceholder(kryTb_DGNhap, "Nhập đơn giá nhập");
 		}
@@ -63,7 +62,7 @@ namespace GUI
 		public void IsPressEdit()
 		{
 			kryBt_Edit.Visible = true;
-			kryTb_DGNhap.Enabled = false;
+			kryTb_DGNhap.Enabled = true;
 
 			// return kryBt_Edit.Visible;
 		}
@@ -73,15 +72,19 @@ namespace GUI
 			DataTable dt = new DataTable();
 			dt = chiTietNhapBUS.GetDanhSachChiTietNhapPage(maHDN, limit, curentPage);
 			dataViewNv.DataSource = dt;
+			dataViewNv.Columns["Mã chi tiết nhập"].Visible = false;
+			dataViewNv.Columns["Mã hàng hóa"].Visible = false;
 			totalPage = chiTietNhapBUS.GetSLChiTietNhap(maHDN) / limit;
 			if (totalPage * limit < chiTietNhapBUS.GetSLChiTietNhap(maHDN)) totalPage++;
 			EnsureButtonColumnsVisible();
+			label11.Text = chiTietNhapBUS.getTotalCost(maHDN).ToString();
 		}
 
 		public void clear()
 		{
 			kryTb_DGNhap.Text = "";
 			kryTb_SLNhap.Text = "";
+			kryCb_HangHoa.SelectedIndex = -1;
 		}
 
 		private void DelButtonColumn()
@@ -151,9 +154,9 @@ namespace GUI
 				DataGridViewRow row = dataViewNv.Rows[e.RowIndex];
 				if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
 				{
-					kryCb_HangHoa.SelectedValue = row.Cells[2].Value.ToString();
-					kryTb_SLNhap.Text = row.Cells[3].Value.ToString();
-					kryTb_DGNhap.Text = row.Cells[4].Value.ToString();
+					kryCb_HangHoa.SelectedValue = row.Cells["Mã hàng hóa"].Value.ToString();
+					kryTb_SLNhap.Text = row.Cells["Số lượng nhập"].Value.ToString();
+					kryTb_DGNhap.Text = row.Cells["Đơn giá nhập"].Value.ToString();
 					IsPressEdit();
 					createTransition.Start();
 					if (panel2_nv.Height >= 125)
@@ -172,7 +175,7 @@ namespace GUI
 					{
 						try
 						{
-							bool result = chiTietNhapBUS.DeleteChiTietNhap(row.Cells[2].Value.ToString(), maHDN, Convert.ToInt32(row.Cells[4].Value));
+							bool result = chiTietNhapBUS.DeleteChiTietNhap(Convert.ToInt32(row.Cells["Mã chi tiết nhập"].Value));
 							if (result)
 							{
 								loadDt_ChiTietNhap();
@@ -219,7 +222,6 @@ namespace GUI
 			{
 
 				bool result = chiTietNhapBUS.InsertChiTietNhap(kryCb_HangHoa.SelectedValue.ToString(), maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
-				// Console.WriteLine(kryCb_Gender);
 				if (result)
 				{
 					loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
@@ -250,7 +252,7 @@ namespace GUI
 		{
 			try
 			{
-				bool result = chiTietNhapBUS.UpdateChiTietNhap(kryCb_HangHoa.SelectedValue.ToString(), maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
+				bool result = chiTietNhapBUS.UpdateChiTietNhap(Convert.ToInt32(dataViewNv.CurrentRow.Cells["Mã chi tiết nhập"].Value), kryCb_HangHoa.SelectedValue.ToString(), maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
 
 				if (result)
 				{
@@ -468,18 +470,18 @@ namespace GUI
 			if (dt.Rows.Count > 0)
 			{
 				lbSoHDN.Text = dt.Rows[0]["Số hóa đơn nhập"].ToString();
-				lbNcc.Text =  dt.Rows[0]["Tên nhà cung cấp"].ToString();
-				lbNhanVien.Text =  dt.Rows[0]["Tên nhân viên"].ToString();
-				lbNgayLap.Text =  dt.Rows[0]["Ngày lập hóa đơn"].ToString();
+				lbNcc.Text = dt.Rows[0]["Tên nhà cung cấp"].ToString();
+				lbNhanVien.Text = dt.Rows[0]["Tên nhân viên"].ToString();
+				lbNgayLap.Text = dt.Rows[0]["Ngày lập hóa đơn"].ToString();
 			}
 		}
-        private void kryInBaoCao_Click(object sender, EventArgs e)
-        {
+		private void kryInBaoCao_Click(object sender, EventArgs e)
+		{
 			testGui.btInBaoCao_Click(maHDN);
-        }
-    }
+		}
+	}
 
-    public class ComboItem
+	public class ComboItem
 	{
 		public string ID { get; set; }
 		public string Text { get; set; }

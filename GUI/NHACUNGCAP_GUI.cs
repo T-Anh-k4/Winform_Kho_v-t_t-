@@ -148,16 +148,16 @@ namespace GUI
         //Sự kiên database
         private void dataViewNcc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dataViewNcc.Rows[e.RowIndex];
             if (e.RowIndex >= 0)
             {
+                DataGridViewRow row = dataViewNcc.Rows[e.RowIndex];
                 if (e.ColumnIndex == dataViewNcc.Columns["imgEdit"].Index)
                 {
                     kryTb_Id.ReadOnly = true;
-                    kryTb_Id.Text = row.Cells[2].Value.ToString();
-                    kryTb_Name.Text = row.Cells[3].Value.ToString();
-                    kryTb_Address.Text = row.Cells[4].Value.ToString();
-                    kryTb_Number.Text = row.Cells[5].Value.ToString();
+                    kryTb_Id.Text = row.Cells["Mã nhà cung cấp"].Value.ToString();
+                    kryTb_Name.Text = row.Cells["Tên nhà cung cấp"].Value.ToString();
+                    kryTb_Address.Text = row.Cells["Địa chỉ"].Value.ToString();
+                    kryTb_Number.Text = row.Cells["Số điện thoại"].Value.ToString();
                     IsPressEdit();
                     createTransition.Start();
                     if (panel2_ncc.Height >= 120)
@@ -170,22 +170,23 @@ namespace GUI
                     }
 
                 }
-            }
-            if (e.ColumnIndex == dataViewNcc.Columns["imgDelete"].Index)
-            {
-                DialogResult check = MessageBox.Show("Bạn có muốn xóa nhà cung cấp nay không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                if (check == DialogResult.Yes)
-                {
-                    bool result = nhaCungCapBUS.DeleteNhaCungCap(row.Cells[2].Value.ToString());
-                    if (result)
-                    {
-                        loadDt_NhaCungCap();
-                        MessageBox.Show("Xóa thông tin nhà cung cấp thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa thông tin nhà cung cấp không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                if (e.ColumnIndex == dataViewNcc.Columns["imgDelete"].Index)
+                {
+                    DialogResult check = MessageBox.Show("Bạn có muốn xóa nhà cung cấp nay không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    if (check == DialogResult.Yes)
+                    {
+                        bool result = nhaCungCapBUS.DeleteNhaCungCap(row.Cells["Mã nhà cung cấp"].Value.ToString());
+                        if (result)
+                        {
+                            loadDt_NhaCungCap();
+                            MessageBox.Show("Xóa thông tin nhà cung cấp thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thông tin nhà cung cấp không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
                     }
                 }
             }

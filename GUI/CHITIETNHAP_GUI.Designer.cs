@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHITIETNHAP_GUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel0_nv = new ArtanComponent.ArtanPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -43,8 +43,6 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.dataViewNv = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.panel2_nv = new System.Windows.Forms.Panel();
-            this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.kryCb_HangHoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kry_Clear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryBt_Edit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -122,7 +120,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Gray;
-            this.label10.Location = new System.Drawing.Point(850, 476);
+            this.label10.Location = new System.Drawing.Point(756, 474);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(69, 16);
@@ -133,7 +131,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label11.Location = new System.Drawing.Point(916, 477);
+            this.label11.Location = new System.Drawing.Point(829, 474);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(33, 16);
@@ -278,9 +276,9 @@
             this.dataViewNv.AllowUserToAddRows = false;
             this.dataViewNv.AllowUserToResizeColumns = false;
             this.dataViewNv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -320,8 +318,6 @@
             // 
             // panel2_nv
             // 
-            this.panel2_nv.Controls.Add(this.kryptonTextBox1);
-            this.panel2_nv.Controls.Add(this.label1);
             this.panel2_nv.Controls.Add(this.kryCb_HangHoa);
             this.panel2_nv.Controls.Add(this.kry_Clear);
             this.panel2_nv.Controls.Add(this.kryBt_Edit);
@@ -338,35 +334,6 @@
             this.panel2_nv.Size = new System.Drawing.Size(973, 125);
             this.panel2_nv.TabIndex = 1;
             // 
-            // kryptonTextBox1
-            // 
-            this.kryptonTextBox1.Location = new System.Drawing.Point(736, 33);
-            this.kryptonTextBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.kryptonTextBox1.Name = "kryptonTextBox1";
-            this.kryptonTextBox1.Size = new System.Drawing.Size(200, 30);
-            this.kryptonTextBox1.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.kryptonTextBox1.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.kryptonTextBox1.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
-            this.kryptonTextBox1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonTextBox1.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.kryptonTextBox1.StateCommon.Border.Rounding = 20;
-            this.kryptonTextBox1.StateCommon.Border.Width = 1;
-            this.kryptonTextBox1.StateCommon.Content.Color1 = System.Drawing.Color.Black;
-            this.kryptonTextBox1.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.kryptonTextBox1.TabIndex = 35;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(733, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Thành tiền :";
-            // 
             // kryCb_HangHoa
             // 
             this.kryCb_HangHoa.DropDownWidth = 184;
@@ -374,7 +341,7 @@
             this.kryCb_HangHoa.Location = new System.Drawing.Point(39, 33);
             this.kryCb_HangHoa.Margin = new System.Windows.Forms.Padding(2);
             this.kryCb_HangHoa.Name = "kryCb_HangHoa";
-            this.kryCb_HangHoa.Size = new System.Drawing.Size(200, 33);
+            this.kryCb_HangHoa.Size = new System.Drawing.Size(250, 33);
             this.kryCb_HangHoa.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
             this.kryCb_HangHoa.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.Gray;
             this.kryCb_HangHoa.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -555,10 +522,10 @@
             // 
             // kryTb_DGNhap
             // 
-            this.kryTb_DGNhap.Location = new System.Drawing.Point(265, 33);
+            this.kryTb_DGNhap.Location = new System.Drawing.Point(368, 36);
             this.kryTb_DGNhap.Margin = new System.Windows.Forms.Padding(2);
             this.kryTb_DGNhap.Name = "kryTb_DGNhap";
-            this.kryTb_DGNhap.Size = new System.Drawing.Size(200, 30);
+            this.kryTb_DGNhap.Size = new System.Drawing.Size(250, 30);
             this.kryTb_DGNhap.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryTb_DGNhap.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
             this.kryTb_DGNhap.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
@@ -574,10 +541,10 @@
             // 
             // kryTb_SLNhap
             // 
-            this.kryTb_SLNhap.Location = new System.Drawing.Point(503, 33);
+            this.kryTb_SLNhap.Location = new System.Drawing.Point(710, 36);
             this.kryTb_SLNhap.Margin = new System.Windows.Forms.Padding(2);
             this.kryTb_SLNhap.Name = "kryTb_SLNhap";
-            this.kryTb_SLNhap.Size = new System.Drawing.Size(200, 30);
+            this.kryTb_SLNhap.Size = new System.Drawing.Size(250, 30);
             this.kryTb_SLNhap.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryTb_SLNhap.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
             this.kryTb_SLNhap.StateCommon.Border.Color2 = System.Drawing.Color.Silver;
@@ -594,7 +561,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(262, 12);
+            this.label4.Location = new System.Drawing.Point(365, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
@@ -604,7 +571,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(500, 12);
+            this.label3.Location = new System.Drawing.Point(707, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
@@ -1153,10 +1120,8 @@
         private System.Windows.Forms.Label lbNgayLap;
         private System.Windows.Forms.Label lbNcc;
         private System.Windows.Forms.Label lbSoHDN;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

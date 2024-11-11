@@ -27,8 +27,11 @@ namespace DAL
 
         public DataTable GetDanhSachChiTietNhapPage(string maHDN, int limit, int page)
         {
-            string query = "SELECT MAHH as [Mã hàng hóa], SOLUONG_NHAP as [Số lượng nhập], DONGIA_NHAP as [Đơn giá nhập] " +
-                           "FROM CHITIET_HD_NHAP WHERE SO_HD_NHAP = @maHDN";
+            string query = "SELECT ID AS [Mã chi tiết nhập], HANGHOA.MAHH as [Mã hàng hóa], TENHH as [Tên hàng hóa], SOLUONG_NHAP as [Số lượng nhập], DONGIA_NHAP as [Đơn giá nhập], (SOLUONG_NHAP * DONGIA_NHAP) as [Thành tiền] " +
+                           "FROM CHITIET_HD_NHAP " +
+                            "JOIN HANGHOA ON CHITIET_HD_NHAP.MAHH = HANGHOA.MAHH " +
+                           "WHERE SO_HD_NHAP = @maHDN "
+                           ;
             using (SqlConnection con = new SqlConnection(LinkData))
             {
                 con.Open(); // Mở kết nối
@@ -55,11 +58,24 @@ namespace DAL
             return slChiTietNhap;
         }
 
-		public DataTable getMaVaTenHH(){
-			string query = "SELECT MAHH as [Mã hàng hóa], TENHH as [Tên hàng hóa]" +
-						   "FROM HANGHOA";
-			return instance.execQuery(query);
-		}
+        public DataTable getMaVaTenHH()
+        {
+            string query = "SELECT MAHH as [Mã hàng hóa], TENHH as [Tên hàng hóa]" +
+                           "FROM HANGHOA";
+            return instance.execQuery(query);
+        }
+
+        public int getTotalCost(string maHDN)
+        {
+            string query = "SELECT SUM(SOLUONG_NHAP * DONGIA_NHAP) " +
+                           "FROM CHITIET_HD_NHAP " +
+                           "WHERE SO_HD_NHAP = @maHDN";
+            SqlParameter[] parameters = {
+                new SqlParameter("@maHDN", maHDN)
+            };
+            object result = instance.execScalar(query, parameters);
+            return result != DBNull.Value ? Convert.ToInt32(result) : 0;
+        }
 
         public DataTable getHoaDonNhapDetail(string maHDN)
         {
@@ -128,24 +144,50 @@ namespace DAL
             }
         }
 
-        public bool UpdateChiTietNhap(string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
+        public bool UpdateChiTietNhap(int ID, string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
         {
             try
             {
-                string query = "UPDATE CHITIET_HD_NHAP " +
-                               "SET MAHH = @maHH, " +
-                               "SO_HD_NHAP = @maHDN, " +
-                               "SOLUONG_NHAP = @soLuongNhap, " +
-                               "DONGIA_NHAP = @donGiaNhap " +
-                               "WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
-                SqlParameter[] parameters = {
+                string checkQuery = "SELECT SOLUONG_NHAP FROM CHITIET_HD_NHAP WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
+                SqlParameter[] checkParameters = {
+                    new SqlParameter("@maHH", maHH),
+                    new SqlParameter("@maHDN", maHDN),
+                    new SqlParameter("@donGiaNhap", donGiaNhap)
+                };
+                object result = instance.execScalar(checkQuery, checkParameters);
+                if (result != null)
+                {
+                    int existingSLNhap = Convert.ToInt32(result);
+                    int newSLNhap = existingSLNhap + soLuongNhap;
+                    string updateQuery = "UPDATE CHITIET_HD_NHAP SET SOLUONG_NHAP = @newSLNhap WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
+                    SqlParameter[] updateParameters = {
+                        new SqlParameter("@newSLNhap", newSLNhap),
+                        new SqlParameter("@maHH", maHH),
+                        new SqlParameter("@maHDN", maHDN),
+                        new SqlParameter("@donGiaNhap", donGiaNhap)
+                    };
+                    DeleteChiTietNhap(ID);
+                    instance.execNonQuery(updateQuery, updateParameters);
+                    return true;
+                }
+                else
+                {
+                    string query = "UPDATE CHITIET_HD_NHAP " +
+                                   "SET MAHH = @maHH, " +
+                                   "SO_HD_NHAP = @maHDN, " +
+                                   "SOLUONG_NHAP = @soLuongNhap, " +
+                                   "DONGIA_NHAP = @donGiaNhap " +
+                                   "WHERE id = @id";
+                    SqlParameter[] parameters = {
+                    new SqlParameter("@id", ID),
                     new SqlParameter("@maHH", maHH),
                     new SqlParameter("@maHDN", maHDN),
                     new SqlParameter("@soLuongNhap", soLuongNhap),
                     new SqlParameter("@donGiaNhap", donGiaNhap)
                 };
-                instance.execNonQuery(query, parameters);
-                return true;
+                    instance.execNonQuery(query, parameters);
+                    return true;
+                }
             }
             catch
             {
@@ -153,15 +195,13 @@ namespace DAL
             }
         }
 
-        public bool DeleteChiTietNhap(string maHH, string maHDN, int donGiaNhap)
+        public bool DeleteChiTietNhap(int ID)
         {
             try
             {
-                string query = "DELETE FROM CHITIET_HD_NHAP WHERE MaHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
+                string query = "DELETE FROM CHITIET_HD_NHAP WHERE ID = @id";
                 SqlParameter[] parameters = {
-                    new SqlParameter("@maHH", maHH),
-                    new SqlParameter("@maHDN", maHDN),
-                    new SqlParameter("@donGiaNhap", donGiaNhap)
+                    new SqlParameter("@id", ID)
                 };
                 instance.execNonQuery(query, parameters);
                 return true;
