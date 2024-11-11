@@ -266,6 +266,9 @@
     <EmbeddedResource Include="HANGNHAP_GUI.resx">
       <DependentUpon>HANGNHAP_GUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HANGXUAT_GUI.resx">
+      <DependentUpon>HANGXUAT_GUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HOADONXUAT_GUI.resx">
       <DependentUpon>HOADONXUAT_GUI.cs</DependentUpon>
     </EmbeddedResource>
