@@ -25,7 +25,7 @@ namespace DAL
             HH.TENHH AS [Tên hàng hóa],
             HH.DONVI_TINH AS [Đơn vị tính],
             CTHD_X.SOLUONG_XUAT AS [Số lượng],
-            CTHD_X.DONGIA_XUAT AS [Đơn giá],
+            CONVERT(DECIMAL(18, 0), DONGIA_XUAT) AS [Đơn giá],
             HD_X.NGAYLAP_XUAT AS [Ngày lập]
         FROM 
             KHACHHANG kh

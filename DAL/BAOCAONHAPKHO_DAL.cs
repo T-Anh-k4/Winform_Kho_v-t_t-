@@ -25,7 +25,7 @@ namespace DAL
             HH.TENHH AS [Tên hàng hóa],
             HH.DONVI_TINH AS [Đơn vị tính],
             CTHD_N.SOLUONG_NHAP AS [Số lượng],
-            CTHD_N.DONGIA_NHAP AS [Đơn giá],
+            CONVERT(DECIMAL(18, 0), DONGIA_NHAP) AS [Đơn giá],
             HD_N.NGAYLAP_NHAP AS [Ngày lập]
         FROM 
             NHACUNGCAP NCC

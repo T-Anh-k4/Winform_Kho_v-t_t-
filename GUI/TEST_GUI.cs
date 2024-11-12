@@ -66,7 +66,7 @@
 				else {
 					panelDoanhMuc.Height -= 15;
 				}
-				//khi nhan vao emnu to
+				//khi nhan vao emnu 250
 				if (panelDoanhMuc.Height <= 250)
 				{
 					panelHeThong.Location = new Point(247, 170);
@@ -198,7 +198,7 @@
         }
         public void closeBc_Tk()
         {
-            if (panelTk_Bc.Height >= 250)
+            if (panelTk_Bc.Height >= 200)
             {
                 Tk_Bc_Transition.Start();
                 if (panelTk_Bc.Height <= 0)
@@ -272,7 +272,7 @@
 			else
 			{
 				panelTk_Bc.Height += 10;
-				if (panelTk_Bc.Height >= 250)
+				if (panelTk_Bc.Height >= 200)
 				{
 					Tk_Bc_Transition.Stop();
 					tkBcExplore = true;
@@ -328,6 +328,8 @@
             OpenChildForm(new TRANGCHU_GUI());
             closeCongDong();
             closeDoanhMuc();
+            closeBc_Tk();
+			closeDoanhMucContainer();
 
         }
 
@@ -473,7 +475,10 @@
 
         private void btDangXuat_Click(object sender, EventArgs e)
 		{
-            //OpenChildForm(new HANGHOA_GUI());
+            LOGIN_GUI menuGui = new LOGIN_GUI();
+            this.Hide();
+            menuGui.ShowDialog();
+            this.Close();
             closeCongDong();
             closeDoanhMuc();
 

@@ -27,5 +27,10 @@ namespace GUI
             dt = kHOBUS.GetDanhSachHangHoa();
             k_datagrview_hang_hoa.DataSource = dt;
         }
+
+        private void artanPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

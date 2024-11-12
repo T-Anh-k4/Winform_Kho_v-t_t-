@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHITIETXUAT_GUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.kryInBaoCao = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label5 = new System.Windows.Forms.Label();
@@ -431,9 +431,9 @@
             this.dataViewNv.AllowUserToAddRows = false;
             this.dataViewNv.AllowUserToResizeColumns = false;
             this.dataViewNv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -492,7 +492,7 @@
             // 
             this.kryCb_HangHoa.DropDownWidth = 184;
             this.kryCb_HangHoa.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-            this.kryCb_HangHoa.Location = new System.Drawing.Point(169, 38);
+            this.kryCb_HangHoa.Location = new System.Drawing.Point(150, 24);
             this.kryCb_HangHoa.Margin = new System.Windows.Forms.Padding(2);
             this.kryCb_HangHoa.Name = "kryCb_HangHoa";
             this.kryCb_HangHoa.Size = new System.Drawing.Size(200, 33);
@@ -566,7 +566,7 @@
             // 
             // kryBt_Edit
             // 
-            this.kryBt_Edit.Location = new System.Drawing.Point(41, 80);
+            this.kryBt_Edit.Location = new System.Drawing.Point(146, 76);
             this.kryBt_Edit.Name = "kryBt_Edit";
             this.kryBt_Edit.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBt_Edit.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -621,7 +621,7 @@
             // 
             // kryBt_Add
             // 
-            this.kryBt_Add.Location = new System.Drawing.Point(41, 80);
+            this.kryBt_Add.Location = new System.Drawing.Point(146, 76);
             this.kryBt_Add.Name = "kryBt_Add";
             this.kryBt_Add.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBt_Add.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -676,7 +676,7 @@
             // 
             // kryTb_DGNhap
             // 
-            this.kryTb_DGNhap.Location = new System.Drawing.Point(395, 38);
+            this.kryTb_DGNhap.Location = new System.Drawing.Point(376, 24);
             this.kryTb_DGNhap.Margin = new System.Windows.Forms.Padding(2);
             this.kryTb_DGNhap.Name = "kryTb_DGNhap";
             this.kryTb_DGNhap.Size = new System.Drawing.Size(200, 30);
@@ -695,7 +695,7 @@
             // 
             // kryTb_SLNhap
             // 
-            this.kryTb_SLNhap.Location = new System.Drawing.Point(633, 38);
+            this.kryTb_SLNhap.Location = new System.Drawing.Point(614, 24);
             this.kryTb_SLNhap.Margin = new System.Windows.Forms.Padding(2);
             this.kryTb_SLNhap.Name = "kryTb_SLNhap";
             this.kryTb_SLNhap.Size = new System.Drawing.Size(200, 30);
@@ -715,7 +715,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(392, 17);
+            this.label4.Location = new System.Drawing.Point(373, 3);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 13);
@@ -725,7 +725,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(630, 17);
+            this.label3.Location = new System.Drawing.Point(611, 3);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
@@ -735,7 +735,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(173, 17);
+            this.label2.Location = new System.Drawing.Point(154, 3);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
