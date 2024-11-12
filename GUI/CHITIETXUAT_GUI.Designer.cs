@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHITIETXUAT_GUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.kryInBaoCao = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label5 = new System.Windows.Forms.Label();
@@ -152,6 +152,7 @@
             this.kryInBaoCao.StateTracking.Border.Width = 1;
             this.kryInBaoCao.TabIndex = 30;
             this.kryInBaoCao.Values.Text = "";
+            this.kryInBaoCao.Click += new System.EventHandler(this.kryInBaoCao_Click);
             // 
             // label5
             // 
@@ -431,9 +432,9 @@
             this.dataViewNv.AllowUserToAddRows = false;
             this.dataViewNv.AllowUserToResizeColumns = false;
             this.dataViewNv.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.dataViewNv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataViewNv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewNv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewNv.Dock = System.Windows.Forms.DockStyle.Fill;

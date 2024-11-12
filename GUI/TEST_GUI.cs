@@ -386,9 +386,19 @@
         {
             eventBCHDN(this, EventArgs.Empty, maHDN);
         }
+        public void btInBaoCaoXuat_Click(string maHDX)
+        {
+            eventBCHDX(this, EventArgs.Empty, maHDX);
+        }
         private void eventBCHDN(object sender, EventArgs e, string maHDN)
         {
             OpenChildForm(new RDLC_GUI(maHDN,this));
+            closeCongDong();
+            closeDoanhMuc();
+        }
+        private void eventBCHDX(object sender, EventArgs e, string maHDX)
+        {
+            OpenChildForm(new RDLC_1(maHDX, this));
             closeCongDong();
             closeDoanhMuc();
         }

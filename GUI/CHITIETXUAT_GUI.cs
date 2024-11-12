@@ -439,7 +439,7 @@ namespace GUI
 
         private void kryInBaoCao_Click(object sender, EventArgs e)
         {
-            testGui.btInBaoCao_Click(maHDX);
+            testGui.btInBaoCaoXuat_Click(maHDX);
         }
     }
 

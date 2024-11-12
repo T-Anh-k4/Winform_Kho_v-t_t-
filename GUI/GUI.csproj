@@ -143,6 +143,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CTHDNDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CTHDXDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTHDXDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FORMLOAD_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +220,12 @@
     <Compile Include="NHACUNGCAP_GUI.Designer.cs">
       <DependentUpon>NHACUNGCAP_GUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="RDLC_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RDLC_1.Designer.cs">
+      <DependentUpon>RDLC_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="RDLC_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +275,7 @@
       <DependentUpon>CHITIETXUAT_GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CTHDN_RP.rdlc" />
+    <EmbeddedResource Include="CTHDX_RP.rdlc" />
     <EmbeddedResource Include="FORMLOAD_GUI.resx">
       <DependentUpon>FORMLOAD_GUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +324,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RDLC_1.resx">
+      <DependentUpon>RDLC_1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RDLC_GUI.resx">
       <DependentUpon>RDLC_GUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,6 +349,17 @@
     </None>
     <None Include="CTHDNDataSet.xss">
       <DependentUpon>CTHDNDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CTHDXDataSet.xsc">
+      <DependentUpon>CTHDXDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CTHDXDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CTHDXDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CTHDXDataSet.xss">
+      <DependentUpon>CTHDXDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
