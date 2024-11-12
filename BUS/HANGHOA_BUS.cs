@@ -56,5 +56,11 @@ namespace BUS
 		{
 			return hanghoaDAL.SearchHangHoa(keyword);
 		}
-	}
+
+		public bool IsMaHangHoaExist(string mahh)
+		{
+			return hanghoaDAL.IsMaHangHoaExist(mahh);
+		}
+
+    }
 }

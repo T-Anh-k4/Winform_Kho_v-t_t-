@@ -36,6 +36,7 @@ namespace GUI
 		{
 			initUser();
 			HangHoaGui_Load();
+			PopulateLoaiHangComboBox();
 		}
 
 		//thiết lập ban đầu của form
@@ -255,8 +256,18 @@ namespace GUI
 			{
 				MessageBox.Show("Vui lòng nhập mã hàng hóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
-			}
-			else if (string.IsNullOrWhiteSpace(txb_Ten_hang.Text) || txb_Ten_hang.Text == "Nhập tên hàng")
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(txb_Mahh.Text, @"^HH\d+$"))
+            {
+                MessageBox.Show("Mã hàng hóa không hợp lệ. Vui lòng nhập mã theo định dạng HH+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (hanghoa_bus.IsMaHangHoaExist(mahh))  
+            {
+                MessageBox.Show("Mã hàng hóa đã tồn tại. Vui lòng nhập mã khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txb_Ten_hang.Text) || txb_Ten_hang.Text == "Nhập tên hàng")
 			{
 				MessageBox.Show("Vui lòng nhập tên hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
@@ -384,13 +395,14 @@ namespace GUI
 		// nút sự kiện sửa hàng hóa
 		private void kbtn_sua_Click(object sender, EventArgs e)
 		{
-			string mahh = txb_Mahh.Text;
-			string malh = cbx_ma_loai.SelectedItem?.ToString();
-			string tenHang = txb_Ten_hang.Text;
-			string dvt = cbx_don_vi_tinh.SelectedItem?.ToString();
-			string xuatXu = txb_xuat_xu.Text;
+            string mahh = txb_Mahh.Text;
+            string maloai = cbx_ma_loai.SelectedValue?.ToString();
+            string tenhang = txb_Ten_hang.Text;
+            string xuatxu = txb_xuat_xu.Text;
+            string dvt = cbx_don_vi_tinh.SelectedItem?.ToString();
 
-			bool result = hanghoa_bus.UpdateHanhHoa(mahh, malh, tenHang, dvt, xuatXu);
+
+            bool result = hanghoa_bus.UpdateHanhHoa(mahh, maloai, tenhang, dvt, xuatxu);
 			if (result)
 			{
 				HangHoaGui_Load();

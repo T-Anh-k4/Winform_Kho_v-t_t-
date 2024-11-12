@@ -45,5 +45,9 @@ namespace BUS
 		{
 			return Loaihang_dal.SearchLoaiHang(keyword);
 		}
-	}
+        public bool IsMaLoaiExist(string malh)
+        {
+            return Loaihang_dal.IsMaLoaiHangExist(malh);
+        }
+    }
 }

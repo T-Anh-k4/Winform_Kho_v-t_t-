@@ -113,5 +113,14 @@ namespace DAL
 				return null;
 			}
 		}
-	}
+		public bool IsMaLoaiHangExist(string malh)
+		{
+			string query = "SELECT COUNT(*) FROM LOAIHANG WHERE MALOAI = @malh";
+			SqlParameter[] parameters = {
+		new SqlParameter("@malh", malh)
+		};
+            int count = Convert.ToInt32(instance.execScalar(query, parameters));
+            return count > 0;
+        }
+    }
 }
