@@ -29,6 +29,8 @@ namespace GUI
         public void init()
         {
             initUser();
+            soluong.Text = "Nhà cung cấp (" + Convert.ToString(nhaCungCapBUS.GetSLNhaCungCap()) + ")";
+
             panel2_ncc.Height = 0;
         }
         public void initUser()
@@ -180,6 +182,7 @@ namespace GUI
                         if (result)
                         {
                             loadDt_NhaCungCap();
+                            soluong.Text = "Nhà cung cấp (" + Convert.ToString(nhaCungCapBUS.GetSLNhaCungCap()) + ")";
                             MessageBox.Show("Xóa thông tin nhà cung cấp thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else
@@ -196,6 +199,16 @@ namespace GUI
         private void kryBt_Add_Click(object sender, EventArgs e)
         {
             // Kiểm tra các trường bắt buộc
+            if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_Id.Text, @"^NCC\d+$"))
+            {
+                MessageBox.Show("Mã nhà cung cấp không hợp lệ. Vui lòng nhập mã theo định dạng NCC+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(kryTb_Name.Text, @"\d"))
+            {
+                MessageBox.Show("Tên nhà cung cấp không hợp lệ. Vui lòng không nhập số trong tên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (string.IsNullOrWhiteSpace(kryTb_Id.Text))
             {
                 MessageBox.Show("Vui lòng nhập mã nhà cung cấp.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -211,6 +224,11 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập địa chỉ.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_Number.Text, @"^\d{10}$"))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập 10 số.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (string.IsNullOrWhiteSpace(kryTb_Number.Text))
             {
                 MessageBox.Show("Vui lòng nhập số điện thoại.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -221,7 +239,7 @@ namespace GUI
             if (result)
             {
                 loadDt_NhaCungCap(); // Gọi lại để tải lại danh sách
-
+                soluong.Text = "Nhà cung cấp (" + Convert.ToString(nhaCungCapBUS.GetSLNhaCungCap()) + ")";
                 MessageBox.Show("Thêm nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
