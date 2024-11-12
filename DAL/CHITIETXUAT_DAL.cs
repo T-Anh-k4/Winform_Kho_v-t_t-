@@ -29,7 +29,8 @@ namespace DAL
 
         public DataTable GetDanhSachChiTietXuatPage(string maHDX, int limit, int page)
         {
-            string query = "SELECT IDXUAT AS [Mã chi tiết xuất], KHO.MAHH as [Mã hàng hóa], TENHH as [Tên hàng hóa], SOLUONG_XUAT as [Số lượng xuất], DONGIA_XUAT as [Đơn giá xuất], (SOLUONG_XUAT * DONGIA_XUAT) as [Thành tiền] " +
+            string query = "SELECT IDXUAT AS [Mã chi tiết xuất], KHO.MAHH as [Mã hàng hóa], TENHH as [Tên hàng hóa], SOLUONG_XUAT as [Số lượng xuất]," +
+                           "CONVERT(DECIMAL(18, 0), CHITIET_HD_XUAT.DONGIA_XUAT) as [Đơn giá xuất] , CONVERT(DECIMAL(18, 0), (SOLUONG_XUAT * DONGIA_XUAT)) as [Thành tiền] " +
                            "FROM CHITIET_HD_XUAT " +
                            "JOIN KHO ON CHITIET_HD_XUAT.IDKHO = KHO.IDKHO " +
                            "JOIN HANGHOA ON KHO.MAHH = HANGHOA.MAHH " +

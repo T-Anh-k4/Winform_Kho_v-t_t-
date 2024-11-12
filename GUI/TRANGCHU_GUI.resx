@@ -120,12 +120,6 @@
   <metadata name="cthdN1TableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="cthdN1TableAdapter2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>185, 17</value>
-  </metadata>
-  <metadata name="cthdN1TableAdapter3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>353, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="artanPanel4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1028,19 +1022,25 @@
   </data>
   <data name="label13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAB3SURBVEhL7ZS7DYAwDAWzBRTA/gPAHCAhoECZBc4RlihC
-        FbsiJ13h5j0pH4dK5YsBV5zSZEyPEa9HUzo8UcNNC1rc8R1uVtBgLtykQMI3zIWLxcyYC1aLcS9wPyLB
-        9ZIVeaYHuhUIrh9NcV0Viiy7Bcc0Vf5MCDdXg0QiL9lkVwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DQAACw0B7QfALAAAAHdJREFUSEvtlLsNgDAMBbMFFMD+A8AcICGgQJkFzhGWKEIVuyInXeHmPSkfh0rl
+        iwFXnNJkTI8Rr0dTOjxRw00LWtzxHW5W0GAu3KRAwjfMhYvFzJgLVotxL3A/IsH1khV5pge6FQiuH01x
+        XRWKLLsFxzRV/kwIN1eDRCIv2WRXAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="label12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAMlJREFUSEu11EsOgjAUhWF2oQN10HRAGxJYB92urkMTow6MA8oAdlHtgOSkOT4S
+        DQAACw0B7QfALAAAAMlJREFUSEu11EsOgjAUhWF2oQN10HRAGxJYB92urkMTow6MA8oAdlHtgOSkOT4S
         7yX5GPyU3kSBKqWkikZJNEqiURKNkmhEIYR927anYRh27Po3NKLXkU/JGPOIMW7Zmk9oRMuAzFp7H8dx
         w9a9QyPCAVld17dpmtZsLUMjKgdkzrnrPM8rtr5EIyo3X3jvL78MoRGVG6Ou647sHkQjKjdFqgNUfyLV
         PzlvrvaYqr5oap+Kvu8PTdOc1T52/6JREo2SaJREo5xUPQG7njFZFFMJoAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="cthdN1TableAdapter2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>185, 17</value>
+  </metadata>
+  <metadata name="cthdN1TableAdapter3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>353, 17</value>
+  </metadata>
 </root>
