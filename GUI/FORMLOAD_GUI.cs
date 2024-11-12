@@ -28,10 +28,10 @@ namespace GUI
 			{
 				timer1.Stop();
 				LOGIN_GUI newform = new LOGIN_GUI();
-				newform.Show();
-				this.Hide(); 
-			}
-		}
+                this.Hide();
+                newform.Show();
+            }
+        }
 
 		private void FORMLOAD_GUI_Load(object sender, EventArgs e)
 		{
