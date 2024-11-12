@@ -233,7 +233,7 @@ namespace GUI
                 return;
             }
 
-            bool result = nhanVienBUS.InsertKhachHang(txb_MAKH.Text, txb_TEN.Text, txb_SDT.Text, txb_DIACHI.Text);
+            bool result = nhanVienBUS.InsertKhachHang(txb_MAKH.Text, txb_TEN.Text, txb_DIACHI.Text,txb_SDT.Text);
 
             if (result)
             {
@@ -252,7 +252,7 @@ namespace GUI
 
         private void kryBt_Edit_Click(object sender, EventArgs e)
         {
-            bool result = nhanVienBUS.UpdateKhachHang(txb_MAKH.Text, txb_TEN.Text, txb_SDT.Text,txb_DIACHI.Text);
+            bool result = nhanVienBUS.UpdateKhachHang(txb_MAKH.Text, txb_TEN.Text, txb_DIACHI.Text, txb_SDT.Text);
 
             if (result)
             {

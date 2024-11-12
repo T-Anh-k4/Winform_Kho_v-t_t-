@@ -386,9 +386,19 @@
         {
             eventBCHDN(this, EventArgs.Empty, maHDN);
         }
+        public void btInBaoCaoXuat_Click(string maHDX)
+        {
+            eventBCHDX(this, EventArgs.Empty, maHDX);
+        }
         private void eventBCHDN(object sender, EventArgs e, string maHDN)
         {
             OpenChildForm(new RDLC_GUI(maHDN,this));
+            closeCongDong();
+            closeDoanhMuc();
+        }
+        private void eventBCHDX(object sender, EventArgs e, string maHDX)
+        {
+            OpenChildForm(new RDLC_1(maHDX, this));
             closeCongDong();
             closeDoanhMuc();
         }
@@ -413,9 +423,9 @@
             btHangXuat_Click(this, EventArgs.Empty);
         }
 
-        public void btChiTietXuat_Click(string maHDN)
+        public void btChiTietXuat_Click(string maHDX)
         {
-            eventChiTietXuat(this, EventArgs.Empty, maHDN);
+            eventChiTietXuat(this, EventArgs.Empty, maHDX);
         }
         private void eventChiTietXuat(object sender, EventArgs e, string maHDN)
         {

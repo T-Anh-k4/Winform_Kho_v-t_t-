@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HANGXUAT_GUI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.soluong = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txb_tim_kiem_nv = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryBtShowCreate_NV = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -44,6 +43,7 @@
             this.artanPanel2 = new ArtanComponent.ArtanPanel();
             this.dataViewHNhap = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.panel2_nv = new System.Windows.Forms.Panel();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryBt_Edit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryBt_Add = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryTb_eID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -55,31 +55,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.kry_Datetime = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.createTransition = new System.Windows.Forms.Timer(this.components);
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.panel3.SuspendLayout();
+            this.artanPanel3 = new ArtanComponent.ArtanPanel();
             this.artanPanel1.SuspendLayout();
             this.panel0_nv.SuspendLayout();
             this.panel4.SuspendLayout();
             this.artanPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewHNhap)).BeginInit();
             this.panel2_nv.SuspendLayout();
+            this.artanPanel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.soluong);
-            this.panel3.Controls.Add(this.txb_tim_kiem_nv);
-            this.panel3.Controls.Add(this.kryBtShowCreate_NV);
-            this.panel3.Location = new System.Drawing.Point(4, 4);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1044, 63);
-            this.panel3.TabIndex = 6;
             // 
             // soluong
             // 
-            this.soluong.Location = new System.Drawing.Point(16, 20);
+            this.soluong.Location = new System.Drawing.Point(26, 19);
             this.soluong.Name = "soluong";
             this.soluong.Size = new System.Drawing.Size(153, 26);
             this.soluong.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
@@ -89,7 +77,7 @@
             // 
             // txb_tim_kiem_nv
             // 
-            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(332, 13);
+            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(342, 12);
             this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
             this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
             this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
@@ -106,7 +94,7 @@
             // 
             // kryBtShowCreate_NV
             // 
-            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(968, 13);
+            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(978, 12);
             this.kryBtShowCreate_NV.Name = "kryBtShowCreate_NV";
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -171,7 +159,7 @@
             this.artanPanel1.Location = new System.Drawing.Point(4, 85);
             this.artanPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.artanPanel1.Name = "artanPanel1";
-            this.artanPanel1.Size = new System.Drawing.Size(1044, 596);
+            this.artanPanel1.Size = new System.Drawing.Size(1052, 596);
             this.artanPanel1.TabIndex = 7;
             // 
             // panel0_nv
@@ -185,7 +173,7 @@
             this.panel0_nv.GradientAngle = 90F;
             this.panel0_nv.GradientBottomColor = System.Drawing.Color.White;
             this.panel0_nv.GradientTopColor = System.Drawing.Color.White;
-            this.panel0_nv.Location = new System.Drawing.Point(35, 24);
+            this.panel0_nv.Location = new System.Drawing.Point(41, 24);
             this.panel0_nv.Margin = new System.Windows.Forms.Padding(2);
             this.panel0_nv.Name = "panel0_nv";
             this.panel0_nv.Size = new System.Drawing.Size(973, 547);
@@ -372,6 +360,64 @@
             this.panel2_nv.Name = "panel2_nv";
             this.panel2_nv.Size = new System.Drawing.Size(973, 125);
             this.panel2_nv.TabIndex = 1;
+            // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.Location = new System.Drawing.Point(474, 110);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.OverrideDefault.Back.ColorAngle = 45F;
+            this.kryptonButton1.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.OverrideDefault.Border.ColorAngle = 45F;
+            this.kryptonButton1.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonButton1.OverrideDefault.Border.Rounding = 20;
+            this.kryptonButton1.OverrideDefault.Border.Width = 1;
+            this.kryptonButton1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonButton1.Size = new System.Drawing.Size(25, 15);
+            this.kryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.kryptonButton1.StateCommon.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonButton1.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.StateCommon.Back.Image")));
+            this.kryptonButton1.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            this.kryptonButton1.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.kryptonButton1.StateCommon.Border.Color2 = System.Drawing.Color.White;
+            this.kryptonButton1.StateCommon.Border.ColorAngle = 45F;
+            this.kryptonButton1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonButton1.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonButton1.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
+            this.kryptonButton1.StateCommon.Border.Rounding = 50;
+            this.kryptonButton1.StateCommon.Border.Width = 1;
+            this.kryptonButton1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.kryptonButton1.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.kryptonButton1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonButton1.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.StatePressed.Back.ColorAngle = 135F;
+            this.kryptonButton1.StatePressed.Border.ColorAngle = 135F;
+            this.kryptonButton1.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonButton1.StatePressed.Border.Rounding = 25;
+            this.kryptonButton1.StatePressed.Border.Width = 1;
+            this.kryptonButton1.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.StateTracking.Back.ColorAngle = 45F;
+            this.kryptonButton1.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kryptonButton1.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonButton1.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kryptonButton1.StateTracking.Border.Rounding = 25;
+            this.kryptonButton1.StateTracking.Border.Width = 1;
+            this.kryptonButton1.TabIndex = 36;
+            this.kryptonButton1.Values.Text = "";
+            this.kryptonButton1.Click += new System.EventHandler(this.kry_Clear_Click);
             // 
             // kryBt_Edit
             // 
@@ -604,63 +650,23 @@
             this.createTransition.Interval = 10;
             this.createTransition.Tick += new System.EventHandler(this.createTransition_Tick);
             // 
-            // kryptonButton1
+            // artanPanel3
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(474, 110);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.OverrideDefault.Back.ColorAngle = 45F;
-            this.kryptonButton1.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.OverrideDefault.Border.ColorAngle = 45F;
-            this.kryptonButton1.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton1.OverrideDefault.Border.Rounding = 20;
-            this.kryptonButton1.OverrideDefault.Border.Width = 1;
-            this.kryptonButton1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonButton1.Size = new System.Drawing.Size(25, 15);
-            this.kryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.kryptonButton1.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.kryptonButton1.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.StateCommon.Back.Image")));
-            this.kryptonButton1.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
-            this.kryptonButton1.StateCommon.Border.Color1 = System.Drawing.Color.White;
-            this.kryptonButton1.StateCommon.Border.Color2 = System.Drawing.Color.White;
-            this.kryptonButton1.StateCommon.Border.ColorAngle = 45F;
-            this.kryptonButton1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton1.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.kryptonButton1.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
-            this.kryptonButton1.StateCommon.Border.Rounding = 50;
-            this.kryptonButton1.StateCommon.Border.Width = 1;
-            this.kryptonButton1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.kryptonButton1.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.kryptonButton1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonButton1.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.StatePressed.Back.ColorAngle = 135F;
-            this.kryptonButton1.StatePressed.Border.ColorAngle = 135F;
-            this.kryptonButton1.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton1.StatePressed.Border.Rounding = 25;
-            this.kryptonButton1.StatePressed.Border.Width = 1;
-            this.kryptonButton1.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.StateTracking.Back.ColorAngle = 45F;
-            this.kryptonButton1.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kryptonButton1.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton1.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.kryptonButton1.StateTracking.Border.Rounding = 25;
-            this.kryptonButton1.StateTracking.Border.Width = 1;
-            this.kryptonButton1.TabIndex = 36;
-            this.kryptonButton1.Values.Text = "";
-            this.kryptonButton1.Click += new System.EventHandler(this.kry_Clear_Click);
+            this.artanPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.artanPanel3.BackColor = System.Drawing.Color.White;
+            this.artanPanel3.BorderRadius = 25;
+            this.artanPanel3.Controls.Add(this.soluong);
+            this.artanPanel3.Controls.Add(this.kryBtShowCreate_NV);
+            this.artanPanel3.Controls.Add(this.txb_tim_kiem_nv);
+            this.artanPanel3.ForeColor = System.Drawing.Color.Black;
+            this.artanPanel3.GradientAngle = 90F;
+            this.artanPanel3.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
+            this.artanPanel3.GradientTopColor = System.Drawing.Color.WhiteSmoke;
+            this.artanPanel3.Location = new System.Drawing.Point(4, 10);
+            this.artanPanel3.Name = "artanPanel3";
+            this.artanPanel3.Size = new System.Drawing.Size(1052, 63);
+            this.artanPanel3.TabIndex = 8;
             // 
             // HANGXUAT_GUI
             // 
@@ -668,13 +674,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1068, 700);
+            this.Controls.Add(this.artanPanel3);
             this.Controls.Add(this.artanPanel1);
-            this.Controls.Add(this.panel3);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HANGXUAT_GUI";
             this.Text = "HANGXUAT_GUI";
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.artanPanel1.ResumeLayout(false);
             this.panel0_nv.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -683,13 +687,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataViewHNhap)).EndInit();
             this.panel2_nv.ResumeLayout(false);
             this.panel2_nv.PerformLayout();
+            this.artanPanel3.ResumeLayout(false);
+            this.artanPanel3.PerformLayout();
             this.ResumeLayout(false);
 
 		}
 
         #endregion
-
-        private System.Windows.Forms.Panel panel3;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel soluong;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txb_tim_kiem_nv;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryBtShowCreate_NV;
@@ -714,5 +718,6 @@
         private System.Windows.Forms.Label labelSoTrang;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryBtPrevious;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private ArtanComponent.ArtanPanel artanPanel3;
     }
 }
