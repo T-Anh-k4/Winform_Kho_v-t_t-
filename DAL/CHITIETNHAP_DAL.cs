@@ -101,39 +101,58 @@ namespace DAL
         {
             try
             {
+                // Truy vấn để kiểm tra xem mặt hàng đã có đơn giá trong hệ thống chưa
+                string getDonGiaQuery = "SELECT DONGIA_NHAP FROM CHITIET_HD_NHAP WHERE MAHH = @maHH";
+                SqlParameter[] getDonGiaParameters = {
+            new SqlParameter("@maHH", maHH)
+        };
+                object existingDonGia = instance.execScalar(getDonGiaQuery, getDonGiaParameters);
+
+                // Nếu mặt hàng đã có đơn giá, kiểm tra xem đơn giá nhập vào có trùng không
+                if (existingDonGia != null)
+                {
+                    if (donGiaNhap != Convert.ToInt32(existingDonGia))
+                    {
+                        throw new Exception("Đơn giá của mặt hàng phải trùng với đơn giá đã có trong bản ghi.");
+                    }
+                }
+
+                // Kiểm tra xem mã hàng hóa, số hóa đơn và đơn giá đã tồn tại chưa
                 string checkQuery = "SELECT SOLUONG_NHAP FROM CHITIET_HD_NHAP WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
                 SqlParameter[] checkParameters = {
-                    new SqlParameter("@maHH", maHH),
-                    new SqlParameter("@maHDN", maHDN),
-                    new SqlParameter("@donGiaNhap", donGiaNhap)
-                };
+            new SqlParameter("@maHH", maHH),
+            new SqlParameter("@maHDN", maHDN),
+            new SqlParameter("@donGiaNhap", donGiaNhap)
+        };
                 object result = instance.execScalar(checkQuery, checkParameters);
 
                 if (result != null)
                 {
+                    // Nếu mã hàng hóa đã tồn tại và có cùng đơn giá, cập nhật số lượng nhập
                     int existingSLNhap = Convert.ToInt32(result);
                     int newSLNhap = existingSLNhap + soLuongNhap;
                     string updateQuery = "UPDATE CHITIET_HD_NHAP SET SOLUONG_NHAP = @newSLNhap WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
                     SqlParameter[] updateParameters = {
-                        new SqlParameter("@newSLNhap", newSLNhap),
-                        new SqlParameter("@maHH", maHH),
-                        new SqlParameter("@maHDN", maHDN),
-                        new SqlParameter("@donGiaNhap", donGiaNhap)
-                    };
+                new SqlParameter("@newSLNhap", newSLNhap),
+                new SqlParameter("@maHH", maHH),
+                new SqlParameter("@maHDN", maHDN),
+                new SqlParameter("@donGiaNhap", donGiaNhap)
+            };
                     instance.execNonQuery(updateQuery, updateParameters);
                 }
                 else
                 {
+                    // Nếu mã hàng chưa tồn tại trong bảng CHITIET_HD_NHAP, tiến hành thêm mới
                     int newID = GetMaxID() + 1;
                     string insertQuery = "INSERT INTO CHITIET_HD_NHAP(ID, MAHH, SO_HD_NHAP, SOLUONG_NHAP, DONGIA_NHAP) " +
                                          "VALUES (@id, @maHH, @maHDN, @soLuongNhap, @donGiaNhap)";
                     SqlParameter[] insertParameters = {
-                        new SqlParameter("@id", newID),
-                        new SqlParameter("@maHH", maHH),
-                        new SqlParameter("@maHDN", maHDN),
-                        new SqlParameter("@soLuongNhap", soLuongNhap),
-                        new SqlParameter("@donGiaNhap", donGiaNhap)
-                    };
+                new SqlParameter("@id", newID),
+                new SqlParameter("@maHH", maHH),
+                new SqlParameter("@maHDN", maHDN),
+                new SqlParameter("@soLuongNhap", soLuongNhap),
+                new SqlParameter("@donGiaNhap", donGiaNhap)
+            };
                     instance.execNonQuery(insertQuery, insertParameters);
                 }
                 return true;
@@ -144,34 +163,36 @@ namespace DAL
             }
         }
 
+
         public bool UpdateChiTietNhap(int ID, string maHH, string maHDN, int soLuongNhap, int donGiaNhap)
         {
             try
             {
+                // Kiểm tra xem bản ghi đã tồn tại chưa
                 string checkQuery = "SELECT SOLUONG_NHAP FROM CHITIET_HD_NHAP WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
                 SqlParameter[] checkParameters = {
-                    new SqlParameter("@maHH", maHH),
-                    new SqlParameter("@maHDN", maHDN),
-                    new SqlParameter("@donGiaNhap", donGiaNhap)
-                };
+            new SqlParameter("@maHH", maHH),
+            new SqlParameter("@maHDN", maHDN),
+            new SqlParameter("@donGiaNhap", donGiaNhap)
+        };
                 object result = instance.execScalar(checkQuery, checkParameters);
+
                 if (result != null)
                 {
-                    int existingSLNhap = Convert.ToInt32(result);
-                    int newSLNhap = existingSLNhap + soLuongNhap;
-                    string updateQuery = "UPDATE CHITIET_HD_NHAP SET SOLUONG_NHAP = @newSLNhap WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
+                    // Nếu bản ghi tồn tại, cập nhật trực tiếp số lượng với giá trị mới
+                    string updateQuery = "UPDATE CHITIET_HD_NHAP SET SOLUONG_NHAP = @soLuongNhap WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
                     SqlParameter[] updateParameters = {
-                        new SqlParameter("@newSLNhap", newSLNhap),
-                        new SqlParameter("@maHH", maHH),
-                        new SqlParameter("@maHDN", maHDN),
-                        new SqlParameter("@donGiaNhap", donGiaNhap)
-                    };
-                    DeleteChiTietNhap(ID);
+                new SqlParameter("@soLuongNhap", soLuongNhap),
+                new SqlParameter("@maHH", maHH),
+                new SqlParameter("@maHDN", maHDN),
+                new SqlParameter("@donGiaNhap", donGiaNhap)
+            };
                     instance.execNonQuery(updateQuery, updateParameters);
                     return true;
                 }
                 else
                 {
+                    // Nếu bản ghi chưa tồn tại, tạo một bản ghi mới với các thông tin đã cung cấp
                     string query = "UPDATE CHITIET_HD_NHAP " +
                                    "SET MAHH = @maHH, " +
                                    "SO_HD_NHAP = @maHDN, " +
@@ -179,12 +200,12 @@ namespace DAL
                                    "DONGIA_NHAP = @donGiaNhap " +
                                    "WHERE id = @id";
                     SqlParameter[] parameters = {
-                    new SqlParameter("@id", ID),
-                    new SqlParameter("@maHH", maHH),
-                    new SqlParameter("@maHDN", maHDN),
-                    new SqlParameter("@soLuongNhap", soLuongNhap),
-                    new SqlParameter("@donGiaNhap", donGiaNhap)
-                };
+                new SqlParameter("@id", ID),
+                new SqlParameter("@maHH", maHH),
+                new SqlParameter("@maHDN", maHDN),
+                new SqlParameter("@soLuongNhap", soLuongNhap),
+                new SqlParameter("@donGiaNhap", donGiaNhap)
+            };
                     instance.execNonQuery(query, parameters);
                     return true;
                 }

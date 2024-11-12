@@ -114,5 +114,32 @@ namespace DAL
                 return null;
             }
         }
+        public bool IsMaHangExist(string mah)
+        {
+            string query = "SELECT COUNT(*) FROM HOADON_NHAP WHERE SO_HD_NHAP = @mah";
+            SqlParameter[] parameters = {
+        new SqlParameter("@mah", mah)
+        };
+            int count = Convert.ToInt32(instance.execScalar(query, parameters));
+            return count > 0;
+        }
+        public bool IsMaNCCExist(string mah)
+        {
+            string query = "SELECT COUNT(*) FROM NHACUNGCAP WHERE MANCC = @mah";
+            SqlParameter[] parameters = {
+        new SqlParameter("@mah", mah)
+        };
+            int count = Convert.ToInt32(instance.execScalar(query, parameters));
+            return count > 0;
+        }
+        public bool IsMaNVExist(string mah)
+        {
+            string query = "SELECT COUNT(*) FROM NHANVIEN WHERE MANV = @mah";
+            SqlParameter[] parameters = {
+        new SqlParameter("@mah", mah)
+        };
+            int count = Convert.ToInt32(instance.execScalar(query, parameters));
+            return count > 0;
+        }
     }
 }

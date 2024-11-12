@@ -41,15 +41,15 @@ namespace GUI
         public void initUser()
         {
             loadDt_HangNhap();
-            kryTbSearch.Enter += kryTbSearch_Enter;
-            kryTbSearch.Leave += kryTbSearch_Leave;
+            txb_tim_kiem_nv.Enter += kryTbSearch_Enter;
+            txb_tim_kiem_nv.Leave += kryTbSearch_Leave;
             kryTx_Id.Enter += kryTbSearch_Enter;
             kryTx_Id.Leave += kryTbSearch_Leave;
             kryTb_Name.Enter += kryTbSearch_Enter;
             kryTb_Name.Leave += kryTbSearch_Leave;
             kryTb_eID.Enter += kryTbSearch_Enter;
             kryTb_eID.Leave += kryTbSearch_Leave;
-            SetPlaceholder(kryTbSearch, "Tìm kiếm");
+            SetPlaceholder(txb_tim_kiem_nv, "Tìm kiếm");
             SetPlaceholder(kryTx_Id, "Nhập mã hàng nhập");
             SetPlaceholder(kryTb_Name, "Nhập tên hàng nhập");
             SetPlaceholder(kryTb_eID, "Nhập mã nhân viên");
@@ -201,6 +201,7 @@ namespace GUI
                         if (result)
                         {
                             loadDt_HangNhap();
+                            ResetForeText();
                             MessageBox.Show("Xóa thông tin hàng nhập thành công", "Thanhcong", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else
@@ -230,14 +231,44 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập mã hàng nhập.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(kryTx_Id.Text, @"^HDN\d+$"))
             {
-                MessageBox.Show("Vui lòng nhập tên hàng nhập.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mã hàng nhập không hợp lệ. Vui lòng nhập mã theo định dạng HDN+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (string.IsNullOrWhiteSpace(kryTb_eID.Text))
+            else if (hangNhapBUS.IsMah(kryTx_Id.Text))
+            {
+                MessageBox.Show("Mã hàng nhập đã tồn tại. Vui lòng nhập mã khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
+            {
+                MessageBox.Show("Vui lòng nhập mã nhà cung cấp.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_Name.Text, @"^NCC\d+$"))
+            {
+                MessageBox.Show("Mã hàng nhập không hợp lệ. Vui lòng nhập mã theo định dạng NCC+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!hangNhapBUS.IsMaNCC(kryTb_Name.Text))
+            {
+                MessageBox.Show("Mã nhà cung không tồn tại. Vui lòng nhập mã đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(kryTb_eID.Text))
             {
                 MessageBox.Show("Vui lòng nhập mã nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_eID.Text, @"^NV\d+$"))
+            {
+                MessageBox.Show("Mã hàng nhập không hợp lệ. Vui lòng nhập mã theo định dạng NV+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!hangNhapBUS.IsMaNV(kryTb_eID.Text))
+            {
+                MessageBox.Show("Mã nhân viên không tồn tại. Vui lòng nhập mã đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             bool result = hangNhapBUS.InsertHoaDonNhap(kryTx_Id.Text, kryTb_Name.Text, kryTb_eID.Text, kry_Datetime.Value, 1);
@@ -245,7 +276,7 @@ namespace GUI
             if (result)
             {
                 loadDt_HangNhap(); // Gọi lại để tải lại danh sách
-
+                ResetForeText();
                 MessageBox.Show("Thêm hàng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -263,6 +294,7 @@ namespace GUI
 
             if (result)
             {
+                ResetForeText();
                 MessageBox.Show("Sửa hàng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadDt_HangNhap(); // Gọi lại để tải lại danh sách
             }
@@ -297,8 +329,8 @@ namespace GUI
         {
             switch (textBox.Name)
             {
-                case "kryTbSearch":
-                    return "Tìm kiếm...";
+                case "txb_tim_kiem_nv":
+                    return "Tìm kiếm";
                 case "kryTx_Id":
                     return "Nhập mã hàng nhập";
                 case "kryTb_Name":
@@ -333,6 +365,7 @@ namespace GUI
         // reset chữ mặc định
         private void ResetForeText()
         {
+            SetPlaceholder(txb_tim_kiem_nv, GetPlaceholder(txb_tim_kiem_nv));
             SetPlaceholder(kryTx_Id, GetPlaceholder(kryTx_Id));
             SetPlaceholder(kryTb_Name, GetPlaceholder(kryTb_Name));
             SetPlaceholder(kryTb_eID, GetPlaceholder(kryTb_eID));
@@ -368,6 +401,7 @@ namespace GUI
 
         private void kryBtShowCreate_HNhap_Click(object sender, EventArgs e)
         {
+            ResetForeText();
             kryBt_Add.Visible = true;
             kryTx_Id.ReadOnly = false;
             createTransition.Start();

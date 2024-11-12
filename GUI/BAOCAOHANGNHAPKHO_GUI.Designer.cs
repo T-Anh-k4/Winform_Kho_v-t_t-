@@ -44,7 +44,6 @@
             this.kbtn_timkiem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.k_datagrview_hang_hoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbx_timkiem)).BeginInit();
@@ -66,7 +65,7 @@
             // 
             this.panel1.Controls.Add(this.k_datagrview_hang_hoa);
             this.panel1.Location = new System.Drawing.Point(232, 116);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(817, 504);
             this.panel1.TabIndex = 4;
@@ -83,7 +82,7 @@
             this.k_datagrview_hang_hoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.k_datagrview_hang_hoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.k_datagrview_hang_hoa.Location = new System.Drawing.Point(0, 0);
-            this.k_datagrview_hang_hoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.k_datagrview_hang_hoa.Margin = new System.Windows.Forms.Padding(2);
             this.k_datagrview_hang_hoa.Name = "k_datagrview_hang_hoa";
             this.k_datagrview_hang_hoa.RowHeadersVisible = false;
             this.k_datagrview_hang_hoa.RowHeadersWidth = 51;
@@ -119,7 +118,7 @@
             this.cbx_timkiem.DropDownWidth = 184;
             this.cbx_timkiem.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
             this.cbx_timkiem.Location = new System.Drawing.Point(4, 124);
-            this.cbx_timkiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbx_timkiem.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_timkiem.Name = "cbx_timkiem";
             this.cbx_timkiem.Size = new System.Drawing.Size(184, 33);
             this.cbx_timkiem.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
@@ -153,7 +152,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.Check_ngay);
             this.groupBox1.Controls.Add(this.date_den_ngay);
             this.groupBox1.Controls.Add(this.date_tu_ngay);
@@ -164,9 +162,9 @@
             this.groupBox1.Controls.Add(this.Check_TenNcc);
             this.groupBox1.Controls.Add(this.cbx_timkiem);
             this.groupBox1.Location = new System.Drawing.Point(9, 68);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(212, 552);
             this.groupBox1.TabIndex = 84;
             this.groupBox1.TabStop = false;
@@ -184,7 +182,7 @@
             // date_den_ngay
             // 
             this.date_den_ngay.Location = new System.Drawing.Point(14, 342);
-            this.date_den_ngay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.date_den_ngay.Margin = new System.Windows.Forms.Padding(2);
             this.date_den_ngay.Name = "date_den_ngay";
             this.date_den_ngay.Size = new System.Drawing.Size(176, 21);
             this.date_den_ngay.TabIndex = 88;
@@ -192,7 +190,7 @@
             // date_tu_ngay
             // 
             this.date_tu_ngay.Location = new System.Drawing.Point(14, 273);
-            this.date_tu_ngay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.date_tu_ngay.Margin = new System.Windows.Forms.Padding(2);
             this.date_tu_ngay.Name = "date_tu_ngay";
             this.date_tu_ngay.Size = new System.Drawing.Size(176, 21);
             this.date_tu_ngay.TabIndex = 87;
@@ -381,14 +379,6 @@
             this.kryptonButton2.TabIndex = 86;
             this.kryptonButton2.Values.Text = "In";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(45, 406);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 90;
-            // 
             // BAOCAOHANGNHAPKHO_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,7 +389,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BAOCAOHANGNHAPKHO_GUI";
             this.Text = "BAOCAOHANGNHAPKHO_GUI";
             this.panel1.ResumeLayout(false);
@@ -429,6 +419,5 @@
         private System.Windows.Forms.Label label1;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox Check_ngay;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

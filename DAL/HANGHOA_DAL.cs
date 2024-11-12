@@ -100,8 +100,18 @@ namespace DAL
 			return true;
 		}
 
+        public bool IsMaHangHoaExist(string mahh)
+        {
+            string query = "SELECT COUNT(*) FROM HANGHOA WHERE MAHH = @mahh";
+            SqlParameter[] parameters = {
+        new SqlParameter("@mahh", mahh)
+		};
 
-		public bool InsertHangHoa(string mahh, string malh, string tenHang, string dvt, string xuatXu)
+            int count = Convert.ToInt32(instance.execScalar(query, parameters));
+            return count > 0;  // Nếu có bản ghi trùng, trả về true
+        }
+
+        public bool InsertHangHoa(string mahh, string malh, string tenHang, string dvt, string xuatXu)
 		{
 			try
 			{
