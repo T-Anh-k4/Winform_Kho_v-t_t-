@@ -69,6 +69,7 @@ namespace GUI
         {
             DataTable dt = hangNhapBUS.GetDanhSachNhaCungCapPage(limit, curentPage);
             dataViewHNhap.DataSource = dt;
+            dataViewHNhap.Columns["Trạng thái hóa đơn nhập"].Visible = false;
             totalPage = hangNhapBUS.GetSLNhaCungCap() / limit;
             if (totalPage * limit < hangNhapBUS.GetSLNhaCungCap()) totalPage++;
 

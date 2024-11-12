@@ -77,7 +77,7 @@ namespace GUI
 			totalPage = chiTietNhapBUS.GetSLChiTietNhap(maHDN) / limit;
 			if (totalPage * limit < chiTietNhapBUS.GetSLChiTietNhap(maHDN)) totalPage++;
 			EnsureButtonColumnsVisible();
-			label11.Text = chiTietNhapBUS.getTotalCost(maHDN).ToString();	
+			label11.Text = chiTietNhapBUS.getTotalCost(maHDN).ToString();
 		}
 
 		public void clear()
@@ -470,18 +470,18 @@ namespace GUI
 			if (dt.Rows.Count > 0)
 			{
 				lbSoHDN.Text = dt.Rows[0]["Số hóa đơn nhập"].ToString();
-				lbNcc.Text =  dt.Rows[0]["Tên nhà cung cấp"].ToString();
-				lbNhanVien.Text =  dt.Rows[0]["Tên nhân viên"].ToString();
-				lbNgayLap.Text =  dt.Rows[0]["Ngày lập hóa đơn"].ToString();
+				lbNcc.Text = dt.Rows[0]["Tên nhà cung cấp"].ToString();
+				lbNhanVien.Text = dt.Rows[0]["Tên nhân viên"].ToString();
+				lbNgayLap.Text = dt.Rows[0]["Ngày lập hóa đơn"].ToString();
 			}
 		}
-        private void kryInBaoCao_Click(object sender, EventArgs e)
-        {
+		private void kryInBaoCao_Click(object sender, EventArgs e)
+		{
 			testGui.btInBaoCao_Click(maHDN);
-        }
-    }
+		}
+	}
 
-    public class ComboItem
+	public class ComboItem
 	{
 		public string ID { get; set; }
 		public string Text { get; set; }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using DAL;
-using DAL;
 
 namespace BUS
 {
@@ -34,24 +33,29 @@ namespace BUS
             return chiTietXuatDAL.getMaVaTenHH();
         }
 
-        public DataTable getHoaDonXuatpDetail(string maHDX)
+        public int getTotalCost(string maHDX)
         {
-            return chiTietXuatDAL.getHoaDonXUatDetail(maHDX);
+            return chiTietXuatDAL.getTotalCost(maHDX);
         }
 
-        public bool InsertChiTietXuat(string maHH, string maHDX, int soLuongXuat, decimal donGiaXuat)
+        public DataTable getHoaDonXuatDetail(string maHDX)
+        {
+            return chiTietXuatDAL.getHoaDonXuatDetail(maHDX);
+        }
+
+        public bool InsertChiTietXuat(string maHH, string maHDX, int soLuongXuat, int donGiaXuat)
         {
             return chiTietXuatDAL.InsertChiTietXuat(maHH, maHDX, soLuongXuat, donGiaXuat);
         }
 
-        public bool UpdateChiTietXuat(string maHH, string maHDX, int soLuongNhap, decimal donGiaNhap)
+        public bool UpdateChiTietXuat(int ID, string maHH, string maHDX, int soLuongXuat, int donGiaXuat)
         {
-            return chiTietXuatDAL.UpdateChiTietXuat(maHH, maHDX, soLuongNhap, donGiaNhap);
+            return chiTietXuatDAL.UpdateChiTietXuat(ID, maHH, maHDX, soLuongXuat, donGiaXuat);
         }
 
-        public bool DeleteChiTietXuat(string maHH, string maHDX, decimal donGiaNhap)
+        public bool DeleteChiTietXuat(int ID)
         {
-            return chiTietXuatDAL.DeleteChiTietXuat(maHH, maHDX, donGiaNhap);
+            return chiTietXuatDAL.DeleteChiTietXuat(ID);
         }
 
         public DataTable SearchChiTietXuat(string maHDX, string keyword)
