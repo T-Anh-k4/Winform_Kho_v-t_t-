@@ -27,10 +27,15 @@ namespace BUS
         {
             return homeDAL.TongHangXuat(thang);
         }
-        public double TongHangTon(int thang)
+        public double TongHangTon()
         {
-            return homeDAL.TongHangTon(thang);
+            return homeDAL.TongHangTon();
         }
+        public double TongHangTonThang(int thang)
+        {
+            return homeDAL.TongHangTonThang(thang);
+        }
+
         public DataTable GetMonthCTHD()
         {
             return homeDAL.GetMonthCTHD();

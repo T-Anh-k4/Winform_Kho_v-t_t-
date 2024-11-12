@@ -27,7 +27,7 @@ namespace DAL
 
         public DataTable GetDanhSachChiTietNhapPage(string maHDN, int limit, int page)
         {
-            string query = "SELECT ID AS [Mã chi tiết nhập], HANGHOA.MAHH as [Mã hàng hóa], TENHH as [Tên hàng hóa], SOLUONG_NHAP as [Số lượng nhập], DONGIA_NHAP as [Đơn giá nhập], (SOLUONG_NHAP * DONGIA_NHAP) as [Thành tiền] " +
+            string query = "SELECT ID AS [Mã chi tiết nhập], HANGHOA.MAHH as [Mã hàng hóa], TENHH as [Tên hàng hóa], SOLUONG_NHAP as [Số lượng nhập], CONVERT(DECIMAL(18, 0), DONGIA_NHAP) as [Đơn giá nhập],CONVERT(DECIMAL(18, 0), (SOLUONG_NHAP * DONGIA_NHAP)) as [Thành tiền] " +
                            "FROM CHITIET_HD_NHAP " +
                             "JOIN HANGHOA ON CHITIET_HD_NHAP.MAHH = HANGHOA.MAHH " +
                            "WHERE SO_HD_NHAP = @maHDN "

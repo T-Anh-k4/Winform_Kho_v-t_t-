@@ -16,6 +16,7 @@ namespace GUI
     public partial class TRANGCHU_GUI : KryptonForm
     {
         TRANGCHU_BUS homeBUS = new TRANGCHU_BUS();
+        bool dangbieudo = false;
         public TRANGCHU_GUI()
         {
             InitializeComponent();
@@ -32,10 +33,15 @@ namespace GUI
             lbtonghangnhap.Text = Convert.ToString(homeBUS.TongHangNhap(month)) + " SP";
             lbtongtienxuat.Text = Convert.ToString(homeBUS.TongTienXuat(month)) + " VNĐ";
             lbtonghangxuat.Text = Convert.ToString(homeBUS.TongHangXuat(month)) + " SP";
-            lbtonghangton.Text = Convert.ToString(homeBUS.TongHangTon(month)) + " SP";
+            lbtonghangton.Text = Convert.ToString(homeBUS.TongHangTon()) + " SP";
+            lbhangton.Text = Convert.ToString(homeBUS.TongHangTonThang(month)) + " SP";
+
         }
         public void CartesianChart(DataTable dt1, DataTable dt2)
         {
+            cartesianChart1.Series.Clear();
+            cartesianChart1.AxisX.Clear();
+            cartesianChart1.AxisY.Clear();
             cartesianChart1.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Tháng",
@@ -48,8 +54,8 @@ namespace GUI
             });
             cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
             {
-                Title = "Tiền chi",
-                LabelFormatter = value => value.ToString("N0") + " ₫"
+                Title = "Tiền hàng",
+                LabelFormatter = value => value.ToString() + " ₫"
             });
 
             var values = new List<double>();
@@ -82,21 +88,37 @@ namespace GUI
                     values1.Add(0);
                 }
             }
-            cartesianChart1.Series.Add(new LiveCharts.Wpf.ColumnSeries
+            if (dangbieudo)
             {
-                Title = "Tiền nhập",
-                Values = new LiveCharts.ChartValues<double>(values),
-                Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(221, 160, 221)) // Màu tùy chỉnh
-            });
-
-            // Thêm chuỗi 2 vào biểu đồ (dữ liệu từ dt2)
-            cartesianChart1.Series.Add(new LiveCharts.Wpf.ColumnSeries
+                cartesianChart1.Series.Add(new LiveCharts.Wpf.LineSeries
+                {
+                    Title = "Tiền nhập",
+                    Values = new LiveCharts.ChartValues<double>(values),
+                    Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(128, 221, 160, 221)) // Alpha 128 cho độ trong suốt 50%
+                });
+                cartesianChart1.Series.Add(new LiveCharts.Wpf.LineSeries
+                {
+                    Title = "Tiền xuất",
+                    Values = new LiveCharts.ChartValues<double>(values1),
+                    Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(128, 100, 149, 237)) // Màu tùy chỉnh khác
+                });
+            }
+            else
             {
-                Title = "Tiền xuất",
-                Values = new LiveCharts.ChartValues<double>(values1),
-                Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(100, 149, 237)) // Màu tùy chỉnh khác
-            });
-            cartesianChart1.LegendLocation = LiveCharts.LegendLocation.Right;
+                //Biểu đồ cột  thay LineSeries bằng ColumnSeries 
+                cartesianChart1.Series.Add(new LiveCharts.Wpf.ColumnSeries
+                {
+                    Title = "Tiền nhập",
+                    Values = new LiveCharts.ChartValues<double>(values),
+                    Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(221, 160, 221)) // Màu tùy chỉnh
+                });
+                cartesianChart1.Series.Add(new LiveCharts.Wpf.ColumnSeries
+                {
+                    Title = "Tiền xuất",
+                    Values = new LiveCharts.ChartValues<double>(values1),
+                    Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(100, 149, 237)) // Màu tùy chỉnh khác
+                });
+            }
         }
         public void PieChart(DataTable dt)
         {
@@ -195,6 +217,41 @@ namespace GUI
         {
             loadData(DateTime.Now.Month);
             label7.Text = "Tháng " + (DateTime.Now.Month);
+            dangbieudo = false;
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable dt1 = homeBUS.GetMonthCTHD();
+            DataTable dt3 = homeBUS.GetMonthCTHDXUAT();
+            if (tabControl1.SelectedIndex == 0)
+            {
+                dangbieudo = false;
+                CartesianChart(dt1, dt3);
+
+            }
+            else if (tabControl1.SelectedIndex == 1)
+            {
+                dangbieudo = true;
+                CartesianChart(dt1, dt3);
+
+
+            }
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl2.SelectedIndex == 0)
+            {
+                DataTable dt = homeBUS.GetTenNhaCungCap();
+                PieChart(dt);
+            }
+            else if (tabControl2.SelectedIndex == 1)
+            {
+                DataTable dt = homeBUS.GetTenKhachHang();
+                PieChart(dt);
+
+            }
         }
     }
 }
