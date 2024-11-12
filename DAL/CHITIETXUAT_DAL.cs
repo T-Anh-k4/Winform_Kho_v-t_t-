@@ -268,5 +268,23 @@ namespace DAL
                 return null;
             }
         }
+    //    public int GetSoLuongTon(string maHH)
+    //    {
+    //        string query = @"
+    //        SELECT COALESCE(SUM(CHITIET_HD_NHAP.SOLUONG_NHAP), 0) - COALESCE(SUM(CHITIET_HD_XUAT.SOLUONG_XUAT), 0) AS SoLuongTon
+    //        FROM KHO
+    //        JOIN CHITIET_HD_NHAP ON KHO.IDKHO = CHITIET_HD_NHAP.IDKHO
+    //        JOIN CHITIET_HD_XUAT ON KHO.IDKHO = CHITIET_HD_XUAT.IDKHO
+    //        WHERE KHO.MAHH = @maHH
+    //        GROUP BY KHO.IDKHO";
+
+    //        SqlParameter[] parameters = {
+    //    new SqlParameter("@maHH", maHH)
+    //};
+
+    //        object result = instance.execScalar(query, parameters);
+    //        return result != null ? Convert.ToInt32(result) : 0;
+    //    }
+
     }
 }
