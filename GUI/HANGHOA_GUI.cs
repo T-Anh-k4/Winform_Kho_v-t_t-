@@ -231,6 +231,7 @@ namespace GUI
 		private void kbtn_themSua_Click(object sender, EventArgs e)
 		{
 			kbtn_Them_sua.Visible = true;
+			txb_Mahh.Enabled = true;
 			createTransition.Start();
 			if (kbtn_sua.Visible)
 			{

@@ -141,6 +141,9 @@ namespace GUI
             txb_Malh.Clear();
         }
 
+        private void kryInBaoCao_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

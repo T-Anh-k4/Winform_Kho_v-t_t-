@@ -46,8 +46,6 @@
             this.btBaoCaoXuatHang = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel21 = new System.Windows.Forms.Panel();
             this.btBaoCaoNhapHang = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.btDanhSachKhachHang = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel23 = new System.Windows.Forms.Panel();
             this.btDanhSachHangHoa = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -439,7 +437,7 @@
             // btHuongDan
             // 
             this.btHuongDan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btHuongDan.Location = new System.Drawing.Point(10, 684);
+            this.btHuongDan.Location = new System.Drawing.Point(10, 634);
             this.btHuongDan.Name = "btHuongDan";
             this.btHuongDan.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
             this.btHuongDan.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -484,7 +482,7 @@
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(10, 677);
+            this.panel6.Location = new System.Drawing.Point(10, 627);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(227, 7);
             this.panel6.TabIndex = 19;
@@ -495,8 +493,6 @@
             this.panelTk_Bc.Controls.Add(this.btBaoCaoXuatHang);
             this.panelTk_Bc.Controls.Add(this.panel21);
             this.panelTk_Bc.Controls.Add(this.btBaoCaoNhapHang);
-            this.panelTk_Bc.Controls.Add(this.panel22);
-            this.panelTk_Bc.Controls.Add(this.btDanhSachKhachHang);
             this.panelTk_Bc.Controls.Add(this.panel23);
             this.panelTk_Bc.Controls.Add(this.btDanhSachHangHoa);
             this.panelTk_Bc.Controls.Add(this.panel16);
@@ -505,13 +501,13 @@
             this.panelTk_Bc.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTk_Bc.Location = new System.Drawing.Point(10, 427);
             this.panelTk_Bc.Name = "panelTk_Bc";
-            this.panelTk_Bc.Size = new System.Drawing.Size(227, 250);
+            this.panelTk_Bc.Size = new System.Drawing.Size(227, 200);
             this.panelTk_Bc.TabIndex = 12;
             // 
             // btBaoCaoXuatHang
             // 
             this.btBaoCaoXuatHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btBaoCaoXuatHang.Location = new System.Drawing.Point(20, 200);
+            this.btBaoCaoXuatHang.Location = new System.Drawing.Point(20, 150);
             this.btBaoCaoXuatHang.Name = "btBaoCaoXuatHang";
             this.btBaoCaoXuatHang.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
             this.btBaoCaoXuatHang.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -556,7 +552,7 @@
             // panel21
             // 
             this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel21.Location = new System.Drawing.Point(20, 193);
+            this.panel21.Location = new System.Drawing.Point(20, 143);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(207, 7);
             this.panel21.TabIndex = 10;
@@ -564,7 +560,7 @@
             // btBaoCaoNhapHang
             // 
             this.btBaoCaoNhapHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btBaoCaoNhapHang.Location = new System.Drawing.Point(20, 150);
+            this.btBaoCaoNhapHang.Location = new System.Drawing.Point(20, 100);
             this.btBaoCaoNhapHang.Name = "btBaoCaoNhapHang";
             this.btBaoCaoNhapHang.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
             this.btBaoCaoNhapHang.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
@@ -605,59 +601,6 @@
             this.btBaoCaoNhapHang.TabIndex = 9;
             this.btBaoCaoNhapHang.Values.Text = "Báo cáo nhập";
             this.btBaoCaoNhapHang.Click += new System.EventHandler(this.btBaoCaoNhapHang_Click);
-            // 
-            // panel22
-            // 
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel22.Location = new System.Drawing.Point(20, 143);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(207, 7);
-            this.panel22.TabIndex = 8;
-            // 
-            // btDanhSachKhachHang
-            // 
-            this.btDanhSachKhachHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btDanhSachKhachHang.Location = new System.Drawing.Point(20, 100);
-            this.btDanhSachKhachHang.Name = "btDanhSachKhachHang";
-            this.btDanhSachKhachHang.OverrideDefault.Back.Color1 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.OverrideDefault.Back.Color2 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.OverrideDefault.Border.Color1 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.OverrideDefault.Border.Color2 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btDanhSachKhachHang.Palette = this.kryptonPalette1;
-            this.btDanhSachKhachHang.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.btDanhSachKhachHang.Size = new System.Drawing.Size(207, 43);
-            this.btDanhSachKhachHang.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StateCommon.Back.Image = ((System.Drawing.Image)(resources.GetObject("btDanhSachKhachHang.StateCommon.Back.Image")));
-            this.btDanhSachKhachHang.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
-            this.btDanhSachKhachHang.StateCommon.Border.Color1 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StateCommon.Border.Color2 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btDanhSachKhachHang.StateCommon.Border.Rounding = 30;
-            this.btDanhSachKhachHang.StateCommon.Content.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btDanhSachKhachHang.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDanhSachKhachHang.StateDisabled.Back.Color1 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StateDisabled.Back.Color2 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StateDisabled.Border.Color1 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StateDisabled.Border.Color2 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btDanhSachKhachHang.StateNormal.Back.Color1 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StateNormal.Back.Color2 = System.Drawing.Color.White;
-            this.btDanhSachKhachHang.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btDanhSachKhachHang.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btDanhSachKhachHang.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btDanhSachKhachHang.TabIndex = 7;
-            this.btDanhSachKhachHang.Values.Text = "Khách hàng";
-            this.btDanhSachKhachHang.Click += new System.EventHandler(this.btDanhSachKhachHang_Click);
             // 
             // panel23
             // 
@@ -717,7 +660,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel16.Location = new System.Drawing.Point(0, 50);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(20, 200);
+            this.panel16.Size = new System.Drawing.Size(20, 150);
             this.panel16.TabIndex = 12;
             // 
             // panel24
@@ -1660,8 +1603,6 @@
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btBaoCaoXuatHang;
 		private System.Windows.Forms.Panel panel21;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btBaoCaoNhapHang;
-		private System.Windows.Forms.Panel panel22;
-		private ComponentFactory.Krypton.Toolkit.KryptonButton btDanhSachKhachHang;
 		private System.Windows.Forms.Panel panel23;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btDanhSachHangHoa;
 		private System.Windows.Forms.Panel panel24;

@@ -124,11 +124,14 @@ namespace GUI
         {
             var colors = new List<System.Windows.Media.Color>
             {
-                System.Windows.Media.Color.FromRgb(221, 160, 221), // Màu tím nhạt 1
-                System.Windows.Media.Color.FromRgb(186, 85, 211),  // Màu tím nhạt 2
-                System.Windows.Media.Color.FromRgb(216, 191, 216), // Màu tím nhạt 3
-                System.Windows.Media.Color.FromRgb(148, 0, 211),   // Màu tím đậm hơn
-                System.Windows.Media.Color.FromRgb(153, 50, 204)   // Màu tím khác
+                System.Windows.Media.Color.FromRgb(0, 123, 255),    // Màu xanh dương
+                System.Windows.Media.Color.FromRgb(255, 99, 71),    // Màu đỏ
+                System.Windows.Media.Color.FromRgb(40, 167, 69),    // Màu xanh lá
+                System.Windows.Media.Color.FromRgb(255, 193, 7),    // Màu vàng
+                System.Windows.Media.Color.FromRgb(255, 165, 0),    // Màu cam
+                System.Windows.Media.Color.FromRgb(128, 0, 128) // Màu tím
+
+
             };
             int colorIndex = 0;
             pieChart1.Series.Clear();
