@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.artanPanel1 = new ArtanComponent.ArtanPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.artanPanel2 = new ArtanComponent.ArtanPanel();
-            this.k_datagrview_hang_hoa = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.artanPanel3 = new ArtanComponent.ArtanPanel();
             this.artanPanel4 = new ArtanComponent.ArtanPanel();
+            this.k_datagrview_hang_hoa = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.label3 = new System.Windows.Forms.Label();
             this.artanPanel1.SuspendLayout();
             this.artanPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.k_datagrview_hang_hoa)).BeginInit();
             this.artanPanel3.SuspendLayout();
             this.artanPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.k_datagrview_hang_hoa)).BeginInit();
             this.SuspendLayout();
             // 
             // artanPanel1
             // 
             this.artanPanel1.BackColor = System.Drawing.Color.White;
             this.artanPanel1.BorderRadius = 25;
-            this.artanPanel1.Controls.Add(this.label1);
+            this.artanPanel1.Controls.Add(this.label3);
             this.artanPanel1.ForeColor = System.Drawing.Color.Black;
             this.artanPanel1.GradientAngle = 90F;
             this.artanPanel1.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
@@ -55,16 +55,6 @@
             this.artanPanel1.Name = "artanPanel1";
             this.artanPanel1.Size = new System.Drawing.Size(1044, 59);
             this.artanPanel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(449, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "KHO HÀNG";
             // 
             // artanPanel2
             // 
@@ -82,14 +72,42 @@
             this.artanPanel2.Size = new System.Drawing.Size(1068, 700);
             this.artanPanel2.TabIndex = 1;
             // 
+            // artanPanel3
+            // 
+            this.artanPanel3.BackColor = System.Drawing.Color.White;
+            this.artanPanel3.BorderRadius = 25;
+            this.artanPanel3.Controls.Add(this.artanPanel4);
+            this.artanPanel3.ForeColor = System.Drawing.Color.Black;
+            this.artanPanel3.GradientAngle = 90F;
+            this.artanPanel3.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
+            this.artanPanel3.GradientTopColor = System.Drawing.Color.Gainsboro;
+            this.artanPanel3.Location = new System.Drawing.Point(12, 81);
+            this.artanPanel3.Name = "artanPanel3";
+            this.artanPanel3.Size = new System.Drawing.Size(1043, 607);
+            this.artanPanel3.TabIndex = 96;
+            // 
+            // artanPanel4
+            // 
+            this.artanPanel4.BackColor = System.Drawing.Color.White;
+            this.artanPanel4.BorderRadius = 25;
+            this.artanPanel4.Controls.Add(this.k_datagrview_hang_hoa);
+            this.artanPanel4.ForeColor = System.Drawing.Color.Black;
+            this.artanPanel4.GradientAngle = 90F;
+            this.artanPanel4.GradientBottomColor = System.Drawing.Color.CadetBlue;
+            this.artanPanel4.GradientTopColor = System.Drawing.Color.DodgerBlue;
+            this.artanPanel4.Location = new System.Drawing.Point(13, 24);
+            this.artanPanel4.Name = "artanPanel4";
+            this.artanPanel4.Size = new System.Drawing.Size(1015, 567);
+            this.artanPanel4.TabIndex = 3;
+            // 
             // k_datagrview_hang_hoa
             // 
             this.k_datagrview_hang_hoa.AllowUserToAddRows = false;
             this.k_datagrview_hang_hoa.AllowUserToResizeColumns = false;
             this.k_datagrview_hang_hoa.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            this.k_datagrview_hang_hoa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.k_datagrview_hang_hoa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.k_datagrview_hang_hoa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.k_datagrview_hang_hoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.k_datagrview_hang_hoa.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -125,33 +143,16 @@
             this.k_datagrview_hang_hoa.StateCommon.HeaderRow.Content.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.k_datagrview_hang_hoa.TabIndex = 2;
             // 
-            // artanPanel3
+            // label3
             // 
-            this.artanPanel3.BackColor = System.Drawing.Color.White;
-            this.artanPanel3.BorderRadius = 25;
-            this.artanPanel3.Controls.Add(this.artanPanel4);
-            this.artanPanel3.ForeColor = System.Drawing.Color.Black;
-            this.artanPanel3.GradientAngle = 90F;
-            this.artanPanel3.GradientBottomColor = System.Drawing.Color.WhiteSmoke;
-            this.artanPanel3.GradientTopColor = System.Drawing.Color.Gainsboro;
-            this.artanPanel3.Location = new System.Drawing.Point(12, 81);
-            this.artanPanel3.Name = "artanPanel3";
-            this.artanPanel3.Size = new System.Drawing.Size(1043, 607);
-            this.artanPanel3.TabIndex = 96;
-            // 
-            // artanPanel4
-            // 
-            this.artanPanel4.BackColor = System.Drawing.Color.White;
-            this.artanPanel4.BorderRadius = 25;
-            this.artanPanel4.Controls.Add(this.k_datagrview_hang_hoa);
-            this.artanPanel4.ForeColor = System.Drawing.Color.Black;
-            this.artanPanel4.GradientAngle = 90F;
-            this.artanPanel4.GradientBottomColor = System.Drawing.Color.CadetBlue;
-            this.artanPanel4.GradientTopColor = System.Drawing.Color.DodgerBlue;
-            this.artanPanel4.Location = new System.Drawing.Point(13, 24);
-            this.artanPanel4.Name = "artanPanel4";
-            this.artanPanel4.Size = new System.Drawing.Size(1015, 567);
-            this.artanPanel4.TabIndex = 3;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(432, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 29);
+            this.label3.TabIndex = 96;
+            this.label3.Text = "KHO HÀNG";
             // 
             // KHO_GUI
             // 
@@ -164,9 +165,9 @@
             this.artanPanel1.ResumeLayout(false);
             this.artanPanel1.PerformLayout();
             this.artanPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.k_datagrview_hang_hoa)).EndInit();
             this.artanPanel3.ResumeLayout(false);
             this.artanPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.k_datagrview_hang_hoa)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -174,10 +175,10 @@
         #endregion
 
         private ArtanComponent.ArtanPanel artanPanel1;
-        private System.Windows.Forms.Label label1;
         private ArtanComponent.ArtanPanel artanPanel2;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView k_datagrview_hang_hoa;
         private ArtanComponent.ArtanPanel artanPanel3;
         private ArtanComponent.ArtanPanel artanPanel4;
+        private System.Windows.Forms.Label label3;
     }
 }

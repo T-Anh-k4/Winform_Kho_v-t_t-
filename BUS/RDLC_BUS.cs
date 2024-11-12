@@ -14,5 +14,9 @@ namespace BUS
         {
             return rdlcDal.GetDanhSachChiTietNhap(ma);
         }
+        public DataSet GetDanhSachChiTietXuat(string soHdXuat)
+        {
+            return rdlcDal.GetDanhSachChiTietXuat(soHdXuat);
+        }
     }
 }
