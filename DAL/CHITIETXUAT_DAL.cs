@@ -167,11 +167,11 @@ namespace DAL
         {
             try
             {
-                // Retrieve the idKho based on the provided maHH
+                // Truy vấn IDKHO dựa trên mã hàng hóa
                 string getIdKhoQuery = "SELECT IDKHO FROM KHO WHERE MAHH = @maHH";
                 SqlParameter[] getIdKhoParameters = {
-                    new SqlParameter("@maHH", maHH)
-                };
+            new SqlParameter("@maHH", maHH)
+        };
                 object idKhoResult = instance.execScalar(getIdKhoQuery, getIdKhoParameters);
 
                 if (idKhoResult == null)
@@ -181,34 +181,31 @@ namespace DAL
 
                 int idKho = Convert.ToInt32(idKhoResult);
 
-                // Check if the record already exists
-                string checkQuery = "SELECT SOLUONG_XUAT FROM CHITIET_HD_XUAT WHERE IDKHO = @idKho AND SO_HD_XUAT = @maHDX AND DONGIA_XUAT = @donGiaXuat";
+                // Kiểm tra xem bản ghi đã tồn tại chưa
+                string checkQuery = "SELECT IDXUAT FROM CHITIET_HD_XUAT WHERE IDKHO = @idKho AND SO_HD_XUAT = @maHDX AND DONGIA_XUAT = @donGiaXuat";
                 SqlParameter[] checkParameters = {
-                    new SqlParameter("@idKho", idKho),
-                    new SqlParameter("@maHDX", maHDX),
-                    new SqlParameter("@donGiaXuat", donGiaXuat)
-                };
+            new SqlParameter("@idKho", idKho),
+            new SqlParameter("@maHDX", maHDX),
+            new SqlParameter("@donGiaXuat", donGiaXuat)
+        };
                 object result = instance.execScalar(checkQuery, checkParameters);
-                // Console.WriteLine("Result: ");
-                // Console.WriteLine(result.ToString());
 
                 if (result != null)
                 {
-                    int existingSLXuat = Convert.ToInt32(result);
-                    int newSLXuat = existingSLXuat + soLuongXuat;
-                    string updateQuery = "UPDATE CHITIET_HD_XUAT SET SOLUONG_XUAT = @newSLXuat WHERE IDKHO = @idKho AND SO_HD_XUAT = @maHDX AND DONGIA_XUAT = @donGiaXuat";
+                    // Nếu bản ghi đã tồn tại, cập nhật với số lượng mới
+                    string updateQuery = "UPDATE CHITIET_HD_XUAT SET SOLUONG_XUAT = @soLuongXuat WHERE IDKHO = @idKho AND SO_HD_XUAT = @maHDX AND DONGIA_XUAT = @donGiaXuat";
                     SqlParameter[] updateParameters = {
-                        new SqlParameter("@newSLXuat", newSLXuat),
-                        new SqlParameter("@idKho", idKho),
-                        new SqlParameter("@maHDX", maHDX),
-                        new SqlParameter("@donGiaXuat", donGiaXuat)
-                    };
-                    DeleteChiTietXuat(ID);
+                new SqlParameter("@soLuongXuat", soLuongXuat),
+                new SqlParameter("@idKho", idKho),
+                new SqlParameter("@maHDX", maHDX),
+                new SqlParameter("@donGiaXuat", donGiaXuat)
+            };
                     instance.execNonQuery(updateQuery, updateParameters);
                     return true;
                 }
                 else
                 {
+                    // Nếu bản ghi chưa tồn tại, thực hiện cập nhật với ID đã chỉ định
                     string query = "UPDATE CHITIET_HD_XUAT " +
                                    "SET IDKHO = @idKho, " +
                                    "SO_HD_XUAT = @maHDX, " +
@@ -216,12 +213,12 @@ namespace DAL
                                    "DONGIA_XUAT = @donGiaXuat " +
                                    "WHERE IDXUAT = @id";
                     SqlParameter[] parameters = {
-                        new SqlParameter("@id", ID),
-                        new SqlParameter("@idKho", idKho),
-                        new SqlParameter("@maHDX", maHDX),
-                        new SqlParameter("@soLuongXuat", soLuongXuat),
-                        new SqlParameter("@donGiaXuat", donGiaXuat)
-                    };
+                new SqlParameter("@id", ID),
+                new SqlParameter("@idKho", idKho),
+                new SqlParameter("@maHDX", maHDX),
+                new SqlParameter("@soLuongXuat", soLuongXuat),
+                new SqlParameter("@donGiaXuat", donGiaXuat)
+            };
                     instance.execNonQuery(query, parameters);
                     return true;
                 }
@@ -235,6 +232,7 @@ namespace DAL
                 throw new Exception("An error occurred while updating chi tiết xuất: " + ex.Message);
             }
         }
+
 
         public bool DeleteChiTietXuat(int ID)
         {

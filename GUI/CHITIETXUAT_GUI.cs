@@ -138,6 +138,7 @@ namespace GUI
                 DataGridViewRow row = dataViewNv.Rows[e.RowIndex];
                 if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
                 {
+                    kryTb_DGNhap.ReadOnly = true;
                     kryCb_HangHoa.SelectedValue = row.Cells["Mã hàng hóa"].Value.ToString();
                     kryTb_SLNhap.Text = row.Cells["Số lượng xuất"].Value.ToString();
                     kryTb_DGNhap.Text = row.Cells["Đơn giá xuất"].Value.ToString();
@@ -164,6 +165,7 @@ namespace GUI
                             {
                                 loadDt_ChiTietXuat();
                                 MessageBox.Show("Xóa chi tiết xuất thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                ResetForeText();
                             }
                             else
                             {
@@ -201,7 +203,7 @@ namespace GUI
                 {
                     loadDt_ChiTietXuat();
                     MessageBox.Show("Thêm chi tiết xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    clear();
+                    ResetForeText();
                 }
                 else
                 {
@@ -223,6 +225,7 @@ namespace GUI
 
         private void kryBt_Edit_Click(object sender, EventArgs e)
         {
+            kryTb_DGNhap.ReadOnly = false;
             try
             {
                 bool result = chiTietXuatBUS.UpdateChiTietXuat(Convert.ToInt32(dataViewNv.CurrentRow.Cells["Mã chi tiết xuất"].Value), kryCb_HangHoa.SelectedValue.ToString(), maHDX, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
@@ -231,7 +234,7 @@ namespace GUI
                 if (result)
                 {
                     MessageBox.Show("Sửa chi tiết xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    clear();
+                    ResetForeText();
                     loadDt_ChiTietXuat();
                 }
                 else
@@ -247,6 +250,7 @@ namespace GUI
 
         private void kry_Clear_Click(object sender, EventArgs e)
         {
+            kryTb_DGNhap.ReadOnly = false;
             ResetForeText();
             createTransition.Start();
         }
@@ -268,16 +272,12 @@ namespace GUI
         {
             switch (textBox.Name)
             {
-                case "kryTbSearch":
-                    return "Tìm kiếm...";
-                case "kryTb_Name":
-                    return "Nhập tên hàng hóa";
-                case "kryTb_Number":
+                case "txb_tim_kiem_nv":
+                    return "Tìm kiếm";
+                case "kryTb_SLNhap":
                     return "Nhập số lượng xuất";
-                case "kryTx_Address":
+                case "kryTb_DGNhap":
                     return "Nhập đơn giá xuất";
-                case "kryTb_Pos":
-                    return "Nhập số hóa đơn xuất";
                 default:
                     return string.Empty;
             }
@@ -307,6 +307,7 @@ namespace GUI
 
         private void ResetForeText()
         {
+            SetPlaceholder(txb_tim_kiem_nv, GetPlaceholder(txb_tim_kiem_nv));
             SetPlaceholder(kryTb_SLNhap, GetPlaceholder(kryTb_SLNhap));
             SetPlaceholder(kryTb_DGNhap, GetPlaceholder(kryTb_DGNhap));
         }
@@ -337,6 +338,8 @@ namespace GUI
 
         private void kryBtShowCreate_NV_Click(object sender, EventArgs e)
         {
+            kryTb_DGNhap.ReadOnly = false;
+            ResetForeText();
             kryBt_Add.Visible = true;
             createTransition.Start();
             if (kryBt_Edit.Visible)
