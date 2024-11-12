@@ -41,15 +41,15 @@ namespace GUI
         public void initUser()
         {
             loadDt_HangNhap();
-            kryTbSearch.Enter += kryTbSearch_Enter;
-            kryTbSearch.Leave += kryTbSearch_Leave;
+            txb_tim_kiem_nv.Enter += kryTbSearch_Enter;
+            txb_tim_kiem_nv.Leave += kryTbSearch_Leave;
             kryTx_Id.Enter += kryTbSearch_Enter;
             kryTx_Id.Leave += kryTbSearch_Leave;
             kryTb_Name.Enter += kryTbSearch_Enter;
             kryTb_Name.Leave += kryTbSearch_Leave;
             kryTb_eID.Enter += kryTbSearch_Enter;
             kryTb_eID.Leave += kryTbSearch_Leave;
-            SetPlaceholder(kryTbSearch, "Tìm kiếm");
+            SetPlaceholder(txb_tim_kiem_nv, "Tìm kiếm");
             SetPlaceholder(kryTx_Id, "Nhập mã hàng nhập");
             SetPlaceholder(kryTb_Name, "Nhập tên hàng nhập");
             SetPlaceholder(kryTb_eID, "Nhập mã nhân viên");
@@ -329,8 +329,8 @@ namespace GUI
         {
             switch (textBox.Name)
             {
-                case "kryTbSearch":
-                    return "Tìm kiếm...";
+                case "txb_tim_kiem_nv":
+                    return "Tìm kiếm";
                 case "kryTx_Id":
                     return "Nhập mã hàng nhập";
                 case "kryTb_Name":
@@ -365,6 +365,7 @@ namespace GUI
         // reset chữ mặc định
         private void ResetForeText()
         {
+            SetPlaceholder(txb_tim_kiem_nv, GetPlaceholder(txb_tim_kiem_nv));
             SetPlaceholder(kryTx_Id, GetPlaceholder(kryTx_Id));
             SetPlaceholder(kryTb_Name, GetPlaceholder(kryTb_Name));
             SetPlaceholder(kryTb_eID, GetPlaceholder(kryTb_eID));
