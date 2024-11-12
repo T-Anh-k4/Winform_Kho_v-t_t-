@@ -55,11 +55,11 @@ namespace BUS
         }
         public bool IsMaNCC(string mah)
         {
-            return hangNhapDAL.IsMaNCCExist(mah);
+            return hangNhapDAL.IsTenNCCExist(mah);
         }
         public bool IsMaNV(string mah)
         {
-            return hangNhapDAL.IsMaNVExist(mah);
+            return hangNhapDAL.IsTenNVExist(mah);
         }
     }
 }

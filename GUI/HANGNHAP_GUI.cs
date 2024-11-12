@@ -70,6 +70,8 @@ namespace GUI
             DataTable dt = hangNhapBUS.GetDanhSachNhaCungCapPage(limit, curentPage);
             dataViewHNhap.DataSource = dt;
             dataViewHNhap.Columns["Trạng thái hóa đơn nhập"].Visible = false;
+            dataViewHNhap.Columns["Mã nhà cung cấp"].Visible = false;
+            dataViewHNhap.Columns["Mã nhân viên"].Visible = false;
             totalPage = hangNhapBUS.GetSLNhaCungCap() / limit;
             if (totalPage * limit < hangNhapBUS.GetSLNhaCungCap()) totalPage++;
 
@@ -175,10 +177,11 @@ namespace GUI
                 if (e.ColumnIndex == dataViewHNhap.Columns["imgEdit"].Index)
                 {
                     kryTx_Id.ReadOnly = true;
-                    kryTx_Id.Text = row.Cells[3].Value.ToString();
-                    kryTb_Name.Text = row.Cells[4].Value.ToString();
-                    kryTb_eID.Text = row.Cells[5].Value.ToString();
-                    kry_Datetime.Value = Convert.ToDateTime(row.Cells[6].Value);
+                    kryTx_Id.Text = row.Cells["Số hóa đơn nhập"].Value.ToString();
+                    kryTb_Name.Text = row.Cells["Tên nhà cung cấp"].Value.ToString();
+                    kryTb_eID.Text = row.Cells["Tên nhân viên"].Value.ToString();
+                     kry_Datetime.Value = Convert.ToDateTime(row.Cells["Ngày lập hóa đơn nhập"].Value);
+                    
 
                     IsPressEdit();
                     createTransition.Start();
@@ -243,32 +246,32 @@ namespace GUI
             }
             else if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
             {
-                MessageBox.Show("Vui lòng nhập mã nhà cung cấp.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên nhà cung cấp.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_Name.Text, @"^NCC\d+$"))
-            {
-                MessageBox.Show("Mã hàng nhập không hợp lệ. Vui lòng nhập mã theo định dạng NCC+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            // else if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_Name.Text, @"^NCC\d+$"))
+            // {
+            //     MessageBox.Show("Mã hàng nhập không hợp lệ. Vui lòng nhập mã theo định dạng NCC+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //     return;
+            // }
             else if (!hangNhapBUS.IsMaNCC(kryTb_Name.Text))
             {
-                MessageBox.Show("Mã nhà cung không tồn tại. Vui lòng nhập mã đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tên nhà cung không tồn tại. Vui lòng nhập tên đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (string.IsNullOrWhiteSpace(kryTb_eID.Text))
             {
-                MessageBox.Show("Vui lòng nhập mã nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_eID.Text, @"^NV\d+$"))
-            {
-                MessageBox.Show("Mã hàng nhập không hợp lệ. Vui lòng nhập mã theo định dạng NV+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            // else if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_eID.Text, @"^NV\d+$"))
+            // {
+            //     MessageBox.Show("Mã hàng nhập không hợp lệ. Vui lòng nhập mã theo định dạng NV+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //     return;
+            // }
             else if (!hangNhapBUS.IsMaNV(kryTb_eID.Text))
             {
-                MessageBox.Show("Mã nhân viên không tồn tại. Vui lòng nhập mã đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tên nhân viên không tồn tại. Vui lòng nhập tên đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             bool result = hangNhapBUS.InsertHoaDonNhap(kryTx_Id.Text, kryTb_Name.Text, kryTb_eID.Text, kry_Datetime.Value, 1);
@@ -290,6 +293,36 @@ namespace GUI
 
         private void kryBt_Edit_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(kryTb_Name.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên nhà cung cấp.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // else if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_Name.Text, @"^NCC\d+$"))
+            // {
+            //     MessageBox.Show("Mã hàng nhập không hợp lệ. Vui lòng nhập mã theo định dạng NCC+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //     return;
+            // }
+            else if (!hangNhapBUS.IsMaNCC(kryTb_Name.Text))
+            {
+                MessageBox.Show("Tên nhà cung không tồn tại. Vui lòng nhập tên đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(kryTb_eID.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên nhân viên.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // else if (!System.Text.RegularExpressions.Regex.IsMatch(kryTb_eID.Text, @"^NV\d+$"))
+            // {
+            //     MessageBox.Show("Mã hàng nhập không hợp lệ. Vui lòng nhập mã theo định dạng NV+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //     return;
+            // }
+            else if (!hangNhapBUS.IsMaNV(kryTb_eID.Text))
+            {
+                MessageBox.Show("Tên nhân viên không tồn tại. Vui lòng nhập tên đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             bool result = hangNhapBUS.UpdateHoaDonNhap(kryTx_Id.Text, kryTb_Name.Text, kryTb_eID.Text, kry_Datetime.Value, 1);
 
             if (result)
