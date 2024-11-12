@@ -49,7 +49,7 @@ namespace GUI
             kryTb_eID.Leave += kryTbSearch_Leave;
             SetPlaceholder(txb_tim_kiem_nv, "Tìm kiếm");
             SetPlaceholder(kryTx_Id, "Nhập mã hàng Xuất");
-            SetPlaceholder(kryTb_Name, "Nhập tên hàng Xuất");
+            SetPlaceholder(kryTb_Name, "Nhập tên khách hàng");
             SetPlaceholder(kryTb_eID, "Nhập tên nhân viên");
         }
         public bool IsPressAdd()
@@ -315,11 +315,11 @@ namespace GUI
             switch (textBox.Name)
             {
                 case "kryTbSearch":
-                    return "Tìm kiếm...";
+                    return "Tìm kiếm";
                 case "kryTx_Id":
                     return "Nhập mã hàng Xuất";
                 case "kryTb_Name":
-                    return "Nhập tên hàng Xuất";
+                    return "Nhập tên khách hàng";
                 case "kryTb_eID":
                     return "Nhập tên nhân viên";
                 default:

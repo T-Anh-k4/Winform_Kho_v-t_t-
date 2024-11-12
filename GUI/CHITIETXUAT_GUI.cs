@@ -190,9 +190,19 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập số lượng xuất.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (string.IsNullOrWhiteSpace(kryTb_DGNhap.Text))
+            else if (!chiTietXuatBUS.CheckRemainingQuantity(kryCb_HangHoa.SelectedValue.ToString(), Convert.ToInt32(kryTb_SLNhap.Text)))
+            {
+                MessageBox.Show("Hàng trong kho ít hơn số lượng xuất", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(kryTb_DGNhap.Text))
             {
                 MessageBox.Show("Vui lòng nhập đơn giá xuất.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (chiTietXuatBUS.IfExitsInThis(kryCb_HangHoa.SelectedValue.ToString(), maHDX, Convert.ToInt32(kryTb_DGNhap.Text)))
+            {
+                MessageBox.Show("Hàng hóa đã tồn tại trong hóa đơn xuất", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
