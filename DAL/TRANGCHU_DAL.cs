@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace DAL
             string query = "select sum(SOLUONG_NHAP*DONGIA_NHAP) from CHITIET_HD_NHAP JOIN HOADON_NHAP ON HOADON_NHAP.SO_HD_NHAP = CHITIET_HD_NHAP.SO_HD_NHAP WHERE MONTH(NGAYLAP_NHAP) = "+thang+";";
             object result = instance.execScalar(query);
             decimal tongtiennhap = (result == DBNull.Value) ? 0 : Convert.ToDecimal(result);
+            tongtiennhap = Math.Round(tongtiennhap, 0); // Làm tròn đến số nguyên (bỏ phần thập phân)
             return tongtiennhap;
         }
         public double TongHangNhap(int thang)
@@ -39,29 +41,53 @@ namespace DAL
             double tongtiennhap = (result == DBNull.Value) ? 0 : Convert.ToDouble(result);
             return tongtiennhap;
         }
-        public double TongHangTon(int thang)
+        public double TongHangTon()
         {
             string query = @"
         SELECT 
-            SUM(CHITIET_HD_NHAP.SOLUONG_NHAP - CHITIET_HD_XUAT.SOLUONG_XUAT)
+            SUM(COALESCE(CHITIET_HD_NHAP.SOLUONG_NHAP, 0)) - SUM(COALESCE(CHITIET_HD_XUAT.SOLUONG_XUAT, 0)) AS [TongHangTon]
         FROM 
-            KHO 
-        JOIN 
-            HANGHOA ON KHO.MAHH = HANGHOA.MAHH
+            KHO
         LEFT JOIN 
-            CHITIET_HD_NHAP ON HANGHOA.MAHH = CHITIET_HD_NHAP.MAHH
+            CHITIET_HD_NHAP ON KHO.MAHH = CHITIET_HD_NHAP.MAHH
         LEFT JOIN 
-            CHITIET_HD_XUAT ON KHO.IDKHO = CHITIET_HD_XUAT.IDKHO
-        GROUP BY 
-            KHO.IDKHO, KHO.MAHH, HANGHOA.TENHH;";
+            CHITIET_HD_XUAT ON KHO.IDKHO = CHITIET_HD_XUAT.IDKHO";
+
             object result = instance.execScalar(query);
             double tongtiennhap = (result == DBNull.Value) ? 0 : Convert.ToDouble(result);
             return tongtiennhap;
         }
+        public double TongHangTonThang(int thang)
+        {
+            string query = @"
+        SELECT 
+            SUM(COALESCE(CHITIET_HD_NHAP.SOLUONG_NHAP, 0)) - SUM(COALESCE(CHITIET_HD_XUAT.SOLUONG_XUAT, 0)) AS [TongHangTon]
+        FROM 
+            KHO 
+        LEFT JOIN 
+            CHITIET_HD_NHAP ON KHO.MAHH = CHITIET_HD_NHAP.MAHH 
+        LEFT JOIN 
+            CHITIET_HD_XUAT ON KHO.IDKHO = CHITIET_HD_XUAT.IDKHO
+        LEFT JOIN 
+            HOADON_NHAP ON HOADON_NHAP.SO_HD_NHAP = CHITIET_HD_NHAP.SO_HD_NHAP
+        LEFT JOIN 
+            HOADON_XUAT ON HOADON_XUAT.SO_HD_XUAT = CHITIET_HD_XUAT.SO_HD_XUAT
+        WHERE 
+            (MONTH(HOADON_NHAP.NGAYLAP_NHAP) = @thang OR HOADON_NHAP.NGAYLAP_NHAP IS NULL)
+            AND (MONTH(HOADON_XUAT.NGAYLAP_XUAT) = @thang OR HOADON_XUAT.NGAYLAP_XUAT IS NULL)";
+
+            SqlParameter[] parameters = {
+        new SqlParameter("@thang", thang)
+    };
+
+            object result = instance.execScalar(query, parameters);
+            double tongHangTon = (result == DBNull.Value) ? 0 : Convert.ToDouble(result);
+            return tongHangTon;
+        }
         public DataTable GetTenNhaCungCap()
         {
             string query = "SELECT TENNCC,SUM(SOLUONG_NHAP) AS TongSoLuongNhap FROM HOADON_NHAP JOIN NHACUNGCAP ON NHACUNGCAP.MANCC = HOADON_NHAP.MANCC JOIN CHITIET_HD_NHAP ON HOADON_NHAP.SO_HD_NHAP = CHITIET_HD_NHAP.SO_HD_NHAP GROUP BY TENNCC";
-            return instance.execQuery(query);
+            return instance.execQuery(query);  
         }
 
         public DataTable GetTenKhachHang()

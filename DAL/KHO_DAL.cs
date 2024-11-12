@@ -19,10 +19,10 @@ namespace DAL
         {
             string query = @"
         SELECT 
-            KHO.IDKHO AS [ID KHO],
+            KHO.IDKHO AS [ID kho],
             KHO.MAHH AS [Mã hàng hóa],
-            HANGHOA.TENHH, 
-            COALESCE(SUM(CHITIET_HD_NHAP.SOLUONG_NHAP), 0) - COALESCE(SUM(CHITIET_HD_XUAT.SOLUONG_XUAT), 0) AS [Số lượng tồn kho]
+            HANGHOA.TENHH[Tên hàng hóa], 
+            COALESCE(SUM(CHITIET_HD_NHAP.SOLUONG_NHAP), 0) - COALESCE(SUM(CHITIET_HD_XUAT.SOLUONG_XUAT), 0) AS [Số lượng tồn]
         FROM 
             KHO 
         JOIN 
@@ -32,7 +32,7 @@ namespace DAL
         LEFT JOIN 
             CHITIET_HD_XUAT ON KHO.IDKHO = CHITIET_HD_XUAT.IDKHO
         GROUP BY 
-            KHO.IDKHO, KHO.MAHH, HANGHOA.TENHH;";
+            KHO.IDKHO, KHO.MAHH, HANGHOA.TENHH,KHO.SOLUONG;";
 
             return instance.execQuery(query);
         }

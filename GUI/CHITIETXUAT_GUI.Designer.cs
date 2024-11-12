@@ -167,6 +167,7 @@
             this.label5.Size = new System.Drawing.Size(122, 24);
             this.label5.TabIndex = 29;
             this.label5.Text = "      Quay lại";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txb_tim_kiem_nv
             // 
@@ -278,7 +279,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Gray;
-            this.label10.Location = new System.Drawing.Point(850, 476);
+            this.label10.Location = new System.Drawing.Point(822, 475);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(69, 16);
@@ -289,7 +290,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label11.Location = new System.Drawing.Point(916, 477);
+            this.label11.Location = new System.Drawing.Point(889, 476);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(33, 16);
@@ -537,7 +538,6 @@
             this.kryCb_HangHoa.StateCommon.ComboBox.Border.Rounding = 20;
             this.kryCb_HangHoa.StateCommon.ComboBox.Border.Width = 1;
             this.kryCb_HangHoa.TabIndex = 32;
-            // this.kryCb_HangHoa.DropDown += new System.EventHandler(this.kryCb_HangHoa_DropDown);
             // 
             // kry_Clear
             // 
