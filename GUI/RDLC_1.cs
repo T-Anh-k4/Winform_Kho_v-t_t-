@@ -43,5 +43,11 @@ namespace GUI
             }
             this.reportViewer1.RefreshReport();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            testGui.btChiTietXuat_Click(maHDX);
+
+        }
     }
 }

@@ -423,9 +423,9 @@
             btHangXuat_Click(this, EventArgs.Empty);
         }
 
-        public void btChiTietXuat_Click(string maHDN)
+        public void btChiTietXuat_Click(string maHDX)
         {
-            eventChiTietXuat(this, EventArgs.Empty, maHDN);
+            eventChiTietXuat(this, EventArgs.Empty, maHDX);
         }
         private void eventChiTietXuat(object sender, EventArgs e, string maHDN)
         {
