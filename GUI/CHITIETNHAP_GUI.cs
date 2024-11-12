@@ -154,7 +154,8 @@ namespace GUI
 				DataGridViewRow row = dataViewNv.Rows[e.RowIndex];
 				if (e.ColumnIndex == dataViewNv.Columns["imgEdit"].Index)
 				{
-					kryCb_HangHoa.SelectedValue = row.Cells["Mã hàng hóa"].Value.ToString();
+                    kryTb_DGNhap.ReadOnly = true;
+                    kryCb_HangHoa.SelectedValue = row.Cells["Mã hàng hóa"].Value.ToString();
 					kryTb_SLNhap.Text = row.Cells["Số lượng nhập"].Value.ToString();
 					kryTb_DGNhap.Text = row.Cells["Đơn giá nhập"].Value.ToString();
 					IsPressEdit();
@@ -254,11 +255,11 @@ namespace GUI
 		{
 			try
 			{
-				bool result = chiTietNhapBUS.UpdateChiTietNhap(Convert.ToInt32(dataViewNv.CurrentRow.Cells["Mã chi tiết nhập"].Value), kryCb_HangHoa.SelectedValue.ToString(), maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
+                bool result = chiTietNhapBUS.UpdateChiTietNhap(Convert.ToInt32(dataViewNv.CurrentRow.Cells["Mã chi tiết nhập"].Value), kryCb_HangHoa.SelectedValue.ToString(), maHDN, Convert.ToInt32(kryTb_SLNhap.Text), Convert.ToInt32(kryTb_DGNhap.Text));
 
 				if (result)
 				{
-					MessageBox.Show("Sửa chi tiết nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sửa chi tiết nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ResetForeText();
                     loadDt_ChiTietNhap(); // Gọi lại để tải lại danh sách
 				}
@@ -277,9 +278,10 @@ namespace GUI
 		{
 			ResetForeText();
 			createTransition.Start();
-		}
+            kryTb_DGNhap.ReadOnly = false;
+        }
 
-		private void kryTbSearch_Enter(object sender, EventArgs e)
+        private void kryTbSearch_Enter(object sender, EventArgs e)
 		{
 			KryptonTextBox textBox = sender as KryptonTextBox;
 			if (textBox != null)
@@ -363,6 +365,7 @@ namespace GUI
 		private void kryBtShowCreate_NV_Click(object sender, EventArgs e)
 		{
 			ResetForeText();
+            kryTb_DGNhap.ReadOnly = false;
             kryBt_Add.Visible = true;
 			createTransition.Start();
 			if (kryBt_Edit.Visible)
