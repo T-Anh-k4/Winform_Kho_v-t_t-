@@ -315,7 +315,7 @@ namespace GUI
             switch (textBox.Name)
             {
                 case "kryTbSearch":
-                    return "Tìm kiếm...";
+                    return "Tìm kiếm";
                 case "kryTx_Id":
                     return "Nhập mã hàng Xuất";
                 case "kryTb_Name":
