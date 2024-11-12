@@ -52,7 +52,7 @@ namespace GUI
             SetPlaceholder(txb_tim_kiem_nv, "Tìm kiếm");
             SetPlaceholder(kryTx_Id, "Nhập mã hàng nhập");
             SetPlaceholder(kryTb_Name, "Nhập tên hàng nhập");
-            SetPlaceholder(kryTb_eID, "Nhập mã nhân viên");
+            SetPlaceholder(kryTb_eID, "Nhập tên nhân viên");
         }
         public bool IsPressAdd()
         {
@@ -369,7 +369,7 @@ namespace GUI
                 case "kryTb_Name":
                     return "Nhập tên hàng nhập";
                 case "kryTb_eID":
-                    return "Nhập mã nhân viên";
+                    return "Nhập tên nhân viên";
                 default:
                     return string.Empty;
             }
