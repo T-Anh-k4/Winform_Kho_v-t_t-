@@ -34,7 +34,7 @@ namespace GUI
             lbtongtienxuat.Text = Convert.ToString(homeBUS.TongTienXuat(month)) + " VNĐ";
             lbtonghangxuat.Text = Convert.ToString(homeBUS.TongHangXuat(month)) + " SP";
             lbtonghangton.Text = Convert.ToString(homeBUS.TongHangTon()) + " SP";
-            lbhangton.Text = Convert.ToString(homeBUS.TongHangTonThang(month)) + " SP";
+           // lbhangton.Text = Convert.ToString(homeBUS.TongHangTonThang(month)) + " SP";
 
         }
         public void CartesianChart(DataTable dt1, DataTable dt2)

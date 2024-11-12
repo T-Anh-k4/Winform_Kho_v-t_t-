@@ -32,8 +32,6 @@
             this.cthdN1TableAdapter1 = new GUI.CTHDNDataSetTableAdapters.CTHDN1TableAdapter();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.artanPanel3 = new ArtanComponent.ArtanPanel();
-            this.lbhangton = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.lbtonghangton = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.artanPanel4 = new ArtanComponent.ArtanPanel();
@@ -108,8 +106,6 @@
             // 
             this.artanPanel3.BackColor = System.Drawing.Color.White;
             this.artanPanel3.BorderRadius = 25;
-            this.artanPanel3.Controls.Add(this.lbhangton);
-            this.artanPanel3.Controls.Add(this.label9);
             this.artanPanel3.Controls.Add(this.lbtonghangton);
             this.artanPanel3.Controls.Add(this.label3);
             this.artanPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,27 +118,6 @@
             this.artanPanel3.Name = "artanPanel3";
             this.artanPanel3.Size = new System.Drawing.Size(239, 170);
             this.artanPanel3.TabIndex = 1;
-            // 
-            // lbhangton
-            // 
-            this.lbhangton.AutoSize = true;
-            this.lbhangton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbhangton.Location = new System.Drawing.Point(34, 122);
-            this.lbhangton.Name = "lbhangton";
-            this.lbhangton.Size = new System.Drawing.Size(90, 25);
-            this.lbhangton.TabIndex = 5;
-            this.lbhangton.Text = "hangton";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Gray;
-            this.label9.Location = new System.Drawing.Point(35, 95);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(137, 18);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Hàng tồn kho tháng";
             // 
             // lbtonghangton
             // 
@@ -607,7 +582,5 @@
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Label lbhangton;
-        private System.Windows.Forms.Label label9;
     }
 }
