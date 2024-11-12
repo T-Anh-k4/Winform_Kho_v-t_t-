@@ -23,7 +23,7 @@ namespace DAL
 
         public DataTable GetDanhSachHoaDonNhapPage(int limit, int page)
         {
-            string query = "SELECT SO_HD_NHAP as [Số hóa đơn nhập], MANCC as [Mã nhà cung cấp], MANV as [Mã nhân viên], NGAYLAP_NHAP as [Ngày lập hóa đơn nhập], FLAGHONHAP as [Trạng thái hóa đơn nhập] FROM HOADON_NHAP";
+            string query = "SELECT SO_HD_NHAP as [Số hóa đơn nhập], NHACUNGCAP.MANCC as [Mã nhà cung cấp],TENNCC as [Tên nhà cung cấp], NHANVIEN.MANV as [Mã nhân viên], TENNV as [Tên nhân viên], NGAYLAP_NHAP as [Ngày lập hóa đơn nhập], FLAGHONHAP as [Trạng thái hóa đơn nhập] FROM HOADON_NHAP JOIN NHACUNGCAP ON HOADON_NHAP.MANCC = NHACUNGCAP.MANCC JOIN NHANVIEN ON HOADON_NHAP.MANV = NHANVIEN.MANV";
             using (SqlConnection con = new SqlConnection(LinkData))
             {
                 con.Open(); // Mở kết nối
@@ -46,14 +46,47 @@ namespace DAL
             return slHoaDonNhap;
         }
 
-        public bool InsertHoaDonNhap(string soHDNhap, string maNCC, string maNV, DateTime ngayLapNhap, int flagHoNhap)
+        public bool InsertHoaDonNhap(string soHDNhap, string tenNCC, string tenNV, DateTime ngayLapNhap, int flagHoNhap)
         {
             try
             {
+                // Retrieve the maNCC based on the provided tenNCC
+                string getMaNCCQuery = "SELECT MANCC FROM NHACUNGCAP WHERE TENNCC = @tenNCC";
+                SqlParameter[] getMaNCCParameters = {
+                    new SqlParameter("@tenNCC", tenNCC)
+                };
+                object maNCCResult = instance.execScalar(getMaNCCQuery, getMaNCCParameters);
+
+                if (maNCCResult == null)
+                {
+                    throw new Exception("Không tìm thấy MANCC cho tên nhà cung cấp: " + tenNCC);
+                }
+
+                string maNCC = maNCCResult.ToString();
+
+                // Retrieve the maNV based on the provided tenNV
+                string getMaNVQuery = "SELECT MANV FROM NHANVIEN WHERE TENNV = @tenNV";
+                SqlParameter[] getMaNVParameters = {
+                    new SqlParameter("@tenNV", tenNV)
+                };
+                object maNVResult = instance.execScalar(getMaNVQuery, getMaNVParameters);
+
+                if (maNVResult == null)
+                {
+                    throw new Exception("Không tìm thấy MANV cho tên nhân viên: " + tenNV);
+                }
+
+                string maNV = maNVResult.ToString();
+
+                // Insert the record into HOADON_NHAP
                 string query = "INSERT INTO HOADON_NHAP(SO_HD_NHAP, MANCC, MANV, NGAYLAP_NHAP, FLAGHONHAP) " +
-                               "VALUES (N'" + soHDNhap + "', N'" + maNCC + "', N'" + maNV + "', @ngayLapNhap, " + flagHoNhap + ")";
+                               "VALUES (@soHDNhap, @maNCC, @maNV, @ngayLapNhap, @flagHoNhap)";
                 SqlParameter[] parameters = {
-                    new SqlParameter("@ngayLapNhap", ngayLapNhap)
+                    new SqlParameter("@soHDNhap", soHDNhap),
+                    new SqlParameter("@maNCC", maNCC),
+                    new SqlParameter("@maNV", maNV),
+                    new SqlParameter("@ngayLapNhap", ngayLapNhap),
+                    new SqlParameter("@flagHoNhap", flagHoNhap)
                 };
                 instance.execNonQuery(query, parameters);
                 return true;
@@ -64,25 +97,57 @@ namespace DAL
             }
         }
 
-        public bool UpdateHoaDonNhap(string soHDNhap, string maNCC, string maNV, DateTime ngayLapNhap, int flagHoNhap)
+        public bool UpdateHoaDonNhap(string soHDNhap, string tenNCC, string tenNV, DateTime ngayLapNhap, int flagHoNhap)
         {
             try
             {
+                // Retrieve the maNCC based on the provided tenNCC
+                string getMaNCCQuery = "SELECT MANCC FROM NHACUNGCAP WHERE TENNCC = @tenNCC";
+                SqlParameter[] getMaNCCParameters = {
+            new SqlParameter("@tenNCC", tenNCC)
+        };
+                object maNCCResult = instance.execScalar(getMaNCCQuery, getMaNCCParameters);
+
+                if (maNCCResult == null)
+                {
+                    throw new Exception("Không tìm thấy MANCC cho tên nhà cung cấp: " + tenNCC);
+                }
+
+                string maNCC = maNCCResult.ToString();
+
+                // Retrieve the maNV based on the provided tenNV
+                string getMaNVQuery = "SELECT MANV FROM NHANVIEN WHERE TENNV = @tenNV";
+                SqlParameter[] getMaNVParameters = {
+            new SqlParameter("@tenNV", tenNV)
+        };
+                object maNVResult = instance.execScalar(getMaNVQuery, getMaNVParameters);
+
+                if (maNVResult == null)
+                {
+                    throw new Exception("Không tìm thấy MANV cho tên nhân viên: " + tenNV);
+                }
+
+                string maNV = maNVResult.ToString();
+
                 string query = "UPDATE HOADON_NHAP " +
-                               "SET MANCC = N'" + maNCC + "', " +
-                               "MANV = N'" + maNV + "', " +
+                               "SET MANCC = @maNCC, " +
+                               "MANV = @maNV, " +
                                "NGAYLAP_NHAP = @ngayLapNhap, " +
-                               "FLAGHONHAP = " + flagHoNhap + " " +
-                               "WHERE SO_HD_NHAP = N'" + soHDNhap + "'";
+                               "FLAGHONHAP = @flagHoNhap " +
+                               "WHERE SO_HD_NHAP = @soHDNhap";
                 SqlParameter[] parameters = {
-                    new SqlParameter("@ngayLapNhap", ngayLapNhap)
-                };
+            new SqlParameter("@maNCC", maNCC),
+            new SqlParameter("@maNV", maNV),
+            new SqlParameter("@ngayLapNhap", ngayLapNhap),
+            new SqlParameter("@flagHoNhap", flagHoNhap),
+            new SqlParameter("@soHDNhap", soHDNhap)
+        };
                 instance.execNonQuery(query, parameters);
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                throw new Exception("Có lỗi xảy ra khi cập nhật hóa đơn nhập: " + ex.Message);
             }
         }
 
@@ -123,18 +188,18 @@ namespace DAL
             int count = Convert.ToInt32(instance.execScalar(query, parameters));
             return count > 0;
         }
-        public bool IsMaNCCExist(string mah)
+        public bool IsTenNCCExist(string mah)
         {
-            string query = "SELECT COUNT(*) FROM NHACUNGCAP WHERE MANCC = @mah";
+            string query = "SELECT COUNT(*) FROM NHACUNGCAP WHERE TENNCC = @mah";
             SqlParameter[] parameters = {
         new SqlParameter("@mah", mah)
         };
             int count = Convert.ToInt32(instance.execScalar(query, parameters));
             return count > 0;
         }
-        public bool IsMaNVExist(string mah)
+        public bool IsTenNVExist(string mah)
         {
-            string query = "SELECT COUNT(*) FROM NHANVIEN WHERE MANV = @mah";
+            string query = "SELECT COUNT(*) FROM NHANVIEN WHERE TENNV = @mah";
             SqlParameter[] parameters = {
         new SqlParameter("@mah", mah)
         };
