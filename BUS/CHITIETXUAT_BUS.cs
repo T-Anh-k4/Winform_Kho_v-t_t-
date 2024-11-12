@@ -53,6 +53,16 @@ namespace BUS
             return chiTietXuatDAL.UpdateChiTietXuat(ID, maHH, maHDX, soLuongXuat, donGiaXuat);
         }
 
+        public bool CheckRemainingQuantity(string maHH, int soLuongXuat)
+        {
+            return chiTietXuatDAL.CheckRemainingQuantity(maHH, soLuongXuat);
+        }
+
+        public bool IfExitsInThis(string maHH, string maHDX, int donGiaXuat)
+        {
+            return chiTietXuatDAL.IfExitsInThis(maHH, maHDX, donGiaXuat);
+        }
+        
         public bool DeleteChiTietXuat(int ID)
         {
             return chiTietXuatDAL.DeleteChiTietXuat(ID);

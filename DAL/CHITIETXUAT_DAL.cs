@@ -233,6 +233,48 @@ namespace DAL
             }
         }
 
+        public bool CheckRemainingQuantity(string maHH, int soLuongXuat)
+        {
+            string query = @"
+            SELECT 
+                COALESCE(SUM(CHITIET_HD_NHAP.SOLUONG_NHAP), 0) - COALESCE(SUM(CHITIET_HD_XUAT.SOLUONG_XUAT), 0) AS [Số lượng tồn]
+            FROM 
+                KHO 
+            JOIN 
+                HANGHOA ON KHO.MAHH = HANGHOA.MAHH
+            LEFT JOIN 
+                CHITIET_HD_NHAP ON HANGHOA.MAHH = CHITIET_HD_NHAP.MAHH
+            LEFT JOIN 
+                CHITIET_HD_XUAT ON KHO.IDKHO = CHITIET_HD_XUAT.IDKHO
+            WHERE 
+                KHO.MAHH = @maHH
+            GROUP BY 
+                KHO.MAHH";
+
+            SqlParameter[] parameters = {
+                new SqlParameter("@maHH", maHH)
+            };
+            object result = instance.execScalar(query, parameters);
+            int soLuongTon = result != null ? Convert.ToInt32(result) : 0;
+            return soLuongTon >= soLuongXuat;
+        }
+
+        public bool IfExitsInThis(string maHH, string maHDX, int donGiaXuat)
+        {
+            string getIdKhoQuery = "SELECT IDKHO FROM KHO WHERE MAHH = @maHH";
+            SqlParameter[] getIdKhoParameters = {
+                new SqlParameter("@maHH", maHH)
+            };
+            object idKhoResult = instance.execScalar(getIdKhoQuery, getIdKhoParameters);
+            string query = "SELECT IDXUAT FROM CHITIET_HD_XUAT WHERE IDKHO = @idKho AND SO_HD_XUAT = @maHDX AND DONGIA_XUAT != @donGiaXuat";
+            SqlParameter[] parameters = {
+                new SqlParameter("@idKho", idKhoResult),
+                new SqlParameter("@maHDX", maHDX),
+                new SqlParameter("@donGiaXuat", donGiaXuat)
+            };
+            object result = instance.execScalar(query, parameters);
+            return result != null;
+        }
 
         public bool DeleteChiTietXuat(int ID)
         {
