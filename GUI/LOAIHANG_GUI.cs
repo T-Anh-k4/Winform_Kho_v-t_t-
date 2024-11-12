@@ -235,7 +235,17 @@ namespace GUI
 				MessageBox.Show("Vui lòng nhập mã loại hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
 			}
-			else if (string.IsNullOrWhiteSpace(txb_Ten_loai_hang.Text) || txb_Ten_loai_hang.Text == "Nhập tên loại hàng")
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(txb_Malh.Text, @"^ML\d+$"))
+            {
+                MessageBox.Show("Mã hàng hóa không hợp lệ. Vui lòng nhập mã theo định dạng ML+Số nguyên.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (LoaiHang_BUS.IsMaLoaiExist(maloai))
+            {
+                MessageBox.Show("Mã hàng hóa đã tồn tại. Vui lòng nhập mã khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txb_Ten_loai_hang.Text) || txb_Ten_loai_hang.Text == "Nhập tên loại hàng")
 			{
 				MessageBox.Show("Vui lòng nhập tên hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				isValid = false;
@@ -361,10 +371,6 @@ namespace GUI
                         {
                             check_trang_thai.Checked = true;
 							
-                        }
-                        else
-                        {
-                            MessageBox.Show("Giá trị không hợp lệ.");
                         }
                     }
                     else

@@ -167,6 +167,7 @@
             this.label5.Size = new System.Drawing.Size(122, 24);
             this.label5.TabIndex = 29;
             this.label5.Text = "      Quay lại";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txb_tim_kiem_nv
             // 

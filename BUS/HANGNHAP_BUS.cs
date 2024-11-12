@@ -48,5 +48,18 @@ namespace BUS
         {
             return hangNhapDAL.SearchHoaDonNhap(key);
         }
+
+        public bool IsMah(string mah)
+        {
+            return hangNhapDAL.IsMaHangExist(mah);
+        }
+        public bool IsMaNCC(string mah)
+        {
+            return hangNhapDAL.IsMaNCCExist(mah);
+        }
+        public bool IsMaNV(string mah)
+        {
+            return hangNhapDAL.IsMaNVExist(mah);
+        }
     }
 }
