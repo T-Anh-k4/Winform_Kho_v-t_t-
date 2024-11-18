@@ -51,6 +51,7 @@ namespace GUI
 			MessageBox.Show("Đăng nhập thành công.");
             bool isAdmin = getUser == "Admin";
             TEST_GUI menuGui = new TEST_GUI(isAdmin);
+            HANGNHAP_GUI hn = new HANGNHAP_GUI(isAdmin);
             this.Hide();
             menuGui.ShowDialog();
 			this.Close();

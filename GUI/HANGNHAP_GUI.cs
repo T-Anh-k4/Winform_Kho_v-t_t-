@@ -22,6 +22,7 @@ namespace GUI
         int limit = 5;
         int curentPage = 1;
         int totalPage = 1;//so trang can tao
+        private bool isAdmin;
 
 
         public HANGNHAP_GUI(TEST_GUI testGui)
@@ -30,13 +31,19 @@ namespace GUI
             init();
             this.testGui = testGui;
         }
+        public HANGNHAP_GUI(bool isadmin,TEST_GUI testGui)
+        {
+            InitializeComponent();
+            init();
+            this.testGui = testGui ;
+           
+        }
         public void init()
         {
             initUser();
             panel2_nv.Height = 0;
             soluong.Text = "Hàng nhập (" + Convert.ToString(hangNhapBUS.GetSLNhaCungCap()) + ")";
             dataViewHNhap.CellFormatting += dataViewNv_CellFormatting;
-
         }
         public void initUser()
         {
