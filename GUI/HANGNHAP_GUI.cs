@@ -22,7 +22,7 @@ namespace GUI
         int limit = 5;
         int curentPage = 1;
         int totalPage = 1;//so trang can tao
-        private bool isAdmin;
+        private bool isadmin;
 
 
         public HANGNHAP_GUI(TEST_GUI testGui)
@@ -35,8 +35,17 @@ namespace GUI
         {
             InitializeComponent();
             init();
-            this.testGui = testGui ;
-           
+            this.testGui = testGui;
+            this.isadmin = isadmin;
+
+            if (isadmin)
+            {
+                dataViewHNhap.Columns["imgDelete"].Visible = true;  
+            }
+            else
+            {
+                dataViewHNhap.Columns["imgDelete"].Visible = false; 
+            }
         }
         public void init()
         {
@@ -44,6 +53,7 @@ namespace GUI
             panel2_nv.Height = 0;
             soluong.Text = "Hàng nhập (" + Convert.ToString(hangNhapBUS.GetSLNhaCungCap()) + ")";
             dataViewHNhap.CellFormatting += dataViewNv_CellFormatting;
+
         }
         public void initUser()
         {

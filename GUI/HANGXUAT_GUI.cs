@@ -20,6 +20,21 @@ namespace GUI
             init();
             this.testGui = testGui;
         }
+        public HANGXUAT_GUI(bool isadmin, TEST_GUI testGui)
+        {
+            InitializeComponent();
+            init();
+            this.testGui = testGui;
+            this.isadmin = isadmin;
+            if (isadmin)
+            {
+                dataViewHNhap.Columns["imgDelete"].Visible = true;
+            }
+            else
+            {
+                dataViewHNhap.Columns["imgDelete"].Visible = false;
+            }
+        }
 
         HOADONXUAT_BUS hangNhapBUS = new HOADONXUAT_BUS();
         TEST_GUI testGui = new TEST_GUI();
@@ -27,6 +42,7 @@ namespace GUI
         int limit = 5;
         int curentPage = 1;
         int totalPage = 1;
+        private bool isadmin;
 
         public void init()
         {
