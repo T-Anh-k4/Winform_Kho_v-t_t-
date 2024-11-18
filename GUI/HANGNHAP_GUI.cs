@@ -22,6 +22,7 @@ namespace GUI
         int limit = 5;
         int curentPage = 1;
         int totalPage = 1;//so trang can tao
+        private bool isadmin;
 
 
         public HANGNHAP_GUI(TEST_GUI testGui)
@@ -29,6 +30,25 @@ namespace GUI
             InitializeComponent();
             init();
             this.testGui = testGui;
+        }
+        public HANGNHAP_GUI(bool isadmin,TEST_GUI testGui)
+        {
+            InitializeComponent();
+            init();
+            this.testGui = testGui;
+            this.isadmin = isadmin;
+
+            if (isadmin)
+            {
+                dataViewHNhap.Columns["imgDelete"].Visible = true;
+                kry_Datetime.Enabled = true;
+
+            }
+            else
+            {
+                dataViewHNhap.Columns["imgDelete"].Visible = false;
+                kry_Datetime.Enabled = false;
+            }
         }
         public void init()
         {

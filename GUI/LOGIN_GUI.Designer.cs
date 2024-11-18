@@ -236,6 +236,7 @@
             this.kryTbMatKhau.Location = new System.Drawing.Point(584, 301);
             this.kryTbMatKhau.Margin = new System.Windows.Forms.Padding(2);
             this.kryTbMatKhau.Name = "kryTbMatKhau";
+            this.kryTbMatKhau.PasswordChar = '*';
             this.kryTbMatKhau.Size = new System.Drawing.Size(341, 44);
             this.kryTbMatKhau.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.kryTbMatKhau.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));

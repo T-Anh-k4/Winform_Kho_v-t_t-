@@ -36,13 +36,15 @@
 				this.isAdmin = isAdmin;
 				if (isAdmin)
 				{
-					panel15.Visible = true;
+					panel15.Visible = true;             
 				}
 				else
 				{
-					panel15.Visible = false;
+					panel15.Visible = false;					
 				}
-			}
+			 	HANGNHAP_GUI hn = new HANGNHAP_GUI(isAdmin, this);
+			    HANGXUAT_GUI hx = new HANGXUAT_GUI(isAdmin, this);
+        }
         public void Init()
 		{
        
@@ -366,14 +368,21 @@
         }
 
         private void btHangNhap_Click(object sender, EventArgs e)
-		{
-			OpenChildForm(new HANGNHAP_GUI(this));
+        {
+   
+            if (isAdmin)
+            {
+                OpenChildForm(new HANGNHAP_GUI(this)); 
+            }
+            else
+            {
+                OpenChildForm(new HANGNHAP_GUI(isAdmin, this)); 
+            }
+
             closeCongDong();
             closeDoanhMuc();
-
         }
-
-		public void eventHangNhap()
+        public void eventHangNhap()
 		{
 			btHangNhap_Click(this, EventArgs.Empty);
         }
@@ -413,10 +422,17 @@
 
         private void btHangXuat_Click(object sender, EventArgs e)
 		{
-			OpenChildForm(new HANGXUAT_GUI(this));
-			closeCongDong();
-            closeDoanhMuc();
+            if (isAdmin)
+            {
+                OpenChildForm(new HANGXUAT_GUI(this));
+            }
+            else
+            {
+                OpenChildForm(new HANGXUAT_GUI(isAdmin, this));
+            }
 
+            closeCongDong();
+            closeDoanhMuc();
         }
         public void eventHangXuat()
         {
