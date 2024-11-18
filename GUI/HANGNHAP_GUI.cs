@@ -40,11 +40,14 @@ namespace GUI
 
             if (isadmin)
             {
-                dataViewHNhap.Columns["imgDelete"].Visible = true;  
+                dataViewHNhap.Columns["imgDelete"].Visible = true;
+                kry_Datetime.Enabled = true;
+
             }
             else
             {
-                dataViewHNhap.Columns["imgDelete"].Visible = false; 
+                dataViewHNhap.Columns["imgDelete"].Visible = false;
+                kry_Datetime.Enabled = false;
             }
         }
         public void init()
