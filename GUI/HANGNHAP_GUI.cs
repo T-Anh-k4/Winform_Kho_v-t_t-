@@ -36,6 +36,7 @@ namespace GUI
             panel2_nv.Height = 0;
             soluong.Text = "Hàng nhập (" + Convert.ToString(hangNhapBUS.GetSLNhaCungCap()) + ")";
             dataViewHNhap.CellFormatting += dataViewNv_CellFormatting;
+            kry_Datetime.MaxDate = DateTime.Now;
 
         }
         public void initUser()

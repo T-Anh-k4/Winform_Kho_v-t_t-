@@ -493,7 +493,7 @@
             // 
             this.kryCb_HangHoa.DropDownWidth = 184;
             this.kryCb_HangHoa.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-            this.kryCb_HangHoa.Location = new System.Drawing.Point(150, 24);
+            this.kryCb_HangHoa.Location = new System.Drawing.Point(150, 28);
             this.kryCb_HangHoa.Margin = new System.Windows.Forms.Padding(2);
             this.kryCb_HangHoa.Name = "kryCb_HangHoa";
             this.kryCb_HangHoa.Size = new System.Drawing.Size(200, 33);
@@ -677,7 +677,7 @@
             // 
             // kryTb_DGNhap
             // 
-            this.kryTb_DGNhap.Location = new System.Drawing.Point(376, 24);
+            this.kryTb_DGNhap.Location = new System.Drawing.Point(376, 28);
             this.kryTb_DGNhap.Margin = new System.Windows.Forms.Padding(2);
             this.kryTb_DGNhap.Name = "kryTb_DGNhap";
             this.kryTb_DGNhap.Size = new System.Drawing.Size(200, 30);
@@ -696,7 +696,7 @@
             // 
             // kryTb_SLNhap
             // 
-            this.kryTb_SLNhap.Location = new System.Drawing.Point(614, 24);
+            this.kryTb_SLNhap.Location = new System.Drawing.Point(614, 28);
             this.kryTb_SLNhap.Margin = new System.Windows.Forms.Padding(2);
             this.kryTb_SLNhap.Name = "kryTb_SLNhap";
             this.kryTb_SLNhap.Size = new System.Drawing.Size(200, 30);
@@ -716,7 +716,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(373, 3);
+            this.label4.Location = new System.Drawing.Point(373, 7);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 13);
@@ -726,7 +726,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(611, 3);
+            this.label3.Location = new System.Drawing.Point(611, 7);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
@@ -736,7 +736,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(154, 3);
+            this.label2.Location = new System.Drawing.Point(154, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);

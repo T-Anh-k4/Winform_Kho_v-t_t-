@@ -85,7 +85,7 @@ namespace DAL
 			{
 				string query = "UPDATE LOAIHANG " +
 							   "SET MALOAI = N'" + malh + "', " +
-							   "TENLOAI = '" + tenlh + "', " +
+							   "TENLOAI =N'" + tenlh + "', " +
 							   "DIENGIAI = N'" + diengiai + "', " +
 							   "FLAG = N'" + flag + "' " +
 							   "WHERE MALOAI = N'" + malh + "'"; // Cần điều kiện WHERE

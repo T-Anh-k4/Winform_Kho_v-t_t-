@@ -25,6 +25,7 @@ namespace GUI
         }
 		public void init()
 		{
+         //   kryTbMatKhau.PasswordChar = "Maatj";
             SetPlaceholder(kryTbTaiKhoan, "Tài khoản...");
             SetPlaceholder(kryTbMatKhau, "Mật khẩu...");
             kryTbTaiKhoan.Enter += kryTbTaiKhoan_Enter;

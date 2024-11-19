@@ -34,15 +34,13 @@ namespace DAL
                            ;
             using (SqlConnection con = new SqlConnection(LinkData))
             {
-                con.Open(); // Mở kết nối
-
-                // Khởi tạo SqlDataAdapter với SqlCommand và SqlConnection
+                con.Open(); 
                 nvAdapter.SelectCommand = new SqlCommand(query, con);
                 nvAdapter.SelectCommand.Parameters.AddWithValue("@maHDN", maHDN);
                 DataTable dsChiTietNhap = new DataTable();
                 nvAdapter.Fill((page - 1) * limit, limit, dsChiTietNhap);
 
-                con.Close(); // Đóng kết nối
+                con.Close(); 
                 return dsChiTietNhap;
             }
         }
@@ -101,14 +99,12 @@ namespace DAL
         {
             try
             {
-                // Truy vấn để kiểm tra xem mặt hàng đã có đơn giá trong hệ thống chưa
                 string getDonGiaQuery = "SELECT DONGIA_NHAP FROM CHITIET_HD_NHAP WHERE MAHH = @maHH";
                 SqlParameter[] getDonGiaParameters = {
             new SqlParameter("@maHH", maHH)
         };
                 object existingDonGia = instance.execScalar(getDonGiaQuery, getDonGiaParameters);
 
-                // Nếu mặt hàng đã có đơn giá, kiểm tra xem đơn giá nhập vào có trùng không
                 if (existingDonGia != null)
                 {
                     if (donGiaNhap != Convert.ToInt32(existingDonGia))
@@ -117,7 +113,6 @@ namespace DAL
                     }
                 }
 
-                // Kiểm tra xem mã hàng hóa, số hóa đơn và đơn giá đã tồn tại chưa
                 string checkQuery = "SELECT SOLUONG_NHAP FROM CHITIET_HD_NHAP WHERE MAHH = @maHH AND SO_HD_NHAP = @maHDN AND DONGIA_NHAP = @donGiaNhap";
                 SqlParameter[] checkParameters = {
             new SqlParameter("@maHH", maHH),

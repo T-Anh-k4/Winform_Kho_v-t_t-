@@ -16,7 +16,7 @@ namespace GUI
     {
         NHACUNGCAP_BUS nhaCungCapBUS = new NHACUNGCAP_BUS();
         bool createExplore = true;
-        int limit = 10;
+        int limit = 5;
         int curentPage = 1;
         int totalPage = 1;//so trang can tao
 

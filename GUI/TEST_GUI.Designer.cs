@@ -1541,6 +1541,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TEST_GUI";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;

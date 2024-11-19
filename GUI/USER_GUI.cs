@@ -169,7 +169,7 @@ namespace GUI
 					kryTb_Name.Text = row.Cells[2].Value.ToString();
 					kryTb_Pass.Text = row.Cells[3].Value.ToString();
 					kryCb_Loai.Text = row.Cells[4].Value.ToString();
-					if (Convert.ToInt32(row.Cells[5].Value) == 1)
+                    if ( row.Cells[5].Value.ToString() == "Đang hoạt động")
 					{
 						kryStatus.Checked = true;  // Đánh dấu checkbox
 					}
@@ -231,10 +231,10 @@ namespace GUI
 				MessageBox.Show("Vui lòng nhập lại mật khẩu.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			if(kryTb_Pass1.Text != kryTb_Pass1.Text)
+			if(kryTb_Pass1.Text != kryTb_Pass.Text)
 			{
 				MessageBox.Show("Nhập sai mật khẩu . Vui lòng nhập lại.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+				return;
 			}
 			if (kryCb_Loai.SelectedIndex == -1)
 			{

@@ -25,7 +25,7 @@ namespace DAL
 		}
         public DataTable getDanhSachUserPage(int limit, int page)
         {
-            string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],ACTIVE AS [Trạng thái] FROM NGUOIDUNG ORDER BY LOAI";
+            string query = "SELECT USERNAME AS [Tên người dùng], PASSWORD AS [Mật khẩu], LOAI AS [Loại người dùng],CASE WHEN ACTIVE = 0 THEN N'Không hoạt động' ELSE N'Đang hoạt động' end  AS [Trạng thái] FROM NGUOIDUNG ORDER BY LOAI";
 
             // Khởi tạo đối tượng kết nối
             using (SqlConnection con = new SqlConnection(LinkData))
