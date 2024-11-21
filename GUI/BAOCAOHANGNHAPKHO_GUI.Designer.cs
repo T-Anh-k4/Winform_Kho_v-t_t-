@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAOCAOHANGNHAPKHO_GUI));
             this.k_datagrview_hang_hoa = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.cbx_timkiem = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -62,9 +62,9 @@
             this.k_datagrview_hang_hoa.AllowUserToAddRows = false;
             this.k_datagrview_hang_hoa.AllowUserToResizeColumns = false;
             this.k_datagrview_hang_hoa.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            this.k_datagrview_hang_hoa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.k_datagrview_hang_hoa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.k_datagrview_hang_hoa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.k_datagrview_hang_hoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.k_datagrview_hang_hoa.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -74,7 +74,7 @@
             this.k_datagrview_hang_hoa.RowHeadersVisible = false;
             this.k_datagrview_hang_hoa.RowHeadersWidth = 51;
             this.k_datagrview_hang_hoa.RowTemplate.Height = 24;
-            this.k_datagrview_hang_hoa.Size = new System.Drawing.Size(777, 537);
+            this.k_datagrview_hang_hoa.Size = new System.Drawing.Size(765, 514);
             this.k_datagrview_hang_hoa.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.k_datagrview_hang_hoa.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.k_datagrview_hang_hoa.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -206,7 +206,7 @@
             // 
             // kbtn_timkiem
             // 
-            this.kbtn_timkiem.Location = new System.Drawing.Point(55, 577);
+            this.kbtn_timkiem.Location = new System.Drawing.Point(55, 565);
             this.kbtn_timkiem.Name = "kbtn_timkiem";
             this.kbtn_timkiem.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kbtn_timkiem.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -261,7 +261,7 @@
             // 
             // kryptonButton1
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(21, 577);
+            this.kryptonButton1.Location = new System.Drawing.Point(688, 565);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryptonButton1.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -317,7 +317,7 @@
             // kryInBaoCao
             // 
             this.kryInBaoCao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryInBaoCao.Location = new System.Drawing.Point(762, 573);
+            this.kryInBaoCao.Location = new System.Drawing.Point(21, 564);
             this.kryInBaoCao.Name = "kryInBaoCao";
             this.kryInBaoCao.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryInBaoCao.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -398,7 +398,7 @@
             this.artanPanel1.GradientTopColor = System.Drawing.Color.DodgerBlue;
             this.artanPanel1.Location = new System.Drawing.Point(21, 31);
             this.artanPanel1.Name = "artanPanel1";
-            this.artanPanel1.Size = new System.Drawing.Size(777, 537);
+            this.artanPanel1.Size = new System.Drawing.Size(765, 514);
             this.artanPanel1.TabIndex = 93;
             // 
             // artanPanel3

@@ -178,13 +178,13 @@ namespace GUI
 			{
 				kbtn_sua.Visible = false;
 			}
-			if (pn_nhap.Height >= 190)
+			if (pn_nhap.Height >= 150)
 				createTransition.Stop();
 		}
 		// nút quay lại
 		private void kbtn_Cancle_Click(object sender, EventArgs e)
 		{
-			if (pn_nhap.Height >= 190)
+			if (pn_nhap.Height >= 150)
 			{
 				createTransition.Start();
 
@@ -294,7 +294,7 @@ namespace GUI
 			else
 			{
 				pn_nhap.Height += 10;
-				if (pn_nhap.Height >= 190)
+				if (pn_nhap.Height >= 150)
 				{
 					createTransition.Stop();
 					createExplore = true;
@@ -382,7 +382,7 @@ namespace GUI
 					IsPressEdit();
 					createTransition.Start();
                     txb_Malh.ReadOnly = true;
-                    if (pn_nhap.Height >= 190)
+                    if (pn_nhap.Height >= 150)
 					{
 						createTransition.Stop();
 
@@ -470,6 +470,19 @@ namespace GUI
 
             }
             labelSoTrang.Text = Convert.ToString(curentPage);
+        }
+
+        private void check_trang_thai_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check_trang_thai.Checked == true)
+            {
+                check_trang_thai.Text = "Còn kinh doanh";
+            }
+            else
+            {
+                check_trang_thai.Text = "Không còn kinh doanh";
+
+            }
         }
     }
 }

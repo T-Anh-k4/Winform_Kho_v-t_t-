@@ -182,18 +182,18 @@ namespace GUI
 					kryTx_Id.Text = row.Cells[2].Value.ToString();
 					kryTb_Name.Text = row.Cells[3].Value.ToString();
 					kryCb_Gender.Text = row.Cells[4].Value.ToString();
-					kry_Datetime.Value = Convert.ToDateTime(row.Cells[5].Value); // Đảm bảo kiểu dữ liệu là DateTime
+					kry_Datetime.Value = Convert.ToDateTime(row.Cells[5].Value); 
 					kryTx_Address.Text = row.Cells[6].Value.ToString();
 					kryTb_Number.Text = row.Cells[7].Value.ToString();
 					kryTb_Pos.Text = row.Cells[8].Value.ToString();
 					txtTenNguoiDung.Text = row.Cells[10].Value.ToString();
                     if ( row.Cells[9].Value.ToString() == "Đang hoạt động")
 					{
-                        kryCheckBox_Status.Checked = true;  // Đánh dấu checkbox
+                        kryCheckBox_Status.Checked = true;  
                     }
 					else
 					{
-						kryCheckBox_Status.Checked = false; // Bỏ đánh dấu checkbox
+						kryCheckBox_Status.Checked = false; 
 					}
 					IsPressEdit();
 					createTransition.Start();

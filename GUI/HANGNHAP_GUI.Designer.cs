@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HANGNHAP_GUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel0_nv = new ArtanComponent.ArtanPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.kryBt_Next = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -89,7 +89,7 @@
             this.panel0_nv.GradientBottomColor = System.Drawing.Color.White;
             this.panel0_nv.GradientTopColor = System.Drawing.Color.White;
             this.panel0_nv.Location = new System.Drawing.Point(35, 24);
-            this.panel0_nv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel0_nv.Margin = new System.Windows.Forms.Padding(2);
             this.panel0_nv.Name = "panel0_nv";
             this.panel0_nv.Size = new System.Drawing.Size(973, 547);
             this.panel0_nv.TabIndex = 0;
@@ -213,14 +213,14 @@
             this.dataViewHNhap.AllowUserToAddRows = false;
             this.dataViewHNhap.AllowUserToResizeColumns = false;
             this.dataViewHNhap.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.dataViewHNhap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            this.dataViewHNhap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataViewHNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewHNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewHNhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataViewHNhap.Location = new System.Drawing.Point(0, 0);
-            this.dataViewHNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataViewHNhap.Margin = new System.Windows.Forms.Padding(2);
             this.dataViewHNhap.Name = "dataViewHNhap";
             this.dataViewHNhap.RowHeadersVisible = false;
             this.dataViewHNhap.RowHeadersWidth = 51;
@@ -268,7 +268,7 @@
             this.panel2_nv.Controls.Add(this.kry_Datetime);
             this.panel2_nv.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2_nv.Location = new System.Drawing.Point(0, 0);
-            this.panel2_nv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2_nv.Margin = new System.Windows.Forms.Padding(2);
             this.panel2_nv.Name = "panel2_nv";
             this.panel2_nv.Size = new System.Drawing.Size(973, 125);
             this.panel2_nv.TabIndex = 1;
@@ -444,7 +444,7 @@
             // kryTb_eID
             // 
             this.kryTb_eID.Location = new System.Drawing.Point(492, 34);
-            this.kryTb_eID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kryTb_eID.Margin = new System.Windows.Forms.Padding(2);
             this.kryTb_eID.Name = "kryTb_eID";
             this.kryTb_eID.Size = new System.Drawing.Size(200, 30);
             this.kryTb_eID.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -463,7 +463,7 @@
             // kryTb_Name
             // 
             this.kryTb_Name.Location = new System.Drawing.Point(259, 34);
-            this.kryTb_Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kryTb_Name.Margin = new System.Windows.Forms.Padding(2);
             this.kryTb_Name.Name = "kryTb_Name";
             this.kryTb_Name.Size = new System.Drawing.Size(200, 30);
             this.kryTb_Name.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -482,7 +482,7 @@
             // kryTx_Id
             // 
             this.kryTx_Id.Location = new System.Drawing.Point(26, 34);
-            this.kryTx_Id.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kryTx_Id.Margin = new System.Windows.Forms.Padding(2);
             this.kryTx_Id.Name = "kryTx_Id";
             this.kryTx_Id.Size = new System.Drawing.Size(200, 30);
             this.kryTx_Id.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -543,7 +543,7 @@
             this.kry_Datetime.AllowDrop = true;
             this.kry_Datetime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.kry_Datetime.Location = new System.Drawing.Point(734, 31);
-            this.kry_Datetime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kry_Datetime.Margin = new System.Windows.Forms.Padding(2);
             this.kry_Datetime.Name = "kry_Datetime";
             this.kry_Datetime.Size = new System.Drawing.Size(200, 33);
             this.kry_Datetime.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -564,14 +564,14 @@
             this.panel3.Controls.Add(this.kryBtShowCreate_NV);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1044, 63);
             this.panel3.TabIndex = 5;
             // 
             // soluong
             // 
-            this.soluong.Location = new System.Drawing.Point(16, 20);
+            this.soluong.Location = new System.Drawing.Point(35, 20);
             this.soluong.Name = "soluong";
             this.soluong.Size = new System.Drawing.Size(153, 26);
             this.soluong.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
@@ -581,8 +581,8 @@
             // 
             // txb_tim_kiem_nv
             // 
-            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(332, 13);
-            this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(328, 16);
+            this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
             this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
             this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
             this.txb_tim_kiem_nv.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
@@ -597,7 +597,7 @@
             // 
             // kryBtShowCreate_NV
             // 
-            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(968, 13);
+            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(952, 16);
             this.kryBtShowCreate_NV.Name = "kryBtShowCreate_NV";
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -799,7 +799,7 @@
             this.artanPanel1.GradientBottomColor = System.Drawing.Color.Gainsboro;
             this.artanPanel1.GradientTopColor = System.Drawing.Color.WhiteSmoke;
             this.artanPanel1.Location = new System.Drawing.Point(10, 94);
-            this.artanPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.artanPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.artanPanel1.Name = "artanPanel1";
             this.artanPanel1.Size = new System.Drawing.Size(1044, 596);
             this.artanPanel1.TabIndex = 2;
@@ -826,7 +826,7 @@
             this.ClientSize = new System.Drawing.Size(1068, 700);
             this.Controls.Add(this.artanPanel3);
             this.Controls.Add(this.artanPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HANGNHAP_GUI";
             this.Text = "HANGNHAP_GUI";
             this.panel0_nv.ResumeLayout(false);

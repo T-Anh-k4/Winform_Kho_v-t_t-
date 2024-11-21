@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHITIETXUAT_GUI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.kryInBaoCao = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label5 = new System.Windows.Forms.Label();
             this.txb_tim_kiem_nv = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -71,7 +70,8 @@
             this.lbKH = new System.Windows.Forms.Label();
             this.lbSoHDX = new System.Windows.Forms.Label();
             this.createTransition = new System.Windows.Forms.Timer(this.components);
-            this.panel3.SuspendLayout();
+            this.artanPanel3 = new ArtanComponent.ArtanPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.artanPanel1.SuspendLayout();
             this.panel0_nv.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -81,25 +81,14 @@
             this.panel2_nv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryCb_HangHoa)).BeginInit();
             this.panel5.SuspendLayout();
+            this.artanPanel3.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.kryInBaoCao);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txb_tim_kiem_nv);
-            this.panel3.Controls.Add(this.kryBtShowCreate_NV);
-            this.panel3.Location = new System.Drawing.Point(8, 8);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1044, 63);
-            this.panel3.TabIndex = 6;
             // 
             // kryInBaoCao
             // 
             this.kryInBaoCao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryInBaoCao.Location = new System.Drawing.Point(907, 13);
+            this.kryInBaoCao.Location = new System.Drawing.Point(896, 16);
             this.kryInBaoCao.Name = "kryInBaoCao";
             this.kryInBaoCao.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryInBaoCao.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -170,7 +159,7 @@
             // 
             // txb_tim_kiem_nv
             // 
-            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(358, 13);
+            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(355, 16);
             this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
             this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
             this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
@@ -185,7 +174,7 @@
             // 
             // kryBtShowCreate_NV
             // 
-            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(968, 13);
+            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(952, 16);
             this.kryBtShowCreate_NV.Name = "kryBtShowCreate_NV";
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -881,18 +870,44 @@
             this.createTransition.Interval = 10;
             this.createTransition.Tick += new System.EventHandler(this.createTransition_Tick);
             // 
+            // artanPanel3
+            // 
+            this.artanPanel3.BackColor = System.Drawing.Color.White;
+            this.artanPanel3.BorderRadius = 25;
+            this.artanPanel3.Controls.Add(this.panel3);
+            this.artanPanel3.ForeColor = System.Drawing.Color.Black;
+            this.artanPanel3.GradientAngle = 90F;
+            this.artanPanel3.GradientBottomColor = System.Drawing.Color.CadetBlue;
+            this.artanPanel3.GradientTopColor = System.Drawing.Color.DodgerBlue;
+            this.artanPanel3.Location = new System.Drawing.Point(10, 11);
+            this.artanPanel3.Name = "artanPanel3";
+            this.artanPanel3.Size = new System.Drawing.Size(1044, 63);
+            this.artanPanel3.TabIndex = 8;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Controls.Add(this.kryInBaoCao);
+            this.panel3.Controls.Add(this.txb_tim_kiem_nv);
+            this.panel3.Controls.Add(this.kryBtShowCreate_NV);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1044, 63);
+            this.panel3.TabIndex = 5;
+            // 
             // CHITIETXUAT_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1068, 700);
+            this.Controls.Add(this.artanPanel3);
             this.Controls.Add(this.artanPanel1);
-            this.Controls.Add(this.panel3);
             this.Name = "CHITIETXUAT_GUI";
             this.Text = "CHITIETXUAT";
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.artanPanel1.ResumeLayout(false);
             this.panel0_nv.ResumeLayout(false);
             this.panel0_nv.PerformLayout();
@@ -906,13 +921,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryCb_HangHoa)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.artanPanel3.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel3;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryInBaoCao;
         private System.Windows.Forms.Label label5;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txb_tim_kiem_nv;
@@ -952,5 +968,7 @@
         private System.Windows.Forms.Label lbKH;
         private System.Windows.Forms.Label lbSoHDX;
         private System.Windows.Forms.Timer createTransition;
+        private ArtanComponent.ArtanPanel artanPanel3;
+        private System.Windows.Forms.Panel panel3;
     }
 }

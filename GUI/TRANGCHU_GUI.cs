@@ -41,6 +41,7 @@ namespace GUI
             lbtongtienxuat.Text = "       " + Convert.ToString(homeBUS.TongTienXuat(month)) + " VNĐ";
             lbtonghangxuat.Text = "       " + Convert.ToString(homeBUS.TongHangXuat(month)) + " SP";
             lbtonghangton.Text = "       " + Convert.ToString(homeBUS.TongHangTon()) + " SP";
+            kryCb_Month.Text = " ";
            // lbhangton.Text = Convert.ToString(homeBUS.TongHangTonThang(month)) + " SP";
 
         }

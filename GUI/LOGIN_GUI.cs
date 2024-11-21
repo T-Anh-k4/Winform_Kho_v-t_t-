@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using DTO;
 using BUS;
+using System.Security.RightsManagement;
 namespace GUI
 {
 	public partial class LOGIN_GUI : KryptonForm
 	{
 		USER_DTO userDTO = new USER_DTO();
-		LOGIN_BUS loginBUS = new LOGIN_BUS();
+        LOGIN_BUS loginBUS = new LOGIN_BUS();
         //TEST_GUI menuGUi = new TEST_GUI();
         public LOGIN_GUI()
 		{
@@ -37,7 +38,7 @@ namespace GUI
 		private void kryBtLogin_Click(object sender, EventArgs e)
 		{
 			userDTO.UserName = kryTbTaiKhoan.Text;
-			userDTO.PassWord = kryTbMatKhau.Text;
+            userDTO.PassWord = kryTbMatKhau.Text;
 			string getUser = loginBUS.CheckLogin(userDTO);
 			switch (getUser) {
 				case "required_tk": MessageBox.Show("Tài khoản không được bỏ trống");
@@ -51,7 +52,7 @@ namespace GUI
 			}
 			MessageBox.Show("Đăng nhập thành công.");
             bool isAdmin = getUser == "Admin";
-            TEST_GUI menuGui = new TEST_GUI(isAdmin);
+            TEST_GUI menuGui = new TEST_GUI(userDTO.UserName, isAdmin);
             this.Hide();
             menuGui.ShowDialog();
 			this.Close();
