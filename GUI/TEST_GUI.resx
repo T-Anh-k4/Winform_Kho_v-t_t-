@@ -124,7 +124,7 @@
   <data name="kryptonButton1.StateCommon.Back.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAABSpJREFUWEftlgtMU1cYx+tEXnVEZ9xIfGwm8zk0SzazbNmG25RnB6IUEHzM2eJQ
+        EQAACxEBf2RfkQAABSpJREFUWEftlgtMU1cYx+tEXnVEZ9xIfGwm8zk0SzazbNmG25RnB6IUEHzM2eJQ
         nDrcRMGBw002l02muIIKFlREVBapPBVEKDiR0tLWtpSugFN6aQEDQi+F8d9tuXRjPoKiJkv4Jf/k3O98
         537/c+659x7GKKOM8n8AMTHPkZGcDDJpnycdevbI2Gxbhf8Sf1WQey0ZsRodcVubSY5PNDZ4OdMpzwbt
         Gld7qb/bSXnAkj51kAfIDf7oiuTAGOrb383xqe9Y7zOPTn36yNnuAdeXftRX6++GljXe0HGXo5XrBzLU
@@ -152,7 +152,7 @@
   <data name="kryptonButton2.StateCommon.Back.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAApZJREFUSEu9lU2IUlEUx/1Iywz7GFwM4kbEbMSFSoEiuhhyESaDCxcS6kIhcAaG
+        DAAACwwBP0AiyAAAApZJREFUSEu9lU2IUlEUx/1Iywz7GFwM4kbEbMSFSoEiuhhyESaDCxcS6kIhcAaG
         Fm5EDGnjQoQKhFxkiIsWEhkukhZFFIxUiygzok1IC8kvdPxMbc7iwnvPg+gML+GHnP+753/fPfee+zjz
         +fy/gopsgopsgopsgopsgopM2u32+WKxeCMSicQcDsdzo9H43mQyvXM6nflYLBYplUrXB4PBGSyXCSoS
         wCSTyXhlMllNIBCMOUfDMYRC4UitVn/L5/PO4XB4GvMioCLQbDYvulyup8smYgITBwKBR6PRSIh5AqjY

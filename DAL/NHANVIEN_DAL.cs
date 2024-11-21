@@ -28,18 +28,15 @@ namespace DAL
 		{
             string query = "SELECT MANV AS [Mã nhân viên], TENNV AS [Tên nhân viên], GIOITINH AS [Giới tính], NGAYSINH AS [Ngày sinh], DIACHI AS [Địa chỉ], SDT AS [Số điện thoại], DIENGIAI AS [Diễn giải], CASE WHEN FLAG = 0 THEN N'Không hoạt động'	ELSE N'Đang hoạt động' end as [Trạng thái] ,USERNAME AS [Tên tài khoản] FROM NHANVIEN";
 
-            // Khởi tạo đối tượng kết nối
             using (SqlConnection con = new SqlConnection(LinkData))
 			{
-				con.Open(); // Mở kết nối
-
-				// Khởi tạo SqlDataAdapter với SqlCommand và SqlConnection
+				con.Open(); 
 				nvAdapter.SelectCommand = new SqlCommand(query, con);
 
 				DataTable dsNv = new DataTable();
 				nvAdapter.Fill((page - 1) * limit, limit, dsNv);
 
-				con.Close(); // Đóng kết nối
+				con.Close(); 
 				return dsNv;
 			}
 		}

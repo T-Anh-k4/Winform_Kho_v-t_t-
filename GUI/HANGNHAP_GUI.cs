@@ -56,6 +56,7 @@ namespace GUI
             panel2_nv.Height = 0;
             soluong.Text = "Hàng nhập (" + Convert.ToString(hangNhapBUS.GetSLNhaCungCap()) + ")";
             dataViewHNhap.CellFormatting += dataViewNv_CellFormatting;
+            kry_Datetime.MaxDate = DateTime.Now;
 
         }
         public void initUser()
@@ -153,7 +154,7 @@ namespace GUI
             if (!dataViewHNhap.Columns.Contains("imgEdit"))
             {
                 DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
-                imgColumn.HeaderText = "Edit";
+                imgColumn.HeaderText = "Chỉnh sửa";
                 imgColumn.Name = "imgEdit";
                 imgColumn.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\icon-edit.png"));
                 imgColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;

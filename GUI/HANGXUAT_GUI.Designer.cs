@@ -67,7 +67,7 @@
             // 
             // soluong
             // 
-            this.soluong.Location = new System.Drawing.Point(26, 19);
+            this.soluong.Location = new System.Drawing.Point(41, 16);
             this.soluong.Name = "soluong";
             this.soluong.Size = new System.Drawing.Size(153, 26);
             this.soluong.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
@@ -77,7 +77,7 @@
             // 
             // txb_tim_kiem_nv
             // 
-            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(342, 12);
+            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(345, 16);
             this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
             this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
             this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
@@ -94,7 +94,7 @@
             // 
             // kryBtShowCreate_NV
             // 
-            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(978, 12);
+            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(952, 16);
             this.kryBtShowCreate_NV.Name = "kryBtShowCreate_NV";
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));

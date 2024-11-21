@@ -150,7 +150,6 @@ namespace DAL
                     parameters.Add(new SqlParameter("@ToDate", toDate.Value));
                 }
 
-                // Thực thi câu truy vấn với danh sách SqlParameter
                 return instance.execQuery(query, parameters.ToArray());
             }
             catch

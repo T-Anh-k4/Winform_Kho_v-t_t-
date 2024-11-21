@@ -140,7 +140,6 @@ namespace DAL
             HANGHOA HH ON K.MAHH = HH.MAHH
         WHERE 1=1";
 
-                // Thêm điều kiện từ ngày và đến ngày nếu có
                 List<SqlParameter> parameters = new List<SqlParameter>();
 
                 if (fromDate.HasValue)
@@ -155,7 +154,6 @@ namespace DAL
                     parameters.Add(new SqlParameter("@ToDate", toDate.Value));
                 }
 
-                // Thực thi câu truy vấn với danh sách SqlParameter
                 return instance.execQuery(query, parameters.ToArray());
             }
             catch

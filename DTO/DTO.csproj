@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CHITIETNGUOIDUNG_DTO.cs" />
     <Compile Include="CHITIETNHAP_DTO.cs" />
     <Compile Include="CHITIETXUAT_DAL.cs" />
     <Compile Include="HANGHOA_DTO.cs" />

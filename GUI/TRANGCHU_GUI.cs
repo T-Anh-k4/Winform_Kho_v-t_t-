@@ -17,24 +17,37 @@ namespace GUI
     {
         TRANGCHU_BUS homeBUS = new TRANGCHU_BUS();
         bool dangbieudo = false;
+        bool createExplore1;
+        bool createExplore2;
+
+
         public TRANGCHU_GUI()
         {
             InitializeComponent();
             DataTable dt1 = homeBUS.GetMonthCTHD();
             DataTable dt2 = homeBUS.GetTenNhaCungCap();
             DataTable dt3 = homeBUS.GetMonthCTHDXUAT();
-            CartesianChart(dt1,dt3);
+            CartesianChart(dt1, dt3);
             PieChart(dt2);
             loadCb_Month(dt1, dt3);
+            loadImage();
+            pictureBox1.Width = 0;
+            pictureBox2.Width = 0;
         }
         public void loadData(int month)
         {
-            lbtongtiennhap.Text = Convert.ToString(homeBUS.TongTienNhap(month))+" VNĐ";
-            lbtonghangnhap.Text = Convert.ToString(homeBUS.TongHangNhap(month)) + " SP";
-            lbtongtienxuat.Text = Convert.ToString(homeBUS.TongTienXuat(month)) + " VNĐ";
-            lbtonghangxuat.Text = Convert.ToString(homeBUS.TongHangXuat(month)) + " SP";
-            lbtonghangton.Text = Convert.ToString(homeBUS.TongHangTon()) + " SP";
+            lbtongtiennhap.Text = "       "+Convert.ToString(homeBUS.TongTienNhap(month))+" VNĐ";
+            lbtonghangnhap.Text = "       " + Convert.ToString(homeBUS.TongHangNhap(month)) + " SP";
+            lbtongtienxuat.Text = "       " + Convert.ToString(homeBUS.TongTienXuat(month)) + " VNĐ";
+            lbtonghangxuat.Text = "       " + Convert.ToString(homeBUS.TongHangXuat(month)) + " SP";
+            lbtonghangton.Text = "       " + Convert.ToString(homeBUS.TongHangTon()) + " SP";
+            kryCb_Month.Text = " ";
            // lbhangton.Text = Convert.ToString(homeBUS.TongHangTonThang(month)) + " SP";
+
+        }
+      public void loadImage()
+        {
+
 
         }
         public void CartesianChart(DataTable dt1, DataTable dt2)
@@ -156,8 +169,6 @@ namespace GUI
 
         public void loadCb_Month(DataTable dtDefault, DataTable dtDefault1)
         {
-             //dtDefault = homeBUS.GetMonthCTHD();
-             //dtDefault1 = homeBUS.GetMonthCTHDXUAT();
 
             HashSet<string> uniqueMonths = new HashSet<string>();
             foreach (DataRow row in dtDefault.Rows)
@@ -169,7 +180,6 @@ namespace GUI
                 }
             }
 
-            // Lấy tháng từ dtDefault1
             foreach (DataRow row in dtDefault1.Rows)
             {
                 if (row["Thang"] != DBNull.Value)
@@ -179,7 +189,6 @@ namespace GUI
                 }
             }
 
-            // Tạo DataTable để hiển thị trong ComboBox
             DataTable dtMonths = new DataTable();
             dtMonths.Columns.Add("MonthYear", typeof(string));
             foreach (var month in uniqueMonths)
@@ -189,7 +198,6 @@ namespace GUI
                 dtMonths.Rows.Add(newRow);
             }
 
-            // Gán dữ liệu vào ComboBox
             kryCb_Month.DisplayMember = "MonthYear";
             kryCb_Month.ValueMember = "MonthYear";
             kryCb_Month.DataSource = dtMonths;
@@ -201,7 +209,7 @@ namespace GUI
             if (kryCb_Month.SelectedValue != null && int.TryParse(kryCb_Month.SelectedValue.ToString(), out int month))
             {
                 loadData(month);
-                label7.Text = "Tháng "+month.ToString();
+                label7.Text = "      Tháng "+month.ToString();
             }
         }
         private void btPieNhap_Click(object sender, EventArgs e)
@@ -219,7 +227,7 @@ namespace GUI
         private void TRANGCHU_GUI_Load(object sender, EventArgs e)
         {
             loadData(DateTime.Now.Month);
-            label7.Text = "Tháng " + (DateTime.Now.Month);
+            label7.Text = "     Tháng " + (DateTime.Now.Month);
             dangbieudo = false;
         }
 
@@ -255,6 +263,76 @@ namespace GUI
                 PieChart(dt);
 
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (createExplore1)
+            {
+                pictureBox1.Width -= 5;
+                if (pictureBox1.Width <= 0)
+                {
+                    timer1.Stop();
+                    createExplore1 = false;
+                    //pictureBox1.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\bg2.jpg"));
+                    //pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+                }
+            }
+            else
+            {
+                pictureBox1.Width += 5;
+                if (pictureBox1.Width >= 243)
+                {
+                    timer1.Stop();
+                    createExplore1 = true;
+                }
+            }
+        }
+
+        private void artanPanel4_MouseClick(object sender, MouseEventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            timer2.Start();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            timer2.Start();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (createExplore2)
+            {
+                pictureBox2.Width -= 5;
+                if (pictureBox2.Width <= 0)
+                {
+                    timer2.Stop();
+                    createExplore2 = false;
+                    //pictureBox1.Image = Image.FromFile(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\bg2.jpg"));
+                    //pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+                }
+            }
+            else
+            {
+                pictureBox2.Width += 5;
+                if (pictureBox2.Width >= 243)
+                {
+                    timer2.Stop();
+                    createExplore2 = true;
+                }
+            }
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            timer1.Start();
+
         }
     }
 }

@@ -22,17 +22,18 @@
 			private bool tkBcExplore = true;
 			private KryptonForm currentChildForm;
 
-
+			private string name;
 			private bool BaoCaoExplore = true;
 			public TEST_GUI()
 			{
 				InitializeComponent();
 				Init();
 			}
-			public TEST_GUI(bool isAdmin)
+			public TEST_GUI(string name,bool isAdmin)
 			{
 				InitializeComponent();
 				Init();
+				this.name = name;
 				this.isAdmin = isAdmin;
 				if (isAdmin)
 				{
@@ -513,6 +514,15 @@
         private void TEST_GUI_Load(object sender, EventArgs e)
         {
             OpenChildForm(new TRANGCHU_GUI());
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+            CHITIETNGUOIDUNG_GUI detail = new CHITIETNGUOIDUNG_GUI(name);
+            detail.ShowDialog();
+            closeCongDong();
+            closeDoanhMuc();
+
         }
         //END
     }

@@ -51,12 +51,12 @@
             this.artanPanel2 = new ArtanComponent.ArtanPanel();
             this.dataViewKH = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.panel2_nv = new System.Windows.Forms.Panel();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.artanPanel1 = new ArtanComponent.ArtanPanel();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.artanPanel3.SuspendLayout();
             this.panel0_nv.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             // soluong
             // 
-            this.soluong.Location = new System.Drawing.Point(20, 18);
+            this.soluong.Location = new System.Drawing.Point(34, 16);
             this.soluong.Name = "soluong";
             this.soluong.Size = new System.Drawing.Size(146, 26);
             this.soluong.StateCommon.ShortText.Color1 = System.Drawing.Color.Gray;
@@ -78,8 +78,8 @@
             // 
             // txb_tim_kiem_nv
             // 
-            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(336, 11);
-            this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_tim_kiem_nv.Location = new System.Drawing.Point(330, 16);
+            this.txb_tim_kiem_nv.Margin = new System.Windows.Forms.Padding(2);
             this.txb_tim_kiem_nv.Name = "txb_tim_kiem_nv";
             this.txb_tim_kiem_nv.Size = new System.Drawing.Size(325, 33);
             this.txb_tim_kiem_nv.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
@@ -95,7 +95,7 @@
             // kryBtShowCreate_NV
             // 
             this.kryBtShowCreate_NV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(933, 17);
+            this.kryBtShowCreate_NV.Location = new System.Drawing.Point(952, 16);
             this.kryBtShowCreate_NV.Name = "kryBtShowCreate_NV";
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryBtShowCreate_NV.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -261,7 +261,7 @@
             // txb_DIACHI
             // 
             this.txb_DIACHI.Location = new System.Drawing.Point(677, 53);
-            this.txb_DIACHI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_DIACHI.Margin = new System.Windows.Forms.Padding(2);
             this.txb_DIACHI.Name = "txb_DIACHI";
             this.txb_DIACHI.Size = new System.Drawing.Size(150, 30);
             this.txb_DIACHI.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -280,7 +280,7 @@
             // txb_SDT
             // 
             this.txb_SDT.Location = new System.Drawing.Point(483, 53);
-            this.txb_SDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_SDT.Margin = new System.Windows.Forms.Padding(2);
             this.txb_SDT.Name = "txb_SDT";
             this.txb_SDT.Size = new System.Drawing.Size(150, 30);
             this.txb_SDT.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -299,7 +299,7 @@
             // txb_TEN
             // 
             this.txb_TEN.Location = new System.Drawing.Point(295, 53);
-            this.txb_TEN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_TEN.Margin = new System.Windows.Forms.Padding(2);
             this.txb_TEN.Name = "txb_TEN";
             this.txb_TEN.Size = new System.Drawing.Size(150, 30);
             this.txb_TEN.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -318,7 +318,7 @@
             // txb_MAKH
             // 
             this.txb_MAKH.Location = new System.Drawing.Point(108, 53);
-            this.txb_MAKH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_MAKH.Margin = new System.Windows.Forms.Padding(2);
             this.txb_MAKH.Name = "txb_MAKH";
             this.txb_MAKH.Size = new System.Drawing.Size(150, 30);
             this.txb_MAKH.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -373,7 +373,7 @@
             this.panel0_nv.GradientBottomColor = System.Drawing.Color.White;
             this.panel0_nv.GradientTopColor = System.Drawing.Color.White;
             this.panel0_nv.Location = new System.Drawing.Point(35, 24);
-            this.panel0_nv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel0_nv.Margin = new System.Windows.Forms.Padding(2);
             this.panel0_nv.Name = "panel0_nv";
             this.panel0_nv.Size = new System.Drawing.Size(973, 547);
             this.panel0_nv.TabIndex = 0;
@@ -508,7 +508,7 @@
             this.dataViewKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewKH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataViewKH.Location = new System.Drawing.Point(0, 0);
-            this.dataViewKH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataViewKH.Margin = new System.Windows.Forms.Padding(2);
             this.dataViewKH.Name = "dataViewKH";
             this.dataViewKH.RowHeadersVisible = false;
             this.dataViewKH.RowHeadersWidth = 51;
@@ -555,68 +555,10 @@
             this.panel2_nv.Controls.Add(this.label1);
             this.panel2_nv.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2_nv.Location = new System.Drawing.Point(0, 0);
-            this.panel2_nv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2_nv.Margin = new System.Windows.Forms.Padding(2);
             this.panel2_nv.Name = "panel2_nv";
             this.panel2_nv.Size = new System.Drawing.Size(973, 180);
             this.panel2_nv.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(676, 32);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Địa chỉ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(481, 32);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Số điện thoại";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(293, 32);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Tên khách hàng";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(106, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Mã khách hàng";
-            // 
-            // artanPanel1
-            // 
-            this.artanPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.artanPanel1.BackColor = System.Drawing.Color.White;
-            this.artanPanel1.BorderRadius = 25;
-            this.artanPanel1.Controls.Add(this.panel0_nv);
-            this.artanPanel1.ForeColor = System.Drawing.Color.Black;
-            this.artanPanel1.GradientAngle = 90F;
-            this.artanPanel1.GradientBottomColor = System.Drawing.Color.Gainsboro;
-            this.artanPanel1.GradientTopColor = System.Drawing.Color.WhiteSmoke;
-            this.artanPanel1.Location = new System.Drawing.Point(8, 86);
-            this.artanPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.artanPanel1.Name = "artanPanel1";
-            this.artanPanel1.Size = new System.Drawing.Size(1044, 596);
-            this.artanPanel1.TabIndex = 9;
             // 
             // kryptonButton1
             // 
@@ -676,14 +618,73 @@
             this.kryptonButton1.Values.Text = "";
             this.kryptonButton1.Click += new System.EventHandler(this.kry_Clear_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(676, 32);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Địa chỉ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(481, 32);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Số điện thoại";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(293, 32);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Tên khách hàng";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(106, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Mã khách hàng";
+            // 
+            // artanPanel1
+            // 
+            this.artanPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.artanPanel1.BackColor = System.Drawing.Color.White;
+            this.artanPanel1.BorderRadius = 25;
+            this.artanPanel1.Controls.Add(this.panel0_nv);
+            this.artanPanel1.ForeColor = System.Drawing.Color.Black;
+            this.artanPanel1.GradientAngle = 90F;
+            this.artanPanel1.GradientBottomColor = System.Drawing.Color.Gainsboro;
+            this.artanPanel1.GradientTopColor = System.Drawing.Color.WhiteSmoke;
+            this.artanPanel1.Location = new System.Drawing.Point(8, 86);
+            this.artanPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.artanPanel1.Name = "artanPanel1";
+            this.artanPanel1.Size = new System.Drawing.Size(1044, 596);
+            this.artanPanel1.TabIndex = 9;
+            // 
             // KHACHHANG_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1068, 690);
             this.Controls.Add(this.artanPanel3);
             this.Controls.Add(this.artanPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "KHACHHANG_GUI";
             this.Text = "KHACHHANG_GUI";
             this.artanPanel3.ResumeLayout(false);

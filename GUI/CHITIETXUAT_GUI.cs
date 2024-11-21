@@ -364,22 +364,7 @@ namespace GUI
 
         private void txb_tim_kiem_LH_TextChanged(object sender, EventArgs e)
         {
-            string keyword = txb_tim_kiem_nv.Text.Trim();
-            DataTable result = chiTietXuatBUS.SearchChiTietXuat(maHDX, keyword);
-            if (string.IsNullOrEmpty(keyword))
-            {
-                loadDt_ChiTietXuat();
-                return;
-            }
-            else if (keyword == "Tìm kiếm")
-            {
-                return;
-            }
-            else
-            {
-                dataViewNv.DataSource = result;
-                EnsureButtonColumnsVisible();
-            }
+
         }
 
         private void EnsureButtonColumnsVisible()

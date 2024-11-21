@@ -35,6 +35,7 @@
             this.Check_TenKH = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.cbx_timkiem = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.kbtn_timkiem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txb_Malh = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.Check_ngay = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.date_den_ngay = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
@@ -47,7 +48,6 @@
             this.artanPanel2 = new ArtanComponent.ArtanPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.artanPanel3 = new ArtanComponent.ArtanPanel();
-            this.kbtn_timkiem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.artanPanel4 = new ArtanComponent.ArtanPanel();
             ((System.ComponentModel.ISupportInitialize)(this.k_datagrview_hang_hoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbx_timkiem)).BeginInit();
@@ -70,12 +70,12 @@
             this.k_datagrview_hang_hoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.k_datagrview_hang_hoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.k_datagrview_hang_hoa.Location = new System.Drawing.Point(0, 0);
-            this.k_datagrview_hang_hoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.k_datagrview_hang_hoa.Margin = new System.Windows.Forms.Padding(2);
             this.k_datagrview_hang_hoa.Name = "k_datagrview_hang_hoa";
             this.k_datagrview_hang_hoa.RowHeadersVisible = false;
             this.k_datagrview_hang_hoa.RowHeadersWidth = 51;
             this.k_datagrview_hang_hoa.RowTemplate.Height = 24;
-            this.k_datagrview_hang_hoa.Size = new System.Drawing.Size(777, 537);
+            this.k_datagrview_hang_hoa.Size = new System.Drawing.Size(765, 514);
             this.k_datagrview_hang_hoa.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.k_datagrview_hang_hoa.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.k_datagrview_hang_hoa.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -124,7 +124,7 @@
             this.cbx_timkiem.DropDownWidth = 184;
             this.cbx_timkiem.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
             this.cbx_timkiem.Location = new System.Drawing.Point(11, 95);
-            this.cbx_timkiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbx_timkiem.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_timkiem.Name = "cbx_timkiem";
             this.cbx_timkiem.Size = new System.Drawing.Size(184, 33);
             this.cbx_timkiem.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
@@ -156,16 +156,71 @@
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(220, 619);
             this.groupBox1.TabIndex = 89;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức năng";
             // 
+            // kbtn_timkiem
+            // 
+            this.kbtn_timkiem.Location = new System.Drawing.Point(60, 567);
+            this.kbtn_timkiem.Name = "kbtn_timkiem";
+            this.kbtn_timkiem.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.OverrideDefault.Back.ColorAngle = 45F;
+            this.kbtn_timkiem.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.OverrideDefault.Border.ColorAngle = 45F;
+            this.kbtn_timkiem.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kbtn_timkiem.OverrideDefault.Border.Rounding = 20;
+            this.kbtn_timkiem.OverrideDefault.Border.Width = 1;
+            this.kbtn_timkiem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kbtn_timkiem.Size = new System.Drawing.Size(100, 35);
+            this.kbtn_timkiem.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StateCommon.Border.ColorAngle = 45F;
+            this.kbtn_timkiem.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kbtn_timkiem.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kbtn_timkiem.StateCommon.Border.Rounding = 25;
+            this.kbtn_timkiem.StateCommon.Border.Width = 1;
+            this.kbtn_timkiem.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.kbtn_timkiem.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.kbtn_timkiem.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtn_timkiem.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StatePressed.Back.ColorAngle = 135F;
+            this.kbtn_timkiem.StatePressed.Border.ColorAngle = 135F;
+            this.kbtn_timkiem.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kbtn_timkiem.StatePressed.Border.Rounding = 25;
+            this.kbtn_timkiem.StatePressed.Border.Width = 1;
+            this.kbtn_timkiem.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StateTracking.Back.ColorAngle = 45F;
+            this.kbtn_timkiem.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kbtn_timkiem.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kbtn_timkiem.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.kbtn_timkiem.StateTracking.Border.Rounding = 25;
+            this.kbtn_timkiem.StateTracking.Border.Width = 1;
+            this.kbtn_timkiem.TabIndex = 92;
+            this.kbtn_timkiem.Values.Text = "Tìm kiếm";
+            this.kbtn_timkiem.Click += new System.EventHandler(this.kbtn_timkiem_Click);
+            // 
             // txb_Malh
             // 
             this.txb_Malh.Location = new System.Drawing.Point(11, 170);
-            this.txb_Malh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_Malh.Margin = new System.Windows.Forms.Padding(2);
             this.txb_Malh.Name = "txb_Malh";
             this.txb_Malh.Size = new System.Drawing.Size(184, 30);
             this.txb_Malh.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -193,7 +248,7 @@
             // date_den_ngay
             // 
             this.date_den_ngay.Location = new System.Drawing.Point(12, 436);
-            this.date_den_ngay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.date_den_ngay.Margin = new System.Windows.Forms.Padding(2);
             this.date_den_ngay.Name = "date_den_ngay";
             this.date_den_ngay.Size = new System.Drawing.Size(176, 21);
             this.date_den_ngay.TabIndex = 88;
@@ -201,7 +256,7 @@
             // date_tu_ngay
             // 
             this.date_tu_ngay.Location = new System.Drawing.Point(12, 367);
-            this.date_tu_ngay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.date_tu_ngay.Margin = new System.Windows.Forms.Padding(2);
             this.date_tu_ngay.Name = "date_tu_ngay";
             this.date_tu_ngay.Size = new System.Drawing.Size(176, 21);
             this.date_tu_ngay.TabIndex = 87;
@@ -228,7 +283,7 @@
             // 
             // kryptonButton1
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(21, 577);
+            this.kryptonButton1.Location = new System.Drawing.Point(686, 567);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryptonButton1.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -284,7 +339,7 @@
             // kryInBaoCao
             // 
             this.kryInBaoCao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryInBaoCao.Location = new System.Drawing.Point(751, 574);
+            this.kryInBaoCao.Location = new System.Drawing.Point(21, 566);
             this.kryInBaoCao.Name = "kryInBaoCao";
             this.kryInBaoCao.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.kryInBaoCao.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -350,7 +405,7 @@
             this.artanPanel1.GradientTopColor = System.Drawing.Color.DodgerBlue;
             this.artanPanel1.Location = new System.Drawing.Point(21, 31);
             this.artanPanel1.Name = "artanPanel1";
-            this.artanPanel1.Size = new System.Drawing.Size(777, 537);
+            this.artanPanel1.Size = new System.Drawing.Size(765, 514);
             this.artanPanel1.TabIndex = 93;
             // 
             // artanPanel2
@@ -394,61 +449,6 @@
             this.artanPanel3.Size = new System.Drawing.Size(220, 619);
             this.artanPanel3.TabIndex = 96;
             // 
-            // kbtn_timkiem
-            // 
-            this.kbtn_timkiem.Location = new System.Drawing.Point(60, 577);
-            this.kbtn_timkiem.Name = "kbtn_timkiem";
-            this.kbtn_timkiem.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.OverrideDefault.Back.ColorAngle = 45F;
-            this.kbtn_timkiem.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.OverrideDefault.Border.ColorAngle = 45F;
-            this.kbtn_timkiem.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kbtn_timkiem.OverrideDefault.Border.Rounding = 20;
-            this.kbtn_timkiem.OverrideDefault.Border.Width = 1;
-            this.kbtn_timkiem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kbtn_timkiem.Size = new System.Drawing.Size(100, 35);
-            this.kbtn_timkiem.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StateCommon.Border.ColorAngle = 45F;
-            this.kbtn_timkiem.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kbtn_timkiem.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.kbtn_timkiem.StateCommon.Border.Rounding = 25;
-            this.kbtn_timkiem.StateCommon.Border.Width = 1;
-            this.kbtn_timkiem.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.kbtn_timkiem.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.kbtn_timkiem.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtn_timkiem.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StatePressed.Back.ColorAngle = 135F;
-            this.kbtn_timkiem.StatePressed.Border.ColorAngle = 135F;
-            this.kbtn_timkiem.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kbtn_timkiem.StatePressed.Border.Rounding = 25;
-            this.kbtn_timkiem.StatePressed.Border.Width = 1;
-            this.kbtn_timkiem.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StateTracking.Back.ColorAngle = 45F;
-            this.kbtn_timkiem.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.kbtn_timkiem.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kbtn_timkiem.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.kbtn_timkiem.StateTracking.Border.Rounding = 25;
-            this.kbtn_timkiem.StateTracking.Border.Width = 1;
-            this.kbtn_timkiem.TabIndex = 92;
-            this.kbtn_timkiem.Values.Text = "Tìm kiếm";
-            this.kbtn_timkiem.Click += new System.EventHandler(this.kbtn_timkiem_Click);
-            // 
             // artanPanel4
             // 
             this.artanPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -474,7 +474,7 @@
             this.Controls.Add(this.artanPanel4);
             this.Controls.Add(this.artanPanel3);
             this.Controls.Add(this.artanPanel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BAOCAOHANGXUATKHO_GUI";
             this.Text = "BAOCAOHANGXUATKHO_GUI";
             ((System.ComponentModel.ISupportInitialize)(this.k_datagrview_hang_hoa)).EndInit();

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BAOCAONHAPKHO_BUS.cs" />
     <Compile Include="BAOCAOXUATKHO_BUS.cs" />
+    <Compile Include="CHITIETNGUOIDUNG_BUS.cs" />
     <Compile Include="CHITIETNHAP_BUS.cs" />
     <Compile Include="CHITIETXUAT_BUS.cs" />
     <Compile Include="HANGHOA_BUS.cs" />

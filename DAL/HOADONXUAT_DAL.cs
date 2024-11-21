@@ -22,8 +22,7 @@ namespace DAL
             SO_HD_XUAT as [Số hóa đơn xuất], 
             KH.TENKH as [Tên khách hàng], 
             NV.TENNV as [Tên nhân viên], 
-            NGAYLAP_XUAT as [Ngày lập hóa đơn xuất], 
-            FLAGXUAT as [Trạng thái hóa đơn xuất] 
+            NGAYLAP_XUAT as [Ngày lập hóa đơn xuất]
         FROM HOADON_XUAT HDX
         JOIN KHACHHANG KH ON HDX.MAKH = KH.MAKH
         JOIN NHANVIEN NV ON HDX.MANV = NV.MANV";
@@ -37,8 +36,7 @@ namespace DAL
             SO_HD_XUAT as [Số hóa đơn xuất], 
             KH.TENKH as [Tên khách hàng], 
             NV.TENNV as [Tên nhân viên], 
-            NGAYLAP_XUAT as [Ngày lập hóa đơn xuất], 
-            FLAGXUAT as [Trạng thái hóa đơn xuất] 
+            NGAYLAP_XUAT as [Ngày lập hóa đơn xuất]
         FROM HOADON_XUAT HDX
         JOIN KHACHHANG KH ON HDX.MAKH = KH.MAKH
         JOIN NHANVIEN NV ON HDX.MANV = NV.MANV";

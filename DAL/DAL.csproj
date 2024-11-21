@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BAOCAONHAPKHO_DAL.cs" />
     <Compile Include="BAOCAOXUATKHO_DAL.cs" />
+    <Compile Include="CHITIETNGUOIDUNG_DAL.cs" />
     <Compile Include="CHITIETNHAP_DAL.cs" />
     <Compile Include="CHITIETXUAT_DAL.cs" />
     <Compile Include="DataProvider.cs" />
