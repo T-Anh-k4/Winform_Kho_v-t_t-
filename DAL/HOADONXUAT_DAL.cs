@@ -177,9 +177,21 @@ namespace DAL
         {
             try
             {
-                string query = "SELECT SO_HD_XUAT as [Số hóa đơn xuất], MAKH as [Mã khách hàng], MANV as [Mã nhân viên], NGAYLAP_XUAT as [Ngày lập hóa đơn xuất], FLAGXUAT as [Trạng thái hóa đơn xuất] " +
-                               "FROM HOADON_XUAT " +
-                               "WHERE SO_HD_XUAT LIKE N'%" + keyword + "%'";
+                string query = @"
+            SELECT 
+                HOADON_XUAT.SO_HD_XUAT AS [Số hóa đơn xuất], 
+                KHACHHANG.TENKH AS [Tên khách hàng], 
+                NHANVIEN.TENNV AS [Tên nhân viên], 
+                HOADON_XUAT.NGAYLAP_XUAT AS [Ngày lập hóa đơn xuất]
+            FROM 
+                HOADON_XUAT
+            JOIN 
+                KHACHHANG ON HOADON_XUAT.MAKH = KHACHHANG.MAKH
+            JOIN 
+                NHANVIEN ON HOADON_XUAT.MANV = NHANVIEN.MANV
+            WHERE 
+                HOADON_XUAT.SO_HD_XUAT LIKE N'%" + keyword + "%'";
+
                 return instance.execQuery(query);
             }
             catch
@@ -187,6 +199,7 @@ namespace DAL
                 return null;
             }
         }
+
 
         public DataTable GetDanhSachKhachHangPage(int limit, int page)
         {
