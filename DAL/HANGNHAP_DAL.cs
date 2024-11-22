@@ -169,9 +169,22 @@ namespace DAL
         {
             try
             {
-                string query = "SELECT SO_HD_NHAP as [Số hóa đơn nhập], MANCC as [Mã nhà cung cấp], MANV as [Mã nhân viên], NGAYLAP_NHAP as [Ngày lập hóa đơn nhập], FLAGHONHAP as [Trạng thái hóa đơn nhập] " +
-                               "FROM HOADON_NHAP " +
-                               "WHERE SO_HD_NHAP LIKE N'%" + keyword + "%'";
+                string query = @"
+            SELECT 
+                HOADON_NHAP.SO_HD_NHAP AS [Số hóa đơn nhập], 
+                NHACUNGCAP.TENNCC AS [Tên nhà cung cấp], 
+                NHANVIEN.TENNV AS [Tên nhân viên], 
+                HOADON_NHAP.NGAYLAP_NHAP AS [Ngày lập hóa đơn nhập], 
+                HOADON_NHAP.FLAGHONHAP AS [Trạng thái hóa đơn nhập]
+            FROM 
+                HOADON_NHAP
+            JOIN 
+                NHACUNGCAP ON HOADON_NHAP.MANCC = NHACUNGCAP.MANCC
+            JOIN 
+                NHANVIEN ON HOADON_NHAP.MANV = NHANVIEN.MANV
+            WHERE 
+                HOADON_NHAP.SO_HD_NHAP LIKE N'%" + keyword + "%'";
+
                 return instance.execQuery(query);
             }
             catch
@@ -179,6 +192,7 @@ namespace DAL
                 return null;
             }
         }
+
         public bool IsMaHangExist(string mah)
         {
             string query = "SELECT COUNT(*) FROM HOADON_NHAP WHERE SO_HD_NHAP = @mah";
